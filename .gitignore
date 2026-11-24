@@ -1,0 +1,17 @@
+node_modules/
+.DS_Store
+.gradle/
+.kotlin/
+**/.cxx/
+**/build/
+android/local.properties
+android/app/src/main/assets/camera3d/
+android/app/src/main/assets/fonts/
+*.keystore
+coverage/
+/log/
+/docs/reviews/assets/model-ref/sony/*.png
+/docs/reviews/assets/model-ref/sony/*.jpg
+/docs/reviews/assets/sel2470gm2-figure-a.png
+/docs/reviews/model-v1/*.jpg
+/docs/reviews/model-v2/*.jpg

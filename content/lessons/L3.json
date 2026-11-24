@@ -1,0 +1,334 @@
+{
+  "version": 1,
+  "id": "L3",
+  "title": "曝光三要素",
+  "minutes": 25,
+  "goals": [
+    "明白光圈、快门、ISO 各自管什么，各有什么副作用",
+    "知道\"一档\"是什么意思",
+    "会用等效曝光：一个参数变暗一档，另一个变亮一档"
+  ],
+  "sections": [
+    {
+      "kind": "demo",
+      "steps": [
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "back"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": 12,
+            "mode": "M",
+            "aperture": 2.8,
+            "shutter": "1/500",
+            "iso": 100,
+            "ev": 0,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "先看一个例子：阴天户外，**F2.8、1/500 秒、ISO 100**，屏幕上的测光表在 0 附近，曝光准确。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "front"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "dial_front"
+            ],
+            "note": "前拨盘：光圈",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": null,
+            "aperture": 4,
+            "shutter": null,
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "镜头光圈环在 A，转前拨盘，看屏幕从 **F2.8 变为 F4**。进光少一半，画面**暗了一档**，测光表到 −1。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "dial_rear_l"
+            ],
+            "note": "后拨盘 L：快门",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": null,
+            "aperture": null,
+            "shutter": "1/250",
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "转后拨盘 L，看快门从 **1/500 放慢到 1/250**。曝光时间加倍，测光表**回到 0**。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "back"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "wheel"
+            ],
+            "note": "按右：ISO",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "wheel",
+            "action": "press",
+            "direction": "right",
+            "steps": 1,
+            "target": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**ISO** 是把信号放大：ISO 100 → 200 亮一档，代价是噪点变多。拨轮按右就能改。"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "记住一句话：**光圈、快门、ISO 每变一档，亮度就变一倍或一半。** 一个暗一档、另一个亮一档，曝光就不变。"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "read",
+      "markdown": "## 曝光就是进来多少光\n\n照片的亮度由三样东西决定：\n\n| | 管什么 | 在哪调 | 副作用 |\n|---|---|---|---|\n| **光圈** | 镜头开口多大 | [[dial_front]] | 背景虚不虚（景深） |\n| **快门** | 开口打开多久 | [[dial_rear_l]] | 动的东西糊不糊 |\n| **ISO** | 信号放大多少 | [[wheel]] 按右 | 噪点多不多 |\n\n三样东西都能让照片变亮或变暗。选哪一个，要看你能接受哪种副作用。\n\n## 光圈\n- **F 数越小，开口越大**：F2.8、F4、F5.6、F8、F11、F16、F22，相邻两个差**一档**，进光差一倍。\n- F2.8 到 F8 差 3 档，进光差 8 倍。\n- **副作用：景深。** F2.8 背景虚化，适合人像；F8–F11 前后都清楚，适合风景。\n- 这支镜头最大光圈是 F2.8，24–70mm 全程都是。\n\n## 快门\n- 1/1000、1/500、1/250、1/125、1/60……相邻两个差**一档**。\n- **副作用：运动。** 快门越慢，动的东西越糊，手抖也越明显。\n\n| 想拍 | 快门大约 |\n|---|---|\n| 定格走路的人 | 1/250 |\n| 定格跑步、跳跃、宠物 | 1/1000 |\n| 手持不抖（经验值） | 不慢于 1 / 焦距，比如 70mm 用 1/80 或更快。机身防抖能再放宽一些，拍人时人也会动，1/125 更稳 |\n| 流水拉丝、车灯轨迹 | 1/4 秒或更慢，需要三脚架或把相机放稳 |\n\n## ISO\n- 100、200、400、800、1600、3200、6400，相邻两个差**一档**。\n- **副作用：噪点。** 数字越大，画面颗粒越多、细节越少。\n- 原则：**光线够时用低 ISO**。只有光圈已经开到最大、快门不能再慢时，才提高 ISO。\n\n## 等效曝光\n\n阴天户外（场景亮度 EV 12），下面四组参数的曝光完全一样：\n\n| 光圈 | 快门 | ISO | 怎么来的 |\n|---|---|---|---|\n| F2.8 | 1/500 | 100 | 起点 |\n| F4 | 1/250 | 100 | 光圈暗一档，快门亮一档 |\n| F5.6 | 1/125 | 100 | 再换一次 |\n| F8 | 1/125 | 200 | 光圈暗一档，ISO 亮一档 |\n\n亮度一样，效果不一样：F2.8 那张背景最虚，F8 那张前后最清楚；ISO 200 那张噪点多一点点，基本看不出来。\n\n## 场景有多亮\n\n| 场景 | 亮度（EV，ISO 100） | 例子 |\n|---|---|---|\n| 晴天户外 | 15 | F8、1/500、ISO 100 |\n| 阴天户外 | 12 | F2.8、1/500、ISO 100 |\n| 室内 | 7 | F2.8、1/125、ISO 800 |\n| 夜景街头 | 4 | 要用高 ISO，或者三脚架加慢快门 |\n\nEV 每差 1，亮度差一倍。晴天比室内亮 8 档，也就是 256 倍。\n\n**晴天 16 法则**：晴天顺光时，光圈 F16，快门约等于 1 / ISO。比如 F16、ISO 100、1/125。\n\n去「实验室」里换不同场景，把三个参数都转一转，看画面怎么变。"
+    },
+    {
+      "kind": "practice",
+      "items": [
+        {
+          "type": "choice",
+          "q": "F2.8 和 F8，哪个进光多？",
+          "options": [
+            "F2.8",
+            "F8",
+            "一样多"
+          ],
+          "answer": 0,
+          "explain": "F 数越小开口越大。F2.8 → F4 → F5.6 → F8 是 3 档，进光差 8 倍。"
+        },
+        {
+          "type": "choice",
+          "q": "快门从 1/250 改成 1/500，照片会？",
+          "options": [
+            "暗一档",
+            "亮一档",
+            "亮度不变"
+          ],
+          "answer": 0,
+          "explain": "1/500 的时间是 1/250 的一半，进光少一半，就是暗一档。"
+        },
+        {
+          "type": "choice",
+          "q": "ISO 从 100 提到 400，亮了几档？",
+          "options": [
+            "2 档",
+            "4 档",
+            "1 档"
+          ],
+          "answer": 0,
+          "explain": "100 → 200 是一档，200 → 400 又是一档，一共 2 档，亮度是原来的 4 倍。"
+        },
+        {
+          "type": "choice",
+          "q": "想拍背景虚化的人像，主要调哪个？",
+          "options": [
+            "光圈开大（F 数调小）",
+            "快门调快",
+            "ISO 调高"
+          ],
+          "answer": 0,
+          "explain": "背景虚不虚由光圈决定。F2.8 虚化最强。"
+        },
+        {
+          "type": "choice",
+          "q": "拍跑动的小狗总是糊，先改哪个？",
+          "options": [
+            "快门调快到 1/1000 左右",
+            "光圈收小",
+            "ISO 调低"
+          ],
+          "answer": 0,
+          "explain": "动的东西糊，是快门太慢。快门调快以后变暗了，再用光圈或 ISO 补回来。"
+        },
+        {
+          "type": "set_exposure",
+          "prompt": "阴天户外，M 档。快门锁在 1/500、ISO 锁在 100。只转光圈，让测光表回到 0。",
+          "scene_ev": 12,
+          "mode": "M",
+          "start": {
+            "aperture": 8,
+            "shutter": "1/500",
+            "iso": 100,
+            "ev": 0
+          },
+          "lock": [
+            "shutter",
+            "iso",
+            "ev"
+          ],
+          "goal": {
+            "bias": [
+              -0.3,
+              0.3
+            ]
+          },
+          "explain": "F8 比 F2.8 少 3 档光，所以要把光圈开回 F2.8。",
+          "_example_solution": {
+            "aperture": 2.8,
+            "shutter": "1/500",
+            "iso": 100,
+            "ev": 0
+          }
+        },
+        {
+          "type": "set_exposure",
+          "prompt": "还是阴天。光圈锁在 F5.6、ISO 锁在 100，只调快门，让曝光准确。",
+          "scene_ev": 12,
+          "mode": "M",
+          "start": {
+            "aperture": 5.6,
+            "shutter": "1/500",
+            "iso": 100,
+            "ev": 0
+          },
+          "lock": [
+            "aperture",
+            "iso",
+            "ev"
+          ],
+          "goal": {
+            "bias": [
+              -0.3,
+              0.3
+            ]
+          },
+          "explain": "F2.8 → F5.6 少了 2 档光，快门从 1/500 放慢 2 档到 1/125 补回来。",
+          "_example_solution": {
+            "aperture": 5.6,
+            "shutter": "1/125",
+            "iso": 100,
+            "ev": 0
+          }
+        },
+        {
+          "type": "set_exposure",
+          "prompt": "室内，手持拍要 1/125，光圈已经开到 F2.8（都锁定）。只调 ISO，让曝光准确。",
+          "scene_ev": 7,
+          "mode": "M",
+          "start": {
+            "aperture": 2.8,
+            "shutter": "1/125",
+            "iso": 100,
+            "ev": 0
+          },
+          "lock": [
+            "aperture",
+            "shutter",
+            "ev"
+          ],
+          "goal": {
+            "bias": [
+              -0.3,
+              0.3
+            ]
+          },
+          "explain": "室内比阴天暗 5 档。F2.8、1/125 在 ISO 100 下差 3 档，ISO 提到 800 正好补上。",
+          "_example_solution": {
+            "aperture": 2.8,
+            "shutter": "1/125",
+            "iso": 640,
+            "ev": 0
+          }
+        }
+      ]
+    },
+    {
+      "kind": "task",
+      "title": "同一个场景，F2.8 和 F11 各拍一张",
+      "photos": 2,
+      "complete_by": "ai",
+      "steps": [
+        "在光线稳定的地方找一个主体，离你 1–2 米，背景在 10 米以外",
+        "模式转盘转到 A，固定 ISO 100，用前拨盘把光圈调到 F2.8，拍一张",
+        "构图不变，把光圈调到 F11，再拍一张",
+        "两张都上传"
+      ],
+      "success_criteria": "F2.8 那张背景明显更虚，两张构图基本一样",
+      "ai_rubric": [
+        "两张的 EXIF 光圈分别约为 F2.8 和 F11（允许差 1/3 档）",
+        "两张构图基本相同",
+        "F2.8 那张背景明显更虚",
+        "比较两张 EXIF。光线和 ISO 相同时，F2.8 收到 F11 后快门约慢 4 档。如果出现重影，结合快门和画面判断是否手抖"
+      ]
+    }
+  ],
+  "needs_verification": []
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>α7 V · 模型对照</title>
+<style>
+@font-face{font-family:Noto;src:url(../../../assets/fonts/NotoSansSC.ttf)}*{box-sizing:border-box}body{margin:0;color:#262823;background:#f6f6f3;font:15px/1.56 Noto,system-ui,sans-serif}main{max-width:1540px;margin:auto;padding:clamp(18px,3vw,46px)}h1{font-size:clamp(25px,3vw,39px);font-weight:550;line-height:1.25;margin:0 0 10px}p{color:#575b53;margin:8px 0 20px}nav{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 16px}button{background:white;color:#33372f;border:1px solid #c0c4bd;padding:7px 14px;border-radius:5px;font:inherit;cursor:pointer}button[aria-pressed=true]{background:#283229;color:white;border-color:#283229}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #be661b;outline-offset:3px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}figure{margin:0;min-width:0}figcaption{margin:0 0 7px;font-size:14px}a{color:inherit;text-underline-offset:4px}.frame{display:block;position:relative;background:white;border:1px solid #dddeda;aspect-ratio:var(--view,800/594)}.frame img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:fill}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:20px 0 8px}.controls input{width:min(340px,50vw);accent-color:#495d48}.controls output{font-variant-numeric:tabular-nums;min-width:3.5em}footer{border-top:1px solid #ccd0c9;padding-top:12px;margin-top:23px}footer a{margin-right:18px}@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.mixed{grid-column:1/-1}.mixed .frame{max-height:78vh;max-width:100%;width:auto;margin-inline:auto}.controls{position:sticky;bottom:0;background:#f6f6f3;padding:12px 0}.frame img{object-fit:contain}}
+</style>
+<main>
+<h1>Sony α7 V 与 FE 24–70mm F2.8 GM II</h1>
+<p>v1 历史外观对照 · 24 mm 端。可打开原图放大检查按键、刻度与接缝。</p>
+<nav aria-label="对照视角"></nav>
+<div class="grid">
+<figure><figcaption><a id="original-link">索尼官方照片 ↗</a></figcaption><a class="frame" id="original-open" aria-label="打开官方原图"><img id="original" alt="索尼产品照"></a></figure>
+<figure><figcaption><a id="model-link">v1 模型 ↗</a></figcaption><a class="frame" id="model-open" aria-label="放大模型渲染"><img id="model" alt="同角度 GLB 渲染"></a></figure>
+<figure class="mixed"><figcaption>原图与模型叠加</figcaption><div class="frame"><img id="base" alt=""><img id="mix" alt="模型半透明叠图"></div></figure>
+</div>
+<div class="controls"><label for="opacity">叠图中的模型占比</label><input id="opacity" type="range" min="0" max="100" value="50"><output id="value" for="opacity">50%</output></div>
+<p id="note"></p>
+<footer><a href="overview.webp">装机模型渲染</a><a href="README.md">测量记录</a><a href="../assets/model-ref/sony/README.md">图片来源</a></footer>
+</main>
+<script src="../assets/model-ref/sony/photos.js"></script>
+<script>
+const views = {
+ overview:['装机斜前方','press-combo-angle',800,600,'依据同款装机照片的 12 个可见标记拟合拍摄角度。官方照片的背景、照明和镜片反射与预览摄影棚不同。'],
+ back:['机身背面','press-back',800,594,'屏幕处于息屏状态。可核对眼罩、屏幕铰链、摇杆和控制拨轮。'],
+ top:['机身顶部','press-top',800,520,'以机顶感光元件平面标记配准。可核对两侧肩部、快门、模式转盘和热靴。'],
+ lens:['镜头左侧','lens-B',800,550,'镜头从机身取下，显示金属卡口。可核对焦距刻度、对焦保持按钮和 AF/MF 开关。'],
+ kit:['装机俯视','press-combo-top',800,1013,'同款机身装上 GM II，显示完整镜筒。可核对镜头长度、各环间距和热靴相对位置。']
+};
+const id=name=>document.getElementById(name);
+const nav=document.querySelector('nav');const opacity=id('opacity');
+function blend(){id('mix').style.opacity=Number(opacity.value)/100;id('value').value=opacity.value+'%';}
+function show(key){
+ const [label,file,w,h,note]=views[key],render=key+'.webp';
+ showReferencePhoto(file,id('original'),id('base'),[id('original-link'),id('original-open')]);
+ for(const field of ['model','mix'])id(field).src=render;
+ for(const field of ['model-link','model-open'])id(field).href=render;
+ id('original').alt=label+'的索尼官方照片';id('model').alt=label+'的模型渲染';id('note').textContent=note;
+ document.documentElement.style.setProperty('--view',w+'/'+h);
+ for(const b of nav.children)b.setAttribute('aria-pressed',String(b.dataset.key===key));
+ blend();
+}
+for(const [key,[label]] of Object.entries(views)){const b=document.createElement('button');b.type='button';b.dataset.key=key;b.textContent=label;b.onclick=()=>show(key);nav.append(b);}
+opacity.oninput=blend;show('overview');
+</script>
+</html>

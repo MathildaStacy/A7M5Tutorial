@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "id": "L5",
+  "title": "对焦系统",
+  "minutes": 25,
+  "goals": [
+    "认识拍照出厂的 AF-A，会按主体选择 AF-S、AF-C、DMF 或 MF",
+    "会选对焦区域，用摇杆移动对焦框",
+    "用被摄体识别和眼部对焦拍人"
+  ],
+  "sections": [
+    {
+      "kind": "demo",
+      "steps": [
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": "P",
+            "aperture": null,
+            "shutter": null,
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "left"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "sw_focus_mode"
+            ],
+            "note": "AF / MF 开关",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "sw_focus_mode",
+            "action": "slide",
+            "direction": "none",
+            "steps": null,
+            "target": "AF"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "先确认镜头上的开关在 **AF**，否则怎么按快门都不会自动对焦。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "back"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_c3"
+            ],
+            "note": "C3：对焦模式",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "btn_c3",
+            "action": "press",
+            "direction": "none",
+            "steps": 1,
+            "target": null
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": null,
+            "aperture": null,
+            "shutter": null,
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": "AF-C",
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "拍照出厂为 **AF-A**，相机依主体动静切换对焦方式。这里用 P 档，按 **C3** 选 **AF-C**，半按跟住走动的人。拍静物也可选 **AF-S**。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_c2"
+            ],
+            "note": "C2：对焦区域",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "btn_c2",
+            "action": "press",
+            "direction": "none",
+            "steps": 1,
+            "target": null
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": null,
+            "aperture": null,
+            "shutter": null,
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": "spot",
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "按 **C2** 选对焦区域。**广域**让相机自己找主体。这里选 **点: M**，把一个中等大小的框放在想拍清楚的部位。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "back"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "joystick"
+            ],
+            "note": "摇杆：移动对焦框",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "joystick",
+            "action": "press",
+            "direction": "left",
+            "steps": 2,
+            "target": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "拨**摇杆**移动「点: M」的对焦框。按下摇杆执行「对焦标准」：这个点可回中央。换成广域时，按下会对画面中央自动对焦。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "lens"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_focus_hold"
+            ],
+            "note": "对焦保持",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "镜头上的**对焦保持按钮**：按住时对焦距离不变。以后可以把它改成别的功能。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "ring_focus"
+            ],
+            "note": "对焦环",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**对焦环**在 DMF 和 MF 时用：DMF 是先自动对焦再手动微调，MF 全靠手转。"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "read",
+      "markdown": "## 半按快门时发生了什么\n相机在对焦区域里找到主体，驱动镜头里的对焦镜片，让主体变清楚。对焦区域、对焦模式决定了**对哪里**和**对几次**。\n\n## 对焦模式：[[btn_c3]]\n\n| 模式 | 怎么工作 | 适合 |\n|---|---|---|\n| **AF-S** 单次AF | 半按合焦后锁定 | 静物、风景、站着不动的人 |\n| **AF-A** 自动AF | 相机根据主体动静切换单次与连续 AF | 拍照出厂值，需使用支持相位检测 AF 的镜头 |\n| **AF-C** 连续AF | 半按期间一直跟着主体对焦 | 走路的人、孩子、宠物、运动 |\n| **DMF** | 先自动对焦，再转 [[ring_focus]] 微调 | 近拍、需要精确对在某一点 |\n| **MF** 手动对焦 | 自己转 [[ring_focus]] | 星空、隔着玻璃、自动对焦对不上的场景 |\n\n录像可选连续 AF 或手动对焦。下面用拍照 P 档练习，在 AUTO 智能自动下对焦区域固定为广域。\n\n## 对焦区域：[[btn_c2]]\n\n| 区域 | 怎么工作 | 适合 |\n|---|---|---|\n| **广域** | 相机在整个画面里自己选 | 主体明显、配合主体识别 |\n| **区** | 在你选的一块区域里找 | 主体大概在某个位置 |\n| **中间固定** | 只对画面中间 | 先对焦再构图 |\n| **点: XL、点: L、点: M、点: S、点: XS** | 选框的大小，再用 [[joystick]] 移到指定部位 | 静物或小目标，本课用「点: M」。APS-C 尺寸下没有 XS |\n| **扩展点** | 指定点难以合焦时，会用周围的对焦点辅助 | 单点容易丢失的小主体 |\n| **自定义 1、自定义 2、自定义 3** | 自定框的大小与长宽比，再移动到合适位置 | 需要特定形状的对焦区域 |\n| **跟踪** | 仅限拍照并选连续 AF，选「跟踪」后用左右键选起始区域，半按后跟踪 | 运动的主体 |\n\n摇杆可以移动区、各尺寸点、扩展点、自定义区域以及相应的跟踪起点。按下摇杆出厂执行「对焦标准」。可移动的框回到中央或所跟踪的被摄体。选「广域」「中间固定」或它们的跟踪起点时，按下会对画面中央自动对焦。\n\n## 新手推荐组合\n| 拍什么 | 对焦模式 | 对焦区域 | 主体识别 |\n|---|---|---|---|\n| 人、宠物 | AF-C | 广域 | 开，识别目标按主体选「人」或「动物」 |\n| 静物、风景 | AF-S | 点: M | 对准指定细节时可关 |\n\n## 主体识别和眼部对焦\n拍人要确认两个设置，一个决定是否识别，一个决定找什么。\n\n1. 在 MENU › 对焦 › 被摄体识别 › AF中的被摄体识别 确认选「开」，这是出厂值。\n2. 在 MENU › 对焦 › 被摄体识别 › 识别目标 选「人」（出厂值）。八种选项是「自动」「人」「动物/鸟类」「动物」「鸟类」「昆虫」「汽车/火车」「飞机」。\n3. 拍走动的人用 AF-C。半按快门跟住主体，看到识别框落到眼睛上再拍。回放放大检查眼睛是否清楚。\n\n拍人像时，眼睛清楚比什么都重要。\n\n## 对焦准了，为什么还是只有一部分清楚\n这是景深浅，不是没对上焦。70mm、F2.8、离人 1 米时，前后清楚的范围只有大约 **3–4 厘米**：对在鼻尖上，眼睛就虚了。离人 2 米时，这个范围大约是 13 厘米。\n\n想让更多部分清楚：退远一点、光圈收到 F4–F5.6，或者用眼部对焦保证对在眼睛上。\n\n## 对不上焦的常见原因\n| 原因 | 怎么办 |\n|---|---|\n| 离得太近 | 从传感器平面量到主体，24mm 端至少约 0.21 米，70mm 端至少约 0.30 米 |\n| 主体没有纹理，比如白墙、纯色天空 | 对着有边缘、有明暗变化的地方 |\n| 广域对到了背景 | 换成「点: M」并移动框，或按上面的步骤确认识别开关和目标 |\n| 镜头开关在 MF | [[sw_focus_mode]] 拨回 AF |"
+    },
+    {
+      "kind": "practice",
+      "items": [
+        {
+          "type": "find_control",
+          "target": "btn_c3"
+        },
+        {
+          "type": "find_control",
+          "target": "btn_c2"
+        },
+        {
+          "type": "find_control",
+          "target": "joystick"
+        },
+        {
+          "type": "find_control",
+          "target": "sw_focus_mode"
+        },
+        {
+          "type": "operate",
+          "prompt": "用 C3 把对焦模式切到 AF-C",
+          "control": "btn_c3",
+          "start": {
+            "mode": "P",
+            "focus_mode": "AF-A"
+          },
+          "expect": {
+            "focus_mode": "AF-C"
+          },
+          "hint": "C3 在背面左上，靠近 MENU"
+        },
+        {
+          "type": "operate",
+          "prompt": "用 C2 把对焦区域切到「点: M」",
+          "control": "btn_c2",
+          "start": {
+            "mode": "P",
+            "focus_area": "wide"
+          },
+          "expect": {
+            "focus_area": "spot"
+          },
+          "hint": "C2 在顶部，录像键旁边"
+        },
+        {
+          "type": "choice",
+          "q": "拍走过来的孩子，用哪个对焦模式？",
+          "options": [
+            "AF-C",
+            "AF-S",
+            "MF"
+          ],
+          "answer": 0,
+          "explain": "AF-C 在半按期间一直跟着主体对焦。AF-S 对好一次就锁住，孩子一动就虚了。"
+        },
+        {
+          "type": "choice",
+          "q": "拍桌上的手表，想用自动对焦对在表盘的某个刻度上？",
+          "options": [
+            "AF-S + 点: M",
+            "AF-C + 广域",
+            "MF + 广域"
+          ],
+          "answer": 0,
+          "explain": "静物可用 AF-S。选「点: M」后，用摇杆把框移到刻度上。"
+        },
+        {
+          "type": "choice",
+          "q": "70mm、F2.8、1 米外拍人像，前后清楚的范围大约有多少？",
+          "options": [
+            "3–4 厘米",
+            "30–40 厘米",
+            "3–4 米"
+          ],
+          "answer": 0,
+          "explain": "景深非常浅，对在鼻尖上眼睛就虚了。所以拍人像要用眼部对焦。"
+        },
+        {
+          "type": "choice",
+          "q": "广域拍人却对到了后面的树上，怎么让相机优先找人？",
+          "options": [
+            "确认「AF中的被摄体识别」为开，「识别目标」为人",
+            "把 ISO 调高",
+            "把快门调快"
+          ],
+          "answer": 0,
+          "explain": "这两项都在对焦菜单的「被摄体识别」分组。也可以用「点: M」把框直接移到人脸上。"
+        }
+      ]
+    },
+    {
+      "kind": "task",
+      "title": "用 AF-C 和眼部对焦拍走动的人",
+      "photos": 2,
+      "complete_by": "ai",
+      "steps": [
+        "A 档、F2.8、ISO AUTO，按 C3 选 AF-C，按 C2 选广域",
+        "在 MENU › 对焦 › 被摄体识别 › AF中的被摄体识别 确认「开」，然后在同组「识别目标」选「人」",
+        "按控制拨轮左键打开「拍摄模式」，选「连拍」，用左右键选 Hi+、Hi、Mid 或 Lo",
+        "请朋友从 5 米外朝你走来，半按跟住，眼睛出现识别框后按住快门连拍",
+        "回放放大看眼睛，挑 2 张上传"
+      ],
+      "success_criteria": "人在走动，眼睛依然清楚",
+      "ai_rubric": [
+        "能读到对焦模式时核对是否为 AF-C",
+        "放大检查人物眼睛是否清楚，有对焦点信息时核对位置",
+        "若人物有运动拖影，结合 EXIF 快门速度判断。可建议 S 档约 1/250 秒，或在 A 档配 ISO AUTO 时调快「ISO AUTO最小速度」",
+        "如果焦点落在鼻子、耳朵或背景上，给出与照片相符的改法"
+      ]
+    }
+  ],
+  "needs_verification": []
+}

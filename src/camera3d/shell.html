@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <style>
+      @font-face {
+        font-family: Saira;
+        src: url(../fonts/SairaSemiCondensed-SemiBold.ttf);
+      }
+      @font-face {
+        font-family: Noto;
+        src: url(../fonts/NotoSansSC.ttf);
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(ellipse at 49% 42%, #343941 0%, #20242b 56%, #101317 100%);
+        color: #edeff3;
+        font: 14px Noto, sans-serif;
+        overflow: hidden;
+      }
+      #stage,
+      #tags {
+        position: absolute;
+        inset: 0;
+      }
+      #tags {
+        pointer-events: none;
+      }
+      #stage canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        touch-action: none;
+      }
+      .tag {
+        position: absolute;
+        transform: translate(-50%, -110%);
+        border: 1px solid #5e646c;
+        background: #17191eec;
+        color: #edeff3;
+        border-radius: 5px;
+        padding: 3px 6px;
+        white-space: nowrap;
+        font: 11px Noto, sans-serif;
+        pointer-events: auto;
+      }
+      .tag.on {
+        background: #f28b26;
+        color: #201308;
+        border-color: #f28b26;
+      }
+      #detail {
+        position: absolute;
+        inset: 0;
+        background: #101317;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        gap: 12px;
+      }
+      #detail[hidden] {
+        display: none;
+      }
+      #lcd {
+        display: block;
+        width: min(100%, calc((100vh - 70px) * 1.499));
+        height: auto;
+        border-radius: 5px;
+      }
+      #help {
+        line-height: 1.6;
+        min-height: 2em;
+        color: #c5cbd4;
+        text-align: center;
+      }
+      #status {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+        color: #adb5c2;
+      }
+      #status:empty {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage"></div>
+    <div id="tags"></div>
+    <section id="detail" hidden>
+      <canvas id="lcd"></canvas>
+      <div id="help">点屏幕上的参数查看说明</div>
+    </section>
+    <div id="status">正在加载相机…</div>
+    <!-- bundle -->
+  </body>
+</html>

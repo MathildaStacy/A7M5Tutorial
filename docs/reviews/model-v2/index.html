@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>快门学院 · α7 V 实物与模型对照</title>
+  <style>
+    @font-face{font-family:Noto;src:url(../../../assets/fonts/NotoSansSC.ttf);font-display:swap}
+    *{box-sizing:border-box}body{margin:0;background:#f6f5f1;color:#252723;font:15px/1.5 Noto,system-ui,sans-serif}
+    main{max-width:1420px;margin:auto;padding:clamp(18px,3.7vw,54px)}h1{font-size:clamp(25px,3vw,39px);line-height:1.25;letter-spacing:-.03em;font-weight:620;margin:0}
+    header p{color:#55584f;margin:7px 0 26px}label{font-weight:550}select,input{font:inherit;color:inherit;accent-color:#886137}
+    select{background:#fff;border:1px solid #a7a99d;border-radius:5px;padding:8px 30px 8px 10px}a{color:inherit;text-underline-offset:4px}
+    select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #a86827;outline-offset:4px}
+    .toolbar,.blend,footer{display:flex;gap:8px 14px;align-items:center;flex-wrap:wrap}.toolbar{margin-bottom:14px}
+    .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(8px,1.5vw,20px)}
+    figure{margin:0;min-width:0}figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:7px;flex-wrap:wrap;padding:4px 0 8px;font-size:15px;font-weight:600}
+    figcaption a{font-size:12px;font-weight:400;color:#55584f}.well{display:grid;place-items:center;border:1px solid #d9dad2;background:#fff;padding:0 1px}
+    .frame{position:relative;overflow:hidden;width:min(100%,var(--frame-max));aspect-ratio:var(--ratio)}
+    .frame img{display:block;position:absolute;left:var(--x);top:var(--y);width:var(--image-width);height:auto;max-width:none}
+    .blend{margin:19px 0 8px}.blend input{width:min(320px,52vw)}output{min-width:3.6em;font-variant-numeric:tabular-nums}
+    #note{color:#464a42;min-height:1.6em;margin:14px 0}footer{border-top:1px solid #cccec4;padding-top:14px;font-size:14px}
+    @media(max-width:600px){main{padding:18px 12px}.pair{gap:6px}figcaption{display:block;padding-left:1px;font-size:13px}figcaption a{display:block}header p{margin-bottom:16px}}
+  </style>
+</head>
+<body><main>
+  <header><h1>α7 V 实物与模型对照</h1><p>Sony ILCE-7M5 · FE 24–70mm F2.8 GM II · 24 mm 端 · 材质评审 v2</p></header>
+  <div class="toolbar"><label for="detail">查看部位</label>
+    <select id="detail"><optgroup label="材质与刻字">
+      <option value="glass">前镜片与镀膜</option><option value="grip">握柄胶皮</option>
+      <option value="knurl">模式盘滚花</option><option value="legend">模式盘刻字</option>
+      <option value="badge">G 标与 AF/MF 开关</option><option value="ring">变焦环与焦距刻度</option>
+    </optgroup><optgroup label="完整视角">
+      <option value="overview">装机斜前方</option><option value="back">机身背面</option>
+      <option value="top">机身顶部</option><option value="lens">镜头左侧</option><option value="kit">装机俯视</option>
+    </optgroup></select>
+  </div>
+  <div class="pair">
+    <figure><figcaption>索尼官方实拍<a id="source">打开原图</a></figcaption><div class="well"><div class="frame"><img id="photo" alt="索尼产品照"></div></div></figure>
+    <figure><figcaption><span id="caption">模型渲染</span><a id="render">打开渲染原图</a></figcaption><div class="well"><div class="frame"><img id="base" alt=""><img id="model" alt="同角度模型渲染"></div></div></figure>
+  </div>
+  <div class="blend"><label for="opacity">右图模型占比</label><input id="opacity" type="range" min="0" max="100" value="100"><output id="value" for="opacity">100%</output></div>
+  <p id="note"></p>
+  <footer><a href="overview.webp">装机模型渲染</a><a href="README.md">评审记录</a><a href="../assets/model-ref/sony/README.md">照片出处</a></footer>
+</main>
+<script type="application/json" id="views">
+{
+  "sources":{"overview":"press-combo-angle","back":"press-back","top":"press-top","lens":"lens-B","kit":"press-combo-top"},
+  "details":{
+    "glass":["overview",[171,262,353,496],"前镜片、镜片压圈和后方镜组随观察角度产生视差；可对照边缘的小反光及中心镀膜色。"],
+    "grip":["back",[564,209,698,354],"对照拇指胶皮上隆起的颗粒、深浅不一的沟槽以及胶皮与漆面的接缝。"],
+    "knurl":["back",[441,104,552,169],"对照模式盘切面的排布，以及下层选择器的相机、录像和 S＆Q 标记。"],
+    "legend":["top",[438,194,560,330],"对照档位字形、AUTO 色块、数字挡边框和盘面的车削反光。"],
+    "badge":["lens",[348,177,453,374],"对照红色 G 标、对焦保持键的两圈边缘和 AF/MF 滑块的指示脊。"],
+    "ring":["lens",[482,113,619,256],"对照橡胶纵筋的间距、焦距数字与光圈环刻线。"],
+    "overview":["overview",[0,0,800,600],"依据同款装机实拍的 12 个可见标记拟合方位、俯仰和画面比例。"],
+    "back":["back",[0,0,800,594],"机背按光轴与机身宽度配准。此视角展示息屏状态。"],
+    "top":["top",[0,0,800,520],"机顶按感光元件平面标记与光轴配准。"],
+    "lens":["lens",[0,0,800,550],"镜头已从机身取下，按镜头外径与前缘配准。"],
+    "kit":["kit",[0,0,800,1013],"装机俯视可核对 24 mm 端的镜筒长度、各环间距和按键位置。"]
+  }
+}
+</script>
+<script src="../assets/model-ref/sony/photos.js"></script>
+<script>
+  const data=JSON.parse(document.getElementById('views').textContent);
+  const byId=id=>document.getElementById(id);
+  function blend(){
+    const opacity=byId('opacity').valueAsNumber;
+    byId('model').style.opacity=opacity/100;
+    byId('value').textContent=opacity+'%';
+    byId('caption').textContent=opacity===100?'模型渲染':opacity===0?'索尼官方实拍':'实拍与模型叠图';
+  }
+  function show(){
+    const [view,[x,y,x2,y2],note]=data.details[byId('detail').value];
+    const w=x2-x,h=y2-y,style=document.documentElement.style;
+    style.setProperty('--ratio',w+'/'+h);
+    style.setProperty('--frame-max','max(180px,'+Math.round(62*w/h)+'vh)');
+    style.setProperty('--image-width',800/w*100+'%');
+    style.setProperty('--x',-x/w*100+'%');style.setProperty('--y',-y/h*100+'%');
+    const model=view+'.webp';
+    showReferencePhoto(data.sources[view],byId('photo'),byId('base'),[byId('source')]);
+    byId('model').src=byId('render').href=model;
+    const label=byId('detail').selectedOptions[0].textContent;
+    byId('photo').alt=label+'的官方实拍';byId('model').alt=label+'的 GLB 渲染';
+    byId('note').textContent=note;blend();
+  }
+  byId('opacity').oninput=blend;byId('detail').onchange=show;show();
+</script></body></html>

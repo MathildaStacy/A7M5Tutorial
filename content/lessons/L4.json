@@ -1,0 +1,350 @@
+{
+  "version": 1,
+  "id": "L4",
+  "title": "A 档与 S 档",
+  "minutes": 25,
+  "goals": [
+    "用 A 档控制背景虚化和前后清晰",
+    "用 S 档控制动作定格和流水拉丝",
+    "会用曝光补偿让照片变亮或变暗，看懂参数闪烁的警告"
+  ],
+  "sections": [
+    {
+      "kind": "demo",
+      "steps": [
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "mode_dial"
+            ],
+            "note": "转到 A",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "mode_dial",
+            "action": "rotate",
+            "direction": "none",
+            "steps": null,
+            "target": "A"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": 12,
+            "mode": "A",
+            "aperture": 2.8,
+            "shutter": null,
+            "iso": "AUTO",
+            "ev": 0,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**A 档（光圈优先）**：你定光圈，相机算快门。阴天 F2.8，相机给出 1/500。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "front"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "dial_front"
+            ],
+            "note": "前拨盘：光圈",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": null,
+            "aperture": 8,
+            "shutter": null,
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "光圈收到 **F8**，进光少了 3 档，相机自动把快门放慢到 **1/60**，亮度不变。注意：快门越慢越容易手抖。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "mode_dial",
+            "action": "rotate",
+            "direction": "none",
+            "steps": null,
+            "target": "S"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": "S",
+            "aperture": null,
+            "shutter": "1/1000",
+            "iso": "AUTO",
+            "ev": 0,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "dial_rear_l"
+            ],
+            "note": "后拨盘 L：快门",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**S 档（快门优先）**：你定快门，相机算光圈。快门 1/1000，光圈开到 F2.8 还不够亮，ISO AUTO 自动升到 **200**。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "dial_rear_r"
+            ],
+            "note": "后拨盘 R：曝光补偿",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": null,
+            "aperture": null,
+            "shutter": null,
+            "iso": null,
+            "ev": 1,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "确认后拨盘 R 已解锁，转到曝光补偿 **+1.0**，画面亮一档。这个例子中快门不变，相机把 ISO 从 200 提到 400。"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**屏幕上的数字闪烁 = 相机已经到极限**，比如光圈开到 F2.8 也不够亮。这时曝光会不准，要换参数。"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "read",
+      "markdown": "## 选 A 还是选 S\n\n| 你最在意 | 用 | 你调 | 相机调 |\n|---|---|---|---|\n| 背景虚不虚、前后清不清楚 | **A 光圈优先** | 光圈：[[dial_front]] | 快门 |\n| 动作定不定格、水流拉不拉丝 | **S 快门优先** | 快门：[[dial_rear_l]] | 光圈 |\n\n建议把 **A 档当成日常默认档**，拍运动或者想拍拉丝效果时切到 S。\n\n## A 档：盯住快门\nA 档里，光线变暗时相机会放慢快门来补光，快门可能慢到手抖。\n\n- P 或 A 档选 **ISO AUTO** 时，在 MENU › 曝光/颜色 › 曝光 › ISO AUTO最小速度 设置何时开始提高 ISO。出厂的「标准」按镜头焦距选速度。想定格运动，可以选更快的速度。ISO 升到上限仍不够亮时，快门还会继续放慢。本课实验室用固定的 1/60 秒演示这个过程。\n- 常用光圈：\n\n| 想拍 | 光圈 |\n|---|---|\n| 人像、背景虚化 | F2.8 |\n| 几个人的合影 | F5.6–F8，保证每个人都清楚 |\n| 风景、建筑 | F8–F11 |\n\nF16、F22 会因为衍射让画面变软，非必要不用。\n\n## S 档：盯住光圈和 ISO\nS 档里，光线不够时相机会开大光圈；开到 F2.8 还不够，只能提高 ISO（ISO AUTO 时）。ISO 是固定值时，照片会欠曝，屏幕上的光圈值会闪烁提醒你。\n\n| 想拍 | 快门 |\n|---|---|\n| 走路的人 | 1/250 |\n| 跑步、运动、宠物 | 1/1000 |\n| 流水拉丝 | 1/4 秒或更慢，相机要放稳 |\n\n拍流水时，白天光线太强，光圈收到 F22 还是过曝，快门根本放不慢。选**阴天、傍晚或树荫下**拍：傍晚 1/4 秒、ISO 100 大约是 F11。\n\n## 曝光补偿\n相机测光时，默认画面应该是\"中等亮度\"。画面里大片很亮或很暗的东西，会把它骗过去。\n\n看 [[dial_rear_r]] 中央的锁定钮。弹起露出白线时可以转动，默认每格 1/3 档。看屏幕上的数值，往 + 调使照片变亮，往 − 调使照片变暗。\n\n| 情况 | 补偿 |\n|---|---|\n| 逆光拍人，脸是黑的 | +1.0 到 +1.7 |\n| 雪景、白墙、白纸发灰 | +0.7 到 +1.3 |\n| 黑色主体、夜景太亮 | −0.7 到 −1.3 |\n\nP、A、S 档可用曝光补偿。M 档需要 ISO AUTO，智能自动无法调补偿。不用时按下锁定钮，避免误转。\n\n## 数字闪烁：相机到极限了\n| 档位 | 闪烁的是 | 意思 | 怎么办 |\n|---|---|---|---|\n| A 档 | 快门速度 | 在当前光线下，可用快门速度范围内无法得到合适曝光 | 调光圈或 ISO，直到读数停止闪烁 |\n| S 档 | 光圈 | 光圈到 F2.8 仍然欠曝，或者到 F22 仍然过曝 | 调快门或 ISO |"
+    },
+    {
+      "kind": "practice",
+      "items": [
+        {
+          "type": "choice",
+          "q": "想拍背景虚化的人像，用哪个档？",
+          "options": [
+            "A 档，光圈开到 F2.8",
+            "S 档，快门 1/1000",
+            "AUTO"
+          ],
+          "answer": 0,
+          "explain": "背景虚化由光圈决定，A 档让你直接控制光圈。"
+        },
+        {
+          "type": "choice",
+          "q": "拍篮球比赛，要把动作定格？",
+          "options": [
+            "S 档，快门 1/1000 左右",
+            "A 档 F8",
+            "P 档"
+          ],
+          "answer": 0,
+          "explain": "定格靠快门速度，S 档让你直接控制快门。"
+        },
+        {
+          "type": "choice",
+          "q": "室内用 A 档 F8 拍，照片出现手抖的重影，最可能的原因？",
+          "options": [
+            "相机为了补光把快门放得太慢",
+            "光圈太大",
+            "ISO 太低导致对焦失败"
+          ],
+          "answer": 0,
+          "explain": "看照片的快门读数。可以开大光圈，或用 ISO AUTO 并在「ISO AUTO最小速度」中选择适合手持的速度。"
+        },
+        {
+          "type": "choice",
+          "q": "拍雪景，照片总是灰蒙蒙的，应该？",
+          "options": [
+            "曝光补偿往 + 调",
+            "曝光补偿往 − 调",
+            "快门调快"
+          ],
+          "answer": 0,
+          "explain": "相机把大片白雪当成中等亮度，压暗了。往 + 补偿，雪才是白的。"
+        },
+        {
+          "type": "set_exposure",
+          "prompt": "晴天拍风景，A 档，ISO 锁在 100。要前后都清楚：光圈调到 F8 或更小，同时曝光准确。",
+          "scene_ev": 15,
+          "mode": "A",
+          "start": {
+            "aperture": 2.8,
+            "iso": 100,
+            "ev": 0
+          },
+          "lock": [
+            "iso",
+            "ev"
+          ],
+          "goal": {
+            "aperture_min": 8,
+            "bias": [
+              -0.3,
+              0.3
+            ]
+          },
+          "explain": "A 档下你只管光圈，F8 时相机自动给出 1/500 左右的快门。",
+          "_example_solution": {
+            "aperture": 8,
+            "shutter": "1/500",
+            "iso": 100,
+            "ev": 0
+          }
+        },
+        {
+          "type": "set_exposure",
+          "prompt": "阴天拍跑动的小狗，S 档，ISO AUTO（锁定）。快门至少 1/1000，曝光准确。",
+          "scene_ev": 12,
+          "mode": "S",
+          "start": {
+            "aperture": 2.8,
+            "shutter": "1/125",
+            "iso": "AUTO",
+            "ev": 0
+          },
+          "lock": [
+            "iso",
+            "ev"
+          ],
+          "goal": {
+            "shutter_max_time": "1/1000",
+            "bias": [
+              -0.3,
+              0.3
+            ]
+          },
+          "explain": "快门调到 1/1000，光圈开到 F2.8 还差一点，ISO AUTO 会自动升到 200 左右。",
+          "_example_solution": {
+            "aperture": 2.8,
+            "shutter": "1/1000",
+            "iso": 200,
+            "ev": 0
+          }
+        },
+        {
+          "type": "set_exposure",
+          "prompt": "逆光人像，A 档 F2.8、ISO AUTO（都锁定）。相机按整个画面测光，脸暗了 1 档多。用曝光补偿把脸救回来（+1.0 到 +1.7）。",
+          "scene_ev": 14,
+          "mode": "A",
+          "start": {
+            "aperture": 2.8,
+            "iso": "AUTO",
+            "ev": 0
+          },
+          "lock": [
+            "aperture",
+            "iso",
+            "shutter"
+          ],
+          "goal": {
+            "bias": [
+              1,
+              1.7
+            ]
+          },
+          "explain": "后拨盘 R 往 + 转 3–5 格。A 档下光圈不变，相机放慢快门，比如从 1/2000 放慢到 1/800。代价是背后的天空会更亮。",
+          "_example_solution": {
+            "aperture": 2.8,
+            "shutter": "1/1000",
+            "iso": 100,
+            "ev": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "task",
+      "title": "A 档拍虚化人像，S 档拍流水",
+      "photos": 2,
+      "complete_by": "ai",
+      "steps": [
+        "A 档、F2.8、焦距 70mm，人离你 2 米左右、背景在 10 米以外，拍一张半身人像",
+        "S 档、快门 1/4 秒或更慢，ISO 100，拍流水：水龙头、喷泉、小溪都行。相机放在三脚架上，或者靠在栏杆上",
+        "光线太亮快门放不慢时，换到阴天、傍晚或树荫下",
+        "两张都上传"
+      ],
+      "success_criteria": "人像背景明显虚化，人脸清楚；流水有拉丝感，静止的部分清楚",
+      "ai_rubric": [
+        "照片 1：EXIF 是 A 档，光圈 F4 或更大（F 数更小），背景明显虚化，人脸清楚",
+        "照片 2：EXIF 是 S 档，快门 1/4 秒或更慢，水流有拉丝感，石头、栏杆等静止部分清楚",
+        "如果流水照片整体糊，指出是相机没放稳；如果过曝，指出光线太强、应该换时间拍"
+      ]
+    }
+  ],
+  "needs_verification": []
+}

@@ -1,0 +1,947 @@
+{
+  "_comment": "快门学院 · AI 教练工具定义（唯一来源，共 13 个）。工具列表固定不变，以保持提示词缓存命中；grade_task 只在课程实拍任务验收时调用。格式为 Anthropic Messages API 的工具格式；Responses API 适配器转换为 {type:\"function\", name, description, parameters: input_schema, strict}。规则：strict=true；每个对象 additionalProperties=false 且所有属性都在 required 里；可选参数用 anyOf [..., null]；不使用 minimum/maximum/minLength/maxLength/minItems 等约束（strict 模式不支持），数值范围写在 description 里并在客户端校验。control_ids 的枚举必须等于 controls.json 的 id 列表。",
+  "version": 1,
+  "tools": [
+    {
+      "name": "say_to_user",
+      "description": "把一段讲解原样显示给用户（支持 Markdown 加粗和列表）。在两次工具调用之间要向用户解释时，必须用这个工具，不要只写在思考里。最后的总结直接写在回复正文里，不用这个工具。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "要显示给用户的讲解，中文，1–4 句"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "highlight_control",
+      "description": "在用户的 3D 相机上高亮一个或多个部件，指出用户应该操作哪个按键、拨盘或开关。讲到具体操作时调用，每次只指一个步骤。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "control_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "power",
+                "shutter",
+                "dial_front",
+                "dial_rear_l",
+                "dial_rear_r",
+                "mode_dial",
+                "mode_switch",
+                "btn_c2",
+                "btn_movie",
+                "btn_menu",
+                "btn_c1",
+                "btn_c3",
+                "btn_ael",
+                "btn_afon",
+                "joystick",
+                "btn_fn",
+                "wheel",
+                "btn_center",
+                "btn_play",
+                "btn_c4",
+                "lcd",
+                "evf",
+                "diopter",
+                "hotshoe",
+                "lens_release",
+                "card_door",
+                "ports",
+                "battery_door",
+                "ring_zoom",
+                "ring_focus",
+                "ring_aperture",
+                "sw_iris_lock",
+                "sw_click",
+                "sw_focus_mode",
+                "btn_focus_hold",
+                "sw_zoom_smooth"
+              ]
+            },
+            "description": "要高亮的部件 id，1–3 个"
+          },
+          "note": {
+            "type": "string",
+            "description": "显示在部件旁的一句话，不超过 20 个字"
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "pulse",
+              "arrow"
+            ],
+            "description": "pulse：呼吸光；arrow：加方向箭头"
+          }
+        },
+        "required": [
+          "control_ids",
+          "note",
+          "style"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "demonstrate_control",
+      "description": "在 3D 相机上演示一次操作：拨盘转几格、按键按下、开关拨到某个档位。虚拟屏幕会跟着变化，工具结果会返回变化前后的参数。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "control_id": {
+            "type": "string",
+            "enum": [
+              "power",
+              "shutter",
+              "dial_front",
+              "dial_rear_l",
+              "dial_rear_r",
+              "mode_dial",
+              "mode_switch",
+              "btn_c2",
+              "btn_movie",
+              "btn_menu",
+              "btn_c1",
+              "btn_c3",
+              "btn_ael",
+              "btn_afon",
+              "joystick",
+              "btn_fn",
+              "wheel",
+              "btn_center",
+              "btn_play",
+              "btn_c4",
+              "lcd",
+              "evf",
+              "diopter",
+              "hotshoe",
+              "lens_release",
+              "card_door",
+              "ports",
+              "battery_door",
+              "ring_zoom",
+              "ring_focus",
+              "ring_aperture",
+              "sw_iris_lock",
+              "sw_click",
+              "sw_focus_mode",
+              "btn_focus_hold",
+              "sw_zoom_smooth"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "rotate",
+              "press",
+              "slide"
+            ],
+            "description": "rotate：转动；press：按下；slide：拨动"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right",
+              "up",
+              "down",
+              "none"
+            ],
+            "description": "模拟器的 rotate 用 right 增大数值、left 减小数值。实机教学以屏幕目标值为准。press 用方向表示按键位置，其余填 none"
+          },
+          "steps": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "description": "rotate 转几格，每格 1/3 档；press 按几次。不需要时为 null"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "string",
+                "description": "开关或转盘要拨到的档位，必须是 controls.json 里该部件 positions 中的值，如 MF、A。不需要时为 null"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "control_id",
+          "action",
+          "direction",
+          "steps",
+          "target"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "set_camera_view",
+      "description": "切换 3D 相机的观察视角，让用户看到要操作的部件。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "view": {
+            "type": "string",
+            "enum": [
+              "front",
+              "top",
+              "back",
+              "left",
+              "right",
+              "lens",
+              "bottom"
+            ]
+          }
+        },
+        "required": [
+          "view"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "set_virtual_settings",
+      "description": "修改 3D 相机虚拟屏幕上的参数，展示\"改完之后屏幕上是什么样\"。只改需要改的字段，其余字段填 null。复盘时先用 scene_ev 还原照片的光线条件。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "scene_ev": {
+            "anyOf": [
+              {
+                "type": "number",
+                "description": "场景亮度（ISO 100 下的 EV），用来模拟照片拍摄时的光线；可由 EXIF 反推"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "AUTO",
+                  "P",
+                  "A",
+                  "S",
+                  "M"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aperture": {
+            "anyOf": [
+              {
+                "type": "number",
+                "description": "光圈 F 值，2.8–22"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "shutter": {
+            "anyOf": [
+              {
+                "type": "string",
+                "description": "快门速度，如 1/800、1/60、1\"、2.5\""
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "iso": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "description": "100–51200"
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "AUTO"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ev": {
+            "anyOf": [
+              {
+                "type": "number",
+                "description": "曝光补偿，−5 到 +5，步长 1/3"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "focal": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "description": "焦距 mm，24–70"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "focus_mode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "AF-S",
+                  "AF-A",
+                  "AF-C",
+                  "DMF",
+                  "MF"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "focus_area": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "wide",
+                  "zone",
+                  "center_fix",
+                  "spot_xl",
+                  "spot_l",
+                  "spot",
+                  "spot_s",
+                  "spot_xs",
+                  "expanded_spot",
+                  "custom_1",
+                  "custom_2",
+                  "custom_3",
+                  "tracking",
+                  "tracking_zone",
+                  "tracking_center_fix",
+                  "tracking_spot_xl",
+                  "tracking_spot_l",
+                  "tracking_spot",
+                  "tracking_spot_s",
+                  "tracking_spot_xs",
+                  "tracking_expanded_spot",
+                  "tracking_custom_1",
+                  "tracking_custom_2",
+                  "tracking_custom_3"
+                ],
+                "description": "全画幅静态区域。spot 为点: M，tracking 为跟踪: 广域。跟踪起点仅在拍照且选 AF-C 时可用。"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "wb": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "auto",
+                  "daylight",
+                  "cloudy",
+                  "incandescent",
+                  "fluorescent"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "drive": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "single",
+                  "continuous",
+                  "self_2s",
+                  "self_10s"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "scene_ev",
+          "mode",
+          "aperture",
+          "shutter",
+          "iso",
+          "ev",
+          "focal",
+          "focus_mode",
+          "focus_area",
+          "wb",
+          "drive"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "annotate_photo",
+      "description": "在用户上传的照片上画框标注。good 标做得好的地方，fix 标需要改进的地方。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "photo_index": {
+            "type": "integer",
+            "description": "第几张照片，从 0 开始"
+          },
+          "regions": {
+            "type": "array",
+            "description": "1–5 个区域",
+            "items": {
+              "type": "object",
+              "properties": {
+                "bbox": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "description": "[x, y, w, h]，以照片宽高为 1 的归一化坐标"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "一句话说明，不超过 16 个字"
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "good",
+                    "fix"
+                  ]
+                }
+              },
+              "required": [
+                "bbox",
+                "label",
+                "kind"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "photo_index",
+          "regions"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "compare_exposure",
+      "description": "展示调整前后的参数对比，说明调整会带来什么变化。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "before": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "拍摄模式，如 A"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "aperture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "如 F2.8"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "shutter": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "如 1/800 或 1\""
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "iso": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "如 100 或 AUTO"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "ev": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "曝光补偿，如 +1.3"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "mode",
+              "aperture",
+              "shutter",
+              "iso",
+              "ev"
+            ],
+            "additionalProperties": false
+          },
+          "after": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "拍摄模式，如 A"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "aperture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "如 F2.8"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "shutter": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "如 1/800 或 1\""
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "iso": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "如 100 或 AUTO"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "ev": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "曝光补偿，如 +1.3"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "mode",
+              "aperture",
+              "shutter",
+              "iso",
+              "ev"
+            ],
+            "additionalProperties": false
+          },
+          "explanation": {
+            "type": "string",
+            "description": "一到两句话说明变化和代价"
+          }
+        },
+        "required": [
+          "before",
+          "after",
+          "explanation"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "lookup_manual",
+      "description": "查本地知识库（帮助指南摘要和部件字典）。回答菜单路径、功能位置、默认设置前必须先查，查不到就说不确定，不要编。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "要查的功能或菜单项，如\"DRO 动态范围优化\""
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "get_camera_config",
+      "description": "读取用户自己的按键自定义配置（C1–C4、AEL、AF-ON、镜头对焦保持键等）。给操作建议前先调用一次，按用户的实际配置说键名。",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "open_lesson",
+      "description": "给用户推荐一节相关课时，显示\"去看看\"卡片。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "lesson_id": {
+            "type": "string",
+            "enum": [
+              "L0",
+              "L1",
+              "L2",
+              "L3",
+              "L4",
+              "L5",
+              "L6",
+              "L7",
+              "L8",
+              "L9",
+              "L10",
+              "L11",
+              "L12",
+              "L13",
+              "L14"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "description": "为什么推荐这节课，一句话"
+          }
+        },
+        "required": [
+          "lesson_id",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "add_practice_task",
+      "description": "把一项练习加入用户的今日任务。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "任务标题，不超过 20 个字"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "2–5 个操作步骤"
+          },
+          "success_criteria": {
+            "type": "string",
+            "description": "怎么算完成"
+          }
+        },
+        "required": [
+          "title",
+          "steps",
+          "success_criteria"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "submit_review",
+      "description": "提交这张照片的结构化复盘卡。每次复盘结束前调用一次。需改进的条目排在前面；打分从严，5 分只给挑不出问题的维度。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "照片的简短标题，如\"逆光人像\""
+          },
+          "scores": {
+            "type": "array",
+            "description": "对相关维度打分，3–7 项",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dimension": {
+                  "type": "string",
+                  "enum": [
+                    "exposure",
+                    "focus",
+                    "sharpness",
+                    "composition",
+                    "light",
+                    "color",
+                    "settings"
+                  ]
+                },
+                "score": {
+                  "type": "integer",
+                  "description": "1–5"
+                }
+              },
+              "required": [
+                "dimension",
+                "score"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "fixes": {
+            "type": "array",
+            "description": "需改进，按影响从大到小排",
+            "items": {
+              "type": "object",
+              "properties": {
+                "problem": {
+                  "type": "string",
+                  "description": "现象"
+                },
+                "cause": {
+                  "type": "string",
+                  "description": "原因，用 EXIF 佐证"
+                },
+                "fix": {
+                  "type": "string",
+                  "description": "怎么改，给具体参数"
+                },
+                "how_on_camera": {
+                  "type": "string",
+                  "description": "在相机上怎么操作：部件、方向、档位"
+                },
+                "control_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "power",
+                      "shutter",
+                      "dial_front",
+                      "dial_rear_l",
+                      "dial_rear_r",
+                      "mode_dial",
+                      "mode_switch",
+                      "btn_c2",
+                      "btn_movie",
+                      "btn_menu",
+                      "btn_c1",
+                      "btn_c3",
+                      "btn_ael",
+                      "btn_afon",
+                      "joystick",
+                      "btn_fn",
+                      "wheel",
+                      "btn_center",
+                      "btn_play",
+                      "btn_c4",
+                      "lcd",
+                      "evf",
+                      "diopter",
+                      "hotshoe",
+                      "lens_release",
+                      "card_door",
+                      "ports",
+                      "battery_door",
+                      "ring_zoom",
+                      "ring_focus",
+                      "ring_aperture",
+                      "sw_iris_lock",
+                      "sw_click",
+                      "sw_focus_mode",
+                      "btn_focus_hold",
+                      "sw_zoom_smooth"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "problem",
+                "cause",
+                "fix",
+                "how_on_camera",
+                "control_ids"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "goods": {
+            "type": "array",
+            "description": "做得好",
+            "items": {
+              "type": "object",
+              "properties": {
+                "point": {
+                  "type": "string",
+                  "description": "现象"
+                },
+                "why": {
+                  "type": "string",
+                  "description": "为什么好"
+                },
+                "keep": {
+                  "type": "string",
+                  "description": "下次怎么保持"
+                }
+              },
+              "required": [
+                "point",
+                "why",
+                "keep"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "underexposed",
+                "overexposed",
+                "highlight_clipped",
+                "shadow_crushed",
+                "missed_focus",
+                "shallow_dof",
+                "camera_shake",
+                "motion_blur",
+                "high_noise",
+                "tilted_horizon",
+                "subject_cut",
+                "cluttered_background",
+                "harsh_light",
+                "wb_cast",
+                "wrong_mode",
+                "other"
+              ]
+            },
+            "description": "问题标签，用于成长报告统计"
+          }
+        },
+        "required": [
+          "title",
+          "scores",
+          "fixes",
+          "goods",
+          "tags"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    {
+      "name": "grade_task",
+      "description": "判定课程实拍任务是否通过。只有用户消息里带「实拍任务验收」要求时才调用，在 submit_review 之后调用一次。按任务给出的验收标准逐条判断，有一条不满足就不通过。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "passed": {
+            "type": "boolean",
+            "description": "是否通过"
+          },
+          "unmet": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "没有达到的验收标准，原文照抄；通过时为空数组"
+          },
+          "summary": {
+            "type": "string",
+            "description": "一句话结论，告诉用户通过与否和最关键的原因"
+          }
+        },
+        "required": [
+          "passed",
+          "unmet",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    }
+  ]
+}

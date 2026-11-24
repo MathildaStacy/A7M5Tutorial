@@ -1,0 +1,602 @@
+<title>快门学院原型</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Saira+Semi+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: sticky phone on the left (the app itself, always dark like a camera UI), product notes on the right that follow the current screen */
+:root{
+  --bg:#E9ECF0; --surface:#FFFFFF; --surface-2:#F3F5F8; --ink:#14171C; --ink-2:#4A505B; --ink-3:#7A818D; --line:#D7DBE2;
+  --accent:#D96A0B; --accent-ink:#A84F05; --good:#14864A; --fix:#C2352B;
+  --bezel:#0A0B0D;
+  --app-bg:#0D0F12; --app-card:#16191E; --app-card-2:#1D2127; --app-line:#2A2F37; --app-ink:#EDEFF3; --app-ink-2:#A2A9B5; --app-ink-3:#6C7380;
+  --app-accent:#F28B26; --app-accent-soft:rgba(242,139,38,.16); --app-good:#3DC57B; --app-good-soft:rgba(61,197,123,.15); --app-fix:#F2584D; --app-fix-soft:rgba(242,88,77,.15); --app-blue:#5AA9FF;
+  --f-disp:"Saira Semi Condensed","Noto Sans SC","PingFang SC",system-ui,sans-serif;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1013; --surface:#16191D; --surface-2:#1C2026; --ink:#ECEEF2; --ink-2:#AEB4BE; --ink-3:#7D8490; --line:#2A2F37;
+  --accent:#F08A24; --accent-ink:#F5A253; --good:#3DC57B; --fix:#F2584D; --bezel:#050607; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1013; --surface:#16191D; --surface-2:#1C2026; --ink:#ECEEF2; --ink-2:#AEB4BE; --ink-3:#7D8490; --line:#2A2F37;
+  --accent:#F08A24; --accent-ink:#F5A253; --good:#3DC57B; --fix:#F2584D; --bezel:#050607; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+input,select{font:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num,.tnum{font-variant-numeric:tabular-nums}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 56px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:42px;height:42px;border-radius:12px;background:var(--ink);display:grid;place-items:center;flex:none}
+.mark svg{width:28px;height:28px}
+.wm{font-family:var(--f-disp);font-weight:700;font-size:24px;letter-spacing:.04em;line-height:1.1}
+.sub{color:var(--ink-2);font-size:13px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);background:var(--surface)}
+.tag.hot{border-color:var(--accent);color:var(--accent-ink)}
+.main{display:grid;grid-template-columns:minmax(0,410px) minmax(0,1fr);gap:40px;align-items:start}
+.phone-col{position:sticky;top:12px;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0}
+@media (max-width:900px){.main{grid-template-columns:minmax(0,1fr)}.phone-col{position:static}}
+.phone{width:min(390px,100%);height:clamp(640px,calc(100vh - 110px),820px);border-radius:48px;background:var(--bezel);padding:9px;box-shadow:0 34px 70px -24px rgba(8,12,18,.55),inset 0 0 0 1.5px rgba(255,255,255,.07)}
+.phone-hint{font-size:12px;color:var(--ink-3);text-align:center;margin:0}
+
+/* ---------- app (fixed dark world) ---------- */
+.app{position:relative;height:100%;border-radius:39px;overflow:hidden;background:var(--app-bg);color:var(--app-ink);display:flex;flex-direction:column;font-size:14px;line-height:1.55}
+.sbar{height:36px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:4px 28px 0 32px;font-family:var(--f-disp);font-weight:600;font-size:14px;color:var(--app-ink)}
+.sbar svg{height:12px}
+.screens{position:relative;flex:1;min-height:0}
+.scr{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.scr::-webkit-scrollbar{display:none}
+.scr.col{display:flex;flex-direction:column;overflow:hidden}
+.tabs{flex:none;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--app-line);background:var(--app-bg);padding:6px 4px 16px}
+.tab{background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:11px;color:var(--app-ink-3);padding:4px 0}
+.tab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tab[aria-selected="true"]{color:var(--app-accent)}
+.pad{padding:6px 18px 28px;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:12px;color:var(--app-ink-3);letter-spacing:.04em}
+.ttl{font-family:var(--f-disp);font-weight:700;font-size:28px;line-height:1.1;margin:0;letter-spacing:.02em}
+.ttl.sm{font-size:22px}
+.muted{color:var(--app-ink-3)}
+.card{background:var(--app-card);border:1px solid var(--app-line);border-radius:18px}
+.pill{background:var(--app-card-2);border:1px solid var(--app-line);border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--app-ink)}
+.pill[aria-pressed="true"],.pill.on{background:var(--app-accent-soft);border-color:var(--app-accent);color:var(--app-accent)}
+.btn{border:0;border-radius:12px;padding:9px 14px;font-weight:500;font-size:13.5px;background:var(--app-card-2);color:var(--app-ink);border:1px solid var(--app-line)}
+.btn.pri{background:var(--app-accent);border-color:var(--app-accent);color:#1A0E02}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;margin-top:4px}
+.sec-h .muted{font-weight:400;font-size:12px}
+
+/* home */
+.hello{display:flex;justify-content:space-between;align-items:flex-end;padding-top:6px}
+.lv{font-family:var(--f-disp);font-weight:700;font-size:15px;color:var(--app-accent);border:1.5px solid var(--app-accent);border-radius:10px;padding:2px 9px}
+.prog{padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.prog-row{display:flex;justify-content:space-between;font-weight:500}
+.bar{height:6px;border-radius:6px;background:var(--app-card-2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--app-accent);border-radius:6px}
+.prog-sub{font-size:12px;color:var(--app-ink-3)}
+.cont{display:block;width:100%;text-align:left;padding:16px;position:relative;overflow:hidden;background:linear-gradient(135deg,#23190F,#16191E 60%)}
+.cont-k{font-size:12px;color:var(--app-accent);font-weight:500}
+.cont-t{font-size:17px;font-weight:700;margin:2px 0}
+.cont-d{font-size:12.5px;color:var(--app-ink-2)}
+.cont-go{display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--app-accent)}
+.tasks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.task{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;background:var(--app-card);border:1px solid var(--app-line);border-radius:14px}
+.task .ck{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--app-ink-3);flex:none;margin-top:1px;background:none;padding:0}
+.task.done .ck{background:var(--app-good);border-color:var(--app-good)}
+.task.done .tt{text-decoration:line-through;color:var(--app-ink-3)}
+.task .tt{font-size:13.5px;font-weight:500}
+.task .ts{font-size:12px;color:var(--app-ink-3)}
+.task.new{border-color:var(--app-accent);animation:flashIn 1.2s ease}
+.src-ai{font-size:10.5px;color:var(--app-accent);border:1px solid var(--app-accent);border-radius:5px;padding:0 4px;margin-left:6px;vertical-align:1px}
+@keyframes flashIn{0%{background:var(--app-accent-soft)}100%{background:var(--app-card)}}
+.ai-entry{display:flex;gap:12px;align-items:center;padding:14px 16px;text-align:left;width:100%}
+.ai-entry .ic{width:40px;height:40px;border-radius:12px;background:var(--app-accent-soft);display:grid;place-items:center;flex:none;color:var(--app-accent)}
+.ai-entry .ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8}
+.ai-entry b{display:block;font-size:14.5px}
+.ai-entry span{font-size:12.5px;color:var(--app-ink-2)}
+.path{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.path li{display:flex;gap:12px;align-items:stretch}
+.path .rail{display:flex;flex-direction:column;align-items:center;width:26px;flex:none}
+.path .dot{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-disp);font-size:12px;font-weight:700;background:var(--app-card-2);color:var(--app-ink-3);border:1.5px solid var(--app-line)}
+.path .ln{flex:1;width:2px;background:var(--app-line);min-height:10px}
+.path li:last-child .ln{display:none}
+.path .done .dot{background:var(--app-good);color:#06210F;border-color:var(--app-good)}
+.path .cur .dot{background:var(--app-accent);color:#1A0E02;border-color:var(--app-accent)}
+.path .body{padding:2px 0 14px;flex:1;min-width:0}
+.path button.body{background:none;border:0;text-align:left;padding:2px 0 14px}
+.path .pt{font-weight:500;font-size:14px}
+.path .pd{font-size:12px;color:var(--app-ink-3)}
+.path .lock .pt{color:var(--app-ink-2)}
+
+/* cam */
+.cam-top{display:flex;align-items:center;justify-content:space-between;padding:4px 16px 8px;flex:none}
+.cam-tools{display:flex;gap:6px}
+.cam-host{position:relative;flex:1;min-height:0;background:radial-gradient(120% 90% at 50% 40%,#252A31 0%,#121519 70%)}
+#stage{position:absolute;inset:0;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden}
+#stage canvas{display:block;width:100%;height:100%;cursor:grab}
+#stage canvas:active{cursor:grabbing}
+#labels{position:absolute;inset:0;pointer-events:none}
+.lb{position:absolute;transform:translate(-50%,-130%);font-size:10.5px;line-height:1;padding:3px 6px;border-radius:6px;background:rgba(13,15,18,.82);color:var(--app-ink);border:1px solid rgba(255,255,255,.12);white-space:nowrap;pointer-events:auto;cursor:pointer}
+.lb.hl{background:var(--app-accent);color:#1A0E02;border-color:var(--app-accent)}
+#callout{position:absolute;transform:translate(-50%,calc(-100% - 18px));background:var(--app-accent);color:#1A0E02;font-weight:700;font-size:12.5px;padding:6px 10px;border-radius:10px;white-space:nowrap;pointer-events:none;box-shadow:0 6px 18px rgba(0,0,0,.4);z-index:3}
+#callout::after{content:"";position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:var(--app-accent)}
+#callout.arrow{animation:bob 1s ease-in-out infinite}
+@keyframes bob{50%{transform:translate(-50%,calc(-100% - 26px))}}
+.stage-msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--app-ink-2);padding:24px;font-size:13px}
+.views{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;padding:0 10px;pointer-events:none}
+.views .pill{pointer-events:auto;background:rgba(22,25,30,.86);backdrop-filter:blur(6px)}
+.hint3d{position:absolute;top:10px;left:0;right:0;text-align:center;font-size:11.5px;color:var(--app-ink-3);pointer-events:none}
+.practice{position:absolute;top:8px;left:10px;right:10px;background:rgba(22,25,30,.92);border:1px solid var(--app-accent);border-radius:14px;padding:9px 12px;display:flex;align-items:center;gap:10px;z-index:4}
+.practice .q{flex:1;font-size:13px}
+.practice .q b{color:var(--app-accent)}
+.practice .sc{font-family:var(--f-disp);font-weight:700;font-size:18px}
+.readout{flex:none;display:flex;gap:4px;justify-content:space-between;align-items:center;padding:10px 16px 12px;border-top:1px solid var(--app-line);font-family:var(--f-disp);font-weight:600;font-size:15px;background:var(--app-bg)}
+.readout span{display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.readout small{font-family:var(--f-body);font-weight:400;font-size:10px;color:var(--app-ink-3)}
+.readout .chg{color:var(--app-accent)}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:62%;overflow-y:auto;background:var(--app-card);border-top:1px solid var(--app-line);border-radius:22px 22px 0 0;padding:8px 18px 18px;z-index:6;box-shadow:0 -16px 40px rgba(0,0,0,.5);animation:up .22s ease}
+@keyframes up{from{transform:translateY(30px);opacity:.4}}
+.grab{width:38px;height:4px;border-radius:4px;background:var(--app-line);margin:2px auto 10px}
+.sh-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.sh-n{font-size:18px;font-weight:700;line-height:1.25}
+.sh-id{font-family:var(--f-mono);font-size:11px;color:var(--app-ink-3)}
+.sh-x{background:var(--app-card-2);border:0;width:30px;height:30px;border-radius:50%;flex:none;font-size:16px;line-height:1;color:var(--app-ink-2)}
+.kv{display:grid;grid-template-columns:64px 1fr;gap:6px 10px;margin:12px 0;font-size:13px}
+.kv dt{color:var(--app-ink-3)}
+.kv dd{margin:0}
+.state-chip{display:inline-block;background:var(--app-accent-soft);color:var(--app-accent);border-radius:6px;padding:0 6px;font-weight:500}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.sh-note{font-size:11px;color:var(--app-ink-3);margin-top:10px}
+.lcdv{position:absolute;inset:0;background:rgba(8,9,11,.97);z-index:20;display:flex;flex-direction:column;padding:10px 14px 16px;gap:10px;overflow-y:auto}
+.lcdv-h{display:flex;justify-content:space-between;align-items:center}
+.lcd-box{position:relative;border-radius:10px;overflow:hidden;border:6px solid #050607;box-shadow:0 0 0 1px var(--app-line)}
+.lcd-box canvas{display:block;width:100%;height:auto}
+.hsp{position:absolute;border:1.5px dashed rgba(242,139,38,.0);border-radius:5px;background:none;padding:0}
+.hsp:hover,.hsp.on{border-color:var(--app-accent);background:rgba(242,139,38,.14)}
+.hs-info{background:var(--app-card);border:1px solid var(--app-line);border-radius:14px;padding:12px 14px;min-height:84px;font-size:13px}
+.hs-info b{display:block;font-size:14.5px;margin-bottom:2px}
+.toast{position:absolute;left:50%;bottom:86px;transform:translateX(-50%);background:rgba(237,239,243,.95);color:#111;font-size:12.5px;padding:7px 14px;border-radius:999px;z-index:30;white-space:nowrap;max-width:92%;overflow:hidden;text-overflow:ellipsis;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+/* lab */
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.ls{position:relative;aspect-ratio:3/2;max-width:100%;border-radius:14px;overflow:hidden;background:#000;isolation:isolate}
+.ls-in{position:absolute;inset:0;transition:filter .25s}
+.ls-in>*{position:absolute;inset:0;width:100%;height:100%}
+.ls-bg{transition:filter .25s}
+.ls-noise{mix-blend-mode:overlay;pointer-events:none}
+.ls-hud{position:absolute;left:8px;right:8px;bottom:8px;display:flex;justify-content:space-between;font-family:var(--f-disp);font-weight:600;font-size:14px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8);pointer-events:none}
+.ls-warn{position:absolute;top:8px;left:8px;background:var(--app-fix);color:#fff;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px}
+.meter{display:flex;flex-direction:column;gap:4px}
+.meter-scale{position:relative;height:30px}
+.meter-scale .tk{position:absolute;bottom:0;width:1px;height:8px;background:var(--app-ink-3)}
+.meter-scale .tk.big{height:13px;background:var(--app-ink-2)}
+.meter-scale .tl{position:absolute;bottom:14px;transform:translateX(-50%);font-family:var(--f-disp);font-size:11px;color:var(--app-ink-3)}
+.meter-ptr{position:absolute;bottom:0;width:0;height:0;border:6px solid transparent;border-bottom:9px solid var(--app-accent);transform:translateX(-50%);transition:left .25s}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--app-card-2);border-radius:12px;padding:3px;gap:3px;border:1px solid var(--app-line)}
+.seg button{border:0;background:none;border-radius:9px;padding:6px 4px;font-size:13px;color:var(--app-ink-2)}
+.seg button[aria-pressed="true"]{background:var(--app-card);color:var(--app-ink);box-shadow:0 1px 0 rgba(255,255,255,.06),0 2px 6px rgba(0,0,0,.35);font-weight:500}
+.sl{display:grid;grid-template-columns:62px 1fr 64px;align-items:center;gap:10px}
+.sl label{font-size:13px;color:var(--app-ink-2)}
+.sl output{font-family:var(--f-disp);font-weight:600;font-size:16px;text-align:right}
+.sl.auto output{color:var(--app-blue)}
+.sl input[type=range]{width:100%;accent-color:var(--app-accent)}
+.sl input:disabled{opacity:.35}
+.lab-exp{background:var(--app-card);border:1px solid var(--app-line);border-radius:14px;padding:12px 14px;margin:0;font-size:13.5px}
+.lab-exp b{color:var(--app-accent)}
+.lab-legend{font-size:11.5px;color:var(--app-ink-3)}
+
+/* ai */
+.ai-top{display:flex;justify-content:space-between;align-items:center;padding:2px 16px 6px;gap:8px;flex:none}
+.model-chip{font-family:var(--f-mono);font-size:10.5px;color:var(--app-ink-2);background:var(--app-card-2);border:1px solid var(--app-line);border-radius:7px;padding:2px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.demo-note{font-size:11px;color:var(--app-ink-3);text-align:center;padding:0 16px 6px;flex:none}
+.chat{flex:1;min-height:0;overflow-y:auto;padding:4px 14px 14px;display:flex;flex-direction:column;gap:12px;scrollbar-width:none}
+.chat::-webkit-scrollbar{display:none}
+.msg{display:flex;flex-direction:column;gap:8px;max-width:100%;min-width:0}
+.msg.user{align-items:flex-end}
+.bub{background:var(--app-card-2);border:1px solid var(--app-line);border-radius:16px 16px 4px 16px;padding:9px 12px;max-width:88%;font-size:13.5px}
+.msg.user .bub{background:#2A2117;border-color:#4A3420}
+.u-photo{width:200px;max-width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--app-line)}
+.u-photo svg{display:block;width:100%;height:auto}
+.exif{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end;max-width:92%}
+.exif span{font-family:var(--f-mono);font-size:10.5px;background:var(--app-card);border:1px solid var(--app-line);border-radius:5px;padding:0 5px;color:var(--app-ink-2)}
+.exif .gps{color:var(--app-good);border-color:rgba(61,197,123,.4)}
+.ai-txt{font-size:13.5px;line-height:1.7;min-width:0;overflow-wrap:anywhere}
+.ai-txt p{margin:0 0 6px}
+.ai-txt b{color:#fff}
+.ai-txt ul{margin:2px 0 6px;padding-left:18px}
+.cchip{display:inline-flex;align-items:center;gap:3px;background:var(--app-accent-soft);color:var(--app-accent);border:1px solid rgba(242,139,38,.45);border-radius:6px;padding:0 6px;font-size:12.5px;font-weight:500;cursor:pointer;line-height:1.5;vertical-align:1px}
+.cchip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.caret{display:inline-block;width:7px;height:14px;background:var(--app-accent);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.think{font-size:12.5px;color:var(--app-ink-3);border-left:2px solid var(--app-line);padding:2px 0 2px 10px}
+.think button{background:none;border:0;padding:0;color:var(--app-ink-2);font-size:12.5px}
+.think .tbody{margin-top:4px;white-space:pre-wrap}
+.dots::after{content:"";animation:dots 1.2s steps(4) infinite}
+@keyframes dots{0%{content:""}25%{content:"·"}50%{content:"··"}75%{content:"···"}}
+.tool{background:var(--app-card);border:1px solid var(--app-line);border-radius:12px;font-size:12px;overflow:hidden}
+.tool-h{display:flex;align-items:center;gap:8px;padding:7px 10px;width:100%;background:none;border:0;text-align:left}
+.tool-h .tn{font-family:var(--f-mono);font-weight:500;color:var(--app-ink);font-size:12px}
+.tool-h .tid{font-family:var(--f-mono);font-size:10px;color:var(--app-ink-3);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tool-h .st{font-size:11px;padding:0 6px;border-radius:5px;white-space:nowrap}
+.st.run{background:var(--app-accent-soft);color:var(--app-accent)}
+.st.ok{background:var(--app-good-soft);color:var(--app-good)}
+.tool-b{border-top:1px solid var(--app-line);padding:8px 10px;font-family:var(--f-mono);font-size:10.5px;color:var(--app-ink-2);white-space:pre-wrap;word-break:break-all;max-height:200px;overflow:auto}
+.tool-b .k{color:var(--app-ink-3)}
+.tgroup{display:flex;flex-direction:column;gap:6px}
+.c3d{position:relative;height:230px;border-radius:14px;overflow:hidden;border:1px solid var(--app-line);background:radial-gradient(120% 90% at 50% 40%,#252A31 0%,#121519 70%)}
+.c3d img{width:100%;height:100%;object-fit:cover;display:block}
+.c3d .c3d-tag{position:absolute;left:8px;top:8px;font-size:10.5px;background:rgba(13,15,18,.8);border:1px solid var(--app-line);border-radius:6px;padding:1px 6px;color:var(--app-ink-2);z-index:5}
+.c3d .c3d-open{position:absolute;right:8px;top:8px;z-index:5;font-size:11px;padding:2px 8px}
+.ph-card{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--app-line)}
+.ph-card svg.ph{display:block;width:100%;height:auto}
+.box{position:absolute;border:2px solid;border-radius:4px;animation:pop .35s ease both}
+.box i{position:absolute;top:-2px;left:-2px;font-style:normal;font-family:var(--f-disp);font-weight:700;font-size:11px;line-height:16px;min-width:16px;text-align:center;border-radius:4px 0 4px 0;color:#0D0F12}
+.box.good{border-color:var(--app-good)}.box.good i{background:var(--app-good)}
+.box.fix{border-color:var(--app-accent)}.box.fix i{background:var(--app-accent)}
+@keyframes pop{from{transform:scale(1.15);opacity:0}}
+.legend{display:flex;flex-direction:column;gap:3px;padding:8px 10px;font-size:12px;background:var(--app-card)}
+.legend span{display:flex;gap:6px}
+.legend i{font-style:normal;font-family:var(--f-disp);font-weight:700;width:16px;height:16px;border-radius:4px;display:grid;place-items:center;font-size:10.5px;color:#0D0F12;flex:none;margin-top:2px}
+.cmp{background:var(--app-card);border:1px solid var(--app-line);border-radius:12px;overflow:hidden;font-size:12.5px}
+.cmp table{width:100%;border-collapse:collapse}
+.cmp th,.cmp td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--app-line)}
+.cmp th{font-weight:500;color:var(--app-ink-3);font-size:11.5px}
+.cmp td{font-family:var(--f-disp);font-weight:600;font-size:14px}
+.cmp td.d{color:var(--app-accent)}
+.cmp .ex{padding:8px 10px;color:var(--app-ink-2)}
+.ptask{border:1px solid var(--app-accent);background:var(--app-accent-soft);border-radius:12px;padding:10px 12px;font-size:12.5px}
+.ptask b{display:block;font-size:13.5px;color:var(--app-ink)}
+.ptask ol{margin:4px 0;padding-left:18px;color:var(--app-ink-2)}
+.ptask .ok{color:var(--app-accent);font-weight:500}
+.review{background:linear-gradient(180deg,#1B1F25,#16191E);border:1px solid var(--app-line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.rv-h{display:flex;justify-content:space-between;align-items:baseline}
+.rv-h b{font-size:15px}
+.rv-h span{font-family:var(--f-disp);font-weight:700;font-size:22px;color:var(--app-accent)}
+.scores{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.sc{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:var(--app-ink-3)}
+.sc .pips{display:flex;flex-direction:column-reverse;gap:2px}
+.sc .pips i{width:22px;height:5px;border-radius:2px;background:var(--app-card-2)}
+.sc .pips i.on{background:var(--app-good)}
+.sc .pips.low i.on{background:var(--app-accent)}
+.sc .pips.bad i.on{background:var(--app-fix)}
+.rv-sec{font-size:12.5px}
+.rv-sec h4{margin:0 0 4px;font-size:12.5px;display:flex;align-items:center;gap:6px}
+.rv-sec h4::before{content:"";width:8px;height:8px;border-radius:2px;background:currentColor}
+.rv-sec.g h4{color:var(--app-good)}
+.rv-sec.f h4{color:var(--app-accent)}
+.rv-sec ul{margin:0;padding-left:16px;color:var(--app-ink-2);display:flex;flex-direction:column;gap:4px}
+.rv-sec li b{color:var(--app-ink);font-weight:500}
+.usage{font-family:var(--f-mono);font-size:10.5px;color:var(--app-ink-3)}
+.follow{display:flex;flex-wrap:wrap;gap:6px}
+.follow .pill{text-align:left}
+.samples{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sample{background:var(--app-card);border:1px solid var(--app-line);border-radius:12px;padding:0;overflow:hidden;text-align:left}
+.sample svg{display:block;width:100%;height:auto}
+.sample span{display:block;padding:5px 7px;font-size:11.5px}
+.sample small{display:block;padding:0 7px 6px;font-family:var(--f-mono);font-size:9.5px;color:var(--app-ink-3)}
+.composer{flex:none;display:flex;gap:8px;align-items:center;padding:8px 12px 10px;border-top:1px solid var(--app-line)}
+.composer input{flex:1;min-width:0;background:var(--app-card-2);border:1px solid var(--app-line);border-radius:999px;padding:8px 14px;color:var(--app-ink);font-size:13.5px}
+.composer input::placeholder{color:var(--app-ink-3)}
+.icon-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--app-line);background:var(--app-card-2);display:grid;place-items:center;flex:none;padding:0;color:var(--app-ink-2)}
+.icon-btn.pri{background:var(--app-accent);border-color:var(--app-accent);color:#1A0E02}
+.icon-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.picker{position:absolute;left:10px;right:10px;bottom:62px;background:var(--app-card);border:1px solid var(--app-line);border-radius:16px;padding:12px;z-index:8;box-shadow:0 -10px 30px rgba(0,0,0,.5)}
+
+/* settings */
+.grp{display:flex;flex-direction:column;gap:2px}
+.grp-h{font-size:12px;color:var(--app-ink-3);margin:6px 4px 4px;letter-spacing:.04em}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;background:var(--app-card);font-size:13.5px}
+.row:first-of-type{border-radius:14px 14px 0 0}
+.row:last-child{border-radius:0 0 14px 14px}
+.row.solo{border-radius:14px}
+.row label{color:var(--app-ink-2);flex:none}
+.row input[type=text],.row input[type=password]{background:none;border:0;color:var(--app-ink);text-align:right;min-width:0;flex:1;font-family:var(--f-mono);font-size:12px}
+.row .v{color:var(--app-ink-2);font-size:12.5px;text-align:right}
+.sw{width:42px;height:24px;border-radius:24px;background:var(--app-line);border:0;position:relative;padding:0;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .2s}
+.sw[aria-checked="true"]{background:var(--app-good)}
+.sw[aria-checked="true"]::after{left:21px}
+.test-res{font-size:12px;font-family:var(--f-mono);color:var(--app-ink-2);padding:2px 4px;white-space:pre-wrap}
+
+/* ---------- doc pane ---------- */
+.doc{display:flex;flex-direction:column;gap:22px;min-width:0}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;position:relative}
+.note .k{font-size:12px;color:var(--accent-ink);font-weight:500;letter-spacing:.06em}
+.note h2{font-family:var(--f-disp);font-size:24px;margin:2px 0 8px;line-height:1.2;text-wrap:balance}
+.note p{margin:0 0 10px;color:var(--ink-2);max-width:68ch}
+.note ul{margin:0 0 10px;padding-left:20px;color:var(--ink-2);max-width:70ch}
+.note li{margin-bottom:4px}
+.note .reqs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.note .reqs span{font-family:var(--f-mono);font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--ink-2);background:var(--surface-2)}
+.try{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.try button{border:1px solid var(--accent);background:none;color:var(--accent-ink);border-radius:999px;padding:4px 12px;font-size:13px}
+.try button:hover{background:var(--accent);color:var(--surface)}
+.dsec h3{font-family:var(--f-disp);font-size:20px;margin:0 0 8px;letter-spacing:.02em;text-wrap:balance}
+.dsec p{margin:0 0 10px;color:var(--ink-2);max-width:70ch}
+.dsec ul,.dsec ol{color:var(--ink-2);padding-left:20px;margin:0 0 10px;max-width:72ch}
+.dsec code{font-family:var(--f-mono);font-size:12.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:0 4px}
+.quote{font-size:17px;font-weight:500;line-height:1.6;color:var(--ink);border-left:3px solid var(--accent);padding-left:14px;margin:0;max-width:60ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.tbl table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+.tbl th,.tbl td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl th{background:var(--surface-2);font-weight:500;color:var(--ink-2);font-size:12px}
+.tbl td code{white-space:nowrap}
+.lvls{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.lvl{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.lvl b{font-family:var(--f-disp);color:var(--accent-ink);font-size:13px;margin-right:6px}
+.lvl span{font-weight:500}
+.lvl p{margin:2px 0 0;font-size:12px;color:var(--ink-3)}
+.mile{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.mile div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;color:var(--ink-2)}
+.mile b{display:block;color:var(--ink);font-size:14px}
+.mile em{font-style:normal;font-family:var(--f-mono);font-size:11.5px;color:var(--accent-ink)}
+.mile .now{border-color:var(--accent)}
+pre.mermaid{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;overflow-x:auto;margin:0}
+.qs{counter-reset:q;list-style:none;padding:0!important}
+.qs li{counter-increment:q;display:flex;gap:10px;margin-bottom:8px}
+.qs li::before{content:counter(q);font-family:var(--f-disp);font-weight:700;color:var(--accent-ink);width:22px;flex:none}
+.foot{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#F28B26" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg></span>
+      <div><div class="wm">快门学院</div><div class="sub">α7 V · FE 24-70mm F2.8 GM II 学习 App 原型</div></div>
+    </div>
+    <div class="tags"><span class="tag hot">v0.2 原型</span><span class="tag">Android · React Native</span><span class="tag">数据为演示</span></div>
+  </header>
+
+  <div class="main">
+    <div class="phone-col">
+      <div class="phone">
+        <div class="app" id="app">
+          <div class="sbar"><span class="tnum">9:41</span>
+            <svg viewBox="0 0 60 12" aria-hidden="true"><g fill="#EDEFF3"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><rect x="34" y="1" width="22" height="10" rx="3" fill="none" stroke="#EDEFF3" stroke-width="1.2"/><rect x="36" y="3" width="15" height="6" rx="1.5"/><rect x="57" y="4" width="2" height="4" rx="1"/></g></svg>
+          </div>
+          <div class="screens" id="screens">
+
+            <!-- 学习 -->
+            <section class="scr" id="scr-home" aria-label="学习">
+              <div class="pad">
+                <div class="hello"><div><div class="eyebrow">第 4 天 · 今天练 15 分钟</div><h2 class="ttl">学习</h2></div><div class="lv">Lv.1</div></div>
+                <div class="prog card">
+                  <div class="prog-row"><span>L1 认识机身</span><span class="num">2 / 6 课时</span></div>
+                  <div class="bar"><i style="width:33%"></i></div>
+                  <div class="prog-sub">已认识 <span class="num" id="knownCount">11</span> / <span id="controlCount"></span> 个部件</div>
+                </div>
+                <button class="cont card" id="contLesson">
+                  <div class="cont-k">继续学习 · L1-3</div>
+                  <div class="cont-t">背面按键：AF-ON、AEL、C1、C3</div>
+                  <div class="cont-d">在 3D 相机上逐个点亮，约 6 分钟</div>
+                  <span class="cont-go">在 3D 相机里看 →</span>
+                </button>
+                <div class="sec-h"><span>今日任务</span><span class="muted"><span class="num" id="taskCount">0</span> 项</span></div>
+                <ul class="tasks" id="taskList"></ul>
+                <button class="ai-entry card" id="aiEntry">
+                  <span class="ic"><svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span>
+                  <span><b>刚拍了一张？让 AI 教练复盘</b><span>它会指出哪里好、哪里要改，并在 3D 相机上告诉你按哪个键</span></span>
+                </button>
+                <div class="sec-h"><span>学习路径</span><span class="muted">L0–L14</span></div>
+                <ol class="path" id="pathList"></ol>
+              </div>
+            </section>
+
+            <!-- 相机 -->
+            <section class="scr col" id="scr-cam" aria-label="3D 相机" hidden>
+              <div class="cam-top"><h2 class="ttl sm">3D 相机</h2>
+                <div class="cam-tools"><button class="pill" id="btnLabels" aria-pressed="false">标签</button><button class="pill" id="btnPractice" aria-pressed="false">找键练习</button></div>
+              </div>
+              <div class="cam-host" id="camHost">
+                <div id="stage"><div id="labels"></div><div id="callout" hidden></div></div>
+                <div class="hint3d" id="hint3d">拖动旋转 · 滚轮或双指缩放 · 点任意部件</div>
+                <div class="practice" id="practiceBar" hidden></div>
+                <div class="views" id="viewChips"></div>
+              </div>
+              <div class="readout" id="readout"></div>
+              <div class="sheet" id="sheet" hidden></div>
+            </section>
+
+            <!-- 实验室 -->
+            <section class="scr" id="scr-lab" aria-label="曝光实验室" hidden>
+              <div class="pad">
+                <div><div class="eyebrow">光圈 · 快门 · ISO</div><h2 class="ttl">曝光实验室</h2></div>
+                <div class="chips" id="sceneChips"></div>
+                <div class="ls" id="labScene">
+                  <div class="ls-in" id="lsIn">
+                    <svg class="ls-bg" id="lsBg" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice"></svg>
+                    <svg id="lsMove" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice"></svg>
+                    <svg id="lsSubj" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice"></svg>
+                    <canvas class="ls-noise" id="lsNoise" width="300" height="200"></canvas>
+                    <div id="lsClip"></div>
+                  </div>
+                  <div class="ls-warn" id="lsWarn" hidden></div>
+                  <div class="ls-hud" id="lsHud"></div>
+                </div>
+                <div class="meter">
+                  <div class="meter-scale" id="meterScale"><i class="meter-ptr" id="meterPtr"></i></div>
+                  <div class="lab-legend">测光表：0 是正常曝光，往 + 偏过曝，往 − 偏欠曝（同相机屏幕上的 M.M.）</div>
+                </div>
+                <div class="seg" id="labMode" role="group" aria-label="拍摄模式"></div>
+                <div class="sl" id="rowAp"><label for="slAp">光圈</label><input type="range" id="slAp" min="0" max="18" step="1"><output id="oAp"></output></div>
+                <div class="sl" id="rowTv"><label for="slTv">快门</label><input type="range" id="slTv" min="0" max="18" step="1"><output id="oTv"></output></div>
+                <div class="sl" id="rowIso"><label for="slIso">ISO</label><input type="range" id="slIso" min="0" max="10" step="1"><output id="oIso"></output></div>
+                <div class="sl" id="rowEv"><label for="slEv">曝光补偿</label><input type="range" id="slEv" min="-9" max="9" step="1"><output id="oEv"></output></div>
+                <p class="lab-exp" id="labExp"></p>
+                <div class="lab-legend">画面效果：光圈控制背景虚化，快门控制骑车人的拖影，ISO 控制噪点。蓝色数值是相机自动算出来的。</div>
+              </div>
+            </section>
+
+            <!-- AI 教练 -->
+            <section class="scr col" id="scr-ai" aria-label="AI 教练" hidden>
+              <div class="ai-top"><h2 class="ttl sm">AI 教练</h2>
+                <div style="display:flex;gap:6px;align-items:center;min-width:0"><span class="model-chip" id="modelChip"></span><button class="pill" id="btnFast" aria-pressed="false">快进</button></div>
+              </div>
+              <div class="demo-note">演示：回答为预设脚本，不联网。真实版本由你配置的模型实时生成。</div>
+              <div class="chat" id="chat"></div>
+              <div class="picker" id="picker" hidden></div>
+              <form class="composer" id="composer">
+                <button type="button" class="icon-btn" id="btnAttach" aria-label="选择照片"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg></button>
+                <input id="chatInput" type="text" placeholder="问问光圈、快门、对焦…" autocomplete="off">
+                <button type="submit" class="icon-btn pri" aria-label="发送"><svg viewBox="0 0 24 24"><path d="m5 12 14-7-4 14-3-6-7-1z"/></svg></button>
+              </form>
+            </section>
+
+            <!-- 我的 -->
+            <section class="scr" id="scr-me" aria-label="我的" hidden>
+              <div class="pad">
+                <h2 class="ttl">我的</h2>
+                <div class="grp">
+                  <div class="grp-h">模型与 API</div>
+                  <div class="row solo" style="padding:8px"><div class="seg" id="segProto" style="flex:1"><button type="button" data-p="messages" aria-pressed="true">Anthropic Messages</button><button type="button" data-p="responses" aria-pressed="false">OpenAI Responses</button></div></div>
+                </div>
+                <div class="grp">
+                  <div class="row"><label for="inBase">Base URL</label><input type="text" id="inBase" value="https://api.anthropic.com"></div>
+                  <div class="row"><label for="inModel">模型</label><input type="text" id="inModel" value="claude-opus-5-5"></div>
+                  <div class="row"><label for="inKey">API Key</label><input type="password" id="inKey" value="shutter-academy-demo"></div>
+                  <div class="row"><label>思考强度</label><div class="seg" id="segEffort" style="width:170px"><button type="button" data-e="low" aria-pressed="false">低</button><button type="button" data-e="medium" aria-pressed="true">中</button><button type="button" data-e="high" aria-pressed="false">高</button></div></div>
+                </div>
+                <div style="display:flex;gap:8px;align-items:center"><button class="btn" id="btnTest" type="button">测试连接</button><span class="muted" style="font-size:12px">Key 存在 Android Keystore，只显示后 4 位</span></div>
+                <div class="test-res" id="testRes" hidden></div>
+                <div class="grp">
+                  <div class="grp-h">我的相机配置 · AI 会按这里给建议</div>
+                  <div class="row"><label>C1</label><span class="v">白平衡模式</span></div>
+                  <div class="row"><label>C2</label><span class="v">对焦区域</span></div>
+                  <div class="row"><label>C3</label><span class="v">对焦模式（拍照）/ 保护（回放）</span></div>
+                  <div class="row"><label>C4</label><span class="v">触摸操作选择（拍照）/ 删除（回放）</span></div>
+                  <div class="row"><label>AF-ON</label><span class="v">AF开启（拍照）/ 放大倍率（回放）</span></div>
+                  <div class="row"><label>镜头对焦保持</label><span class="v">对焦保持</span></div>
+                </div>
+                <div class="grp">
+                  <div class="grp-h">隐私</div>
+                  <div class="row"><span>上传前移除 GPS 和序列号</span><button class="sw" id="swGps" role="switch" aria-checked="true" aria-label="上传前移除 GPS"></button></div>
+                  <div class="row"><span>保存复盘历史</span><button class="sw" id="swHist" role="switch" aria-checked="true" aria-label="保存复盘历史"></button></div>
+                </div>
+                <div class="grp"><div class="row solo"><span>固件版本</span><span class="v">机身 1.00 · 镜头 01</span></div></div>
+              </div>
+            </section>
+
+            <div class="lcdv" id="lcdView" hidden></div>
+            <div class="toast" id="toast" hidden></div>
+          </div>
+          <nav class="tabs" id="tabs" role="tablist">
+            <button class="tab" role="tab" data-tab="home" aria-selected="true"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>学习</button>
+            <button class="tab" role="tab" data-tab="cam" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>相机</button>
+            <button class="tab" role="tab" data-tab="lab" aria-selected="false"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>实验室</button>
+            <button class="tab" role="tab" data-tab="ai" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>AI 教练</button>
+            <button class="tab" role="tab" data-tab="me" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>我的</button>
+          </nav>
+        </div>
+      </div>
+      <p class="phone-hint">在手机框里直接操作；右侧说明跟着当前页面切换</p>
+    </div>
+
+    <div class="doc">
+      <section class="note" id="note" aria-live="polite"></section>
+
+      <section class="dsec">
+        <h3>产品一句话</h3>
+        <p class="quote">一台装在手机里、可以随便按的 α7 V，加一位看得懂你照片、会指着按键教你的私人教练。</p>
+      </section>
+
+      <section class="dsec">
+        <h3>学习路径</h3>
+        <p>每个课时都按「3D 演示 → 图文讲解 → 互动练习 → 实拍任务」走。实拍任务要用真机拍完上传，由 AI 验收。</p>
+        <div class="lvls" id="lvlGrid"></div>
+      </section>
+
+      <section class="dsec">
+        <h3>AI 教练怎么工作</h3>
+        <p>Agent 循环跑在手机上。模型看照片和 EXIF，边讲边调用本地工具：在 3D 相机上高亮按键、演示拨盘转几格、在照片上画框。工具全部在客户端执行，结果再回传给模型。</p>
+        <pre class="mermaid">
+sequenceDiagram
+  participant U as 用户
+  participant A as App（Agent 循环）
+  participant M as 模型服务
+  participant T as 本地工具
+  U->>A: 上传照片 + 拍摄意图
+  A->>A: 解析 EXIF、缩放、对焦点裁切、移除 GPS
+  A->>M: 系统提示 + 工具定义 + 照片 + EXIF
+  M-->>A: 流式文本 + tool_use / function_call
+  A->>T: highlight_control、annotate_photo …
+  T-->>A: 3D 高亮、照片标注的执行结果
+  A->>M: tool_result / function_call_output
+  M-->>A: 复盘卡 + end_turn
+  A->>U: 对话、3D 演示、复盘卡
+        </pre>
+        <div class="tbl" style="margin-top:12px"><table>
+          <thead><tr><th>工具</th><th>在 App 里的效果</th><th>主要参数</th></tr></thead>
+          <tbody>
+            <tr><td><code>highlight_control</code></td><td>3D 相机上部件发光，旁边弹出一句提示</td><td>control_ids、note、style</td></tr>
+            <tr><td><code>demonstrate_control</code></td><td>拨盘转几格、按键按下、开关拨动</td><td>control_id、action、direction、steps</td></tr>
+            <tr><td><code>set_camera_view</code></td><td>切到正面、顶部、背面、镜头视角</td><td>view</td></tr>
+            <tr><td><code>set_virtual_settings</code></td><td>虚拟屏幕显示改完后的参数</td><td>mode、aperture、shutter、iso、ev</td></tr>
+            <tr><td><code>annotate_photo</code></td><td>照片上画绿框（好）和橙框（要改）</td><td>regions[bbox, label, kind]</td></tr>
+            <tr><td><code>compare_exposure</code></td><td>调整前后参数对比表</td><td>before、after、explanation</td></tr>
+            <tr><td><code>add_practice_task</code></td><td>把练习加进「学习 › 今日任务」</td><td>title、steps、success_criteria</td></tr>
+            <tr><td><code>lookup_manual</code> / <code>get_camera_config</code></td><td>查本地手册摘要 / 读你的 C 键分配</td><td>query / 无</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section class="dsec">
+        <h3>两种协议，一套工具</h3>
+        <p>工具只定义一次，由适配器转换成两种格式。在「我的」里切换协议，AI 页的工具卡片会显示对应的字段名。</p>
+        <div class="tbl"><table>
+          <thead><tr><th>能力</th><th>Anthropic Messages API</th><th>OpenAI Responses API</th></tr></thead>
+          <tbody>
+            <tr><td>图片输入</td><td><code>image</code> + base64 source</td><td><code>input_image</code> + data URL</td></tr>
+            <tr><td>工具定义</td><td><code>input_schema</code>, <code>strict</code></td><td><code>type:"function"</code>, <code>parameters</code></td></tr>
+            <tr><td>模型调用工具</td><td><code>tool_use</code>（id, input）</td><td><code>function_call</code>（call_id, arguments 字符串）</td></tr>
+            <tr><td>回传结果</td><td><code>tool_result</code></td><td><code>function_call_output</code></td></tr>
+            <tr><td>流式文本</td><td><code>text_delta</code></td><td><code>response.output_text.delta</code></td></tr>
+            <tr><td>思考强度</td><td><code>output_config.effort</code></td><td><code>reasoning.effort</code></td></tr>
+          </tbody>
+        </table></div>
+        <p style="margin-top:10px">默认模型 <code>claude-opus-5-5</code>：工具选择用 <code>auto</code>（它不支持强制调用），工具开 <code>strict</code>；历史只追加，思考块原样回传；处理 <code>refusal</code> 停止原因。</p>
+      </section>
+
+      <section class="dsec">
+        <h3>技术选型：沿用 QuantWise</h3>
+        <ul>
+          <li>React Native 0.87 + TypeScript，react-navigation 7、zustand、op-sqlite、react-native-keychain，和 QuantWise 一致。</li>
+          <li>AI 层直接移植 QuantWise 的 <code>src/ai/</code>（双协议请求构建、SSE、工具循环、Key 存储、mock 服务），只新增图片输入和相机工具集。</li>
+          <li>3D 用 react-native-webview + three.js。这个原型里的 3D 相机代码就是将来搬进 App 的那一份。</li>
+          <li>WebView 在中端机上达不到 60fps 时，换 react-native-filament，部件 ID 不变。</li>
+        </ul>
+      </section>
+
+      <section class="dsec">
+        <h3>里程碑</h3>
+        <div class="mile">
+          <div class="now"><em>第 1 周</em><b>M0 原型</b>PRD + 本页原型</div>
+          <div><em>第 2–5 周</em><b>M1 工程与 3D</b>工程骨架、3D 相机、部件字典、屏幕详解</div>
+          <div><em>第 6–9 周</em><b>M2 课程与实验室</b>L0–L5、曝光实验室</div>
+          <div><em>第 10–11 周</em><b>M3 AI 教练</b>图片输入、相机工具、3D 联动</div>
+          <div><em>第 12–14 周</em><b>M4 打磨</b>菜单模拟器、成长报告、真机测试</div>
+          <div><em>M4 之后</em><b>V1 / V2</b>相机直连导入、L6–L11；视频课 L12–L14</div>
+        </div>
+      </section>
+
+      <section class="dsec">
+        <h3>已确认</h3>
+        <div class="tbl"><table>
+          <thead><tr><th>问题</th><th>结论</th></tr></thead>
+          <tbody>
+            <tr><td>App 名称</td><td>快门学院</td></tr>
+            <tr><td>视频拍摄课程</td><td>要做，排在 V2：L12 视频入门、L13 对焦与防抖、L14 画面风格与收音</td></tr>
+            <tr><td>相机直连导入</td><td>要做，排在 V1：USB-C 直连；Wi-Fi 直连先做 2 天技术验证</td></tr>
+            <tr><td>AI 教练语气</td><td>略严格：先讲问题再讲优点，不说空泛的夸奖，打分从严</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <p class="foot">完整需求见 <code>docs/PRD.md</code>。3D 模型是程序化生成的示意模型，按键位置和出厂默认功能需对照 Sony 官方帮助指南和实机核对，精模在 M1 用 Blender 制作。</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "com.facebook.react"
+
+react {
+    autolinkLibrariesWithApp()
+}
+
+android {
+    namespace "com.shutteracademy"
+    compileSdk rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    ndkVersion rootProject.ext.ndkVersion
+    defaultConfig {
+        applicationId "com.shutteracademy"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "0.1.0"
+    }
+    buildTypes {
+        preview {
+            initWith release
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+        }
+    }
+}
+dependencies {
+    implementation("com.facebook.react:react-android")
+    implementation("com.facebook.react:hermes-android")
+}
+
+def projectRoot = rootProject.projectDir.parentFile
+def cameraAssets = tasks.register("buildCameraAssets", Exec) {
+    workingDir projectRoot
+    inputs.files(fileTree(new File(projectRoot, "src/camera3d")), fileTree(new File(projectRoot, "src/camera")),
+        fileTree(new File(projectRoot, "assets")), new File(projectRoot, "docs/spec/controls.json"),
+        new File(projectRoot, "scripts/build-camera3d.mjs"), new File(projectRoot, "package-lock.json"))
+    outputs.dirs("src/main/assets/camera3d", "src/main/assets/fonts")
+    commandLine "node", "scripts/build-camera3d.mjs"
+}
+tasks.named("preBuild").configure { dependsOn(cameraAssets) }
+
+def verifyReleaseModel = tasks.register("verifyReleaseModel", Exec) {
+    workingDir projectRoot
+    commandLine "node", "scripts/check-model.mjs"
+}
+tasks.matching { it.name == "preReleaseBuild" }.configureEach { dependsOn(verifyReleaseModel) }

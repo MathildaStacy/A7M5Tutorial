@@ -1,0 +1,6 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {"resolveJsonModule":true},
+  "include": ["App.tsx","src/**/*.ts","src/**/*.tsx","__tests__/**/*.ts"],
+  "exclude": ["node_modules","src/camera3d"]
+}

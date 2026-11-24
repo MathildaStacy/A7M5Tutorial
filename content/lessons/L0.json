@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "id": "L0",
+  "title": "开箱",
+  "minutes": 20,
+  "goals": [
+    "装好电池、存储卡和镜头",
+    "完成第一次开机设置，格式化存储卡",
+    "调好取景器，确认 JPEG 格式并禁止无卡拍摄"
+  ],
+  "sections": [
+    {
+      "kind": "demo",
+      "steps": [
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "bottom"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "battery_door"
+            ],
+            "note": "电池仓",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "先把 **NP-FZ100** 装进握把底部的电池仓。关机，把 USB-C 线接到机身左侧任一 USB-C 口和充电电源。橙灯常亮表示正在充电，熄灭表示充电结束。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "right"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "card_door"
+            ],
+            "note": "存储卡仓",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "存储卡仓在右侧（握把侧）。卡槽 1 支持 CFexpress A 型卡和 SD 卡，卡槽 2 只支持 SD 卡。**只有一张卡就插卡槽 1。**"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "front"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "lens_release"
+            ],
+            "note": "镜头释放按钮",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "装镜头：镜头上的白点对准卡口上的白点，插进去，**顺时针**转到听见\"咔哒\"。卸镜头时按住这个按钮，逆时针转下来。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "power"
+            ],
+            "note": "电源开关",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "power",
+            "action": "slide",
+            "direction": "none",
+            "steps": null,
+            "target": "ON"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "快门外圈是电源开关。首次拨到 ON，按屏幕提示选语言。可以与 Creators' App 配对并用手机设时钟，也可以跳过配对，在相机上设区域、日期和时间。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "back"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "diopter"
+            ],
+            "note": "屈光度调节",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "眼睛贴近取景器，看着里面的文字转动屈光度调节，转到文字**最清楚**为止。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_menu"
+            ],
+            "note": "菜单键",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "格式化存储卡、修改文件格式都在菜单里，具体步骤看下面的图文讲解。"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "read",
+      "markdown": "## 开箱后按这个顺序做\n\n### 1. 装电池\n[[battery_door]] 在机身底部、握把下方。打开仓门，按仓门里的箭头方向插入 NP-FZ100 电池，推到底，直到锁扣扣住电池。\n\n### 2. 充电\n装好电池，把 [[power]] 拨到 OFF。准备 USB-C 线和兼容电源，接到 [[ports]] 里的任一 USB-C 口即可充电。索尼建议用支持 18 W 或以上 USB PD 的电源和线。充电灯橙色常亮表示正在充电，随后熄灭表示充电结束。随附配件以当地装箱清单为准。\n\n### 3. 装存储卡\n[[card_door]] 在右侧（握把侧）。卡槽 1 支持 CFexpress A 型卡和 SD 卡，卡槽 2 只支持 SD 卡。只有一张卡时插卡槽 1，相机默认把照片存在卡槽 1。卡的朝向按卡槽旁边的图示，插到听见\"咔哒\"。\n\n### 4. 装镜头\n1. 确认 [[power]] 在 OFF。帮助指南要求换镜头前关机。\n2. 取下机身盖和镜头后盖。卡口朝下，动作要快，减少灰尘进入。\n3. 镜头上的白点对准机身卡口上的白点，插进去，从正面看**顺时针**转动，直到\"咔哒\"一声锁住。\n4. 卸镜头：按住 [[lens_release]]，逆时针转下来。\n\n不要用手指碰卡口里面的传感器。\n\n### 5. 开机和首次设置\n把 [[power]] 拨到 ON，按提示选语言。与 Creators' App 配对时可用手机设置时钟。选择跳过手机连接时，在机身上用 [[wheel]] 选择区域、日期和时间，按 [[btn_center]] 确认。照片会记录这个拍摄时间。\n\n以后改语言，按 [[btn_menu]]，路径是 MENU › 设置 › 区域/日期 › 语言。\n\n### 6. 格式化存储卡\n**格式化会清空所选卡槽的整张卡。** 先备份需要的文件，再按 [[btn_menu]]，进入 MENU › 拍摄 › 媒体 › 格式化。核对要格式化的卡槽，确认后等待完成。\n\n### 7. 调屈光度\n眼睛贴近 [[evf]]，看着里面的文字转动 [[diopter]]，转到文字最清楚为止。戴不戴眼镜，清楚的位置不一样，按你平时拍照的习惯来调。\n\n### 8. 确认照片格式，防止忘插卡\n\n| 设置 | 建议值 | 为什么 |\n|---|---|---|\n| 文件格式 | JPEG（出厂即为 JPEG） | 快门学院的 AI 复盘目前只读 JPEG。以后想同时保留原始文件，可选 RAW&JPEG |\n| 无存储卡时释放快门 | 禁止 | 默认是允许，不插卡也能按快门，拍完才发现一张都没存下来 |\n\n照片格式在 MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › 文件格式。若屏幕显示 HEIF，先在 MENU › 拍摄 › 影像质量/记录 › JPEG/HEIF切换 选 JPEG。防止无卡拍摄，进入 MENU › 拍摄 › 快门/静音 › 无存储卡时释放快门，选「禁止」。\n\n## 常见错误\n- **开着机换镜头**：先关机再换。\n- **镜头没转到位**：屏幕提示没有安装镜头，或者镜头一晃就动。卸下来重新装，转到听见\"咔哒\"。\n- **用电脑格式化存储卡**：可能让相机读写出错。只在相机里格式化。"
+    },
+    {
+      "kind": "practice",
+      "items": [
+        {
+          "type": "find_control",
+          "target": "battery_door"
+        },
+        {
+          "type": "find_control",
+          "target": "card_door"
+        },
+        {
+          "type": "find_control",
+          "target": "lens_release"
+        },
+        {
+          "type": "find_control",
+          "target": "diopter"
+        },
+        {
+          "type": "choice",
+          "q": "换镜头之前，第一步做什么？",
+          "options": [
+            "关机",
+            "打开菜单",
+            "取下镜头后盖"
+          ],
+          "answer": 0,
+          "explain": "帮助指南要求换镜头前关机。关机后再取下机身盖和镜头后盖。"
+        },
+        {
+          "type": "choice",
+          "q": "你只有一张 SD 卡，插哪个卡槽？",
+          "options": [
+            "卡槽 1",
+            "卡槽 2",
+            "哪个都行，没有区别"
+          ],
+          "answer": 0,
+          "explain": "相机默认把照片存到卡槽 1。插在卡槽 2 需要改设置，新手直接插卡槽 1。"
+        },
+        {
+          "type": "choice",
+          "q": "新买的存储卡第一次用，应该怎么做？",
+          "options": [
+            "在相机里格式化",
+            "在电脑上格式化",
+            "直接用，不用处理"
+          ],
+          "answer": 0,
+          "explain": "在相机里格式化，卡的文件结构才和这台相机匹配。格式化会清空卡里的内容。"
+        },
+        {
+          "type": "choice",
+          "q": "为什么要把\"无存储卡时释放快门\"改成禁止？",
+          "options": [
+            "避免没插卡还以为拍上了",
+            "可以省电",
+            "照片画质会更好"
+          ],
+          "answer": 0,
+          "explain": "默认允许时，没插卡也能按快门，照片不会保存。改成禁止后，没插卡就按不下快门，你会马上发现。"
+        }
+      ]
+    },
+    {
+      "kind": "task",
+      "title": "拍一张桌上的杯子",
+      "photos": 1,
+      "complete_by": "ai",
+      "steps": [
+        "模式转盘转到 AUTO（智能自动）",
+        "对着杯子半按快门，看屏幕左下的对焦指示，确认合焦",
+        "把快门按到底，拍一张",
+        "用 Sony Creators' App 把照片传到手机相册，回到这一课点「上传照片」"
+      ],
+      "success_criteria": "照片是 JPEG，杯子在画面里，并且对得清楚",
+      "ai_rubric": [
+        "EXIF 里的机型是 ILCE-7M5，文件是 JPEG",
+        "画面主体是杯子",
+        "杯子对焦清晰，没有明显的糊"
+      ]
+    }
+  ],
+  "needs_verification": []
+}

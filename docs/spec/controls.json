@@ -1,0 +1,594 @@
+{
+  "_comment": "快门学院 · 部件字典。原型和课程共用此表。verified 须在 α7 V 官方帮助指南和实机两项均核对后设为 true。id 同时是 3D 模型节点名和工具参数 control_ids 的取值。",
+  "version": 1,
+  "camera": "ILCE-7M5 (α7 V)",
+  "lens": "SEL2470GM2 (FE 24-70mm F2.8 GM II)",
+  "controls": [
+    {
+      "id": "power",
+      "name": "电源开关",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部，快门按钮外圈",
+      "default_function": "开 / 关",
+      "beginner_tip": "换镜头、换卡之前先关机",
+      "actions": [
+        "slide"
+      ],
+      "press_directions": null,
+      "positions": [
+        "OFF",
+        "ON"
+      ],
+      "verified": false
+    },
+    {
+      "id": "shutter",
+      "name": "快门按钮",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部握把",
+      "default_function": "半按：对焦和测光；全按：拍摄",
+      "beginner_tip": "先半按，看左下对焦指示，确认合焦后再按到底",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "dial_front",
+      "name": "前拨盘",
+      "part": "body",
+      "zone": "front",
+      "where": "握把前方，食指位置",
+      "default_function": "光圈环在 A 时，A / M 档调光圈。S 档调快门",
+      "beginner_tip": "保持默认",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "dial_rear_l",
+      "name": "后拨盘 L",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部右后，拇指位置",
+      "default_function": "S / M 档调快门速度。A 档、镜头光圈环在 A 时也可调光圈",
+      "beginner_tip": "保持默认",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "dial_rear_r",
+      "name": "后拨盘 R",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部最右侧，中间有锁定钮",
+      "default_function": "P、A、S 和 M 配 ISO AUTO 时调曝光补偿，默认每格 1/3 档",
+      "beginner_tip": "锁定钮弹起露出白线后可转动，看屏幕调到目标补偿值",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "mode_dial",
+      "name": "模式转盘",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部，取景器右侧",
+      "default_function": "智能自动 / P / A / S / M / 1 / 2 / 3",
+      "beginner_tip": "从 A 档（光圈优先）开始学",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": [
+        "AUTO",
+        "P",
+        "A",
+        "S",
+        "M",
+        "1",
+        "2",
+        "3"
+      ],
+      "verified": false
+    },
+    {
+      "id": "mode_switch",
+      "name": "静态 / 动态 / S&Q 切换",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部，模式转盘下方的旋钮",
+      "default_function": "按住前方解锁钮转动，选拍照、录像或 S&Q（慢快动作或缩时摄影）",
+      "beginner_tip": "先固定在拍照",
+      "actions": [
+        "rotate",
+        "slide"
+      ],
+      "press_directions": null,
+      "positions": [
+        "照片",
+        "动态",
+        "S&Q"
+      ],
+      "verified": false
+    },
+    {
+      "id": "btn_c2",
+      "name": "C2 自定义键",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部，MOVIE 键旁",
+      "default_function": "对焦区域",
+      "beginner_tip": "想指定对焦位置，可选「点: M」再拨动摇杆",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_movie",
+      "name": "MOVIE 录像键",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部，红圈",
+      "default_function": "开始 / 停止录像",
+      "beginner_tip": "拍照时别误按",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_menu",
+      "name": "MENU 菜单键",
+      "part": "body",
+      "zone": "back",
+      "where": "背面左上",
+      "default_function": "打开菜单",
+      "beginner_tip": "第一课先改语言、日期、文件格式",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_c1",
+      "name": "C1 自定义键",
+      "part": "body",
+      "zone": "back",
+      "where": "背面右上",
+      "default_function": "拍照时选白平衡模式",
+      "beginner_tip": "室内偏黄时用它换白平衡",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_c3",
+      "name": "C3 自定义键",
+      "part": "body",
+      "zone": "back",
+      "where": "背面左上，取景器左侧、MENU 旁",
+      "default_function": "拍照时选对焦模式，回放时保护照片",
+      "beginner_tip": "静物 AF-S，会动的主体 AF-C",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_ael",
+      "name": "AEL 曝光锁定",
+      "part": "body",
+      "zone": "back",
+      "where": "背面右上",
+      "default_function": "拍照时按住锁定曝光（AE锁定保持）",
+      "beginner_tip": "逆光时对着脸测光，按住锁定再构图",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_afon",
+      "name": "AF-ON",
+      "part": "body",
+      "zone": "back",
+      "where": "背面右上，拇指位置",
+      "default_function": "拍照时启动自动对焦，回放时放大照片",
+      "beginner_tip": "进阶课讲「后键对焦」",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "joystick",
+      "name": "多功能选择器（摇杆）",
+      "part": "body",
+      "zone": "back",
+      "where": "背面右侧",
+      "default_function": "拨动以移动支持的区域或跟踪起点。按下执行「对焦标准」",
+      "beginner_tip": "选「点: M」可移动框，按下可回中央或回到跟踪对象。广域或中间固定时，按下会对画面中央自动对焦",
+      "actions": [
+        "press"
+      ],
+      "press_directions": [
+        "up",
+        "down",
+        "left",
+        "right",
+        "center"
+      ],
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_fn",
+      "name": "Fn 功能键",
+      "part": "body",
+      "zone": "back",
+      "where": "背面，拨轮上方",
+      "default_function": "打开当前模式的 12 格功能菜单，拍照、录像、回放可分别配置",
+      "beginner_tip": "按 Fn 查看本机当前的排列",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "wheel",
+      "name": "控制拨轮",
+      "part": "body",
+      "zone": "back",
+      "where": "背面右下",
+      "default_function": "拍照时上键 DISP、左键「拍摄模式」、右键 ISO，下键和旋转出厂未设定。录像时左键为自拍定时",
+      "beginner_tip": "进入菜单后转动可选项或调值。回放时转动或按左右键可换照片",
+      "actions": [
+        "rotate",
+        "press"
+      ],
+      "press_directions": [
+        "up",
+        "down",
+        "left",
+        "right",
+        "center"
+      ],
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_center",
+      "name": "中央按钮",
+      "part": "body",
+      "zone": "back",
+      "where": "控制拨轮中间",
+      "default_function": "菜单里确认选择。拍照时中央按钮出厂未设定",
+      "beginner_tip": "要执行「对焦标准」，按背面摇杆中央",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_play",
+      "name": "回放键",
+      "part": "body",
+      "zone": "back",
+      "where": "背面右下",
+      "default_function": "回看照片",
+      "beginner_tip": "拍完放大检查眼睛是否清晰",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "btn_c4",
+      "name": "C4 / 删除键",
+      "part": "body",
+      "zone": "back",
+      "where": "背面右下角",
+      "default_function": "拍照时为「触摸操作选择」，回放时为「删除」",
+      "beginner_tip": "删除前确认放大看过",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "lcd",
+      "name": "触摸屏",
+      "part": "body",
+      "zone": "back",
+      "where": "背面，可多角度翻转",
+      "default_function": "显示拍摄信息，可触摸对焦",
+      "beginner_tip": "点它进入「屏幕显示详解」",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "evf",
+      "name": "电子取景器",
+      "part": "body",
+      "zone": "back",
+      "where": "背面顶部",
+      "default_function": "眼睛贴近时自动切换到取景器",
+      "beginner_tip": "第一课先调屈光度",
+      "actions": [],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "diopter",
+      "name": "屈光度调节",
+      "part": "body",
+      "zone": "back",
+      "where": "取景器右侧",
+      "default_function": "让取景器画面对你的眼睛清晰",
+      "beginner_tip": "看着取景器里的文字，转到最清楚",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "hotshoe",
+      "name": "多接口热靴",
+      "part": "body",
+      "zone": "top",
+      "where": "顶部中央",
+      "default_function": "装闪光灯、麦克风",
+      "beginner_tip": "逆光人像可以加闪光灯补光",
+      "actions": [],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "lens_release",
+      "name": "镜头释放按钮",
+      "part": "body",
+      "zone": "front",
+      "where": "正面卡口旁",
+      "default_function": "按住并转动镜头即可卸下",
+      "beginner_tip": "换镜头前先关机，卡口朝下",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "card_door",
+      "name": "存储卡仓",
+      "part": "body",
+      "zone": "right",
+      "where": "右侧（握把侧）",
+      "default_function": "卡槽 1：CFexpress A / SD；卡槽 2：SD",
+      "beginner_tip": "新卡先在相机里格式化",
+      "actions": [],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "ports",
+      "name": "接口仓",
+      "part": "body",
+      "zone": "left",
+      "where": "机身左侧的接口盖内",
+      "default_function": "全尺寸 HDMI type A、麦克风、耳机及两个 USB-C 口。USB PORT 1 最高 10 Gbps，USB PORT 2 最高 480 Mbps",
+      "beginner_tip": "装入电池并关机，任选一个 USB-C 口可充电。拷照片优先用 PORT 1",
+      "actions": [],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "battery_door",
+      "name": "电池仓",
+      "part": "body",
+      "zone": "bottom",
+      "where": "底部，握把下方",
+      "default_function": "NP-FZ100 电池",
+      "beginner_tip": "出门前充满，冬天带备用电池",
+      "actions": [],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "ring_zoom",
+      "name": "变焦环",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头中段",
+      "default_function": "24 / 35 / 50 / 70mm",
+      "beginner_tip": "L8 学不同焦段的视角",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": [
+        "24",
+        "35",
+        "50",
+        "70"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ring_focus",
+      "name": "对焦环",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头最前段",
+      "default_function": "MF 时手动对焦；DMF 时可微调",
+      "beginner_tip": "AF 时一般不用碰",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "ring_aperture",
+      "name": "光圈环",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头最后段（靠机身）",
+      "default_function": "A：由机身控制；或直接选 F2.8–F22",
+      "beginner_tip": "新手放在 A，用前拨盘调光圈",
+      "actions": [
+        "rotate"
+      ],
+      "press_directions": null,
+      "positions": [
+        "2.8",
+        "4",
+        "5.6",
+        "8",
+        "11",
+        "16",
+        "22",
+        "A"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sw_iris_lock",
+      "name": "光圈锁",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头左侧靠卡口，IRIS LOCK 标记与箭头旁",
+      "default_function": "光圈环在 A 时可锁在 A。处于数值档时锁定，仍可在 F2.8–F22 内转动",
+      "beginner_tip": "锁在 A，避免误碰",
+      "actions": [
+        "slide"
+      ],
+      "press_directions": null,
+      "positions": [
+        "锁定",
+        "松开"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sw_click",
+      "name": "光圈段落感开关",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头右侧靠卡口，与 SMOOTH/TIGHT 同侧，标有 CLICK",
+      "default_function": "ON 时转光圈环有档位感。OFF 时平滑调整，可减少录像时的档位声",
+      "beginner_tip": "保持 ON",
+      "actions": [
+        "slide"
+      ],
+      "press_directions": null,
+      "positions": [
+        "ON",
+        "OFF"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sw_focus_mode",
+      "name": "AF / MF 切换",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头左侧",
+      "default_function": "自动 / 手动对焦",
+      "beginner_tip": "保持 AF",
+      "actions": [
+        "slide"
+      ],
+      "press_directions": null,
+      "positions": [
+        "AF",
+        "MF"
+      ],
+      "verified": false
+    },
+    {
+      "id": "btn_focus_hold",
+      "name": "对焦保持按钮",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头左侧和上方各一个",
+      "default_function": "按住锁定当前对焦距离，可自定义",
+      "beginner_tip": "进阶可设为「眼部对焦」",
+      "actions": [
+        "press"
+      ],
+      "press_directions": null,
+      "positions": null,
+      "verified": false
+    },
+    {
+      "id": "sw_zoom_smooth",
+      "name": "变焦手感开关",
+      "part": "lens",
+      "zone": "lens",
+      "where": "镜头右侧",
+      "default_function": "SMOOTH 顺滑 / TIGHT 紧",
+      "beginner_tip": "TIGHT 增加阻尼，可减少携带时镜筒意外伸出",
+      "actions": [
+        "slide"
+      ],
+      "press_directions": null,
+      "positions": [
+        "SMOOTH",
+        "TIGHT"
+      ],
+      "verified": false
+    }
+  ]
+}

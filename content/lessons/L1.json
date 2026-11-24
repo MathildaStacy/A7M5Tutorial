@@ -1,0 +1,459 @@
+{
+  "version": 1,
+  "id": "L1",
+  "title": "认识机身",
+  "minutes": 20,
+  "goals": [
+    "知道每个按键、拨盘在哪，出厂时是干什么的",
+    "分清前拨盘、后拨盘 L、后拨盘 R",
+    "知道镜头上的环和开关该放在哪个位置"
+  ],
+  "sections": [
+    {
+      "kind": "demo",
+      "steps": [
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "shutter"
+            ],
+            "note": "快门：半按对焦",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**快门按钮**分两段：半按是对焦和测光，按到底才是拍摄。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "mode_dial"
+            ],
+            "note": "模式转盘",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "mode_dial",
+            "action": "rotate",
+            "direction": "none",
+            "steps": null,
+            "target": "A"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**模式转盘**决定由谁来控制曝光。AUTO 全交给相机；A、S、M 由你控制一部分或全部，后面几课逐个学。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "mode_switch"
+            ],
+            "note": "拍照 / 录像切换",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "按住下层旋钮前方的解锁钮再转动，可选拍照、录像或 S&Q。S&Q 可拍慢快动作或缩时。现在选**拍照**。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "front"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "dial_front"
+            ],
+            "note": "前拨盘",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "食指位置是**前拨盘**，A 档和 M 档用它调光圈。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "dial_rear_l",
+              "dial_rear_r"
+            ],
+            "note": "后拨盘 L 和 R",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "拇指位置有两个拨盘：**后拨盘 L** 在 S 档和 M 档调快门；最右边的**后拨盘 R** 调曝光补偿，中间有锁定钮。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_c2",
+              "btn_movie"
+            ],
+            "note": "C2 和录像键",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "顶部还有 **C2 自定义键**（出厂是对焦区域）和红圈的**录像键**。拍照时别误按录像键。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "back"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_menu",
+              "btn_fn"
+            ],
+            "note": "菜单键和 Fn 键",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**MENU** 打开完整菜单，**Fn** 打开 12 格快捷菜单。拍照、录像和回放的格子可以分别配置。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_c1",
+              "btn_c3"
+            ],
+            "note": "C1 和 C3",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "拍照时，**C1** 出厂是白平衡模式。**C3** 在背面左上、MENU 旁边，出厂是对焦模式。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_afon",
+              "btn_ael"
+            ],
+            "note": "AF-ON 和 AEL",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**AF-ON** 启动对焦，**AEL** 锁定曝光。这两个键在对焦课和测光课里用。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "joystick"
+            ],
+            "note": "摇杆",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "选「区」或「点: M」时，可以用**摇杆**移动对焦框。按下摇杆执行「对焦标准」，效果随区域而变。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "wheel"
+            ],
+            "note": "控制拨轮",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "wheel",
+            "action": "press",
+            "direction": "up",
+            "steps": 1,
+            "target": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "拍照时，拨轮上键是 DISP，左键是「拍摄模式」（单张、连拍等），右键是 ISO。下键、中央键和直接转动出厂未设定拍摄功能。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_play",
+              "btn_c4"
+            ],
+            "note": "回放键和删除键",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**C4** 有两种出厂用法。拍照时是「触摸操作选择」。按回放键看照片后，C4 才是「删除」，确认后删除当前照片。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "lens"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "ring_focus",
+              "ring_zoom",
+              "ring_aperture"
+            ],
+            "note": "对焦环、变焦环、光圈环",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "镜头上的三个环，从前往后依次是：**对焦环**、**变焦环**（24–70mm）、**光圈环**。光圈环放在 A，把光圈交给机身控制。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "left"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "sw_focus_mode",
+              "sw_iris_lock",
+              "btn_focus_hold"
+            ],
+            "note": "镜头左侧",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "从机身后面向前看，镜头左侧有 **AF/MF** 和 **IRIS LOCK**。选 AF，把光圈环放在 A 后锁住。两个对焦保持按钮分别在左侧和上方，自动对焦时按住可保持当前焦点。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "right"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "sw_click",
+              "sw_zoom_smooth"
+            ],
+            "note": "镜头右侧",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "右侧靠卡口的是 **CLICK**。ON 让光圈环转动时有档位感，OFF 可平滑调整。同侧的 **SMOOTH/TIGHT** 管变焦阻尼，TIGHT 能减少携带时镜筒意外伸出。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "left"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "ports"
+            ],
+            "note": "USB PORT 1 和 PORT 2",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "机身左侧有两个 USB-C 口，关机时都能给电池充电。拷照片优先用 **PORT 1**，最高 10 Gbps；**PORT 2** 最高 480 Mbps。"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "read",
+      "markdown": "## 按区域认键\n\n### 顶部\n| 部件 | 出厂功能 | 新手怎么用 |\n|---|---|---|\n| [[power]] | 开 / 关 | 换镜头、换卡之前先关机 |\n| [[shutter]] | 半按对焦和测光，按到底拍摄 | 看左下对焦指示，确认合焦再按到底 |\n| [[mode_dial]] | AUTO / P / A / S / M / 1 / 2 / 3 | 前几课用 AUTO 和 P，L4 开始用 A |\n| [[mode_switch]] | 拍照 / 录像 / S&Q（慢快动作或缩时） | 按住前方解锁钮，把下层旋钮转到拍照 |\n| [[dial_rear_l]] | S 档、M 档调快门 | L4 学 |\n| [[dial_rear_r]] | 曝光补偿，每格 1/3 档 | 不用时按下中间的锁定钮锁住 |\n| [[btn_c2]] | 对焦区域 | L5 学 |\n| [[btn_movie]] | 开始 / 停止录像 | 拍照时别误按 |\n| [[hotshoe]] | 装闪光灯、麦克风 | 暂时用不到 |\n\n### 正面\n| 部件 | 出厂功能 | 新手怎么用 |\n|---|---|---|\n| [[dial_front]] | A 档、M 档调光圈 | L3、L4 学 |\n| [[lens_release]] | 按住后转动，卸下镜头 | 先关机再按 |\n\n### 背面\n| 部件 | 出厂功能 | 新手怎么用 |\n|---|---|---|\n| [[btn_menu]] | 打开菜单 | L0 已经用过 |\n| [[btn_fn]] | 12 格快捷菜单 | 拍照、录像、回放各有自己的排列。按 Fn 查看当前一套 |\n| [[btn_c1]] | 白平衡模式 | 室内照片偏黄时用 |\n| [[btn_c3]] | 拍照时选对焦模式 | 在背面左上，靠近 MENU |\n| [[btn_afon]] | 启动自动对焦 | 进阶时学「后键对焦」 |\n| [[btn_ael]] | 锁定曝光 | 测光课学 |\n| [[joystick]] | 移动支持的对焦区域，按下执行「对焦标准」 | 选「区」或「点: M」后拨动摇杆试试 |\n| [[wheel]] | 拍照时上键 DISP、左键「拍摄模式」、右键 ISO。下键和转动出厂未设定 | 录像时左键是自拍定时。回放时转动或按左右键换照片 |\n| [[btn_center]] | 拍照时出厂未设定 | 菜单中按它确认选择 |\n| [[btn_play]] | 回放照片 | 拍完放大检查 |\n| [[btn_c4]] | 拍照时「触摸操作选择」，回放时「删除」 | 回放先放大查看，再决定是否删除 |\n| [[lcd]] | 显示拍摄信息，可以触摸对焦，可以翻转 | 低角度、高角度拍摄时翻出来 |\n| [[evf]] | 眼睛贴近时自动切换到取景器 | 强光下比看屏幕清楚 |\n| [[diopter]] | 调取景器清晰度 | L0 已经调好 |\n\n### 侧面和底部\n| 部件 | 位置 | 内容 |\n|---|---|---|\n| [[card_door]] | 右侧 | 两个存储卡槽 |\n| [[ports]] | 左侧 | 全尺寸 HDMI type A、耳机、麦克风。USB PORT 1 最高 10 Gbps，USB PORT 2 最高 480 Mbps。两个 USB-C 口均可充电 |\n| [[battery_door]] | 底部 | NP-FZ100 电池 |\n\n## 三个拨盘别搞混\n\n| 拨盘 | 位置 | M 档出厂分工 |\n|---|---|---|\n| [[dial_front]] | 握把前面，食指 | 光圈 |\n| [[dial_rear_l]] | 顶部右后，拇指 | 快门 |\n| [[dial_rear_r]] | 顶部最右边，有锁定钮 | ISO AUTO 时调曝光补偿 |\n\nM 档把光圈和快门分给两个拨盘。A 档时，前拨盘和后拨盘 L 都可以调光圈。S 档时，这两个拨盘都可以调快门。\n\n## 镜头上的环和开关\n\n| 部件 | 放在哪 | 为什么 |\n|---|---|---|\n| [[ring_focus]] | 不用碰 | 自动对焦时用不到，DMF / MF 时才转 |\n| [[ring_zoom]] | 随意 | 24mm 视角最广，70mm 最窄，L8 专门讲 |\n| [[ring_aperture]] | A | 光圈交给机身的 [[dial_front]] 控制 |\n| [[sw_iris_lock]] | 左侧，光圈环在 A 时锁定 | 锁在 A 由机身调光圈。在数值档锁定则只能在 F2.8–F22 间转动 |\n| [[sw_click]] | 右侧，ON | 转光圈环时有档位感。要平滑调光圈可拨到 OFF |\n| [[sw_focus_mode]] | 左侧，AF | 自动对焦 |\n| [[btn_focus_hold]] | 不用管 | 按住时对焦距离不变，以后可以改成别的功能 |\n| [[sw_zoom_smooth]] | 右侧，按手感选 SMOOTH 或 TIGHT | TIGHT 增加变焦阻尼，减少镜筒意外伸出 |\n\n## 新手先别动的设置\n- **自定义键**（C1–C4、AEL、AF-ON）先保持出厂功能，这样课程里说的键名和你手上的一致。改过的话，在快门学院「我的 › 我的相机配置」里同步，AI 教练会按你的配置说键名。\n- **模式转盘上的 1 / 2 / 3** 是记忆档，存的是自定义设置，L11 再学。"
+    },
+    {
+      "kind": "practice",
+      "items": [
+        {
+          "type": "find_control",
+          "target": "shutter"
+        },
+        {
+          "type": "find_control",
+          "target": "mode_dial"
+        },
+        {
+          "type": "find_control",
+          "target": "dial_front"
+        },
+        {
+          "type": "find_control",
+          "target": "dial_rear_l"
+        },
+        {
+          "type": "find_control",
+          "target": "dial_rear_r"
+        },
+        {
+          "type": "find_control",
+          "target": "btn_fn"
+        },
+        {
+          "type": "find_control",
+          "target": "btn_afon"
+        },
+        {
+          "type": "find_control",
+          "target": "joystick"
+        },
+        {
+          "type": "find_control",
+          "target": "btn_play"
+        },
+        {
+          "type": "find_control",
+          "target": "ring_aperture"
+        },
+        {
+          "type": "operate",
+          "prompt": "把模式转盘转到 A",
+          "control": "mode_dial",
+          "start": {
+            "mode": "AUTO"
+          },
+          "expect": {
+            "mode": "A"
+          },
+          "hint": "模式转盘在顶部，取景器右侧"
+        },
+        {
+          "type": "choice",
+          "q": "M 档、镜头光圈环在 A，出厂时哪个拨盘调光圈？",
+          "options": [
+            "前拨盘",
+            "后拨盘 L",
+            "后拨盘 R"
+          ],
+          "answer": 0,
+          "explain": "M 档用食指位置的前拨盘调光圈，后拨盘 L 调快门。"
+        },
+        {
+          "type": "choice",
+          "q": "镜头上的光圈环应该放在哪？",
+          "options": [
+            "A",
+            "F2.8",
+            "F22"
+          ],
+          "answer": 0,
+          "explain": "放在 A，光圈由机身的前拨盘控制，课程里的操作才对得上。"
+        },
+        {
+          "type": "choice",
+          "q": "拍照时，哪个键能打开可自定义的 12 格快捷菜单？",
+          "options": [
+            "Fn",
+            "C3",
+            "回放键"
+          ],
+          "answer": 0,
+          "explain": "按 Fn 查看本机当前的快捷菜单。要直接选 ISO 或对焦模式，出厂键位分别是控制拨轮右键和 C3。"
+        }
+      ]
+    },
+    {
+      "kind": "task",
+      "title": "3D 找键练习满分",
+      "photos": 0,
+      "complete_by": "practice_mode",
+      "steps": [
+        "进入相机 Tab 的练习模式",
+        "10 道找键题全部答对"
+      ],
+      "success_criteria": "练习得分 10/10"
+    }
+  ],
+  "needs_verification": []
+}

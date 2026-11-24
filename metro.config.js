@@ -1,0 +1,4 @@
+const {getDefaultConfig} = require('@react-native/metro-config');
+const config = getDefaultConfig(__dirname);
+config.resolver.blockList = [/[/\\]android[/\\].*[/\\]build[/\\].*/, /[/\\]android[/\\]app[/\\]src[/\\]main[/\\]assets[/\\].*/];
+module.exports = config;

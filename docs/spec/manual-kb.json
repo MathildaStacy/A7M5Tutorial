@@ -1,0 +1,5399 @@
+{
+  "version": 1,
+  "camera": {
+    "model": "ILCE-7M5",
+    "guide_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/index.html",
+    "guide_lang": "zh-cn",
+    "guide_version": "5-069-971-91(6)"
+  },
+  "lens": {
+    "model": "SEL2470GM2",
+    "guide_url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf"
+  },
+  "retrieved_at": "2026-11-24",
+  "entries": [
+    {
+      "id": "language",
+      "title": "语言",
+      "category": "basic",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 区域/日期 › 语言",
+      "menu_path_en": "MENU › Setup › Area/Date › Language",
+      "other_access": [
+        "初始设置时选择语言"
+      ],
+      "controls": [],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "语言",
+        "Language",
+        "语言设置",
+        "菜单看不懂",
+        "菜单变成外文"
+      ],
+      "text": "菜单、警告和提示都会跟着切换语言。第一次开机时可以选择，以后也能回到这里，选相机列表中需要的语言。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_language.html",
+        "title": "语言"
+      },
+      "related": [
+        "date_time"
+      ]
+    },
+    {
+      "id": "date_time",
+      "title": "区域/日期/时间设置",
+      "category": "basic",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 区域/日期 › 区域/日期/时间设置",
+      "menu_path_en": "MENU › Setup › Area/Date › Area/Date/Time Setting",
+      "other_access": [
+        "首次开机按初始设置画面操作"
+      ],
+      "controls": [],
+      "options": [
+        "区域设置",
+        "夏时制",
+        "日期/时间",
+        "日期格式"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "区域/日期/时间设置",
+        "Area/Date/Time Setting",
+        "时区",
+        "照片时间不对",
+        "校准时钟",
+        "第一次开机"
+      ],
+      "text": "旅行换时区或照片日期不对时，在这里设当地地区，再核对日期、时间和夏时制。首次设置时也能用配对的手机校时。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_area_date_time_setting.html",
+        "title": "区域/日期/时间设置"
+      },
+      "related": [
+        "language"
+      ]
+    },
+    {
+      "id": "beep",
+      "title": "音频信号(拍摄)",
+      "category": "basic",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 声音选项 › 音频信号(拍摄)",
+      "menu_path_en": "MENU › Setup › Sound Option › Audio Signal(Shooting)",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开：全部",
+        "开：除快门以外",
+        "开：仅电子快门",
+        "关"
+      ],
+      "default": "开：全部",
+      "conditions": [
+        "静音模式开启时锁定为关。"
+      ],
+      "keywords": [
+        "音频信号(拍摄)",
+        "Audio Signal(Shooting)",
+        "提示音",
+        "对焦哔声",
+        "不想吵到人",
+        "快门声音"
+      ],
+      "text": "想听见合焦提示又保留安静的电子快门，可选“开：除快门以外”。出厂为“开：全部”。连续AF合焦时没有哔声，静音模式会关闭拍摄提示音。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601B_audio_signals.html",
+        "title": "音频信号(拍摄)"
+      },
+      "related": [
+        "af_confirm",
+        "shutter_type"
+      ]
+    },
+    {
+      "id": "touch_ops",
+      "title": "触摸操作",
+      "category": "basic",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 触摸操作 › 触摸操作",
+      "menu_path_en": "MENU › Setup › Touch Operation › Touch Operation",
+      "other_access": [
+        "拍照时按C4切换触摸操作"
+      ],
+      "controls": [
+        "btn_c4",
+        "lcd"
+      ],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "开",
+      "conditions": [],
+      "keywords": [
+        "触摸操作",
+        "Touch Operation",
+        "触屏",
+        "屏幕点不动",
+        "双击照片",
+        "回放触摸"
+      ],
+      "text": "出厂时触摸操作和“触摸面板设置”里的“播放画面”都已开启。回看照片可左右滑动换片，双击放大后拖动查看细节。触屏失灵时检查这两处设置。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601E_touch_operation.html",
+        "title": "触摸操作"
+      },
+      "related": [
+        "playback_zoom",
+        "touch_focus"
+      ]
+    },
+    {
+      "id": "initialize",
+      "title": "出厂重置",
+      "category": "basic",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 重置/保存设置 › 出厂重置",
+      "menu_path_en": "MENU › Setup › Reset/Save Settings › Setting Reset",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "相机设置复位",
+        "初始化"
+      ],
+      "default": null,
+      "conditions": [
+        "多数图片配置文件的设置即使初始化也保留。"
+      ],
+      "keywords": [
+        "出厂重置",
+        "Setting Reset",
+        "恢复出厂设置",
+        "重置相机",
+        "相机设置复位"
+      ],
+      "text": "只想重新开始设拍摄参数，选“相机设置复位”。“初始化”的范围更广，已拍的照片会保留。重设期间保持电池在位。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_setting_reset.html",
+        "title": "出厂重置"
+      },
+      "related": [
+        "custom_keys"
+      ]
+    },
+    {
+      "id": "power_save",
+      "title": "自动关机",
+      "category": "basic",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 电源设置选项 › 自动关机",
+      "menu_path_en": "MENU › Setup › Power Setting Option › Power Save",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "关",
+        "10秒",
+        "15秒",
+        "30秒",
+        "1分钟",
+        "2分钟",
+        "3分钟",
+        "5分钟",
+        "10分钟",
+        "30分钟"
+      ],
+      "default": "1分钟",
+      "conditions": [],
+      "keywords": [
+        "自动关机",
+        "Power Save",
+        "节电",
+        "待机唤醒",
+        "相机自己睡着"
+      ],
+      "text": "相机闲置一段时间会进入省电状态，半按快门即可继续拍。出厂等待一分钟，录像、USB供电或连接电脑等情况下不会按这个时间休眠。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601B_power_save_start_time.html",
+        "title": "自动关机"
+      },
+      "related": [
+        "battery"
+      ]
+    },
+    {
+      "id": "monitor_brightness",
+      "title": "显示屏亮度",
+      "category": "basic",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 取景器/显示屏 › 显示屏亮度",
+      "menu_path_en": "MENU › Setup › Finder/Monitor › Monitor Brightness",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "手动",
+        "晴朗天气"
+      ],
+      "default": "手动",
+      "conditions": [],
+      "keywords": [
+        "显示屏亮度",
+        "Monitor Brightness",
+        "屏幕太暗",
+        "阳光下看不清"
+      ],
+      "text": "晴天在户外看不清屏幕，可选“晴朗天气”。回到室内换回“手动”，在 −2 到 +2 之间调到眼睛舒服的亮度。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601B_monitor_brightness.html",
+        "title": "显示屏亮度"
+      },
+      "related": [
+        "finder_monitor_switch"
+      ]
+    },
+    {
+      "id": "finder_monitor_switch",
+      "title": "选择取景器/显示屏",
+      "category": "basic",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 取景器/显示屏 › 选择取景器/显示屏",
+      "menu_path_en": "MENU › Setup › Finder/Monitor › Select Finder/Monitor",
+      "other_access": [],
+      "controls": [
+        "evf"
+      ],
+      "options": [
+        "自动:1",
+        "自动:2",
+        "取景器（手动）",
+        "显示屏（手动）"
+      ],
+      "default": "自动:1",
+      "conditions": [],
+      "keywords": [
+        "选择取景器/显示屏",
+        "Select Finder/Monitor",
+        "眼传感器",
+        "抬眼黑屏",
+        "EVF LCD"
+      ],
+      "text": "眼睛靠近取景器时想自动切换，可从出厂的“自动:1”开始。翻开屏幕后仍想使用眼传感器，可选“自动:2”。遮住传感器也可能触发切换。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_finder_lcd_set.html",
+        "title": "选择取景器/显示屏"
+      },
+      "related": [
+        "diopter"
+      ]
+    },
+    {
+      "id": "firmware_version",
+      "title": "版本",
+      "category": "basic",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 设置选项 › 版本",
+      "menu_path_en": "MENU › Setup › Setup Option › Version",
+      "other_access": [],
+      "controls": [],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "版本",
+        "Version",
+        "固件版本",
+        "软件更新",
+        "机身版本"
+      ],
+      "text": "准备更新前先查看“机身”一栏，装上支持更新的镜头时还会显示镜头版本。只查看版本即可读数，执行更新另需至少51%的电量。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_version.html",
+        "title": "版本"
+      },
+      "related": [
+        "battery"
+      ]
+    },
+    {
+      "id": "battery",
+      "title": "电池与 USB 充电",
+      "category": "body",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "装好电池，关机后将外部电源接到任一 USB-C 口"
+      ],
+      "controls": [
+        "battery_door",
+        "ports"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "USB-PD 充电建议使用支持 18 W 或以上的线和电源，较低功率可能需要更长时间。"
+      ],
+      "keywords": [
+        "电池充电",
+        "关机充电",
+        "怎么充电",
+        "USB充电",
+        "Charging the battery",
+        "NP-FZ100",
+        "充电灯",
+        "橙灯闪烁"
+      ],
+      "text": "装好 NP-FZ100 电池并关机，把电源接到任一 USB-C 口即可充电。橙灯常亮表示正在充电，熄灭表示充电结束，闪烁可能表示充电出错或因温度暂停。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0001D_charge_commercially_available_acadaptor.html",
+        "title": "使用USB-PD兼容设备对电池进行充电"
+      },
+      "related": [
+        "usb_power_supply",
+        "ports",
+        "power_save"
+      ]
+    },
+    {
+      "id": "usb_power_supply",
+      "title": "USB电源供给",
+      "category": "body",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › USB › USB电源供给",
+      "menu_path_en": "MENU › Setup › USB › USB Power Supply",
+      "other_access": [],
+      "controls": [
+        "ports"
+      ],
+      "options": [
+        "自动",
+        "PORT1",
+        "PORT2",
+        "关"
+      ],
+      "default": "自动",
+      "conditions": [
+        "没有剩余电量的电池无法启动相机。",
+        "应在相机关机时插拔 USB 线。"
+      ],
+      "keywords": [
+        "USB电源供给",
+        "USB Power Supply",
+        "开机供电",
+        "外接供电",
+        "USB供电",
+        "边拍边供电",
+        "27 W"
+      ],
+      "text": "长时间拍摄或回放时，先装入有电的电池，关机接好 USB 线再开机。出厂为“自动”，两个 USB-C 口均可供电。索尼建议使用支持 27 W 或以上的 USB-PD 电源和线。开机时电池不会充电，电量仍可能下降。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/252h_using_camera_usb_power_supply.html",
+        "title": "通过USB供电使用相机"
+      },
+      "related": [
+        "battery",
+        "ports",
+        "usb_connection"
+      ]
+    },
+    {
+      "id": "diopter",
+      "title": "屈光度调节旋钮",
+      "category": "body",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "取景器旁的屈光度调节旋钮"
+      ],
+      "controls": [
+        "diopter",
+        "evf"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "屈光度调节旋钮",
+        "Diopter-adjustment dial",
+        "取景器看不清",
+        "眼睛模糊",
+        "目镜"
+      ],
+      "text": "如果取景器里的字也模糊，眼睛看着里面，转动目镜旁的屈光度调节旋钮，直到显示清楚。旋钮难以够到时可先取下眼罩。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_names_of_parts_ilc2540_back.html",
+        "title": "背面"
+      },
+      "related": [
+        "finder_monitor_switch"
+      ]
+    },
+    {
+      "id": "ports",
+      "title": "HDMI、USB-C、耳机和麦克风接口",
+      "category": "body",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "打开机身侧面的端子盖"
+      ],
+      "controls": [
+        "ports"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "PORT 2的数据速率最高为480 Mbps。"
+      ],
+      "keywords": [
+        "USB Type-C",
+        "HDMI type A",
+        "耳机接口",
+        "麦克风接口",
+        "接口仓",
+        "USB PORT 1"
+      ],
+      "text": "侧面有全尺寸HDMI、麦克风、耳机和两个USB-C口。拷照片优先用最高10 Gbps的PORT 1。两个口均可充电，同时传数据和供电时用1传数据、2供电。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_names_of_parts_ilc2540_side.html",
+        "title": "侧面"
+      },
+      "related": [
+        "battery",
+        "usb_connection"
+      ]
+    },
+    {
+      "id": "card_slots",
+      "title": "插入/取出存储卡",
+      "category": "body",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "打开机身握把侧的存储卡盖"
+      ],
+      "controls": [
+        "card_door"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "存储卡插槽",
+        "Memory card slot",
+        "CFexpress Type A",
+        "SD卡",
+        "卡槽1",
+        "双卡槽"
+      ],
+      "text": "一张卡用插槽1，出厂照片也写在这里。插槽1收CFexpress Type A或SD，插槽2只收SD，两槽的SD接口均兼容UHS-I和UHS-II。两种卡插入方向不同，等存取灯熄灭再取卡。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0002D_insert_memorycard.html",
+        "title": "插入/取出存储卡"
+      },
+      "related": [
+        "format",
+        "rec_media"
+      ]
+    },
+    {
+      "id": "hot_shoe",
+      "title": "多接口热靴",
+      "category": "body",
+      "priority": "P1",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "机身顶部的多接口热靴"
+      ],
+      "controls": [
+        "hotshoe"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "多接口热靴",
+        "Multi Interface Shoe",
+        "外接闪光灯",
+        "热靴麦克风"
+      ],
+      "text": "取下机顶的插座盖，即可安装兼容的闪光灯或麦克风。安装前确认附件兼容，收起相机时把盖子装回，保护热靴触点。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_names_of_parts_ilc2540_top.html",
+        "title": "顶部"
+      },
+      "related": [
+        "ports"
+      ]
+    },
+    {
+      "id": "usb_connection",
+      "title": "USB连接模式(PORT1)",
+      "category": "body",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › USB › USB连接模式(PORT1)",
+      "menu_path_en": "MENU › Setup › USB › USB Cnct Mode (PORT1)",
+      "other_access": [
+        "MENU › 设置 › USB › USB连接模式(PORT2)"
+      ],
+      "controls": [
+        "ports"
+      ],
+      "options": [
+        "连接时选择",
+        "USB流式传输",
+        "海量存储器(MSC)",
+        "MTP",
+        "遥控拍摄/传输"
+      ],
+      "default": "连接时选择",
+      "conditions": [],
+      "keywords": [
+        "USB连接模式",
+        "USB Cnct Mode",
+        "传照片到电脑",
+        "MSC",
+        "MTP",
+        "USB遥控拍摄"
+      ],
+      "text": "两个USB口可以分别设置。把卡当作电脑磁盘读取，选“海量存储器(MSC)”。用MTP只能访问插槽1。要经USB用手机遥控或传照片，选“遥控拍摄/传输”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_usb_connection.html",
+        "title": "USB连接模式(PORT1)/USB连接模式(PORT2)"
+      },
+      "related": [
+        "ports",
+        "smartphone_transfer"
+      ]
+    },
+    {
+      "id": "smartphone_transfer",
+      "title": "拍摄装置上选并发",
+      "category": "body",
+      "priority": "P1",
+      "menu_path": "MENU › 网络 › 连接/遥控拍摄 › 拍摄装置上选并发",
+      "menu_path_en": "MENU › Network › Cnct./Remote Sht. › Select on Cam & Send",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "这个影像",
+        "该组内的所有影像",
+        "该日期的全部影像",
+        "全部筛选影像",
+        "添加筛选条件",
+        "手动选择"
+      ],
+      "default": null,
+      "conditions": [
+        "所列选项属于“发送”，视当前播放范围而异。",
+        "先通过“智能手机连接”完成配对。"
+      ],
+      "keywords": [
+        "拍摄装置上选并发",
+        "Select on Cam & Send",
+        "传输到手机",
+        "Creators' App",
+        "发照片"
+      ],
+      "text": "先在Creators' App里配对。回放想传的照片，进入“发送”选“这个影像”，也可手动圈选多张。发RAW前先看传输目标，手机能否播放取决于文件格式。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_transfer_select_on_camera.html",
+        "title": "拍摄装置上选并发（传输到智能手机）"
+      },
+      "related": [
+        "usb_connection",
+        "file_format"
+      ]
+    },
+    {
+      "id": "format",
+      "title": "格式化",
+      "category": "media",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 媒体 › 格式化",
+      "menu_path_en": "MENU › Shooting › Media › Format",
+      "other_access": [
+        "拍摄画面按住MENU，再按住删除按钮约两秒"
+      ],
+      "controls": [
+        "btn_menu",
+        "btn_c4"
+      ],
+      "options": [
+        "快速格式化",
+        "完全格式化"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "格式化",
+        "Format",
+        "格式化存储卡",
+        "清空SD卡",
+        "新卡初始化"
+      ],
+      "text": "新卡第一次使用时先备份，再选对插槽并确认格式化。普通确认会快速格式化。整张卡上的照片、受保护影像和卡内记忆设置都会删除。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_memory_format.html",
+        "title": "格式化"
+      },
+      "related": [
+        "card_slots",
+        "protect"
+      ]
+    },
+    {
+      "id": "file_format",
+      "title": "文件格式",
+      "category": "media",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › 文件格式",
+      "menu_path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › File Format",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "RAW",
+        "RAW&JPEG/RAW&HEIF",
+        "JPEG/HEIF"
+      ],
+      "default": "JPEG/HEIF",
+      "conditions": [],
+      "keywords": [
+        "文件格式",
+        "File Format",
+        "RAW",
+        "RAW&JPEG",
+        "JPEG",
+        "HEIF",
+        "照片格式",
+        "后期修图"
+      ],
+      "text": "出厂直接拍JPEG。想拍完直接看，可在JPEG与HEIF间切换。想保留后期调整余地，再存一份RAW。“JPEG/HEIF切换”决定显示哪一种成片格式，查看HEIF需要兼容设备。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_file_format.html",
+        "title": "影像质量设置：文件格式（静止影像）"
+      },
+      "related": [
+        "raw_type",
+        "jpeg_quality_size"
+      ]
+    },
+    {
+      "id": "release_wo_card",
+      "title": "无存储卡时释放快门",
+      "category": "media",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 快门/静音 › 无存储卡时释放快门",
+      "menu_path_en": "MENU › Shooting › Shutter/Silent › Release w/o Card",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "允许",
+        "禁止"
+      ],
+      "default": "允许",
+      "conditions": [],
+      "keywords": [
+        "无存储卡时释放快门",
+        "Release w/o Card",
+        "没插卡也能拍",
+        "按了快门没照片"
+      ],
+      "text": "出厂允许空卡槽释放快门，听到快门声也不会保存照片。选“禁止”，下次忘了装卡时就能在按快门时发现。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414G_release_without_card.html",
+        "title": "无存储卡时释放快门"
+      },
+      "related": [
+        "card_slots"
+      ]
+    },
+    {
+      "id": "rec_media",
+      "title": "摄像媒体",
+      "category": "media",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 媒体 › 摄像媒体设置 › 摄像媒体",
+      "menu_path_en": "MENU › Shooting › Media › Rec. Media Settings › Recording Media",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "插槽1",
+        "插槽2",
+        "同时记录",
+        "分类记录"
+      ],
+      "default": "插槽1",
+      "conditions": [],
+      "keywords": [
+        "摄像媒体",
+        "Recording Media",
+        "双卡备份",
+        "同时记录",
+        "分类记录",
+        "选择卡槽"
+      ],
+      "text": "拍照片默认写插槽1。两张卡都要留同一份照片，选“同时记录”。想把不同格式或尺寸分到两张卡，选“分类记录”。录像的写入插槽要单独设置。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_rec_media_still.html",
+        "title": "摄像媒体设置（静止影像/动态影像）：摄像媒体（静止影像）"
+      },
+      "related": [
+        "card_slots",
+        "file_format"
+      ]
+    },
+    {
+      "id": "jpeg_quality_size",
+      "title": "JPEG影像质量",
+      "category": "media",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › JPEG影像质量",
+      "menu_path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › JPEG Quality",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "超精细",
+        "精细",
+        "标准",
+        "小"
+      ],
+      "default": "精细",
+      "conditions": [],
+      "keywords": [
+        "JPEG影像质量",
+        "JPEG Quality",
+        "JPEG Image Size",
+        "照片太大",
+        "分辨率",
+        "像素尺寸"
+      ],
+      "text": "出厂画质为“精细”。要印大照片，在同组的“JPEG影像尺寸”选大尺寸。全画幅3:2默认L:33M，也可选M:14M或S:8.2M以节省空间。切到APS-C后最大为M。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_jpeg_heif_quality.html",
+        "title": "影像质量设置：JPEG影像质量/HEIF影像质量"
+      },
+      "related": [
+        "file_format"
+      ]
+    },
+    {
+      "id": "raw_type",
+      "title": "RAW文件类型",
+      "category": "media",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › RAW文件类型",
+      "menu_path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › RAW File Type",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "无损压缩",
+        "已压缩(HQ)",
+        "已压缩"
+      ],
+      "default": "已压缩(HQ)",
+      "conditions": [],
+      "keywords": [
+        "RAW文件类型",
+        "RAW File Type",
+        "无损压缩",
+        "压缩RAW",
+        "连拍缓存"
+      ],
+      "text": "想保留细节可选无损压缩。需要一次连拍更久，可选“已压缩”。出厂使用“已压缩(HQ)”。即使分卡记录，两槽的RAW压缩方式也相同。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_raw_file_type.html",
+        "title": "影像质量设置：RAW文件类型"
+      },
+      "related": [
+        "file_format",
+        "drive_mode"
+      ]
+    },
+    {
+      "id": "shooting_mode",
+      "title": "模式旋钮",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 照相模式 › 照相模式",
+      "menu_path_en": "MENU › Shooting › Shooting Mode › Shoot Mode",
+      "other_access": [
+        "机顶模式旋钮，下层旋钮需按住前方锁定释放按钮再转"
+      ],
+      "controls": [
+        "mode_dial",
+        "mode_switch"
+      ],
+      "options": [
+        "智能自动",
+        "程序自动",
+        "光圈优先",
+        "快门优先",
+        "手动曝光",
+        "调出存储"
+      ],
+      "default": null,
+      "conditions": [
+        "出厂通过旋钮选择。改为“通过菜单设置”后才可从所列菜单选择照相模式。"
+      ],
+      "keywords": [
+        "照相模式",
+        "Shoot Mode",
+        "模式旋钮",
+        "模式转盘各档",
+        "P A S M",
+        "记忆档"
+      ],
+      "text": "出厂用机顶旋钮。下层选照片、录像或S&Q，上层选曝光档。AUTO认场景，P自动配光圈和快门，A自己选光圈，S自己选快门，M两项都选。1、2、3调出已存设置。若要从菜单换档，先把“照相模式转盘”设为“通过菜单设置”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_shootingmode.html",
+        "title": "使用菜单操作选择照相模式（照相模式）"
+      },
+      "related": [
+        "intelligent_auto",
+        "program_shift",
+        "shoot_setting_memory"
+      ]
+    },
+    {
+      "id": "intelligent_auto",
+      "title": "智能自动",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "模式旋钮转到自动模式"
+      ],
+      "controls": [
+        "mode_dial"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "使用光学变焦以外的变焦功能拍照片时，相机不会识别场景。"
+      ],
+      "keywords": [
+        "智能自动",
+        "Intelligent Auto",
+        "AUTO档",
+        "自动档能改什么",
+        "第一张照片",
+        "场景识别"
+      ],
+      "text": "把旋钮转到AUTO，相机识别场景并计算曝光。拍静物仍可选单次AF，拍运动可选连续AF，也可用自拍。ISO和白平衡固定自动，对焦区域固定广域。想调亮暗或自己选ISO可换P档。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0301B_shooting_still_images.html",
+        "title": "拍摄静止影像（智能自动）"
+      },
+      "related": [
+        "shooting_mode",
+        "focus_mode",
+        "iso",
+        "exposure_comp"
+      ]
+    },
+    {
+      "id": "iso",
+      "title": "ISO",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 曝光/颜色 › 曝光 › ISO",
+      "menu_path_en": "MENU › Exposure/Color › Exposure › ISO",
+      "other_access": [
+        "拍摄时按控制拨轮右侧（ISO）"
+      ],
+      "controls": [
+        "wheel"
+      ],
+      "options": [
+        "ISO AUTO",
+        "ISO 50–ISO 204800"
+      ],
+      "default": "ISO AUTO",
+      "conditions": [
+        "智能自动锁定为ISO AUTO。",
+        "录像的ISO范围随防抖和伽玛设置而变。"
+      ],
+      "keywords": [
+        "ISO",
+        "ISO AUTO",
+        "感光度",
+        "暗处照片太糊",
+        "ISO调节",
+        "控制拨轮右"
+      ],
+      "text": "拍摄时按拨轮右侧选择感光度。出厂的 ISO AUTO 会按光线自动调整。选 ISO AUTO 后按拨轮右侧，可设上下限。感光度越高，暗处越容易拍到，同时噪点也会增多。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0408C_iso.html",
+        "title": "ISO（静止影像/动态影像）"
+      },
+      "related": [
+        "iso_auto_min_ss",
+        "high_iso_nr"
+      ]
+    },
+    {
+      "id": "iso_auto_min_ss",
+      "title": "ISO AUTO最小速度",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 曝光/颜色 › 曝光 › ISO AUTO最小速度",
+      "menu_path_en": "MENU › Exposure/Color › Exposure › ISO AUTO Min. SS",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "更慢",
+        "低速",
+        "标准",
+        "高速",
+        "更快",
+        "1/16000―30\""
+      ],
+      "default": "标准",
+      "conditions": [
+        "仅在P或A档并选择ISO AUTO时适用。"
+      ],
+      "keywords": [
+        "ISO AUTO最小速度",
+        "ISO AUTO Min. SS",
+        "ISO 自动 最慢快门",
+        "安全快门",
+        "最低快门速度",
+        "运动拍糊"
+      ],
+      "text": "P或A档用自动ISO时，这个值决定多慢开始提高感光度。出厂的“标准”按镜头焦距选速度，拍运动可调快。达到自动ISO的上限仍太暗时，快门还会继续放慢。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0408H_ISO_auto_minimun_SS.html",
+        "title": "ISO AUTO最小速度"
+      },
+      "related": [
+        "iso",
+        "image_stabilization"
+      ]
+    },
+    {
+      "id": "exposure_comp",
+      "title": "曝光补偿",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 曝光/颜色 › 曝光补偿 › 曝光补偿",
+      "menu_path_en": "MENU › Exposure/Color › Exposure Comp. › Exposure Comp.",
+      "other_access": [
+        "后转盘R，按中央锁定按钮切换锁定状态"
+      ],
+      "controls": [
+        "dial_rear_r"
+      ],
+      "options": [],
+      "default": "±0.0",
+      "conditions": [
+        "智能自动下无法进行曝光补偿。",
+        "取景时最多预览±3 EV的亮度变化。"
+      ],
+      "keywords": [
+        "曝光补偿",
+        "Exposure Comp.",
+        "EV",
+        "逆光人脸太暗",
+        "后转盘R",
+        "曝光太亮"
+      ],
+      "text": "P、A、S档可调，M档须用ISO AUTO。按后转盘R中央解锁，看到白线即可转。出厂补偿为±0.0，加号提亮，减号压暗。照片可调±5 EV，录像可调±2 EV，出厂每格为三分之一档。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406B_exposure_compensation.html",
+        "title": "曝光补偿（静止影像/动态影像）"
+      },
+      "related": [
+        "exposure_step",
+        "metering_mode",
+        "histogram"
+      ]
+    },
+    {
+      "id": "exposure_warning",
+      "title": "光圈值或快门速度闪烁",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "在S、A或M档的拍摄画面查看闪烁的数值"
+      ],
+      "controls": [
+        "lcd",
+        "evf"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "曝光警告",
+        "光圈值闪烁",
+        "快门速度闪烁",
+        "Shutter Priority",
+        "Aperture Priority",
+        "光圈数值在闪"
+      ],
+      "text": "S档的光圈值闪烁，表示相机配不出合适的光圈，改快门速度。A档的快门速度闪烁，则改光圈。M档用自动ISO时若ISO值闪烁，可改光圈或快门。手动设ISO时，光线超出测光范围会使手动测光指示闪烁。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0302_shutter_priority.html",
+        "title": "快门优先"
+      },
+      "related": [
+        "shooting_mode",
+        "iso",
+        "exposure_comp"
+      ]
+    },
+    {
+      "id": "metering_mode",
+      "title": "测光模式",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 曝光/颜色 › 测光 › 测光模式",
+      "menu_path_en": "MENU › Exposure/Color › Metering › Metering Mode",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "多重",
+        "中心",
+        "点测光",
+        "点测光: 标准",
+        "点测光: 大",
+        "整个屏幕平均",
+        "强光"
+      ],
+      "default": "多重",
+      "conditions": [
+        "智能自动或使用光学变焦以外的变焦功能时固定为多重。"
+      ],
+      "keywords": [
+        "测光模式",
+        "Metering Mode",
+        "点测光",
+        "逆光人脸太暗",
+        "高光测光"
+      ],
+      "text": "出厂的“多重”会把画面分区测光，逆光人像可配合人脸优先。只想按某个小区域决定亮度，可用点测光。舞台上选“强光”有助照顾亮处，人物其他部分可能偏暗。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406_metering_mode.html",
+        "title": "测光模式（静止影像/动态影像）"
+      },
+      "related": [
+        "face_priority_metering",
+        "ae_lock"
+      ]
+    },
+    {
+      "id": "face_priority_metering",
+      "title": "多重测光人脸优先",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 曝光/颜色 › 测光 › 多重测光人脸优先",
+      "menu_path_en": "MENU › Exposure/Color › Metering › Face Priority in Multi Metering",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "开",
+      "conditions": [],
+      "keywords": [
+        "多重测光人脸优先",
+        "Face Priority in Multi Metering",
+        "逆光人脸太暗",
+        "脸黑背景亮",
+        "人脸测光"
+      ],
+      "text": "背景明亮、人脸偏暗时，选多重测光并开启人脸优先，让相机按检测到的脸调整曝光。启用自动对焦的被摄体识别时，识别目标须为“人”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406M_face_prty_in_mlti_mtr.html",
+        "title": "多重测光人脸优先（静止影像/动态影像）"
+      },
+      "related": [
+        "metering_mode",
+        "subject_recognition",
+        "exposure_comp"
+      ]
+    },
+    {
+      "id": "dro_hdr",
+      "title": "动态范围优化",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 曝光/颜色 › 颜色/色调 › 动态范围优化",
+      "menu_path_en": "MENU › Exposure/Color › Color/Tone › D-Range Optimizer",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "关",
+        "动态范围优化: 自动",
+        "动态范围优化: 1级",
+        "动态范围优化: 2级",
+        "动态范围优化: 3级",
+        "动态范围优化: 4级",
+        "动态范围优化: 5级"
+      ],
+      "default": "动态范围优化: 自动",
+      "conditions": [
+        "图片配置文件未关闭或使用Log灵活ISO时，动态范围优化固定为关。"
+      ],
+      "keywords": [
+        "动态范围优化",
+        "D-Range Optimizer",
+        "DRO",
+        "DRO 动态范围优化",
+        "自动HDR",
+        "阴影太黑",
+        "逆光反差大"
+      ],
+      "text": "逆光时想保留阴影层次，可用出厂的DRO自动按区域调整亮度。也可手选1到5级，效果越强越容易出现噪点。要拍多张再合成，请用独立的“HDR拍摄设置”，由电脑合成RAW。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0409B_d_range_optimizer.html",
+        "title": "动态范围优化（静止影像/动态影像）"
+      },
+      "related": [
+        "hdr_shooting",
+        "exposure_comp"
+      ]
+    },
+    {
+      "id": "hdr_shooting",
+      "title": "HDR拍摄设置",
+      "category": "exposure",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › RAW接片拍摄 › HDR拍摄设置 › HDR拍摄",
+      "menu_path_en": "MENU › Shooting › Composite RAW Sht. › Shooting for HDR Set › Shooting for HDR",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "关",
+      "conditions": [
+        "仅P/A/S/M档。",
+        "快门速度不能慢于1/30秒。"
+      ],
+      "keywords": [
+        "HDR拍摄设置",
+        "Shooting for HDR Set",
+        "多张RAW合成",
+        "高动态范围",
+        "HDR拍摄"
+      ],
+      "text": "反差特别大的静止场景可选4、8或16张，让相机连续记录不同亮度的RAW。对焦固定在第一张，之后用电脑上的Imaging Edge Desktop组合成片。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_shoot_for_hdr_setting.html",
+        "title": "HDR拍摄设置"
+      },
+      "related": [
+        "dro_hdr",
+        "file_format"
+      ]
+    },
+    {
+      "id": "histogram",
+      "title": "柱状图显示",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 操作自定义 › DISP(画面显示)",
+      "menu_path_en": "MENU › Setup › Operation Customize › DISP (Screen Display)",
+      "other_access": [
+        "拍摄或播放时反复按控制拨轮上侧（DISP）"
+      ],
+      "controls": [
+        "wheel"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "柱状图显示",
+        "Histogram",
+        "直方图",
+        "亮度分布",
+        "曝光贴边"
+      ],
+      "text": "拍摄时按DISP切到“柱状图&数字水平”，回放可切到“柱状图”。左端代表暗部，右端代表亮部。峰挤到边缘时检查细节，闪光或夜景的取景与回放分布可能不同。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_histogram.html",
+        "title": "柱状图显示"
+      },
+      "related": [
+        "disp",
+        "exposure_comp",
+        "level"
+      ]
+    },
+    {
+      "id": "long_exposure_nr",
+      "title": "长时曝光降噪",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 影像质量/记录 › 长时曝光降噪",
+      "menu_path_en": "MENU › Shooting › Image Quality/Rec › Long Exposure NR",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "开",
+      "conditions": [],
+      "keywords": [
+        "长时曝光降噪",
+        "Long Exposure NR",
+        "长曝光噪点",
+        "夜景拍完还在处理",
+        "长曝降噪"
+      ],
+      "text": "曝光达到一秒时，降噪还会用去大约同样长的时间，这期间不能拍下一张。拍夜景想压低颗粒可开启，需要接连拍摄时可关闭。电子快门和连拍时无法使用。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_long_exposure_nr.html",
+        "title": "长时曝光降噪"
+      },
+      "related": [
+        "shutter_type",
+        "bulb"
+      ]
+    },
+    {
+      "id": "high_iso_nr",
+      "title": "高ISO降噪",
+      "category": "exposure",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 影像质量/记录 › 高ISO降噪",
+      "menu_path_en": "MENU › Shooting › Image Quality/Rec › High ISO NR",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "标准",
+        "低",
+        "关"
+      ],
+      "default": "标准",
+      "conditions": [],
+      "keywords": [
+        "高ISO降噪",
+        "High ISO NR",
+        "高感光度噪点",
+        "暗处颗粒",
+        "高感降噪"
+      ],
+      "text": "在暗处用高ISO拍照，看到颗粒时可从标准降噪开始，想减弱处理就选“低”。智能自动档会固定使用标准，切到其他可调档位后才能更改。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414C_high_iso_nr.html",
+        "title": "高ISO降噪"
+      },
+      "related": [
+        "iso",
+        "long_exposure_nr"
+      ]
+    },
+    {
+      "id": "program_shift",
+      "title": "程序转换",
+      "category": "exposure",
+      "priority": "P1",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "拍照时选P档，转动前转盘或后转盘L"
+      ],
+      "controls": [
+        "mode_dial",
+        "dial_front",
+        "dial_rear_l"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "程序转换",
+        "Program Shift",
+        "P档程序偏移",
+        "P星号",
+        "P*"
+      ],
+      "text": "拍照片时转前转盘或后转盘L，P会变成P*。相机会换一对光圈和快门组合，保持原先的曝光。使用闪光灯时不能转换，转出P档或关机即可取消。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0302B_program_auto.html",
+        "title": "程序自动"
+      },
+      "related": [
+        "shooting_mode"
+      ]
+    },
+    {
+      "id": "ae_lock",
+      "title": "AE锁定",
+      "category": "exposure",
+      "priority": "P1",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "拍摄时按住AEL按钮"
+      ],
+      "controls": [
+        "btn_ael"
+      ],
+      "options": [],
+      "default": "AE锁定保持",
+      "conditions": [],
+      "keywords": [
+        "AE锁定",
+        "AE lock",
+        "AEL",
+        "锁定曝光",
+        "逆光重新构图"
+      ],
+      "text": "对准想作为亮度基准的位置，按住AEL，再对焦、构图、拍照。默认分配是“AE锁定保持”，放手就解除。想连续拍同样亮度的照片，拍完再松手。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406_ae_lock.html",
+        "title": "AE锁定"
+      },
+      "related": [
+        "metering_mode",
+        "custom_keys"
+      ]
+    },
+    {
+      "id": "zebra",
+      "title": "斑马线显示",
+      "category": "exposure",
+      "priority": "P1",
+      "menu_path": "MENU › 曝光/颜色 › 斑马线显示 › 斑马线显示",
+      "menu_path_en": "MENU › Exposure/Color › Zebra Display › Zebra Display",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "关",
+        "开"
+      ],
+      "default": "关",
+      "conditions": [],
+      "keywords": [
+        "斑马线显示",
+        "Zebra Display",
+        "斑马纹",
+        "高光警告",
+        "过曝条纹"
+      ],
+      "text": "想知道亮部接近哪种亮度时，打开显示，再在“斑马线水平”选阈值。取景画面达到设定亮度的部分会出现条纹，可据此调整曝光。HDMI外接设备不显示这些条纹。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406M_zebra_display.html",
+        "title": "斑马线显示"
+      },
+      "related": [
+        "histogram",
+        "exposure_comp"
+      ]
+    },
+    {
+      "id": "anti_flicker",
+      "title": "防闪烁拍摄",
+      "category": "exposure",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 快门/静音 › 防闪烁设置 › 防闪烁拍摄",
+      "menu_path_en": "MENU › Shooting › Shutter/Silent › Anti-flicker Set. › Anti-flicker Shoot.",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "关",
+      "conditions": [
+        "防闪烁拍摄只用于静止影像。"
+      ],
+      "keywords": [
+        "防闪烁设置",
+        "Anti-flicker Set.",
+        "灯光闪烁 条纹",
+        "LED灯横纹",
+        "防闪烁拍摄"
+      ],
+      "text": "荧光灯下连拍忽明忽暗，可在机械快门下打开“防闪烁拍摄”，半按检测100或120 Hz闪烁。LED条纹仍在时，可在能手调快门的档位使用“可变快门”边看边微调。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_anti_flicker_setting.html",
+        "title": "防闪烁设置"
+      },
+      "related": [
+        "shutter_type"
+      ]
+    },
+    {
+      "id": "exposure_step",
+      "title": "曝光步级",
+      "category": "exposure",
+      "priority": "P1",
+      "menu_path": "MENU › 曝光/颜色 › 曝光补偿 › 曝光步级",
+      "menu_path_en": "MENU › Exposure/Color › Exposure Comp. › Exposure step",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "0.5段",
+        "0.3段"
+      ],
+      "default": "0.3段",
+      "conditions": [],
+      "keywords": [
+        "曝光步级",
+        "Exposure step",
+        "每格多少档",
+        "三分之一档",
+        "半档"
+      ],
+      "text": "觉得每转一格亮度变化太大时，可用出厂的“0.3段”细调。也可选半档，设置同时影响快门速度、光圈和曝光补偿的调整间隔。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406_exposure_step_value.html",
+        "title": "曝光步级（静止影像/动态影像）"
+      },
+      "related": [
+        "exposure_comp",
+        "dial_setup"
+      ]
+    },
+    {
+      "id": "bulb",
+      "title": "B门拍摄",
+      "category": "exposure",
+      "priority": "P1",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "M档下转动后转盘L至BULB"
+      ],
+      "controls": [
+        "mode_dial",
+        "dial_rear_l",
+        "shutter"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "B门拍摄",
+        "BULB",
+        "星轨",
+        "烟花长曝光",
+        "一直按着快门"
+      ],
+      "text": "拍烟花轨迹时可架稳相机，选M档并顺时针转后转盘L到BULB。按住快门的时间就是曝光时间，松开结束。使用电子快门、静音模式或连拍时不能选BULB。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0302C_bulb.html",
+        "title": "B门拍摄"
+      },
+      "related": [
+        "long_exposure_nr",
+        "shutter_type"
+      ]
+    },
+    {
+      "id": "focus_mode",
+      "title": "对焦模式",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": "MENU › 对焦 › AF/MF › 对焦模式",
+      "menu_path_en": "MENU › Focus › AF/MF › Focus Mode",
+      "other_access": [
+        "拍照时按C3"
+      ],
+      "controls": [
+        "btn_c3"
+      ],
+      "options": [
+        "单次AF",
+        "自动AF",
+        "连续AF",
+        "DMF",
+        "手动对焦"
+      ],
+      "default": "自动AF",
+      "conditions": [
+        "自动AF需要支持相位检测AF的镜头。"
+      ],
+      "keywords": [
+        "对焦模式",
+        "Focus Mode",
+        "AF-C 连续对焦",
+        "AF-S",
+        "AF-A",
+        "DMF",
+        "MF",
+        "孩子跑动"
+      ],
+      "text": "拍照出厂用自动AF，相机会按主体是否移动切换对焦方式。拍静物也可自己选单次AF，拍走动的人选连续AF并保持半按。DMF能在自动合焦后用手微调。录像时只能选连续AF或手动对焦。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_focus_mode.html",
+        "title": "选择对焦方式（对焦模式）"
+      },
+      "related": [
+        "focus_area",
+        "af_confirm",
+        "lens_focus_mode_switch"
+      ]
+    },
+    {
+      "id": "focus_area",
+      "title": "对焦区域",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": "MENU › 对焦 › 对焦区域 › 对焦区域",
+      "menu_path_en": "MENU › Focus › Focus Area › Focus Area",
+      "other_access": [
+        "拍照时按C2"
+      ],
+      "controls": [
+        "btn_c2"
+      ],
+      "options": [
+        "广域",
+        "区",
+        "中间固定",
+        "点: XL",
+        "点: L",
+        "点: M",
+        "点: S",
+        "点: XS",
+        "扩展点",
+        "自定义 1",
+        "自定义 2",
+        "自定义 3",
+        "跟踪",
+        "跟踪: 广域",
+        "跟踪: 区",
+        "跟踪: 中间固定",
+        "跟踪: 点XL",
+        "跟踪: 点L",
+        "跟踪: 点M",
+        "跟踪: 点S",
+        "跟踪: 点XS",
+        "跟踪: 扩展点",
+        "跟踪: 自定义1",
+        "跟踪: 自定义2",
+        "跟踪: 自定义3"
+      ],
+      "default": "广域",
+      "conditions": [
+        "菜单里的跟踪仅用于静止影像的连续AF。",
+        "智能自动固定为广域。APS-C拍摄不能选点: XS。"
+      ],
+      "keywords": [
+        "对焦区域",
+        "Focus Area",
+        "跟踪对焦",
+        "广域",
+        "扩展点",
+        "跟踪: 点",
+        "焦点总跑到背景"
+      ],
+      "text": "出厂用广域，相机在画面内寻找主体。总对到背景时，可换点或扩展点，用摇杆把框移到主体。要跟住运动对象，拍照时选连续AF，再在“跟踪”里左右选择起始区域，半按住快门。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_autofocus_area.html",
+        "title": "选择对焦区域（对焦区域）"
+      },
+      "related": [
+        "focus_mode",
+        "focus_frame_move",
+        "subject_recognition"
+      ]
+    },
+    {
+      "id": "subject_recognition",
+      "title": "识别目标",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": "MENU › 对焦 › 被摄体识别 › 识别目标",
+      "menu_path_en": "MENU › Focus › Subject Recognition › Recognition Target",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "自动",
+        "人",
+        "动物/鸟类",
+        "动物",
+        "鸟类",
+        "昆虫",
+        "汽车/火车",
+        "飞机"
+      ],
+      "default": "人",
+      "conditions": [],
+      "keywords": [
+        "识别目标",
+        "Recognition Target",
+        "主体识别 鸟",
+        "被摄体识别",
+        "动物识别",
+        "人眼AF",
+        "眼部对焦"
+      ],
+      "text": "“AF中的被摄体识别”出厂已开，目标为人。拍鸟可单选鸟类，也可同时找动物和鸟。相机还能识别昆虫、汽车/火车或飞机。选“自动”时按拨轮右侧，可勾选相机要寻找的类别。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_target.html",
+        "title": "识别目标（静止影像/动态影像）"
+      },
+      "related": [
+        "recognition_part",
+        "focus_area",
+        "face_priority_metering"
+      ]
+    },
+    {
+      "id": "recognition_part",
+      "title": "识别部分",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": "MENU › 对焦 › 被摄体识别 › 识别目标 › 动物 › 识别部分",
+      "menu_path_en": "MENU › Focus › Subject Recognition › Recognition Target › Animal › Recognition Part",
+      "other_access": [
+        "静止影像下在识别目标上按控制拨轮右侧，再选“识别部分”"
+      ],
+      "controls": [],
+      "options": [
+        "眼部/头部/身体",
+        "眼部/头部",
+        "眼部",
+        "遵循个人设置"
+      ],
+      "default": null,
+      "conditions": [
+        "适用目标为动物/鸟类、动物或鸟类。遵循个人设置仅适用于动物/鸟类。",
+        "人物左右眼优先另在“右眼/左眼选择”设定。"
+      ],
+      "keywords": [
+        "识别部分",
+        "Recognition Part",
+        "眼部对焦",
+        "动物眼睛",
+        "鸟眼",
+        "鸟头眼部",
+        "识别部位"
+      ],
+      "text": "拍动物或鸟的静态照片时，在识别目标上按拨轮右侧进入详情。可只认眼部，也可连头部或身体一起找。拍人时将识别目标设为“人”，如想优先对某一只眼，用同组的“右眼/左眼选择”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_target.html",
+        "title": "识别目标（静止影像/动态影像）"
+      },
+      "related": [
+        "subject_recognition"
+      ]
+    },
+    {
+      "id": "af_confirm",
+      "title": "对焦指示",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "半按快门，查看拍摄画面的对焦指示"
+      ],
+      "controls": [
+        "shutter"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "对焦指示",
+        "Focus indicator",
+        "对焦框变绿",
+        "合焦提示音",
+        "半按不响",
+        "焦点闪烁"
+      ],
+      "text": "先半按快门看合焦指示。静物合焦时常能听到哔声，静态广域合焦处会出现绿框。连续AF合焦时不响，指示闪烁则表示没对上，可改对准边缘清楚的位置再试。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0301B_shooting_still_images.html",
+        "title": "拍摄静止影像（智能自动）"
+      },
+      "related": [
+        "focus_mode",
+        "beep",
+        "focus_area"
+      ]
+    },
+    {
+      "id": "focus_frame_move",
+      "title": "多功能选择器（移动对焦框）",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "拨动多功能选择器移动，按中央调用对焦标准"
+      ],
+      "controls": [
+        "joystick"
+      ],
+      "options": [],
+      "default": "对焦标准",
+      "conditions": [],
+      "keywords": [
+        "多功能选择器",
+        "Multi-selector",
+        "移动对焦框",
+        "摇杆回中",
+        "对焦点移不动",
+        "对焦标准"
+      ],
+      "text": "选区、点、扩展点或自定义区域时，向所需方向拨摇杆移动对焦框。按中央默认调用“对焦标准”，可把框移回中央或跟踪对象。广域下按中央会对画面中央自动对焦。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405L_focus_standard.html",
+        "title": "对焦标准"
+      },
+      "related": [
+        "focus_area",
+        "custom_keys"
+      ]
+    },
+    {
+      "id": "af_on",
+      "title": "AF-ON按钮",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "拍摄时按AF-ON按钮"
+      ],
+      "controls": [
+        "btn_afon"
+      ],
+      "options": [],
+      "default": "AF开启",
+      "conditions": [],
+      "keywords": [
+        "AF-ON按钮",
+        "AF On",
+        "后键对焦",
+        "拇指对焦",
+        "自动对焦启动"
+      ],
+      "text": "用拇指按AF-ON也能启动自动对焦，适合先对好焦再决定何时拍。如果要彻底分开对焦和快门，还要在“半按快门AF”中关闭半按对焦。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_using_AF_ON_button.html",
+        "title": "AF-ON按钮"
+      },
+      "related": [
+        "focus_mode",
+        "custom_keys"
+      ]
+    },
+    {
+      "id": "focus_magnifier",
+      "title": "对焦放大",
+      "category": "focus",
+      "priority": "P0",
+      "menu_path": "MENU › 对焦 › 对焦辅助 › 对焦放大",
+      "menu_path_en": "MENU › Focus › Focus Assistant › Focus Magnifier",
+      "other_access": [],
+      "controls": [
+        "joystick"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "对焦放大",
+        "Focus Magnifier",
+        "放大对焦",
+        "放大查看焦点",
+        "手动放大对焦"
+      ],
+      "text": "想精确检查睫毛或花蕊时，先放大取景，再按摇杆中央变倍率、拨动摇杆换位置。手动对焦时边看边转对焦环。半按快门的行为取决于“放大对焦中AF”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405_focus_magni.html",
+        "title": "对焦放大"
+      },
+      "related": [
+        "mf_assist",
+        "peaking"
+      ]
+    },
+    {
+      "id": "mf_assist",
+      "title": "MF中自动放大对焦",
+      "category": "focus",
+      "priority": "P1",
+      "menu_path": "MENU › 对焦 › 对焦辅助 › MF中自动放大对焦",
+      "menu_path_en": "MENU › Focus › Focus Assistant › Auto Magnifier in MF",
+      "other_access": [],
+      "controls": [
+        "ring_focus"
+      ],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "开",
+      "conditions": [],
+      "keywords": [
+        "MF中自动放大对焦",
+        "Auto Magnifier in MF",
+        "MF辅助",
+        "转对焦环自动放大",
+        "手动微调"
+      ],
+      "text": "拍照用手动对焦或DMF时，开启后转动镜头对焦环就会放大取景，继续转到细节最清楚。录像或装有卡口适配器时，改用“对焦放大”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_auto_magni_mf.html",
+        "title": "MF中自动放大对焦"
+      },
+      "related": [
+        "focus_magnifier"
+      ]
+    },
+    {
+      "id": "peaking",
+      "title": "峰值显示",
+      "category": "focus",
+      "priority": "P1",
+      "menu_path": "MENU › 对焦 › 峰值显示 › 峰值显示",
+      "menu_path_en": "MENU › Focus › Peaking Display › Peaking Display",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "关",
+      "conditions": [],
+      "keywords": [
+        "峰值显示",
+        "Peaking Display",
+        "峰值对焦",
+        "手动对焦彩边",
+        "合焦轮廓"
+      ],
+      "text": "手动对焦拍照时打开峰值，转动对焦环，看目标边缘何时出现颜色。可以另调峰值强度和颜色，细节是否真的清楚可再放大检查。HDMI外接屏不显示峰值。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405M_peaking_display.html",
+        "title": "峰值显示"
+      },
+      "related": [
+        "focus_magnifier",
+        "mf_assist"
+      ]
+    },
+    {
+      "id": "touch_focus",
+      "title": "拍摄期间的触摸功能",
+      "category": "focus",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 触摸操作 › 触摸面板设置 › 拍摄画面 › 拍摄期间的触摸功能",
+      "menu_path_en": "MENU › Setup › Touch Operation › Touch Panel Settings › Shooting Screen › Touch Func. in Shooting",
+      "other_access": [],
+      "controls": [
+        "lcd"
+      ],
+      "options": [
+        "触碰对焦",
+        "触碰跟踪",
+        "触屏快门",
+        "触屏AE",
+        "关"
+      ],
+      "default": "触碰跟踪",
+      "conditions": [
+        "触摸操作和拍摄画面须开启。只启用触摸板时不能用显示屏点选。"
+      ],
+      "keywords": [
+        "触碰对焦",
+        "Touch Focus",
+        "触摸跟踪",
+        "Touch Tracking",
+        "点屏幕对焦",
+        "触碰跟踪"
+      ],
+      "text": "开启触控后，在“拍摄画面”的“拍摄期间的触摸功能”里选操作。想点哪里对哪里，选触碰对焦再半按。想让框跟着对象走，选触碰跟踪后点对象。出厂使用触碰跟踪。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_touchpanel_settings.html",
+        "title": "触摸面板设置"
+      },
+      "related": [
+        "touch_ops",
+        "focus_area"
+      ]
+    },
+    {
+      "id": "af_priority",
+      "title": "AF-S优先级设置",
+      "category": "focus",
+      "priority": "P1",
+      "menu_path": "MENU › 对焦 › AF/MF › AF-S优先级设置",
+      "menu_path_en": "MENU › Focus › AF/MF › Priority Set in AF-S",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "AF",
+        "快门释放优先",
+        "均衡"
+      ],
+      "default": "均衡",
+      "conditions": [],
+      "keywords": [
+        "AF-S优先级设置",
+        "Priority Set in AF-S",
+        "AF-C优先级设置",
+        "快门按不下",
+        "快门释放优先"
+      ],
+      "text": "优先拍清楚可选AF，抢瞬间可选快门释放优先。静止对象与连续对焦分别在AF-S和AF-C两项里调整，出厂两项都为“均衡”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405H_AF-S_priority_setup.html",
+        "title": "AF-S优先级设置"
+      },
+      "related": [
+        "focus_mode"
+      ]
+    },
+    {
+      "id": "af_tracking_sens",
+      "title": "交叉AF等级",
+      "category": "focus",
+      "priority": "P1",
+      "menu_path": "MENU › 对焦 › AF/MF › 交叉AF等级",
+      "menu_path_en": "MENU › Focus › AF/MF › AF Lvl for Crossing",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "5(响应)",
+        "4",
+        "3(标准)",
+        "2",
+        "1(锁定)"
+      ],
+      "default": "3(标准)",
+      "conditions": [],
+      "keywords": [
+        "交叉AF等级",
+        "AF Lvl for Crossing",
+        "AF跟踪灵敏度",
+        "有人挡住主体",
+        "追焦粘性"
+      ],
+      "text": "拍照追踪运动员时，有人从前面经过就抢走焦点，可向“1(锁定)”调。需要快速改对新对象时向“5(响应)”调，出厂设在中间。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405D_af_tracking_sensitivity.html",
+        "title": "交叉AF等级"
+      },
+      "related": [
+        "focus_area",
+        "focus_mode"
+      ]
+    },
+    {
+      "id": "af_illuminator",
+      "title": "AF辅助照明",
+      "category": "focus",
+      "priority": "P1",
+      "menu_path": "MENU › 对焦 › AF/MF › AF辅助照明",
+      "menu_path_en": "MENU › Focus › AF/MF › AF Illuminator",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "自动",
+        "关"
+      ],
+      "default": "自动",
+      "conditions": [],
+      "keywords": [
+        "AF辅助照明",
+        "AF Illuminator",
+        "对焦辅助灯",
+        "暗处小灯",
+        "夜里对不上焦"
+      ],
+      "text": "灯光暗时设为自动，半按快门可借助辅助光找到焦点。想保持现场光线就关闭。录像、连续AF或正在放大对焦时不能使用这盏辅助灯。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405B_af_illuminator.html",
+        "title": "AF辅助照明"
+      },
+      "related": [
+        "focus_mode",
+        "focus_magnifier"
+      ]
+    },
+    {
+      "id": "drive_mode",
+      "title": "拍摄模式",
+      "category": "drive",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 拍摄模式 › 拍摄模式",
+      "menu_path_en": "MENU › Shooting › Drive Mode › Drive Mode",
+      "other_access": [
+        "拍照时按控制拨轮左侧（拍摄模式）"
+      ],
+      "controls": [
+        "wheel"
+      ],
+      "options": [
+        "单张拍摄",
+        "连拍",
+        "连拍：Hi+",
+        "连拍: Hi",
+        "连拍: Mid",
+        "连拍: Lo",
+        "自拍定时(单张)",
+        "自拍定时(连拍)",
+        "连续阶段曝光",
+        "单次阶段曝光",
+        "对焦包围",
+        "白平衡阶段曝光",
+        "DRO阶段曝光"
+      ],
+      "default": "单张拍摄",
+      "conditions": [
+        "电子快门的各档速度可另设。实际速度受镜头、光圈驱动、闪光等条件影响。"
+      ],
+      "keywords": [
+        "拍摄模式",
+        "Drive Mode",
+        "驱动模式",
+        "连拍",
+        "单张拍摄",
+        "高速连拍",
+        "Hi+",
+        "按住快门"
+      ],
+      "text": "拍照默认单张，按一次拍一张，按拨轮左侧选连拍，再左右选档，按住快门持续拍。出厂Hi+、Hi、Mid、Lo在机械快门下最高每秒10、8、6、3张，电子快门为30、20、15、5张。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0407C_drive_mode.html",
+        "title": "拍摄模式"
+      },
+      "related": [
+        "self_timer",
+        "bracket",
+        "shutter_type"
+      ]
+    },
+    {
+      "id": "self_timer",
+      "title": "自拍定时(单张)",
+      "category": "drive",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 拍摄模式 › 拍摄模式",
+      "menu_path_en": "MENU › Shooting › Drive Mode › Drive Mode",
+      "other_access": [
+        "控制拨轮左侧，选择自拍定时(单张)"
+      ],
+      "controls": [
+        "wheel",
+        "shutter"
+      ],
+      "options": [
+        "自拍定时（单张）：10秒",
+        "自拍定时（单张）：5秒",
+        "自拍定时（单张）：2秒"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "自拍定时(单张)",
+        "Self-timer(Single)",
+        "自拍定时",
+        "倒计时合影",
+        "按快门手抖"
+      ],
+      "text": "把相机放稳，从拍摄模式挑单张自拍，再拨左或右选等待时间。两秒可减轻按键带来的震动，合影可选五秒或十秒。倒计时中再按一次快门可停止。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0407_drivemode_selftimer.html",
+        "title": "自拍定时(单张)"
+      },
+      "related": [
+        "drive_mode",
+        "beep"
+      ]
+    },
+    {
+      "id": "bracket",
+      "title": "连续阶段曝光",
+      "category": "drive",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 拍摄模式 › 拍摄模式",
+      "menu_path_en": "MENU › Shooting › Drive Mode › Drive Mode",
+      "other_access": [
+        "控制拨轮左侧，选连续阶段曝光或单次阶段曝光"
+      ],
+      "controls": [
+        "wheel",
+        "shutter"
+      ],
+      "options": [
+        "连续阶段曝光",
+        "单次阶段曝光"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "连续阶段曝光",
+        "Cont. Bracket",
+        "包围曝光",
+        "曝光包围",
+        "一暗一亮",
+        "Bracket"
+      ],
+      "text": "同一画面拿不准亮度时，用连续阶段曝光，选每张相差多少曝光和拍几张，再按住快门到结束。想自己逐张触发可选单次阶段曝光。智能自动档不能这样拍。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0407_drivemode_cont_bracket.html",
+        "title": "连续阶段曝光"
+      },
+      "related": [
+        "drive_mode",
+        "exposure_comp"
+      ]
+    },
+    {
+      "id": "shutter_type",
+      "title": "快门类型",
+      "category": "drive",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 快门/静音 › 快门类型",
+      "menu_path_en": "MENU › Shooting › Shutter/Silent › Shutter Type",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "机械快门",
+        "电子快门"
+      ],
+      "default": "机械快门",
+      "conditions": [
+        "电子快门下不能用闪光、长时曝光降噪、B门或防闪烁拍摄。"
+      ],
+      "keywords": [
+        "快门类型",
+        "Shutter Type",
+        "静音拍摄",
+        "电子快门",
+        "机械快门",
+        "关掉快门声"
+      ],
+      "text": "拍照出厂用机械快门。要用闪光灯或B门，保留这个设置。需要安静时到同组“静音模式设置”开启静音，机身会锁定电子快门并关闭拍摄提示音。镜头对焦和光圈仍可能有声音。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414H_shutter_type.html",
+        "title": "快门类型"
+      },
+      "related": [
+        "beep",
+        "anti_flicker",
+        "long_exposure_nr"
+      ]
+    },
+    {
+      "id": "image_stabilization",
+      "title": "SteadyShot",
+      "category": "drive",
+      "priority": "P0",
+      "menu_path": "MENU › 拍摄 › 影像稳定 › SteadyShot",
+      "menu_path_en": "MENU › Shooting › Image Stabilization › SteadyShot",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "开",
+      "conditions": [
+        "这里是静止影像防抖。装有防抖开关的镜头须在镜头上切换。"
+      ],
+      "keywords": [
+        "SteadyShot",
+        "防抖",
+        "手抖糊了",
+        "机身防抖",
+        "防震",
+        "手持不稳"
+      ],
+      "text": "拍照时开启 SteadyShot 可以减轻手持时的晃动。架在三脚架上时，指南建议关闭。暗处若仍有抖动提示，可开大光圈或提高 ISO，让快门更快。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_still_image_steadyshot.html",
+        "title": "SteadyShot（静止影像）"
+      },
+      "related": [
+        "iso_auto_min_ss",
+        "iso"
+      ]
+    },
+    {
+      "id": "white_balance",
+      "title": "白平衡模式",
+      "category": "color",
+      "priority": "P0",
+      "menu_path": "MENU › 曝光/颜色 › 白平衡模式 › 白平衡模式",
+      "menu_path_en": "MENU › Exposure/Color › White Balance › White Balance",
+      "other_access": [
+        "拍照时按C1"
+      ],
+      "controls": [
+        "btn_c1"
+      ],
+      "options": [
+        "自动",
+        "自动: 环境",
+        "自动: 白",
+        "日光",
+        "阴影",
+        "阴天",
+        "白炽灯",
+        "荧光灯: 暖白色",
+        "荧光灯: 冷白色",
+        "荧光灯: 日光白",
+        "荧光灯: 日光",
+        "闪光灯",
+        "水中自动",
+        "色温/滤光片",
+        "自定义 1",
+        "自定义 2",
+        "自定义 3"
+      ],
+      "default": "自动",
+      "conditions": [
+        "闪光灯预设仅拍照时可用。自动: 环境和自动: 白取决于AWB优先级设置。"
+      ],
+      "keywords": [
+        "白平衡模式",
+        "White Balance",
+        "AWB",
+        "白平衡",
+        "照片发黄",
+        "照片发蓝",
+        "色温"
+      ],
+      "text": "白纸拍成黄色时，按C1，先试自动白平衡，或选与现场相符的光源。混合光下可用中性白色物体测自定义白平衡。智能自动档将白平衡固定为自动。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0410C_white_balance.html",
+        "title": "白平衡模式（静止影像/动态影像）"
+      },
+      "related": [
+        "awb_priority",
+        "custom_keys"
+      ]
+    },
+    {
+      "id": "creative_look",
+      "title": "创意外观",
+      "category": "color",
+      "priority": "P1",
+      "menu_path": "MENU › 曝光/颜色 › 颜色/色调 › 创意外观",
+      "menu_path_en": "MENU › Exposure/Color › Color/Tone › Creative Look",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "ST(标准)",
+        "PT(人像)",
+        "NT(中性)",
+        "VV(鲜明)",
+        "VV2(鲜明2)",
+        "FL(胶片)",
+        "FL2(胶片2)",
+        "FL3(胶片3)",
+        "IN(哑光)",
+        "SH(柔和高调)",
+        "BW(黑白)",
+        "SE(棕褐色)"
+      ],
+      "default": "ST(标准)",
+      "conditions": [],
+      "keywords": [
+        "创意外观",
+        "Creative Look",
+        "胶片色",
+        "黑白照片",
+        "色彩风格"
+      ],
+      "text": "想直接拍出某种色调，可以从标准、人像或黑白外观开始，再按喜好微调对比度等参数。拍完放大看细节。智能自动、启用图片配置文件或Log灵活ISO时有使用限制。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0411B_creative_look.html",
+        "title": "创意外观（静止影像/动态影像）"
+      },
+      "related": [
+        "white_balance"
+      ]
+    },
+    {
+      "id": "color_space",
+      "title": "色彩空间",
+      "category": "color",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 影像质量/记录 › 色彩空间",
+      "menu_path_en": "MENU › Shooting › Image Quality/Rec › Color Space",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "sRGB",
+        "AdobeRGB"
+      ],
+      "default": "sRGB",
+      "conditions": [],
+      "keywords": [
+        "色彩空间",
+        "Color Space",
+        "sRGB",
+        "AdobeRGB",
+        "照片颜色发灰"
+      ],
+      "text": "平时分享或直接打印可用sRGB。准备在支持色彩管理的软件和打印机里处理时可选AdobeRGB。拍HEIF时色彩空间由HLG设置决定，这个选项不起作用。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_color_space.html",
+        "title": "色彩空间"
+      },
+      "related": [
+        "file_format"
+      ]
+    },
+    {
+      "id": "awb_priority",
+      "title": "AWB优先级设置",
+      "category": "color",
+      "priority": "P1",
+      "menu_path": "MENU › 曝光/颜色 › 白平衡模式 › AWB优先级设置",
+      "menu_path_en": "MENU › Exposure/Color › White Balance › Priority Set in AWB",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "标准",
+        "环境",
+        "白"
+      ],
+      "default": "标准",
+      "conditions": [],
+      "keywords": [
+        "AWB优先级设置",
+        "Priority Set in AWB",
+        "保留暖色",
+        "白炽灯偏黄",
+        "白色优先"
+      ],
+      "text": "用自动白平衡拍暖灯下的人像时，想保留现场暖色选“环境”，想让白色物体更接近白色选“白”。只有白平衡模式为自动时才使用这里的倾向。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0410L_auto_white_balance_priority.html",
+        "title": "AWB优先级设置（静止影像/动态影像）"
+      },
+      "related": [
+        "white_balance"
+      ]
+    },
+    {
+      "id": "disp",
+      "title": "DISP(画面显示)",
+      "category": "display",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 操作自定义 › DISP(画面显示)",
+      "menu_path_en": "MENU › Setup › Operation Customize › DISP (Screen Display)",
+      "other_access": [
+        "拍摄或回放时按控制拨轮上侧（DISP）"
+      ],
+      "controls": [
+        "wheel"
+      ],
+      "options": [
+        "显示全部信息",
+        "无显示信息",
+        "柱状图",
+        "数字水平量规",
+        "柱状图&数字水平",
+        "取景器",
+        "关闭显示屏",
+        "自定义1",
+        "自定义2",
+        "自定义3"
+      ],
+      "default": null,
+      "conditions": [
+        "关闭显示屏和取景器布局只在显示屏配置里。自定义1至3只在取景器配置里。"
+      ],
+      "keywords": [
+        "DISP(画面显示)",
+        "DISP (Screen Display)",
+        "DISP",
+        "显示切换",
+        "屏幕信息太多",
+        "显示设置"
+      ],
+      "text": "按拨轮上侧循环显示。拍照时可以分别为显示屏和取景器勾选想看到的画面，例如柱状图与水平仪的组合。回放时再按同一键，会切换照片信息和柱状图。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_disp_set_still.html",
+        "title": "DISP(画面显示)（静止影像）"
+      },
+      "related": [
+        "level",
+        "histogram"
+      ]
+    },
+    {
+      "id": "grid_line",
+      "title": "网格线显示",
+      "category": "display",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 拍摄显示 › 网格线显示",
+      "menu_path_en": "MENU › Shooting › Shooting Display › Grid Line Display",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "开",
+        "关"
+      ],
+      "default": "关",
+      "conditions": [],
+      "keywords": [
+        "网格线显示",
+        "Grid Line Display",
+        "网格线",
+        "九宫格",
+        "三分法",
+        "地平线不直"
+      ],
+      "text": "拍摄时开启网格作构图参照，再到同组的“网格线类型”选三等分线网格，把主体靠在交点。需要对齐建筑边缘时也可改用方形网格。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414B_grid_line.html",
+        "title": "网格线显示（静止影像/动态影像）"
+      },
+      "related": [
+        "level"
+      ]
+    },
+    {
+      "id": "level",
+      "title": "数字水平量规",
+      "category": "display",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 操作自定义 › DISP(画面显示)",
+      "menu_path_en": "MENU › Setup › Operation Customize › DISP (Screen Display)",
+      "other_access": [
+        "拍摄时按控制拨轮上侧（DISP）切换显示"
+      ],
+      "controls": [
+        "wheel"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "数字水平量规",
+        "Level",
+        "水平仪",
+        "地平线歪",
+        "相机没放平",
+        "电子水平"
+      ],
+      "text": "拍照时用DISP切到“柱状图&数字水平”，观察左右倾斜和前后俯仰指示，某一方向变绿表示该方向已水平。要单独看水平量规可先勾选，镜头直朝上或朝下时无效。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_disp_set_still.html",
+        "title": "DISP(画面显示)（静止影像）"
+      },
+      "related": [
+        "disp",
+        "grid_line"
+      ]
+    },
+    {
+      "id": "live_view_display",
+      "title": "实时取景显示设置",
+      "category": "display",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 拍摄显示 › 实时取景显示设置 › 实时取景显示",
+      "menu_path_en": "MENU › Shooting › Shooting Display › Live View Display Set. › Live View Display",
+      "other_access": [],
+      "controls": [],
+      "options": [
+        "设置效果开",
+        "设置效果关"
+      ],
+      "default": "设置效果开",
+      "conditions": [
+        "这里的设置用于静止影像。"
+      ],
+      "keywords": [
+        "实时取景显示设置",
+        "Live View Display Set.",
+        "设置效果开",
+        "屏幕比成片亮",
+        "棚闪取景太暗"
+      ],
+      "text": "想在拍前看看曝光、白平衡和色调的效果，在“实时取景显示”选“设置效果开”。用棚闪构图时屏幕太暗，可暂时关闭效果，方便看清主体。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_live_view_disp_set.html",
+        "title": "实时取景显示设置"
+      },
+      "related": [
+        "exposure_comp",
+        "white_balance"
+      ]
+    },
+    {
+      "id": "playback_basic",
+      "title": "播放静止影像",
+      "category": "playback",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "按播放按钮，再转动控制拨轮或按左右侧"
+      ],
+      "controls": [
+        "btn_play",
+        "wheel",
+        "btn_center"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "播放静止影像",
+        "Playing back still images",
+        "回放照片",
+        "翻照片",
+        "切换上一张",
+        "看刚拍的照片"
+      ],
+      "text": "按播放键回看，再转动拨轮或按左右换片。连拍显示为一组时，按中央进入组内。两张卡都装着时，可在“多个媒体卡播放设置”中选要看的插槽。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0501_playback_image.html",
+        "title": "播放静止影像"
+      },
+      "related": [
+        "playback_zoom",
+        "delete"
+      ]
+    },
+    {
+      "id": "playback_zoom",
+      "title": "放大",
+      "category": "playback",
+      "priority": "P0",
+      "menu_path": "MENU › 播放 › 放大倍率 › 放大",
+      "menu_path_en": "MENU › Playback › Magnification › Enlarge Image",
+      "other_access": [
+        "回放时按AF-ON（放大）按钮",
+        "回放时双击显示屏或双指分开"
+      ],
+      "controls": [
+        "btn_afon",
+        "wheel",
+        "lcd"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "触摸操作与触摸面板设置中的播放画面均须开启才能用手势。"
+      ],
+      "keywords": [
+        "放大",
+        "Enlarge Image",
+        "回放放大",
+        "放大回放",
+        "放大检查眼睛",
+        "双击照片"
+      ],
+      "text": "回看静止照片时按放大键，转拨轮改变倍率，按方向键看眼睛等细节。出厂从拍摄对焦位置开始，缺少该信息时从中央开始。启用回放触摸后也可双击或双指缩放。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0501C_playback_zoom.html",
+        "title": "放大正在播放的影像（放大）"
+      },
+      "related": [
+        "touch_ops",
+        "playback_basic"
+      ]
+    },
+    {
+      "id": "delete",
+      "title": "删除",
+      "category": "playback",
+      "priority": "P0",
+      "menu_path": "MENU › 播放 › 删除 › 删除",
+      "menu_path_en": "MENU › Playback › Delete › Delete",
+      "other_access": [
+        "回放时按C4（删除）按钮"
+      ],
+      "controls": [
+        "btn_c4"
+      ],
+      "options": [
+        "除此影像之外的所有影像",
+        "该组内的所有影像",
+        "多个影像",
+        "该文件夹内的全部影像",
+        "该日期的全部影像",
+        "全部筛选影像"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "删除",
+        "Delete",
+        "删除照片",
+        "删掉糊片",
+        "垃圾桶",
+        "批量删除"
+      ],
+      "text": "回放单张时按C4，确认画面上选“删除”再按中央。清理一批照片可以在菜单里选多个影像。删除后无法还原，已经保护的照片要先解除保护。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0502_delete_image_selection.html",
+        "title": "删除多张所选影像（删除）"
+      },
+      "related": [
+        "protect",
+        "playback_basic"
+      ]
+    },
+    {
+      "id": "protect",
+      "title": "保护",
+      "category": "playback",
+      "priority": "P1",
+      "menu_path": "MENU › 播放 › 选择/备忘录 › 保护",
+      "menu_path_en": "MENU › Playback › Selection/Memo › Protect",
+      "other_access": [
+        "回放时按C3（保护）按钮"
+      ],
+      "controls": [
+        "btn_c3"
+      ],
+      "options": [
+        "多个影像",
+        "该文件夹内的全部影像",
+        "取消该文件夹内全部保护",
+        "该日期的全部影像",
+        "取消该日期的全部保护",
+        "该组内的所有影像",
+        "取消该组中的所有影像",
+        "全部筛选影像",
+        "取消全部筛选影像"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "保护",
+        "Protect",
+        "防止误删",
+        "锁定照片",
+        "照片删不掉"
+      ],
+      "text": "回看重要影像时按C3即可加上保护，再按可解除。也能在菜单中按组、日期或所选影像操作。保护可防日常删除，格式化整张卡仍会清除它们。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506_protect.html",
+        "title": "保护已记录的影像（保护）"
+      },
+      "related": [
+        "delete",
+        "format"
+      ]
+    },
+    {
+      "id": "rating",
+      "title": "分级",
+      "category": "playback",
+      "priority": "P1",
+      "menu_path": "MENU › 播放 › 选择/备忘录 › 分级",
+      "menu_path_en": "MENU › Playback › Selection/Memo › Rating",
+      "other_access": [],
+      "controls": [],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "分级",
+        "Rating",
+        "星标",
+        "照片打分",
+        "挑片"
+      ],
+      "text": "回看片子时，用拨轮左右选一张，按中央，再左右选择星数并确认。以后可按分级筛选要处理的画面。筛选后一批分级时，星级只加到所选卡槽里的影像。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506M_rating.html",
+        "title": "分级"
+      },
+      "related": [
+        "playback_basic",
+        "protect"
+      ]
+    },
+    {
+      "id": "custom_keys",
+      "title": "自定键/转盘设置",
+      "category": "custom",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 操作自定义 › 自定键/转盘设置",
+      "menu_path_en": "MENU › Setup › Operation Customize › Custom Key/Dial Set.",
+      "other_access": [],
+      "controls": [],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "静止影像、动态影像和播放可分别分配。录像的C1至C4、AEL、AF-ON和摇杆中央出厂均沿用拍照分配。",
+        "回放时C3为保护、C4为删除、AF-ON为放大倍率、AEL为影像索引。",
+        "菜单中按控制拨轮中央仍是确认操作。"
+      ],
+      "keywords": [
+        "自定键/转盘设置",
+        "Custom Key/Dial Set.",
+        "自定义键",
+        "C1 键",
+        "C2 C3 C4",
+        "AEL AF-ON",
+        "中央按钮",
+        "控制拨轮方向",
+        "出厂按键"
+      ],
+      "text": "拍照时C1至C4依次为白平衡模式、对焦区域、对焦模式、触摸操作选择。AEL为AE锁定保持，AF-ON为AF开启，摇杆中央为对焦标准。拨轮上为DISP、左为拍摄模式、右为ISO，下、中央和旋转未设定。录像左键为自拍定时。回放C3保护、C4删除。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_default_value_list_setup_ilc2540.html",
+        "title": "默认设置值列表（设置）"
+      },
+      "related": [
+        "fn_menu",
+        "dial_setup",
+        "af_on"
+      ]
+    },
+    {
+      "id": "fn_menu",
+      "title": "Fn菜单设置",
+      "category": "custom",
+      "priority": "P0",
+      "menu_path": "MENU › 设置 › 操作自定义 › Fn菜单设置",
+      "menu_path_en": "MENU › Setup › Operation Customize › Fn Menu Settings",
+      "other_access": [
+        "按Fn（功能）按钮",
+        "拍摄或回放画面快速向上划"
+      ],
+      "controls": [
+        "btn_fn"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "上划需启用触摸操作和对应画面，拍摄画面的上划动作设为打开Fn菜单。"
+      ],
+      "keywords": [
+        "Fn菜单设置",
+        "Fn Menu Settings",
+        "Fn 菜单",
+        "功能菜单",
+        "快捷菜单",
+        "12格",
+        "Fn键"
+      ],
+      "text": "拍照时按Fn，在两行共12格中用方向键选功能，转前转盘调值，再按中央确认。拍照、录像、回放可分别配置。想查本机每格是什么，打开相应的Fn菜单设置。指南将配图标作示例，未逐格标明出厂分配。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_fn_menu_setting.html",
+        "title": "Fn菜单设置（静止影像/动态影像）"
+      },
+      "related": [
+        "custom_keys",
+        "touch_ops"
+      ]
+    },
+    {
+      "id": "my_menu",
+      "title": "添加项目",
+      "category": "custom",
+      "priority": "P1",
+      "menu_path": "MENU › 我的菜单 › 我的菜单设置 › 添加项目",
+      "menu_path_en": "MENU › My Menu › My Menu Setting › Add Item",
+      "other_access": [
+        "菜单中选中要添加的项目，按删除按钮，再选添加到我的菜单"
+      ],
+      "controls": [
+        "btn_c4"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "添加项目",
+        "Add Item",
+        "My Menu",
+        "我的菜单",
+        "收藏菜单",
+        "常用设置"
+      ],
+      "text": "常用功能埋得深时，用“添加项目”选中它，再指定个人菜单中的位置。最多能收42项。以后若想按MENU直接看到它们，可开启“从我的菜单显示”。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_add_mymenu_item.html",
+        "title": "添加项目"
+      },
+      "related": [
+        "fn_menu"
+      ]
+    },
+    {
+      "id": "dial_setup",
+      "title": "自定键/转盘设置",
+      "category": "custom",
+      "priority": "P1",
+      "menu_path": "MENU › 设置 › 转盘自定义 › 自定键/转盘设置",
+      "menu_path_en": "MENU › Setup › Dial Customize › Custom Key/Dial Set.",
+      "other_access": [],
+      "controls": [],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "静止影像和动态影像有独立的自定键/转盘设置入口。"
+      ],
+      "keywords": [
+        "自定键/转盘设置",
+        "Custom Key/Dial Set.",
+        "拨盘设置",
+        "前转盘",
+        "后转盘L",
+        "Av/Tv旋转"
+      ],
+      "text": "拍照出厂设置下，M档用前转盘调光圈、后转盘L调快门，后转盘R调曝光补偿。可在这里改变分工，也可单独设置M档。“Av/Tv旋转”控制数值变化的方向。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413M_custom_key.html",
+        "title": "将常用功能分配到按钮和转盘（自定键/转盘设置）"
+      },
+      "related": [
+        "custom_keys",
+        "exposure_comp",
+        "shooting_mode"
+      ]
+    },
+    {
+      "id": "shoot_setting_memory",
+      "title": "拍摄设置存储",
+      "category": "custom",
+      "priority": "P1",
+      "menu_path": "MENU › 拍摄 › 照相模式 › 拍摄设置存储",
+      "menu_path_en": "MENU › Shooting › Shooting Mode › Camera Set. Memory",
+      "other_access": [
+        "注册后将模式旋钮转到1、2或3调出"
+      ],
+      "controls": [
+        "mode_dial"
+      ],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "拍摄设置存储",
+        "Camera Set. Memory",
+        "MR 1 2 3",
+        "记忆档",
+        "保存相机设置",
+        "M1 M4"
+      ],
+      "text": "先把光圈、快门等调好，选一个编号并按中央保存。模式旋钮上的1、2、3用于调出机内记忆。M1至M4保存在选定的存储卡上，要插着那张卡才能用。",
+      "source": {
+        "url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413_setting_memory.html",
+        "title": "拍摄设置存储"
+      },
+      "related": [
+        "shooting_mode",
+        "rec_media"
+      ]
+    },
+    {
+      "id": "lens_mount",
+      "title": "安装/拆下镜头",
+      "category": "lens",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "机身卡口白色安装标记及镜头释放按钮"
+      ],
+      "controls": [
+        "lens_release"
+      ],
+      "options": [],
+      "default": null,
+      "conditions": [
+        "安装时不要按镜头释放按钮。"
+      ],
+      "keywords": [
+        "安装/取下镜头",
+        "Attaching and Detaching the Lens",
+        "换镜头",
+        "白点对齐",
+        "镜头释放按钮",
+        "E卡口"
+      ],
+      "text": "先关机，让机身卡口朝下。把镜头和机身的白点对齐，笔直放入，从机身正面看顺时针旋到咔哒一声。拆卸时按住机身释放按钮反向旋转，再盖好前后盖和机身盖。",
+      "source": {
+        "url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf#page=1",
+        "title": "FE 24-70mm F2.8 GM II 使用说明书"
+      },
+      "related": [
+        "lens_aperture_ring"
+      ]
+    },
+    {
+      "id": "lens_aperture_ring",
+      "title": "光圈环",
+      "category": "lens",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "镜头光圈环，从机身后面往前看，IRIS LOCK 在镜头左侧，CLICK 在右侧"
+      ],
+      "controls": [
+        "ring_aperture",
+        "sw_iris_lock",
+        "sw_click"
+      ],
+      "options": [
+        "A",
+        "锁定",
+        "松开",
+        "ON",
+        "OFF"
+      ],
+      "default": null,
+      "conditions": [
+        "锁定、松开对应IRIS LOCK，ON和OFF对应CLICK。IRIS LOCK在A和数值范围内的作用随光圈环当前位置而变。"
+      ],
+      "keywords": [
+        "光圈环",
+        "Aperture ring",
+        "IRIS LOCK",
+        "CLICK",
+        "段落感开关",
+        "光圈锁",
+        "光圈环转不出A"
+      ],
+      "text": "光圈环在A时由机身管光圈，离开A可手调F2.8至F22。IRIS LOCK可锁在A，也可限制在数值范围内。拍视频转环时将光圈点按开关（CLICK）拨到OFF，可减轻录进去的档位声。",
+      "source": {
+        "url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf#page=1",
+        "title": "FE 24-70mm F2.8 GM II 使用说明书"
+      },
+      "related": [
+        "shooting_mode",
+        "dial_setup"
+      ]
+    },
+    {
+      "id": "lens_focus_mode_switch",
+      "title": "对焦模式开关",
+      "category": "lens",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "镜头筒上的AF/MF开关"
+      ],
+      "controls": [
+        "sw_focus_mode",
+        "ring_focus"
+      ],
+      "options": [
+        "AF",
+        "MF"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "对焦模式开关",
+        "Focus mode switch",
+        "镜头AF/MF",
+        "镜头不自动对焦",
+        "手动对焦环"
+      ],
+      "text": "想用自动对焦，相机和镜头都要处于自动对焦状态。镜头开关拨到MF后，看着取景画面转前部对焦环，直到细节清楚。机身设为手动时，单把镜头拨回AF也不会自动对焦。",
+      "source": {
+        "url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf#page=1",
+        "title": "FE 24-70mm F2.8 GM II 使用说明书"
+      },
+      "related": [
+        "focus_mode",
+        "mf_assist"
+      ]
+    },
+    {
+      "id": "lens_focus_hold",
+      "title": "对焦锁定按钮",
+      "category": "lens",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "按住镜头上方或侧面的圆形对焦保持按钮"
+      ],
+      "controls": [
+        "btn_focus_hold"
+      ],
+      "options": [],
+      "default": "对焦保持",
+      "conditions": [
+        "机身可将镜头对焦保持按钮改派其他功能。"
+      ],
+      "keywords": [
+        "对焦锁定按钮",
+        "对焦保持按钮",
+        "Focus hold button",
+        "镜头上的两个按钮",
+        "对焦锁定",
+        "重新构图"
+      ],
+      "text": "镜头有两个对焦保持按钮，横拍、竖拍都能按到。出厂在自动对焦时按住任一个，焦点保持在原来的距离，可重新构图拍摄。半按快门时松开按钮，自动对焦会重新开始。",
+      "source": {
+        "url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf#page=1",
+        "title": "FE 24-70mm F2.8 GM II 使用说明书"
+      },
+      "related": [
+        "custom_keys",
+        "focus_mode"
+      ]
+    },
+    {
+      "id": "lens_zoom_smooth_tight",
+      "title": "变焦平滑度开关",
+      "category": "lens",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "镜头筒上的SMOOTH/TIGHT开关"
+      ],
+      "controls": [
+        "sw_zoom_smooth",
+        "ring_zoom"
+      ],
+      "options": [
+        "SMOOTH",
+        "TIGHT"
+      ],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "变焦手感",
+        "Zoom smoothness switch",
+        "SMOOTH",
+        "TIGHT",
+        "变焦阻尼",
+        "镜头自己伸出来"
+      ],
+      "text": "转变焦环想轻一些就拨SMOOTH。携带镜头或朝上朝下拍摄时，拨TIGHT可增加阻力，减少镜筒意外伸缩。仍可用变焦环改变焦距。",
+      "source": {
+        "url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf#page=1",
+        "title": "FE 24-70mm F2.8 GM II 使用说明书"
+      },
+      "related": [
+        "lens_min_focus"
+      ]
+    },
+    {
+      "id": "lens_min_focus",
+      "title": "最小对焦",
+      "category": "lens",
+      "priority": "P0",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "镜头规格表和机顶影像传感器位置标记"
+      ],
+      "controls": [],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "最小对焦",
+        "最近对焦距离",
+        "Minimum focus",
+        "最大放大倍率",
+        "0.32倍",
+        "靠太近对不上",
+        "微距"
+      ],
+      "text": "靠太近对不上焦时，先退一点。从机身的影像传感器平面量到主体，24 mm 广角端最近可到 0.21 米，70 mm 长焦端最近可到 0.30 米。机顶有测量起点标记，镜头最大放大倍率为 0.32 倍。",
+      "source": {
+        "url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf#page=1",
+        "title": "FE 24-70mm F2.8 GM II 使用说明书"
+      },
+      "related": [
+        "focus_magnifier",
+        "lens_zoom_smooth_tight"
+      ]
+    },
+    {
+      "id": "lens_filter_hood",
+      "title": "镜头遮光罩",
+      "category": "lens",
+      "priority": "P1",
+      "menu_path": null,
+      "menu_path_en": null,
+      "other_access": [
+        "镜头前端滤镜螺纹和遮光罩卡口"
+      ],
+      "controls": [],
+      "options": [],
+      "default": null,
+      "conditions": [],
+      "keywords": [
+        "遮光罩",
+        "Lens hood",
+        "滤镜口径",
+        "Filter diameter",
+        "82mm",
+        "偏振镜窗口"
+      ],
+      "text": "滤镜口径为82毫米。把遮光罩与镜头的红线对齐，顺时针转到卡住。调整圆偏振镜时可打开罩上的窗口，携带时关上窗口，收纳时可把遮光罩反扣。",
+      "source": {
+        "url": "https://www.sony.com/electronics/support/res/manuals/5032/9ace66bf3f931b8ffbae5367023ab348/50328823M.pdf#page=1",
+        "title": "FE 24-70mm F2.8 GM II 使用说明书"
+      },
+      "related": [
+        "lens_mount"
+      ]
+    }
+  ],
+  "menu_index": [
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › JPEG/HEIF切换",
+      "path_en": "MENU › Shooting › Image Quality/Rec › JPEG/HEIF Switch",
+      "summary": "选择用JPEG还是HEIF保存照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_jpeg_heif_switch.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › 文件格式",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › File Format",
+      "summary": "选择只存RAW、成片，或两者都存。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_file_format.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › RAW文件类型",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › RAW File Type",
+      "summary": "在无损和有损压缩间选择RAW的存储方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_raw_file_type.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › JPEG影像质量",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › JPEG Quality",
+      "summary": "调整JPEG压缩程度，权衡细节和文件大小。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_jpeg_heif_quality.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › HEIF影像质量",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › HEIF Quality",
+      "summary": "调整HEIF压缩程度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_jpeg_heif_quality.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › JPEG影像尺寸",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › JPEG Image Size",
+      "summary": "选择JPEG照片的像素尺寸。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_jpeg_heif_size.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 影像质量设置 › HEIF影像尺寸",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Image Quality Settings › HEIF Image Size",
+      "summary": "选择HEIF照片的像素尺寸。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_jpeg_heif_size.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 纵横比",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Aspect Ratio",
+      "summary": "选择照片的宽高比例。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0404B_aspect_ratio.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 文件格式",
+      "path_en": "MENU › Shooting › Image Quality/Rec › File Format",
+      "summary": "选择录像使用的视频文件格式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412B_file_format.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 动态影像设置",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Movie Settings",
+      "summary": "设定录像帧速率、比特率和色彩采样。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412B_movie_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 慢和快设置",
+      "path_en": "MENU › Shooting › Image Quality/Rec › S&Q Settings",
+      "summary": "选择慢动作或快动作的录制参数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412L_s_q_settings.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 缩时摄影设置",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Time-lapse Settings",
+      "summary": "设置延时录像的间隔和记录参数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_timelapse_movie_settings.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 4K动态影像视角优先",
+      "path_en": "MENU › Shooting › Image Quality/Rec › 4K angle of view Priority",
+      "summary": "录制4K时，可停用部分降噪以扩大视角。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_4k_angle_priority.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › Log拍摄设置",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Log Shooting Setting",
+      "summary": "设置Log录制及其色域等参数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_log_shoot_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › Proxy设置",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Proxy Settings",
+      "summary": "在录像的同时另存低比特率代理文件。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412M_proxy_rec.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 拍摄",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Shooting",
+      "summary": "选择APS-C或Super 35mm视角。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_apsc_shooting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 长时曝光降噪",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Long Exposure NR",
+      "summary": "长曝光后再处理同样长的时间以减少噪点。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_long_exposure_nr.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 高ISO降噪",
+      "path_en": "MENU › Shooting › Image Quality/Rec › High ISO NR",
+      "summary": "调整照片在高感光度下的降噪强度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414C_high_iso_nr.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › HLG静态影像",
+      "path_en": "MENU › Shooting › Image Quality/Rec › HLG Still Image",
+      "summary": "用HEIF记录HLG宽动态范围照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_HLG_photo.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 色彩空间",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Color Space",
+      "summary": "根据交付方式选择照片的色彩空间。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_color_space.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像质量/记录 › 镜头补偿",
+      "path_en": "MENU › Shooting › Image Quality/Rec › Lens Compensation",
+      "summary": "补偿镜头产生的暗角、色差或畸变等。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414M_lens_comp.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 媒体 › 格式化",
+      "path_en": "MENU › Shooting › Media › Format",
+      "summary": "清空并初始化指定插槽的存储卡。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_memory_format.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 媒体 › 摄像媒体设置 › 摄像媒体",
+      "path_en": "MENU › Shooting › Media › Rec. Media Settings › Recording Media",
+      "summary": "为照片选卡槽，也可双卡备份或分类记录。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_rec_media_still.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 媒体 › 摄像媒体设置 › 摄像媒体",
+      "path_en": "MENU › Shooting › Media › Rec. Media Settings › Recording Media",
+      "summary": "为录像选卡槽，也可同时记录到两张卡。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_rec_media_mov.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 媒体 › 摄像媒体设置 › 自动切换摄像媒体卡",
+      "path_en": "MENU › Shooting › Media › Rec. Media Settings › Auto Switch Media Card",
+      "summary": "卡满或缺卡时，可自动改用另一个插槽。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601M_auto_switch_media.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 媒体 › 修复影像数据库",
+      "path_en": "MENU › Shooting › Media › Recover Image DB",
+      "summary": "重建卡上的影像数据库以恢复正常浏览。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_recover_image_db.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 文件 › 文件/文件夹设置",
+      "path_en": "MENU › Shooting › File › File/Folder Settings",
+      "summary": "设置照片的文件名和文件夹命名方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_file_folder_settings.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 文件 › 选择REC文件夹",
+      "path_en": "MENU › Shooting › File › Select REC Folder",
+      "summary": "在卡上已有的文件夹中选择照片保存位置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_select_folder.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 文件 › 新文件夹",
+      "path_en": "MENU › Shooting › File › Create New Folder",
+      "summary": "建立一个新文件夹保存接下来的照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_new_folder.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 文件 › IPTC信息",
+      "path_en": "MENU › Shooting › File › IPTC Information",
+      "summary": "将预设的IPTC元数据写入照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601P_IPTC_information.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 文件 › 版权信息",
+      "path_en": "MENU › Shooting › File › Copyright Info",
+      "summary": "在照片中写入摄影师和版权信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601H_copyright_information.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 文件 › 写入序列号",
+      "path_en": "MENU › Shooting › File › Write Serial Number",
+      "summary": "选择是否在影像中写入机身序列号。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601P_write_serial_number.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 文件 › 文件设置",
+      "path_en": "MENU › Shooting › File › File Settings",
+      "summary": "设置录像文件的名称和编号。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_file_settings_mov.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 照相模式 › 曝光控制类型",
+      "path_en": "MENU › Shooting › Shooting Mode › Exposure Ctrl Type",
+      "summary": "为录像选择模式旋钮曝光或独立的自动/手动控制。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_exposure_control.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 照相模式 › 调出拍摄设置",
+      "path_en": "MENU › Shooting › Shooting Mode › Recall Camera Setting",
+      "summary": "调出事先保存的一组拍摄设置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0302_memory_recall.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 照相模式 › 拍摄设置存储",
+      "path_en": "MENU › Shooting › Shooting Mode › Camera Set. Memory",
+      "summary": "将常用拍摄参数存入机身或卡上的记忆位置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413_setting_memory.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 照相模式 › 照相模式",
+      "path_en": "MENU › Shooting › Shooting Mode › Shoot Mode",
+      "summary": "允许菜单控制时，在这里选择曝光模式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_shootingmode.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 照相模式 › 拍摄模式",
+      "path_en": "MENU › Shooting › Shooting Mode › Shoot Mode",
+      "summary": "在S&Q档选择慢快动作或缩时摄影。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_shootingmode_sq_tl_modedial.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 照相模式 › 选择媒体",
+      "path_en": "MENU › Shooting › Shooting Mode › Memory/Recall Media",
+      "summary": "指定保存或读取M1至M4记忆的卡槽。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413M_MR_select_media.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 照相模式 › 注册自定义拍摄设置",
+      "path_en": "MENU › Shooting › Shooting Mode › Reg. Custom Shoot Set",
+      "summary": "注册按住自定义键时临时调用的一组参数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413L_custom_shootset_register.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄模式 › 拍摄模式",
+      "path_en": "MENU › Shooting › Drive Mode › Drive Mode",
+      "summary": "为照片选单张、连拍、自拍或包围拍摄。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0407C_drive_mode.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄模式 › 拍摄模式限制",
+      "path_en": "MENU › Shooting › Drive Mode › Drive Mode Limit",
+      "summary": "只让选中的驱动方式出现在选择画面中。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_drivemode_limit.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄模式 › 连拍速度",
+      "path_en": "MENU › Shooting › Drive Mode › Cont. Shooting Speed",
+      "summary": "调整电子快门各连拍档的每秒张数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_drivemode_dial_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄模式 › 连拍速度加快设置",
+      "path_en": "MENU › Shooting › Drive Mode › Cnt Sht Spd Bst Settings",
+      "summary": "指定临时加快连拍时使用的速度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_cont_boost.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄模式 › 预拍摄设置",
+      "path_en": "MENU › Shooting › Drive Mode › Pre-Capture Settings",
+      "summary": "使用电子快门连拍时，保存按到底前的影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_pre_capture.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄模式 › 阶段曝光设置",
+      "path_en": "MENU › Shooting › Drive Mode › Bracket Settings",
+      "summary": "调整包围拍摄的顺序、自拍和对焦包围方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0407G_bracket_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄模式 › 间隔拍摄功能",
+      "path_en": "MENU › Shooting › Drive Mode › Interval Shoot Func.",
+      "summary": "按指定间隔和张数自动拍一系列照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0407P_interval_shoot_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › RAW接片拍摄 › 降噪拍摄设置",
+      "path_en": "MENU › Shooting › Composite RAW Sht. › NR Shooting Settings",
+      "summary": "连拍多张RAW供电脑合成低噪点影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_nr_shoot_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › RAW接片拍摄 › HDR拍摄设置",
+      "path_en": "MENU › Shooting › Composite RAW Sht. › Shooting for HDR Set",
+      "summary": "连拍多张RAW供电脑合成高动态范围影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_shoot_for_hdr_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 静音模式设置",
+      "path_en": "MENU › Shooting › Shutter/Silent › Silent Mode Settings",
+      "summary": "控制静音拍摄及相关会发声的功能。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414D_silent_mode_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 快门类型",
+      "path_en": "MENU › Shooting › Shutter/Silent › Shutter Type",
+      "summary": "拍照时选择机械快门或电子快门。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414H_shutter_type.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 电子前帘快门",
+      "path_en": "MENU › Shooting › Shutter/Silent › e-Front Curtain Shut.",
+      "summary": "使用电子前帘缩短按下快门后的延迟。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_electronic_front_curtain.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 拍摄开始显示",
+      "path_en": "MENU › Shooting › Shutter/Silent › Shoot. Start Display",
+      "summary": "用黑屏提示无黑屏拍摄时的释放时机。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_shoot_start_disp.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 无镜头时释放快门",
+      "path_en": "MENU › Shooting › Shutter/Silent › Release w/o Lens",
+      "summary": "决定未装镜头时能否按下快门拍摄。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_release_without_lens.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 无存储卡时释放快门",
+      "path_en": "MENU › Shooting › Shutter/Silent › Release w/o Card",
+      "summary": "决定没有存储卡时快门能否释放。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414G_release_without_card.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 防闪烁设置",
+      "path_en": "MENU › Shooting › Shutter/Silent › Anti-flicker Set.",
+      "summary": "减少人工照明造成的亮度、色调差异或条纹。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_anti_flicker_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 录音 › 录音",
+      "path_en": "MENU › Shooting › Audio Recording › Audio Recording",
+      "summary": "选择录像时是否同时收音。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412_audio_recording.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 录音 › 录音音量",
+      "path_en": "MENU › Shooting › Audio Recording › Audio Rec Level",
+      "summary": "看着电平表调节录像的收音电平。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412_recording_level.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 录音 › 音频输出时刻",
+      "path_en": "MENU › Shooting › Audio Recording › Audio Out Timing",
+      "summary": "为监听选择音频输出的时机。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412_audio_output_time.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 录音 › 减少音频噪声设置",
+      "path_en": "MENU › Shooting › Audio Recording › Audio NR Settings",
+      "summary": "分别控制内置和外接麦克风输入的降噪。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_audio_nr_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 录音 › MI热靴音频设置",
+      "path_en": "MENU › Shooting › Audio Recording › Shoe Audio Set.",
+      "summary": "配置数字音频热靴附件的录音格式等参数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/252h_shoe_audio_set.html"
+    },
+    {
+      "path": "MENU › 拍摄 › TC/UB › Time Code Preset",
+      "path_en": "MENU › Shooting › TC/UB › Time Code Preset",
+      "summary": "指定录像时间码的起始值。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601D_TC_UB.html"
+    },
+    {
+      "path": "MENU › 拍摄 › TC/UB › User Bit Preset",
+      "path_en": "MENU › Shooting › TC/UB › User Bit Preset",
+      "summary": "预设随录像写入的用户比特。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601D_TC_UB.html"
+    },
+    {
+      "path": "MENU › 拍摄 › TC/UB › Time Code Format",
+      "path_en": "MENU › Shooting › TC/UB › Time Code Format",
+      "summary": "选择时间码计数格式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601D_TC_UB.html"
+    },
+    {
+      "path": "MENU › 拍摄 › TC/UB › Time Code Run",
+      "path_en": "MENU › Shooting › TC/UB › Time Code Run",
+      "summary": "选择时间码连续计数或只在录像时计数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601D_TC_UB.html"
+    },
+    {
+      "path": "MENU › 拍摄 › TC/UB › Time Code Make",
+      "path_en": "MENU › Shooting › TC/UB › Time Code Make",
+      "summary": "设定时间码接续已有记录或从预设值开始。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601D_TC_UB.html"
+    },
+    {
+      "path": "MENU › 拍摄 › TC/UB › User Bit Time Rec",
+      "path_en": "MENU › Shooting › TC/UB › User Bit Time Rec",
+      "summary": "选择是否以用户比特记录时间。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601D_TC_UB.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像稳定 › SteadyShot",
+      "path_en": "MENU › Shooting › Image Stabilization › SteadyShot",
+      "summary": "打开或关闭拍摄照片时的防抖。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_still_image_steadyshot.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像稳定 › SteadyShot",
+      "path_en": "MENU › Shooting › Image Stabilization › SteadyShot",
+      "summary": "选择录像时的防抖强度或关闭防抖。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412B_movie_steadyshot.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像稳定 › SteadyShot调整",
+      "path_en": "MENU › Shooting › Image Stabilization › SteadyShot Adjust.",
+      "summary": "选择自动获取或手动指定防抖所需的信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414F_steadyshot_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像稳定 › 焦距",
+      "path_en": "MENU › Shooting › Image Stabilization › Focal Length",
+      "summary": "手动防抖时输入所用镜头的焦距。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_steadyshot_focal_length.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 影像稳定 › 取景稳定功能",
+      "path_en": "MENU › Shooting › Image Stabilization › Framing Stabilizer",
+      "summary": "录像时让跟踪对象在构图中保持相对固定。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_framing_stabilizer.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 变焦 › 变焦",
+      "path_en": "MENU › Shooting › Zoom › Zoom",
+      "summary": "使用清晰影像缩放或数字变焦放大画面。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0401_zoom_ilc.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 变焦 › 变焦范围",
+      "path_en": "MENU › Shooting › Zoom › Zoom Range",
+      "summary": "限定允许使用的变焦方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0401_zoom_range.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 变焦 › 自定义键变焦速度",
+      "path_en": "MENU › Shooting › Zoom › Custom Key Z. Speed",
+      "summary": "设置用自定义键变焦时的速度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0401G_custom_key_zoom_speed.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 变焦 › 遥控变焦速度",
+      "path_en": "MENU › Shooting › Zoom › Remote Zoom Speed",
+      "summary": "设置从遥控器或手机操作变焦的速度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_zoom_speed_remote.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄显示 › 网格线显示",
+      "path_en": "MENU › Shooting › Shooting Display › Grid Line Display",
+      "summary": "拍摄时在画面上叠加构图参考线。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414B_grid_line.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄显示 › 网格线类型",
+      "path_en": "MENU › Shooting › Shooting Display › Grid Line Type",
+      "summary": "选择构图用网格的样式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_grid_line_type.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄显示 › 实时取景显示设置",
+      "path_en": "MENU › Shooting › Shooting Display › Live View Display Set.",
+      "summary": "决定屏幕是否预览曝光、白平衡等拍摄效果。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_live_view_disp_set.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄显示 › 录制时强调显示",
+      "path_en": "MENU › Shooting › Shooting Display › Emphasized REC Display",
+      "summary": "录像时在显示屏边缘显示红框。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_emphasize_display.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 纵横标记",
+      "path_en": "MENU › Shooting › Marker Display › Aspect Marker",
+      "summary": "拍照时显示用于预览裁切范围的比例标记。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_marker_display_still.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 纵横标记类型",
+      "path_en": "MENU › Shooting › Marker Display › Aspect Marker Type",
+      "summary": "为照片的裁切参考标记选择纵横比。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_marker_display_still.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 纵横标记透明度",
+      "path_en": "MENU › Shooting › Marker Display › Aspect Marker Level",
+      "summary": "调整照片纵横标记的透明度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_marker_display_still.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 标记显示",
+      "path_en": "MENU › Shooting › Marker Display › Marker Display",
+      "summary": "选择是否在录像画面显示构图标记。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412D_marker_display.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 中央标记",
+      "path_en": "MENU › Shooting › Marker Display › Center Marker",
+      "summary": "录像时标出画面中心。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412D_marker_display.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 纵横标记",
+      "path_en": "MENU › Shooting › Marker Display › Aspect Marker",
+      "summary": "录像时标出指定纵横比的边界。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412D_marker_display.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 安全框",
+      "path_en": "MENU › Shooting › Marker Display › Safety Zone",
+      "summary": "录像时显示安全区域的边框。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412D_marker_display.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 标记显示 › 引导框",
+      "path_en": "MENU › Shooting › Marker Display › Guideframe",
+      "summary": "录像时叠加辅助构图的引导框。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412D_marker_display.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄选项 › 自拍定时",
+      "path_en": "MENU › Shooting › Shooting Option › Self-timer",
+      "summary": "倒计时结束后自动开始录制视频。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_movie_selftimer.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄选项 › 自动取景设置",
+      "path_en": "MENU › Shooting › Shooting Option › Auto Framing Settings",
+      "summary": "录像或直播时裁切画面，自动跟随识别到的对象。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_auto_framing.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄选项 › 自动创建静态影像",
+      "path_en": "MENU › Shooting › Shooting Option › AutoCreateStillImage",
+      "summary": "根据录像中的Shot Mark自动生成照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/241h_auto-making_still_image_from_shotmark.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄选项 › 创建静态影像后",
+      "path_en": "MENU › Shooting › Shooting Option › after still img crt",
+      "summary": "选择自动生成照片后是否保留对应的Shot Mark。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/241h_auto-delete_shotmark_after_shooting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄选项 › 拍摄时选择/备忘录",
+      "path_en": "MENU › Shooting › Shooting Option › Selection/Memo Shot",
+      "summary": "给连拍或间隔拍摄的首张分级，或插入分隔帧。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_selection_memo_shoot.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光 › BULB定时器设置",
+      "path_en": "MENU › Exposure/Color › Exposure › BULB Timer Settings",
+      "summary": "设定B门自动结束曝光的时间。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_bulb_timer.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光 › 自动低速快门",
+      "path_en": "MENU › Exposure/Color › Exposure › Auto Slow Shutter",
+      "summary": "允许录像在暗处自动放慢快门。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412_auto_slow_shutter.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光 › ISO",
+      "path_en": "MENU › Exposure/Color › Exposure › ISO",
+      "summary": "设置自动感光度或自己指定ISO值。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0408C_iso.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光 › ISO范围限制",
+      "path_en": "MENU › Exposure/Color › Exposure › ISO Range Limit",
+      "summary": "限制手动设置时可选的ISO范围。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0408P_iso_range_limit.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光 › ISO AUTO最小速度",
+      "path_en": "MENU › Exposure/Color › Exposure › ISO AUTO Min. SS",
+      "summary": "为P、A档自动ISO选择开始提升感光度的快门。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0408H_ISO_auto_minimun_SS.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光 › 自动/手动切设",
+      "path_en": "MENU › Exposure/Color › Exposure › Auto/Manual Swt. Set.",
+      "summary": "为灵活曝光模式设定光圈、快门和ISO控制方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_switch_A_M_exposure_control.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光补偿 › 曝光补偿",
+      "path_en": "MENU › Exposure/Color › Exposure Comp. › Exposure Comp.",
+      "summary": "在自动曝光的基础上让照片变亮或变暗。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406B_exposure_compensation.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光补偿 › 曝光步级",
+      "path_en": "MENU › Exposure/Color › Exposure Comp. › Exposure step",
+      "summary": "设置快门、光圈和曝光补偿每次改变的步幅。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406_exposure_step_value.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 曝光补偿 › 曝光标准调整",
+      "path_en": "MENU › Exposure/Color › Exposure Comp. › Exposure Std. Adjust",
+      "summary": "按测光模式微调相机认定的标准曝光。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406L_exposure_standard.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 测光 › 测光模式",
+      "path_en": "MENU › Exposure/Color › Metering › Metering Mode",
+      "summary": "选择用画面的哪些部分来决定曝光。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406_metering_mode.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 测光 › 多重测光人脸优先",
+      "path_en": "MENU › Exposure/Color › Metering › Face Priority in Multi Metering",
+      "summary": "多重测光时优先照顾检测到的人脸。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406M_face_prty_in_mlti_mtr.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 测光 › 点测光点",
+      "path_en": "MENU › Exposure/Color › Metering › Spot Metering Point",
+      "summary": "选择点测光位置能否跟随对焦区域。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406L_spotmetering_link_focus_point.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 测光 › 快门AEL",
+      "path_en": "MENU › Exposure/Color › Metering › AEL w/ Shutter",
+      "summary": "决定半按快门时是否锁住曝光。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406_shutter_button_ael.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 闪光灯 › 闪光模式",
+      "path_en": "MENU › Exposure/Color › Flash › Flash Mode",
+      "summary": "选择闪光触发的方式和时机。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0402B_flash_mode.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 闪光灯 › 闪光补偿",
+      "path_en": "MENU › Exposure/Color › Flash › Flash Comp.",
+      "summary": "调高或调低闪光灯的输出。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0402B_flash_comp.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 闪光灯 › 曝光补偿设置",
+      "path_en": "MENU › Exposure/Color › Flash › Exp.comp.set",
+      "summary": "指定曝光补偿是否也影响闪光量。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406_exp_comp_set.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 闪光灯 › 无线闪光灯",
+      "path_en": "MENU › Exposure/Color › Flash › Wireless Flash",
+      "summary": "启用或关闭无线闪光拍摄。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0402L_wireless_flash.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 闪光灯 › 减轻红眼闪光",
+      "path_en": "MENU › Exposure/Color › Flash › Red Eye Reduction",
+      "summary": "用预闪减轻人像红眼。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_red_eye_reduction.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 闪光灯 › 外置闪光灯设置",
+      "path_en": "MENU › Exposure/Color › Flash › External Flash Set.",
+      "summary": "在相机上调整兼容外接闪光灯的设置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_external_flash_settings.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 闪光灯 › 注册闪光灯拍摄设置",
+      "path_en": "MENU › Exposure/Color › Flash › Reg. Flash Shooting Set",
+      "summary": "注册拍摄闪光照片时调用的设置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_flash_shoot_settings.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 白平衡模式 › 白平衡模式",
+      "path_en": "MENU › Exposure/Color › White Balance › White Balance",
+      "summary": "校正光源偏色或有意改变整体色调。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0410C_white_balance.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 白平衡模式 › AWB优先级设置",
+      "path_en": "MENU › Exposure/Color › White Balance › Priority Set in AWB",
+      "summary": "自动白平衡时决定保留暖色还是优先还原白色。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0410L_auto_white_balance_priority.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 白平衡模式 › 快门AWB锁定",
+      "path_en": "MENU › Exposure/Color › White Balance › Shutter AWB Lock",
+      "summary": "设定按下快门时是否锁住自动白平衡。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0410P_shutter_awb_lock.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 白平衡模式 › 减震WB",
+      "path_en": "MENU › Exposure/Color › White Balance › Shockless WB",
+      "summary": "控制录像中白平衡变化的过渡速度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_shockless_white_balance.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 白平衡模式 › WB拍摄帧尺寸",
+      "path_en": "MENU › Exposure/Color › White Balance › WB Capt. Frame Size",
+      "summary": "选择自定义白平衡取样区域的大小。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_wb_capture_size.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 颜色/色调 › 动态范围优化",
+      "path_en": "MENU › Exposure/Color › Color/Tone › D-Range Optimizer",
+      "summary": "根据画面各区的明暗差改善阴影层次。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0409B_d_range_optimizer.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 颜色/色调 › 创意外观",
+      "path_en": "MENU › Exposure/Color › Color/Tone › Creative Look",
+      "summary": "选择并微调照片或视频的色彩和质感。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0411B_creative_look.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 颜色/色调 › 图片配置文件",
+      "path_en": "MENU › Exposure/Color › Color/Tone › Picture Profile",
+      "summary": "调整伽玛、颜色等影像特性。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412D_picture_profile.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 颜色/色调 › 选择LUT",
+      "path_en": "MENU › Exposure/Color › Color/Tone › Select LUT",
+      "summary": "选择预览Log素材时使用的LUT。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_select_lut.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 颜色/色调 › 管理用户LUT",
+      "path_en": "MENU › Exposure/Color › Color/Tone › Manage User LUTs",
+      "summary": "导入和管理自定义的LUT文件。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_manage_lut.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 颜色/色调 › 美肤效果",
+      "path_en": "MENU › Exposure/Color › Color/Tone › Soft Skin Effect",
+      "summary": "选择人像肤色平滑的效果。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_softskin_effect.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 斑马线显示 › 斑马线显示",
+      "path_en": "MENU › Exposure/Color › Zebra Display › Zebra Display",
+      "summary": "以条纹提示达到指定亮度的区域。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406M_zebra_display.html"
+    },
+    {
+      "path": "MENU › 曝光/颜色 › 斑马线显示 › 斑马线水平",
+      "path_en": "MENU › Exposure/Color › Zebra Display › Zebra Level",
+      "summary": "为斑马纹选择亮度门槛或范围。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0406M_zebra_display.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › 对焦模式",
+      "path_en": "MENU › Focus › AF/MF › Focus Mode",
+      "summary": "根据对象是否移动选择对焦方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_focus_mode.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › AF-S优先级设置",
+      "path_en": "MENU › Focus › AF/MF › Priority Set in AF-S",
+      "summary": "单次对焦时在合焦与快门响应之间选择优先级。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405H_AF-S_priority_setup.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › AF-C优先级设置",
+      "path_en": "MENU › Focus › AF/MF › Priority Set in AF-C",
+      "summary": "连续对焦时在合焦与快门响应之间选择优先级。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405H_AF-C_priority_setup.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › 交叉AF等级",
+      "path_en": "MENU › Focus › AF/MF › AF Lvl for Crossing",
+      "summary": "设置对象被遮挡时重新对焦的灵敏度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405D_af_tracking_sensitivity.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › 速度变化AF跟踪",
+      "path_en": "MENU › Focus › AF/MF › AF Trk for Spd Chng",
+      "summary": "设置AF如何跟随突然加速或减速的对象。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_af_tracking_speedchange.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › AF辅助照明",
+      "path_en": "MENU › Focus › AF/MF › AF Illuminator",
+      "summary": "在暗处对焦时允许辅助灯补光。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405B_af_illuminator.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › AF光圈驱动",
+      "path_en": "MENU › Focus › AF/MF › Aperture Drive in AF",
+      "summary": "选择自动对焦时镜头光圈的驱动方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405P_aperture_drive_af.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › 预设对焦/变焦",
+      "path_en": "MENU › Focus › AF/MF › Preset Focus/Zoom",
+      "summary": "保存并调用预设的对焦或变焦位置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_preset_zoom_focus.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › 半按快门AF",
+      "path_en": "MENU › Focus › AF/MF › AF w/ Shutter",
+      "summary": "决定半按快门是否开始自动对焦。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405_shutter_button_af.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › 全部时间DMF",
+      "path_en": "MENU › Focus › AF/MF › Full Time DMF",
+      "summary": "在支持的条件下允许随时转动对焦环微调。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_fulltime_dmf.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › AF过渡速度",
+      "path_en": "MENU › Focus › AF/MF › AF Transition Speed",
+      "summary": "调整录像中自动对焦的过渡速度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_af_transition_speed.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › AF摄体转移敏度",
+      "path_en": "MENU › Focus › AF/MF › AF Subj. Shift Sensitivity",
+      "summary": "调整录像中自动对焦改换对象的灵敏度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_af_shift_sensitivity.html"
+    },
+    {
+      "path": "MENU › 对焦 › AF/MF › AF帮助",
+      "path_en": "MENU › Focus › AF/MF › AF Assist",
+      "summary": "录像时允许转动对焦环介入自动对焦。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_AF_assist.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 对焦区域",
+      "path_en": "MENU › Focus › Focus Area › Focus Area",
+      "summary": "指定自动对焦查找对象的区域或跟踪起点。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_autofocus_area.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 对焦区域限制",
+      "path_en": "MENU › Focus › Focus Area › Focus Area Limit",
+      "summary": "选择哪些对焦区域可供切换。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405P_focusarea_limit.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 换垂直和水平AF区",
+      "path_en": "MENU › Focus › Focus Area › Switch V/H AF Area",
+      "summary": "为横拍和竖拍分别记住对焦区域或位置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405L_focusarea_switch.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 对焦边框颜色",
+      "path_en": "MENU › Focus › Focus Area › Focus Area Color",
+      "summary": "选择对焦框的显示颜色。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405_focus_frame_color.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › AF区域注册功能",
+      "path_en": "MENU › Focus › Focus Area › AF Area Registration",
+      "summary": "保存常用的对焦框位置以便调用。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405L_reg_af_area.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 删除注册的AF区域",
+      "path_en": "MENU › Focus › Focus Area › Del. Regist. AF Area",
+      "summary": "清除先前注册的对焦区域。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405L_del_reg_af_area.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › AF区域自动清除",
+      "path_en": "MENU › Focus › Focus Area › AF Area Auto Clear",
+      "summary": "控制合焦后对焦框是否自动消失。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405D_focusarea_auto_off.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 跟踪时的区域显示",
+      "path_en": "MENU › Focus › Focus Area › Area Disp. dur Tracking",
+      "summary": "选择跟踪期间是否显示起始区域的框。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_frame_disp_tracking.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › AF-C区域显示",
+      "path_en": "MENU › Focus › Focus Area › AF-C Area Display",
+      "summary": "连续对焦时显示或隐藏实际合焦区域。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_continuousAF_area.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 相位检测区域",
+      "path_en": "MENU › Focus › Focus Area › Phase Detect. Area",
+      "summary": "选择是否显示相位检测自动对焦区域。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405_phase_detect_af_area.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › 对焦点的循环",
+      "path_en": "MENU › Focus › Focus Area › Circ. of Focus Point",
+      "summary": "设置对焦点移到画面边缘后能否从另一侧继续。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405P_focus_position_circulation.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦区域 › AF边框移动距离",
+      "path_en": "MENU › Focus › Focus Area › AF Frame Move Amt",
+      "summary": "改变每拨一次选择器时对焦框移动的距离。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_af_frame_move_amount.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › AF中的被摄体识别",
+      "path_en": "MENU › Focus › Subject Recognition › Subject Recog in AF",
+      "summary": "允许自动对焦识别并优先对准被摄体。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_subject_recognition_af.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 识别目标",
+      "path_en": "MENU › Focus › Subject Recognition › Recognition Target",
+      "summary": "选择相机应识别的人、鸟、车辆等对象。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_target.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 切换识别目标设置",
+      "path_en": "MENU › Focus › Subject Recognition › Recog Trgt Select Set",
+      "summary": "限定用自定义键循环切换的识别目标。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_target_switch.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 右眼/左眼选择",
+      "path_en": "MENU › Focus › Subject Recognition › Right/Left Eye Select",
+      "summary": "选择优先对焦左眼、右眼或自动选择。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_right_left_eye_select.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 被摄体检测框显示",
+      "path_en": "MENU › Focus › Subject Recognition › Sbj Recog Frm Disp.",
+      "summary": "设置拍照片时是否显示被摄体检测框。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_frame_disp.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 被摄体检测框显示",
+      "path_en": "MENU › Focus › Subject Recognition › Sbj Recog Frm Disp.",
+      "summary": "设置录像时是否显示被摄体检测框。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_frame_disp_movie.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 人脸登记",
+      "path_en": "MENU › Focus › Subject Recognition › Face Memory",
+      "summary": "登记希望相机记住的人脸。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_face_registration.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 登记的人脸优先",
+      "path_en": "MENU › Focus › Subject Recognition › Regist. Face Priority",
+      "summary": "识别到多张脸时优先对焦已登记的人。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_face_identification.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦辅助 › 焦点图",
+      "path_en": "MENU › Focus › Focus Assistant › Focus Map",
+      "summary": "在录像画面上用颜色显示焦点前后的区域。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_focus_map.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦辅助 › MF中自动放大对焦",
+      "path_en": "MENU › Focus › Focus Assistant › Auto Magnifier in MF",
+      "summary": "手动对焦拍照时，转对焦环自动放大画面。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405C_auto_magni_mf.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦辅助 › 对焦放大",
+      "path_en": "MENU › Focus › Focus Assistant › Focus Magnifier",
+      "summary": "在拍摄前放大局部以检查或调整焦点。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405_focus_magni.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦辅助 › 对焦放大时间",
+      "path_en": "MENU › Focus › Focus Assistant › Focus Magnif. Time",
+      "summary": "选择局部对焦放大画面的持续时间。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405_focus_magni_time.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦辅助 › 初始对焦放大倍率",
+      "path_en": "MENU › Focus › Focus Assistant › Initial Focus Mag.",
+      "summary": "选择拍照时初次进入对焦放大的倍率。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405K_focus_magni_scale.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦辅助 › 放大对焦中AF",
+      "path_en": "MENU › Focus › Focus Assistant › AF in Focus Mag.",
+      "summary": "允许在放大的照片取景画面上自动对焦。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405J_AF_in_focus_magni.html"
+    },
+    {
+      "path": "MENU › 对焦 › 对焦辅助 › 初始放大对焦",
+      "path_en": "MENU › Focus › Focus Assistant › Initial Focus Mag.",
+      "summary": "选择录像时初次进入对焦放大的倍率。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405P_focus_magni_scale_movie.html"
+    },
+    {
+      "path": "MENU › 对焦 › 峰值显示 › 峰值显示",
+      "path_en": "MENU › Focus › Peaking Display › Peaking Display",
+      "summary": "用颜色勾勒清晰的轮廓，帮助手动对焦。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405M_peaking_display.html"
+    },
+    {
+      "path": "MENU › 对焦 › 峰值显示 › 峰值水平",
+      "path_en": "MENU › Focus › Peaking Display › Peaking Level",
+      "summary": "选择峰值提示的轮廓强度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405M_peaking_display.html"
+    },
+    {
+      "path": "MENU › 对焦 › 峰值显示 › 峰值色彩",
+      "path_en": "MENU › Focus › Peaking Display › Peaking Color",
+      "summary": "选择峰值轮廓的颜色。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0405M_peaking_display.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放目标 › 多个媒体卡播放设置",
+      "path_en": "MENU › Playback › Playback Target › Play Set of Multi. Media",
+      "summary": "选择要从哪个存储卡插槽播放影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_multi_slot_playback_setting.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放目标 › 多个媒体显示设置",
+      "path_en": "MENU › Playback › Playback Target › Disp Set of Multi Media",
+      "summary": "选择浏览时显示哪个或哪些插槽的内容。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_multi_slot_display_setting.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放目标 › 播放筛选条件",
+      "path_en": "MENU › Playback › Playback Target › Playback Filter Condition",
+      "summary": "按条件筛选回放时要看的影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_playback_filter.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放目标 › 影像顺序",
+      "path_en": "MENU › Playback › Playback Target › Image Order",
+      "summary": "指定回放影像排列的顺序。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_playback_order.html"
+    },
+    {
+      "path": "MENU › 播放 › 放大倍率 › 放大",
+      "path_en": "MENU › Playback › Magnification › Enlarge Image",
+      "summary": "放大正在回看的照片以检查细节。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0501C_playback_zoom.html"
+    },
+    {
+      "path": "MENU › 播放 › 放大倍率 › 放大初始放大倍率",
+      "path_en": "MENU › Playback › Magnification › Enlarge Initial Mag.",
+      "summary": "选择回放照片时首次放大的倍率。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506K_enlarge_initial_mag.html"
+    },
+    {
+      "path": "MENU › 播放 › 放大倍率 › 放大初始位置",
+      "path_en": "MENU › Playback › Magnification › Enlarge Initial Position",
+      "summary": "选择回放放大时最先显示的位置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506K_enlarge_initial_position.html"
+    },
+    {
+      "path": "MENU › 播放 › 选择/备忘录 › 保护",
+      "path_en": "MENU › Playback › Selection/Memo › Protect",
+      "summary": "给影像加上保护以防误删。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506_protect.html"
+    },
+    {
+      "path": "MENU › 播放 › 选择/备忘录 › 分级",
+      "path_en": "MENU › Playback › Selection/Memo › Rating",
+      "summary": "给照片或视频标星以便筛选。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506M_rating.html"
+    },
+    {
+      "path": "MENU › 播放 › 选择/备忘录 › 分级设置(自定义键)",
+      "path_en": "MENU › Playback › Selection/Memo › Rating Set(Custom Key)",
+      "summary": "限定按分级自定义键时可切换的星级。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506M_rating_set_cust_key.html"
+    },
+    {
+      "path": "MENU › 播放 › 选择/备忘录 › 片段旗标",
+      "path_en": "MENU › Playback › Selection/Memo › Clip Flag",
+      "summary": "给视频指定片段旗标以便筛选。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_clip_flag.html"
+    },
+    {
+      "path": "MENU › 播放 › 删除 › 删除",
+      "path_en": "MENU › Playback › Delete › Delete",
+      "summary": "选中要从卡上删除的影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0502_delete_image_selection.html"
+    },
+    {
+      "path": "MENU › 播放 › 删除 › 按两次删除",
+      "path_en": "MENU › Playback › Delete › Delete pressing twice",
+      "summary": "允许连续按两次删除键完成删除。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_delete_press_twice.html"
+    },
+    {
+      "path": "MENU › 播放 › 删除 › 删除确认画面",
+      "path_en": "MENU › Playback › Delete › Delete confirm.",
+      "summary": "选择删除确认画面最先选中的按钮。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_delete_confirmation.html"
+    },
+    {
+      "path": "MENU › 播放 › 删除 › 删除插槽1/2",
+      "path_en": "MENU › Playback › Delete › Delete Slot1/2",
+      "summary": "指定删除操作涉及哪个或哪些卡槽。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/252h_delete_simultaneously.html"
+    },
+    {
+      "path": "MENU › 播放 › 删除 › 执行时的初始位置",
+      "path_en": "MENU › Playback › Delete › Initial Pos. When Exec",
+      "summary": "设定执行双卡删除时初始选中的项目。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/252h_delete_initial_position.html"
+    },
+    {
+      "path": "MENU › 播放 › 编辑 › 裁切",
+      "path_en": "MENU › Playback › Edit › Crop",
+      "summary": "裁出照片的一部分保存为新影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_crop.html"
+    },
+    {
+      "path": "MENU › 播放 › 编辑 › 旋转",
+      "path_en": "MENU › Playback › Edit › Rotate",
+      "summary": "改变已记录影像的显示方向。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506_rotate.html"
+    },
+    {
+      "path": "MENU › 播放 › 编辑 › 复制",
+      "path_en": "MENU › Playback › Edit › Copy",
+      "summary": "将影像复制到另一个卡槽中的卡。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506L_copy_dual_slot.html"
+    },
+    {
+      "path": "MENU › 播放 › 编辑 › 照片捕获",
+      "path_en": "MENU › Playback › Edit › Photo Capture",
+      "summary": "将选定的视频帧保存为照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0503K_photo_capture.html"
+    },
+    {
+      "path": "MENU › 播放 › 编辑 › 创建静态影像",
+      "path_en": "MENU › Playback › Edit › Create Still Image",
+      "summary": "从带Shot Mark的视频帧生成照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/241h_making_still_image_from_shotmark.html"
+    },
+    {
+      "path": "MENU › 播放 › 编辑 › 创建静态影像后",
+      "path_en": "MENU › Playback › Edit › after still img crt",
+      "summary": "设置生成照片后是否清除对应的Shot Mark。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/241h_delete_shotmark_while_playback.html"
+    },
+    {
+      "path": "MENU › 播放 › 编辑 › JPEG/HEIF切换",
+      "path_en": "MENU › Playback › Edit › JPEG/HEIF Switch",
+      "summary": "为视频截图选择JPEG或HEIF。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_jpeg_heif_switch_photo_capture.html"
+    },
+    {
+      "path": "MENU › 播放 › 观看 › 间隔连续播放",
+      "path_en": "MENU › Playback › Viewing › Cont. Play for Interval",
+      "summary": "连续播放间隔拍摄得到的一组照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506P_interval_playback.html"
+    },
+    {
+      "path": "MENU › 播放 › 观看 › 间隔播放速度",
+      "path_en": "MENU › Playback › Viewing › Play Speed for Interval",
+      "summary": "选择间隔拍摄照片连续播放的速度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506P_interval_playback_speed.html"
+    },
+    {
+      "path": "MENU › 播放 › 观看 › 幻灯片播放",
+      "path_en": "MENU › Playback › Viewing › Slide Show",
+      "summary": "依次自动播放照片。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506_slideshow.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放选项 › 影像索引",
+      "path_en": "MENU › Playback › Playback Option › Image Index",
+      "summary": "一屏显示多张影像的缩略图。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0501_playback_index.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放选项 › 以组显示",
+      "path_en": "MENU › Playback › Playback Option › Display as Group",
+      "summary": "把连拍等产生的影像合为一组显示。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506M_grouping_display.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放选项 › 显示旋转",
+      "path_en": "MENU › Playback › Playback Option › Display Rotation",
+      "summary": "选择竖拍影像在回放时的旋转方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0506_view_rotate.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放选项 › 对焦边框显示",
+      "path_en": "MENU › Playback › Playback Option › Focus Frame Display",
+      "summary": "回看照片时显示拍摄时实际合焦的框。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_focus_frame_display.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放选项 › 纵横标记显示",
+      "path_en": "MENU › Playback › Playback Option › Aspect Marker Disp.",
+      "summary": "回放时显示拍照所用的纵横标记。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_aspect_marker_display.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放选项 › 显示指定时日的影像",
+      "path_en": "MENU › Playback › Playback Option › Disp Specified Time Img.",
+      "summary": "按拍摄日期和时间寻找影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_disp_specified_time.html"
+    },
+    {
+      "path": "MENU › 播放 › 播放选项 › 影像跳转设置",
+      "path_en": "MENU › Playback › Playback Option › Image Jump Setting",
+      "summary": "设置浏览影像时按何种条件跳转。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_image_jump_setting.html"
+    },
+    {
+      "path": "MENU › 网络 › 连接/遥控拍摄 › 智能手机连接",
+      "path_en": "MENU › Network › Cnct./Remote Sht. › Smartphone Connection",
+      "summary": "将相机与手机上的Creators' App配对。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_register_smartphone.html"
+    },
+    {
+      "path": "MENU › 网络 › 连接/遥控拍摄 › 遥控拍摄功能",
+      "path_en": "MENU › Network › Cnct./Remote Sht. › Remote Shoot Function",
+      "summary": "设置从电脑等设备遥控拍摄。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0903_pc_remote_function.html"
+    },
+    {
+      "path": "MENU › 网络 › 连接/遥控拍摄 › 拍摄装置上选并发",
+      "path_en": "MENU › Network › Cnct./Remote Sht. › Select on Cam & Send",
+      "summary": "在相机上选出要发送到手机的影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_transfer_select_on_camera.html"
+    },
+    {
+      "path": "MENU › 网络 › 连接/遥控拍摄 › 重置传输状态",
+      "path_en": "MENU › Network › Cnct./Remote Sht. › Reset Transfer Status",
+      "summary": "清除影像传到手机的状态记录。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_transfer_status_reset.html"
+    },
+    {
+      "path": "MENU › 网络 › 连接/遥控拍摄 › 关机时连接",
+      "path_en": "MENU › Network › Cnct./Remote Sht. › Cnct. while Power OFF",
+      "summary": "允许相机关机后仍与手机连接。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0703_connect_while_power_off.html"
+    },
+    {
+      "path": "MENU › 网络 › 连接/遥控拍摄 › 遥控拍摄设置",
+      "path_en": "MENU › Network › Cnct./Remote Sht. › Remote Shoot Setting",
+      "summary": "设置用智能手机遥控拍摄时的保存方式等。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_remote_shoot_setting.html"
+    },
+    {
+      "path": "MENU › 网络 › FTP传输 › FTP传输功能",
+      "path_en": "MENU › Network › FTP Transfer › FTP Transfer Func.",
+      "summary": "设置向FTP服务器传送影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0704L_ftp_transfer.html"
+    },
+    {
+      "path": "MENU › 网络 › 流式传输 › 网络流式传输",
+      "path_en": "MENU › Network › Streaming › Network Streaming",
+      "summary": "配置通过网络进行的音视频直播。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_network_streaming.html"
+    },
+    {
+      "path": "MENU › 网络 › 流式传输 › USB流式传输",
+      "path_en": "MENU › Network › Streaming › USB Streaming",
+      "summary": "通过USB将相机作为流式音视频源。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_usb_streaming.html"
+    },
+    {
+      "path": "MENU › 网络 › Creators' Cloud › 云连接",
+      "path_en": "MENU › Network › Creators' Cloud › Cloud Connection",
+      "summary": "关联云端帐户并设置相机的云连接。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_cloud_connection.html"
+    },
+    {
+      "path": "MENU › 网络 › Creators' Cloud › 云信息",
+      "path_en": "MENU › Network › Creators' Cloud › Cloud Information",
+      "summary": "查看相机关联的云端连接信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_cloud_info_display.html"
+    },
+    {
+      "path": "MENU › 网络 › Wi-Fi › Wi-Fi连接",
+      "path_en": "MENU › Network › Wi-Fi › Wi-Fi Connect",
+      "summary": "选择如何通过Wi-Fi连接网络。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_wifi_connection.html"
+    },
+    {
+      "path": "MENU › 网络 › Wi-Fi › WPS按压",
+      "path_en": "MENU › Network › Wi-Fi › WPS Push",
+      "summary": "按下路由器WPS按钮来连接网络。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_access_point_wps.html"
+    },
+    {
+      "path": "MENU › 网络 › Wi-Fi › 访问点手动设置",
+      "path_en": "MENU › Network › Wi-Fi › Access Point Set.",
+      "summary": "手动登记无线网络的接入点。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_access_point_manual.html"
+    },
+    {
+      "path": "MENU › 网络 › Wi-Fi › Wi-Fi频带",
+      "path_en": "MENU › Network › Wi-Fi › Wi-Fi Frequency Band",
+      "summary": "选择无线直连的频带，依销售地区而异。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_wifi_frequency_band.html"
+    },
+    {
+      "path": "MENU › 网络 › Wi-Fi › 显示Wi-Fi信息",
+      "path_en": "MENU › Network › Wi-Fi › Display Wi-Fi Info.",
+      "summary": "查看相机的无线网络地址等信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_display_wireless_lan_info.html"
+    },
+    {
+      "path": "MENU › 网络 › Wi-Fi › SSID/密码复位",
+      "path_en": "MENU › Network › Wi-Fi › SSID/PW Reset",
+      "summary": "重置Wi-Fi直连设备使用的连接凭据。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_ssid_pw_reset.html"
+    },
+    {
+      "path": "MENU › 网络 › Bluetooth › Bluetooth功能",
+      "path_en": "MENU › Network › Bluetooth › Bluetooth Function",
+      "summary": "开启或关闭蓝牙通信。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706L_bluetooth_settings.html"
+    },
+    {
+      "path": "MENU › 网络 › Bluetooth › 配对",
+      "path_en": "MENU › Network › Bluetooth › Pairing",
+      "summary": "登记要通过蓝牙连接的设备。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706L_bluetooth_settings.html"
+    },
+    {
+      "path": "MENU › 网络 › Bluetooth › 配对设备的管理",
+      "path_en": "MENU › Network › Bluetooth › Manage Paired Device",
+      "summary": "查看和移除已经配对的蓝牙设备。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706L_bluetooth_settings.html"
+    },
+    {
+      "path": "MENU › 网络 › Bluetooth › Bluetooth遥控",
+      "path_en": "MENU › Network › Bluetooth › Bluetooth Rmt Ctrl",
+      "summary": "用兼容的蓝牙遥控器或拍摄手柄操作相机。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_bluetooth_remote.html"
+    },
+    {
+      "path": "MENU › 网络 › Bluetooth › 显示本机地址",
+      "path_en": "MENU › Network › Bluetooth › Disp Device Address",
+      "summary": "查看相机自身的蓝牙设备地址。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706L_bluetooth_settings.html"
+    },
+    {
+      "path": "MENU › 网络 › 有线LAN › IP地址设置",
+      "path_en": "MENU › Network › Wired LAN › IP Address Setting",
+      "summary": "设置有线网络使用的IP地址。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706L_wired_lan_settting.html"
+    },
+    {
+      "path": "MENU › 网络 › 有线LAN › 显示有线LAN信息",
+      "path_en": "MENU › Network › Wired LAN › Display Wired LAN Info.",
+      "summary": "查看相机的有线网络连接信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706L_wired_lan_settting.html"
+    },
+    {
+      "path": "MENU › 网络 › USB LAN/共享 › USB LAN连接",
+      "path_en": "MENU › Network › USB LAN/Tethering › USB LAN Connection",
+      "summary": "通过USB转有线网卡建立网络连接。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_usb_lan_tether.html"
+    },
+    {
+      "path": "MENU › 网络 › USB LAN/共享 › USB LAN断开连接",
+      "path_en": "MENU › Network › USB LAN/Tethering › USB LAN Disconnection",
+      "summary": "断开通过USB转接的有线网络。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_usb_lan_tether.html"
+    },
+    {
+      "path": "MENU › 网络 › USB LAN/共享 › 网络共享连接",
+      "path_en": "MENU › Network › USB LAN/Tethering › Tethering Connection",
+      "summary": "使用手机的USB网络共享上网。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_usb_lan_tether.html"
+    },
+    {
+      "path": "MENU › 网络 › USB LAN/共享 › 网络共享断开连接",
+      "path_en": "MENU › Network › USB LAN/Tethering › Tethering Disconnection",
+      "summary": "断开手机提供的USB网络共享。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_usb_lan_tether.html"
+    },
+    {
+      "path": "MENU › 网络 › USB LAN/共享 › USB LAN/网络连接",
+      "path_en": "MENU › Network › USB LAN/Tethering › USB LAN/Teth Cnct",
+      "summary": "选择有线网络或USB网络共享使用的USB端子。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_usb_lan_tether.html"
+    },
+    {
+      "path": "MENU › 网络 › 网络选项 › 飞行模式",
+      "path_en": "MENU › Network › Network Option › Airplane Mode",
+      "summary": "暂时关闭Wi-Fi和蓝牙等无线功能。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_airplane_mode.html"
+    },
+    {
+      "path": "MENU › 网络 › 网络选项 › 编辑装置名称",
+      "path_en": "MENU › Network › Network Option › Edit Device Name",
+      "summary": "更改其他设备连接时看到的相机名称。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_edit_device_name.html"
+    },
+    {
+      "path": "MENU › 网络 › 网络选项 › 导入根证书",
+      "path_en": "MENU › Network › Network Option › Import Root Certificate",
+      "summary": "从存储卡导入用于验证服务器的根证书。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706L_import_root_certificate.html"
+    },
+    {
+      "path": "MENU › 网络 › 网络选项 › 访问身份验证设置",
+      "path_en": "MENU › Network › Network Option › Access Authen. Settings",
+      "summary": "设置遥控或传输连接的身份验证。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_access_authentication_settings.html"
+    },
+    {
+      "path": "MENU › 网络 › 网络选项 › 访问身份验证信息",
+      "path_en": "MENU › Network › Network Option › Access Authen. Info",
+      "summary": "查看设备接入相机时所需的验证信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_access_authentication_information.html"
+    },
+    {
+      "path": "MENU › 网络 › 网络选项 › Wi-Fi Direct设置",
+      "path_en": "MENU › Network › Network Option › Wi-Fi Direct Settings",
+      "summary": "调整设备与相机直接建立Wi-Fi连接的方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/241h_wifi_direct_settings.html"
+    },
+    {
+      "path": "MENU › 网络 › 网络选项 › 复位网络设置",
+      "path_en": "MENU › Network › Network Option › Reset Network Set.",
+      "summary": "将网络相关设置恢复到初始状态。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0706_network_setting_reset.html"
+    },
+    {
+      "path": "MENU › 设置 › 区域/日期 › 语言",
+      "path_en": "MENU › Setup › Area/Date › Language",
+      "summary": "更改菜单、提示和警告使用的语言。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_language.html"
+    },
+    {
+      "path": "MENU › 设置 › 区域/日期 › 区域/日期/时间设置",
+      "path_en": "MENU › Setup › Area/Date › Area/Date/Time Setting",
+      "summary": "设定使用地区、时钟和日期显示格式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_area_date_time_setting.html"
+    },
+    {
+      "path": "MENU › 设置 › 区域/日期 › NTSC/PAL选择器",
+      "path_en": "MENU › Setup › Area/Date › NTSC/PAL Selector",
+      "summary": "选择视频制式以匹配播放设备。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_pal_ntsc_select.html"
+    },
+    {
+      "path": "MENU › 设置 › 重置/保存设置 › 出厂重置",
+      "path_en": "MENU › Setup › Reset/Save Settings › Setting Reset",
+      "summary": "将拍摄参数或整机设置恢复为初始值。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_setting_reset.html"
+    },
+    {
+      "path": "MENU › 设置 › 重置/保存设置 › 保存/加载设置",
+      "path_en": "MENU › Setup › Reset/Save Settings › Save/Load Settings",
+      "summary": "用存储卡备份或载入同型号相机的设置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_save_load_settings.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › 自定键/转盘设置",
+      "path_en": "MENU › Setup › Operation Customize › Custom Key/Dial Set.",
+      "summary": "设置拍照时各按键和转盘的功能。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413M_custom_key.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › 自定键/转盘设置",
+      "path_en": "MENU › Setup › Operation Customize › Custom Key/Dial Set.",
+      "summary": "设置录像时各按键和转盘的功能。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413M_custom_key.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › 自定义键设置",
+      "path_en": "MENU › Setup › Operation Customize › Custom Key Setting",
+      "summary": "设置播放影像时的自定义键。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413M_custom_key.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › Fn菜单设置",
+      "path_en": "MENU › Setup › Operation Customize › Fn Menu Settings",
+      "summary": "为拍照和录像分别安排Fn菜单。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_fn_menu_setting.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › Fn菜单设置",
+      "path_en": "MENU › Setup › Operation Customize › Fn Menu Settings",
+      "summary": "设置回放时按Fn出现的菜单。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_fn_menu_playback.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › DISP(画面显示)",
+      "path_en": "MENU › Setup › Operation Customize › DISP (Screen Display)",
+      "summary": "选择拍照时可以用DISP切换的画面。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_disp_set_still.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › DISP(画面显示)",
+      "path_en": "MENU › Setup › Operation Customize › DISP (Screen Display)",
+      "summary": "选择录像时可以用DISP切换的画面。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_disp_set_movie.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › 静态/动态不同设置",
+      "path_en": "MENU › Setup › Operation Customize › Different Set for Still/Mv",
+      "summary": "指定拍照和录像分开保存的参数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_different_set_for_still_mv.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › 用快门按钮REC",
+      "path_en": "MENU › Setup › Operation Customize › REC w/ Shutter",
+      "summary": "允许用快门按钮开始或结束录像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0301L_shutter_button_rec.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › 用快门按钮",
+      "path_en": "MENU › Setup › Operation Customize › with Shutter Button",
+      "summary": "录像时用快门按钮给某一帧加Shot Mark。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/241h_shotmark_with_shutter_button.html"
+    },
+    {
+      "path": "MENU › 设置 › 操作自定义 › 变焦环旋转",
+      "path_en": "MENU › Setup › Operation Customize › Zoom Ring Rotate",
+      "summary": "改变兼容电动变焦镜头的变焦环方向。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0401D_zoom_rotate.html"
+    },
+    {
+      "path": "MENU › 设置 › 转盘自定义 › 自定键/转盘设置",
+      "path_en": "MENU › Setup › Dial Customize › Custom Key/Dial Set.",
+      "summary": "给拍照时使用的转盘或按键重新分配功能。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413M_custom_key.html"
+    },
+    {
+      "path": "MENU › 设置 › 转盘自定义 › 自定键/转盘设置",
+      "path_en": "MENU › Setup › Dial Customize › Custom Key/Dial Set.",
+      "summary": "给录像时使用的转盘或按键重新分配功能。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413M_custom_key.html"
+    },
+    {
+      "path": "MENU › 设置 › 转盘自定义 › 我的转盘设置",
+      "path_en": "MENU › Setup › Dial Customize › My Dial Settings",
+      "summary": "保存最多三组可临时调用的转盘功能组合。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413P_mydial.html"
+    },
+    {
+      "path": "MENU › 设置 › 转盘自定义 › Av/Tv旋转",
+      "path_en": "MENU › Setup › Dial Customize › Av/Tv Rotate",
+      "summary": "选择调光圈或快门时转盘的旋转方向。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414M_av_tv_rotate.html"
+    },
+    {
+      "path": "MENU › 设置 › 转盘自定义 › 功能环(镜头)",
+      "path_en": "MENU › Setup › Dial Customize › Function Ring(Lens)",
+      "summary": "给兼容镜头的功能环指定用途。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0413P_function_ring_lens.html"
+    },
+    {
+      "path": "MENU › 设置 › 转盘自定义 › 锁定操作的部件",
+      "path_en": "MENU › Setup › Dial Customize › Lock Operation Parts",
+      "summary": "指定长按Fn时可锁定的转盘、拨轮或选择器。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_operation_parts_lock.html"
+    },
+    {
+      "path": "MENU › 设置 › 触摸操作 › 触摸操作",
+      "path_en": "MENU › Setup › Touch Operation › Touch Operation",
+      "summary": "开启或关闭显示屏的触摸操作。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601E_touch_operation.html"
+    },
+    {
+      "path": "MENU › 设置 › 触摸操作 › 触摸屏/触摸板",
+      "path_en": "MENU › Setup › Touch Operation › Touch Panel/Pad",
+      "summary": "选择用显示屏取景或用取景器时的触控方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601M_touch_panel_pad.html"
+    },
+    {
+      "path": "MENU › 设置 › 触摸操作 › 触摸面板设置",
+      "path_en": "MENU › Setup › Touch Operation › Touch Panel Settings",
+      "summary": "分别设置拍摄、回放和菜单画面的触摸动作。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_touchpanel_settings.html"
+    },
+    {
+      "path": "MENU › 设置 › 触摸操作 › 触摸板设置",
+      "path_en": "MENU › Setup › Touch Operation › Touch Pad Settings",
+      "summary": "调整用取景器拍摄时的触摸板位置和区域。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601M_touch_pad_settings.html"
+    },
+    {
+      "path": "MENU › 设置 › 触摸操作 › 触摸灵敏度",
+      "path_en": "MENU › Setup › Touch Operation › Touch Sensitivity",
+      "summary": "调整触屏对手指操作的灵敏度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_touch_sensitivity.html"
+    },
+    {
+      "path": "MENU › 设置 › 可访问性 › 屏幕阅读器",
+      "path_en": "MENU › Setup › Accessibility › Screen Reader",
+      "summary": "用语音朗读相机画面上的文字。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_screen_reader.html"
+    },
+    {
+      "path": "MENU › 设置 › 可访问性 › 放大画面",
+      "path_en": "MENU › Setup › Accessibility › Enlarge Screen",
+      "summary": "放大部分菜单画面以便阅读。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_screen_magnifier.html"
+    },
+    {
+      "path": "MENU › 设置 › 可访问性 › 模式转盘控制设置",
+      "path_en": "MENU › Setup › Accessibility › Mode Dial Control Set",
+      "summary": "设置曝光模式由实体旋钮还是菜单控制。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_modedial_control_set.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 选择取景器/显示屏",
+      "path_en": "MENU › Setup › Finder/Monitor › Select Finder/Monitor",
+      "summary": "决定显示屏和取景器之间如何切换。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_finder_lcd_set.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 显示屏亮度",
+      "path_en": "MENU › Setup › Finder/Monitor › Monitor Brightness",
+      "summary": "根据环境光调节背面显示屏亮度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601B_monitor_brightness.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 取景器亮度",
+      "path_en": "MENU › Setup › Finder/Monitor › Viewfinder Bright.",
+      "summary": "调整取景器亮度或交给相机自动调整。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601B_finder_brightness.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 取景器色温",
+      "path_en": "MENU › Setup › Finder/Monitor › Finder Color Temp.",
+      "summary": "调整取景器显示的冷暖色调。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_finder_color_temp.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 显示质量",
+      "path_en": "MENU › Setup › Finder/Monitor › Display Quality",
+      "summary": "选择拍照取景画面的显示画质。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_display_quality.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 取景器帧速率",
+      "path_en": "MENU › Setup › Finder/Monitor › Finder Frame Rate",
+      "summary": "设定取景器显示移动对象时的刷新速度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414J_finder_frame_rate.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 显示屏翻转方向",
+      "path_en": "MENU › Setup › Finder/Monitor › Monitor Flip Direction",
+      "summary": "调节翻转显示屏时画面随之转动的方向。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_monitor_disp_direction.html"
+    },
+    {
+      "path": "MENU › 设置 › 取景器/显示屏 › 竖屏显示",
+      "path_en": "MENU › Setup › Finder/Monitor › Vertical Display",
+      "summary": "竖持相机时自动旋转拍摄信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_vertical_ui_display.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › TC/UB显示设置",
+      "path_en": "MENU › Setup › Display Option › TC/UB Disp. Setting",
+      "summary": "选择录像时显示计数器、时间码或用户比特。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0403H_TC_UB_disp_set.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › Gamma显示辅助",
+      "path_en": "MENU › Setup › Display Option › Gamma Display Assist",
+      "summary": "帮助在机内屏幕上查看低对比度的Log或HLG影像。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601I_gamma_disp_assist.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › Gamma显示辅助类型",
+      "path_en": "MENU › Setup › Display Option › Gamma Disp. Assist Typ.",
+      "summary": "选择用于取景预览的伽玛转换。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_gamma_disp_assist_type.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › 显示LUT",
+      "path_en": "MENU › Setup › Display Option › Display LUT",
+      "summary": "预览应用LUT后的视频颜色。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_display_lut.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › 拍摄时间显示",
+      "path_en": "MENU › Setup › Display Option › Shoot. Timing Display",
+      "summary": "在画面上显示静态照片快门释放的时机。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_electronic_shutter_timing.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › 剩余拍摄显示",
+      "path_en": "MENU › Setup › Display Option › Remain Shoot Display",
+      "summary": "显示按当前速度还能连拍多少张。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0407L_remain_shoot_display.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › 自动检视",
+      "path_en": "MENU › Setup › Display Option › Auto Review",
+      "summary": "设置按下快门后照片在屏幕上停留多久。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_auto_review.html"
+    },
+    {
+      "path": "MENU › 设置 › 显示选项 › 照相模式选择屏幕",
+      "path_en": "MENU › Setup › Display Option › Shoot Mode Sel. Screen",
+      "summary": "设置切到S&Q时是否先显示模式选择画面。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_shoot_mode_sel_screen.html"
+    },
+    {
+      "path": "MENU › 设置 › 电源设置选项 › 显示屏低亮度",
+      "path_en": "MENU › Setup › Power Setting Option › Monitor Low Bright",
+      "summary": "拍照时闲置一段时间后调低屏幕亮度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_monitor_low_bright.html"
+    },
+    {
+      "path": "MENU › 设置 › 电源设置选项 › 关显示屏",
+      "path_en": "MENU › Setup › Power Setting Option › Monitor Off",
+      "summary": "拍照时让闲置的显示屏自动关闭。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_auto_monitor_off.html"
+    },
+    {
+      "path": "MENU › 设置 › 电源设置选项 › 自动关机",
+      "path_en": "MENU › Setup › Power Setting Option › Power Save",
+      "summary": "设定相机闲置多长时间后进入省电状态。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601B_power_save_start_time.html"
+    },
+    {
+      "path": "MENU › 设置 › 电源设置选项 › 通过显示屏节电",
+      "path_en": "MENU › Setup › Power Setting Option › Power Save by Monitor",
+      "summary": "让显示屏的开合联动相机的省电状态。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_power_save_by_monitor.html"
+    },
+    {
+      "path": "MENU › 设置 › 电源设置选项 › 自动关机温度",
+      "path_en": "MENU › Setup › Power Setting Option › Auto Power OFF Temp.",
+      "summary": "设置拍摄时机身因温度而关机的阈值。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601L_auto_power_off_temperature.html"
+    },
+    {
+      "path": "MENU › 设置 › 声音选项 › 播放/监测音量",
+      "path_en": "MENU › Setup › Sound Option › Playback/Monitor. Vol.",
+      "summary": "调整回放或监听的声音大小。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_volume_setting.html"
+    },
+    {
+      "path": "MENU › 设置 › 声音选项 › 4ch音频监测",
+      "path_en": "MENU › Setup › Sound Option › 4ch Audio Monitoring",
+      "summary": "为四声道录像选择耳机监听的声道。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_4ch_audio_monitoring.html"
+    },
+    {
+      "path": "MENU › 设置 › 声音选项 › 音频信号(拍摄)",
+      "path_en": "MENU › Setup › Sound Option › Audio Signal(Shooting)",
+      "summary": "设置合焦、自拍倒计时和电子快门的声音。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601B_audio_signals.html"
+    },
+    {
+      "path": "MENU › 设置 › 声音选项 › 音频信号(开始/结束)",
+      "path_en": "MENU › Setup › Sound Option › Audio Signal(Start/End)",
+      "summary": "选择开机和关机时是否发出电子音。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_audio_signal_start_end.html"
+    },
+    {
+      "path": "MENU › 设置 › 声音选项 › 音频信号音量",
+      "path_en": "MENU › Setup › Sound Option › Audio Signal Volume",
+      "summary": "调整快门、合焦等电子提示音的音量。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/231h_audio_signal_volume.html"
+    },
+    {
+      "path": "MENU › 设置 › USB › USB连接模式(PORT1)",
+      "path_en": "MENU › Setup › USB › USB Cnct Mode (PORT1)",
+      "summary": "选择USB端口1连接电脑或手机时的用途。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_usb_connection.html"
+    },
+    {
+      "path": "MENU › 设置 › USB › USB连接模式(PORT2)",
+      "path_en": "MENU › Setup › USB › USB Cnct Mode (PORT2)",
+      "summary": "选择USB端口2连接电脑或手机时的用途。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_usb_connection.html"
+    },
+    {
+      "path": "MENU › 设置 › USB › USB LUN设定",
+      "path_en": "MENU › Setup › USB › USB LUN Setting",
+      "summary": "限制USB连接功能以提高设备兼容性。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_usb_lun_setting.html"
+    },
+    {
+      "path": "MENU › 设置 › USB › USB电源供给",
+      "path_en": "MENU › Setup › USB › USB Power Supply",
+      "summary": "开机使用外部电源时，选择供电端口或关闭供电。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_usb_power_supply.html"
+    },
+    {
+      "path": "MENU › 设置 › 外部输出 › HDMI分辨率",
+      "path_en": "MENU › Setup › External Output › HDMI Resolution",
+      "summary": "选择照片拍摄或回放时的HDMI输出分辨率。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_hdmi_resolution.html"
+    },
+    {
+      "path": "MENU › 设置 › 外部输出 › HDMI输出设置",
+      "path_en": "MENU › Setup › External Output › HDMI Output Settings",
+      "summary": "设置录像时HDMI外接设备收到的音视频。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_HDMI_output_setting.html"
+    },
+    {
+      "path": "MENU › 设置 › 外部输出 › HDMI信息显示",
+      "path_en": "MENU › Setup › External Output › HDMI Info. Display",
+      "summary": "选择HDMI外接屏是否同时显示拍摄信息。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_hdmi_info.html"
+    },
+    {
+      "path": "MENU › 设置 › 外部输出 › HDMI控制",
+      "path_en": "MENU › Setup › External Output › CTRL FOR HDMI",
+      "summary": "允许兼容电视的遥控器通过HDMI操作相机。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_hdmi_control.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 视频灯模式",
+      "path_en": "MENU › Setup › Setup Option › Video Light Mode",
+      "summary": "设置兼容外接LED视频灯的点亮方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0412D_video_light.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 防尘功能",
+      "path_en": "MENU › Setup › Setup Option › Anti-dust Function",
+      "summary": "清洁传感器，或设定关机后是否关闭快门。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_anti_dust_function.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 自动像素映射",
+      "path_en": "MENU › Setup › Setup Option › Auto Pixel Mapping",
+      "summary": "控制相机是否自动执行像素映射。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_auto_pixel_mapping.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 像素映射",
+      "path_en": "MENU › Setup › Setup Option › Pixel Mapping",
+      "summary": "手动运行影像传感器的像素映射。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_manual_pixel_mapping.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 版本",
+      "path_en": "MENU › Setup › Setup Option › Version",
+      "summary": "查看机身及兼容镜头的软件版本。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/202h_version.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 显示序列号",
+      "path_en": "MENU › Setup › Setup Option › Display Serial Number",
+      "summary": "在屏幕上查看机身序列号。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/221h_display_serial_number.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 隐私声明",
+      "path_en": "MENU › Setup › Setup Option › Privacy Notice",
+      "summary": "在相机上查看隐私声明。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_privacy_notice.html"
+    },
+    {
+      "path": "MENU › 设置 › 设置选项 › 认证标识",
+      "path_en": "MENU › Setup › Setup Option › Certification Logo",
+      "summary": "查看销售地区支持的认证标志。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0601_certification_logo.html"
+    },
+    {
+      "path": "MENU › 我的菜单 › 我的菜单设置 › 添加项目",
+      "path_en": "MENU › My Menu › My Menu Setting › Add Item",
+      "summary": "把常用菜单项添加到个人菜单页。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_add_mymenu_item.html"
+    },
+    {
+      "path": "MENU › 我的菜单 › 我的菜单设置 › 排序项目",
+      "path_en": "MENU › My Menu › My Menu Setting › Sort Item",
+      "summary": "更改个人菜单中项目的排列次序。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_sort_mymenu_item.html"
+    },
+    {
+      "path": "MENU › 我的菜单 › 我的菜单设置 › 删除项目",
+      "path_en": "MENU › My Menu › My Menu Setting › Delete Item",
+      "summary": "移除个人菜单中的某一项。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_delete_mymenu_item.html"
+    },
+    {
+      "path": "MENU › 我的菜单 › 我的菜单设置 › 删除页面",
+      "path_en": "MENU › My Menu › My Menu Setting › Delete Page",
+      "summary": "清除所选个人菜单页上的项目。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_delete_mymenu_page.html"
+    },
+    {
+      "path": "MENU › 我的菜单 › 我的菜单设置 › 全部删除",
+      "path_en": "MENU › My Menu › My Menu Setting › Delete All",
+      "summary": "清空全部个人菜单页中注册的项目。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414L_delete_mymenu.html"
+    },
+    {
+      "path": "MENU › 我的菜单 › 我的菜单设置 › 从我的菜单显示",
+      "path_en": "MENU › My Menu › My Menu Setting › Display From My Menu",
+      "summary": "设置按MENU时优先打开个人菜单。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_display_from_mymenu.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 快门速度",
+      "path_en": "MENU › Main › Main 1 › Shutter Speed",
+      "summary": "拍照时查看快门开启的时间。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 光圈",
+      "path_en": "MENU › Main › Main 1 › Aperture",
+      "summary": "拍照时查看当前光圈大小。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 曝光补偿",
+      "path_en": "MENU › Main › Main 1 › Exposure Comp.",
+      "summary": "拍照时查看照片相对于测光的明暗调整。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › ISO",
+      "path_en": "MENU › Main › Main 1 › ISO",
+      "summary": "拍照时查看感光度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 可记录的影像数",
+      "path_en": "MENU › Main › Main 1 › Number of recordable images",
+      "summary": "拍照时查看剩余可拍张数，触摸可进入格式化。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 影像质量设置",
+      "path_en": "MENU › Main › Main 1 › Image Quality Settings",
+      "summary": "拍照时查看文件格式、压缩与尺寸。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 纵横比",
+      "path_en": "MENU › Main › Main 1 › Aspect Ratio",
+      "summary": "拍照时查看照片的宽高比。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 摄像媒体设置",
+      "path_en": "MENU › Main › Main 1 › Rec. Media Settings",
+      "summary": "拍照时查看照片的写入卡槽。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 照相模式",
+      "path_en": "MENU › Main › Main 1 › Shoot Mode",
+      "summary": "拍照时查看拍照的曝光模式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 拍摄模式",
+      "path_en": "MENU › Main › Main 1 › Drive Mode",
+      "summary": "拍照时查看单张、连拍、自拍等驱动方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 闪光模式",
+      "path_en": "MENU › Main › Main 1 › Flash Mode",
+      "summary": "拍照时查看闪光触发方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 闪光补偿",
+      "path_en": "MENU › Main › Main 1 › Flash Comp.",
+      "summary": "拍照时查看闪光亮度补偿。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 无线闪光灯",
+      "path_en": "MENU › Main › Main 1 › Wireless Flash",
+      "summary": "拍照时查看无线闪光设置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 白平衡模式",
+      "path_en": "MENU › Main › Main 1 › White Balance",
+      "summary": "拍照时查看现场光的色调校正。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 对焦模式",
+      "path_en": "MENU › Main › Main 1 › Focus Mode",
+      "summary": "拍照时查看对焦工作方式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 对焦区域",
+      "path_en": "MENU › Main › Main 1 › Focus Area",
+      "summary": "拍照时查看对焦点的搜索范围。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 剩余电池电量",
+      "path_en": "MENU › Main › Main 1 › Remaining battery level",
+      "summary": "拍照时查看电池剩余电量。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 记录帧速率",
+      "path_en": "MENU › Main › Main 1 › Rec Frame Rate",
+      "summary": "普通录像时查看录像帧速率。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 帧速率设置",
+      "path_en": "MENU › Main › Main 1 › Frame Rate Settings",
+      "summary": "慢快动作时查看录像帧速率。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 帧速率设置",
+      "path_en": "MENU › Main › Main 1 › Frame Rate Settings",
+      "summary": "缩时摄影时查看录像帧速率。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 快门速度",
+      "path_en": "MENU › Main › Main 1 › Shutter Speed",
+      "summary": "录像时查看快门开启的时间。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 光圈",
+      "path_en": "MENU › Main › Main 1 › Aperture",
+      "summary": "录像时查看当前光圈大小。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › ISO",
+      "path_en": "MENU › Main › Main 1 › ISO",
+      "summary": "录像时查看感光度。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 白平衡模式",
+      "path_en": "MENU › Main › Main 1 › White Balance",
+      "summary": "录像时查看白平衡设置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 图片配置文件",
+      "path_en": "MENU › Main › Main 1 › Picture Profile",
+      "summary": "录像时查看伽玛和色彩配置。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 文件格式",
+      "path_en": "MENU › Main › Main 1 › File Format",
+      "summary": "录像时查看视频的文件格式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 记录设置",
+      "path_en": "MENU › Main › Main 1 › Record Setting",
+      "summary": "普通录像时查看比特率和色彩采样。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 记录设置",
+      "path_en": "MENU › Main › Main 1 › Record Setting",
+      "summary": "慢快动作时查看比特率和色彩采样。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 记录设置",
+      "path_en": "MENU › Main › Main 1 › Record Setting",
+      "summary": "缩时摄影时查看比特率和色彩采样。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › Gamma显示辅助",
+      "path_en": "MENU › Main › Main 1 › Gamma Display Assist",
+      "summary": "录像时查看取景时的伽玛辅助显示。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › Gamma显示辅助类型",
+      "path_en": "MENU › Main › Main 1 › Gamma Disp. Assist Typ.",
+      "summary": "录像时查看辅助预览的转换类型。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 减少音频噪声设置",
+      "path_en": "MENU › Main › Main 1 › Audio NR Settings",
+      "summary": "录像时查看麦克风输入降噪。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 1 › 录音音量",
+      "path_en": "MENU › Main › Main 1 › Audio Rec Level",
+      "summary": "录像时查看麦克风录音电平。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › Proxy录制",
+      "path_en": "MENU › Main › Main 2 › Proxy Recording",
+      "summary": "录像时查看低码率代理视频。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › Log拍摄设置",
+      "path_en": "MENU › Main › Main 2 › Log Shooting Setting",
+      "summary": "录像时查看Log录制参数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 拍摄",
+      "path_en": "MENU › Main › Main 2 › Shooting",
+      "summary": "录像时查看Super 35mm视角。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 摄像媒体",
+      "path_en": "MENU › Main › Main 2 › Recording Media",
+      "summary": "录像时查看录像的写入卡槽。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 可录制时间",
+      "path_en": "MENU › Main › Main 2 › Available recording time",
+      "summary": "录像时查看剩余录像时间，触摸可进入格式化。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 文件设置",
+      "path_en": "MENU › Main › Main 2 › File Settings",
+      "summary": "录像时查看录像文件命名。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 照相模式",
+      "path_en": "MENU › Main › Main 2 › Shoot Mode",
+      "summary": "录像时查看录像曝光模式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › MI热靴音频格式",
+      "path_en": "MENU › Main › Main 2 › Shoe Audio Format",
+      "summary": "用于录像，固件2.00起可设热靴音频格式。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › MI热靴音频通道数",
+      "path_en": "MENU › Main › Main 2 › Shoe Audio Ch No.",
+      "summary": "用于录像，固件2.00起可设热靴音频声道数。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 32bit float WAV录制",
+      "path_en": "MENU › Main › Main 2 › 32bit float WAV Rec.",
+      "summary": "用于录像，固件2.00起可设独立32位浮点WAV录音。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 对焦模式",
+      "path_en": "MENU › Main › Main 2 › Focus Mode",
+      "summary": "录像时查看视频自动或手动对焦。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 对焦区域",
+      "path_en": "MENU › Main › Main 2 › Focus Area",
+      "summary": "录像时查看视频对焦范围。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › AF中的被摄体识别",
+      "path_en": "MENU › Main › Main 2 › Subject Recog in AF",
+      "summary": "录像时查看被摄体识别开关。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 识别目标",
+      "path_en": "MENU › Main › Main 2 › Recognition Target",
+      "summary": "录像时查看被摄体识别目标。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › SteadyShot",
+      "path_en": "MENU › Main › Main 2 › SteadyShot",
+      "summary": "录像时查看视频拍摄防抖。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 主 › 主 2 › 剩余电池电量",
+      "path_en": "MENU › Main › Main 2 › Remaining battery level",
+      "summary": "录像时查看电池剩余电量。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_main_menu_ilc2540.html"
+    },
+    {
+      "path": "MENU › 设置 › 触摸操作 › 触摸面板设置 › 拍摄画面 › 拍摄期间的触摸功能",
+      "path_en": "MENU › Setup › Touch Operation › Touch Panel Settings › Shooting Screen › Touch Func. in Shooting",
+      "summary": "选择触摸主体时对焦、跟踪、拍摄或测光。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_touchpanel_settings.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 快门/静音 › 防闪烁设置 › 防闪烁拍摄",
+      "path_en": "MENU › Shooting › Shutter/Silent › Anti-flicker Set. › Anti-flicker Shoot.",
+      "summary": "拍照片时检测100或120 Hz灯光的闪烁。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/201h_anti_flicker_setting.html"
+    },
+    {
+      "path": "MENU › 拍摄 › 拍摄显示 › 实时取景显示设置 › 实时取景显示",
+      "path_en": "MENU › Shooting › Shooting Display › Live View Display Set. › Live View Display",
+      "summary": "选择是否在拍照取景时预览设置效果。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/0414_live_view_disp_set.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 识别目标 › 动物 › 识别部分",
+      "path_en": "MENU › Focus › Subject Recognition › Recognition Target › Animal › Recognition Part",
+      "summary": "拍照时在该目标按右侧，选择识别眼、头或身体。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_target.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 识别目标 › 鸟类 › 识别部分",
+      "path_en": "MENU › Focus › Subject Recognition › Recognition Target › Bird › Recognition Part",
+      "summary": "拍照时在该目标按右侧，选择识别眼、头或身体。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_target.html"
+    },
+    {
+      "path": "MENU › 对焦 › 被摄体识别 › 识别目标 › 动物/鸟类 › 识别部分",
+      "path_en": "MENU › Focus › Subject Recognition › Recognition Target › Animal/Bird › Recognition Part",
+      "summary": "拍照时在该目标按右侧，选择识别眼、头或身体。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/211h_recognition_target.html"
+    },
+    {
+      "path": "MENU › 拍摄 › RAW接片拍摄 › HDR拍摄设置 › HDR拍摄",
+      "path_en": "MENU › Shooting › Composite RAW Sht. › Shooting for HDR Set › Shooting for HDR",
+      "summary": "拍摄多张RAW，供电脑合成HDR。",
+      "source_url": "https://helpguide.sony.net/ilc/2540/v1/zh-cn/contents/251h_shoot_for_hdr_setting.html"
+    }
+  ],
+  "missing": []
+}

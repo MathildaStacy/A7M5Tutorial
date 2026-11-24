@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "id": "L2",
+  "title": "第一张照片",
+  "minutes": 20,
+  "goals": [
+    "用智能自动和 P 档拍照",
+    "正确地半按对焦、按到底拍摄",
+    "拍完会回放、放大，检查照片清不清楚"
+  ],
+  "sections": [
+    {
+      "kind": "demo",
+      "steps": [
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "top"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "mode_dial"
+            ],
+            "note": "转到 AUTO",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "mode_dial",
+            "action": "rotate",
+            "direction": "none",
+            "steps": null,
+            "target": "AUTO"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": 12,
+            "mode": "AUTO",
+            "aperture": null,
+            "shutter": null,
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**AUTO（智能自动）**：光圈、快门、ISO 全部由相机决定，你只管构图和按快门。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "shutter"
+            ],
+            "note": "先半按",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "shutter",
+            "action": "press",
+            "direction": "none",
+            "steps": 1,
+            "target": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "把快门**轻轻按到一半**，看屏幕左下的对焦指示。确认合焦，再**平稳地按到底**。拍静物用单次 AF 时，打开拍摄提示音可听到哔声；连续 AF 靠屏幕判断。"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "mode_dial",
+            "action": "rotate",
+            "direction": "none",
+            "steps": null,
+            "target": "P"
+          }
+        },
+        {
+          "tool": "set_virtual_settings",
+          "args": {
+            "scene_ev": null,
+            "mode": "P",
+            "aperture": null,
+            "shutter": null,
+            "iso": null,
+            "ev": null,
+            "focal": null,
+            "focus_mode": null,
+            "focus_area": null,
+            "wb": null,
+            "drive": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "**P 档**仍由相机计算光圈和快门。想自己选 ISO、调曝光补偿或指定对焦区域，就从 AUTO 换到 P。"
+          }
+        },
+        {
+          "tool": "set_camera_view",
+          "args": {
+            "view": "back"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_play"
+            ],
+            "note": "回放",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "demonstrate_control",
+          "args": {
+            "control_id": "btn_play",
+            "action": "press",
+            "direction": "none",
+            "steps": 1,
+            "target": null
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "拍完按**回放键**看照片。屏幕上的小图看着清楚不代表真的清楚，一定要**放大**检查。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "wheel"
+            ],
+            "note": "转动：切换照片",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "回放时转动**控制拨轮**切换上一张、下一张。"
+          }
+        },
+        {
+          "tool": "highlight_control",
+          "args": {
+            "control_ids": [
+              "btn_c4"
+            ],
+            "note": "删除",
+            "style": "pulse"
+          }
+        },
+        {
+          "tool": "say_to_user",
+          "args": {
+            "text": "确认拍糊了再按**删除键**。删之前先放大看清楚。"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "read",
+      "markdown": "## AUTO 和 P 档\n\n| | AUTO 智能自动 | P 程序自动 |\n|---|---|---|\n| 光圈、快门 | 相机定 | 相机定 |\n| ISO、白平衡 | ISO AUTO、自动白平衡 | 可自行选择 |\n| 曝光补偿 | 不可调 | 可用后拨盘 R 调整 |\n| 拍照对焦方式 | 可选单次 AF 或连续 AF | 可按主体选对焦方式 |\n| 对焦区域 | 固定为广域 | 可选广域、区、点等 |\n| 适合 | 第一次拿相机，先拍起来 | 想开始自己控制，又不想算参数 |\n\n先用 AUTO 拍几十张，熟悉按快门和看回放，再换到 P。\n\n## 正确地按快门\n1. **半按**：手指轻按到有阻力的位置。相机这时对焦、测光。\n2. **确认合焦**：看屏幕左下的对焦指示，闪烁表示尚未合焦。拍静物时，单次 AF 合焦后锁定，开启拍摄提示音可听到哔声。连续 AF 会持续调整焦点，合焦时没有哔声。用广域拍照可看到绿色合焦框，连拍或一下按到底时框可能不亮。\n3. **按到底**：平稳地往下压，不要猛戳。猛戳会让机身晃动，照片容易糊。\n4. **按完别急着放下相机**：保持姿势一两秒，尤其是快门比较慢的时候。\n\n## 持机姿势\n- **右手**握紧握把，食指放在 [[shutter]] 上。\n- **左手**掌心向上，托住镜头底部，让两只手一起承重。\n- **手肘**贴住身体两侧，不要向外张开。\n- 用 [[evf]] 拍时，相机贴着脸，又多一个支撑点，比举着看屏幕更稳。\n\n## 回放检查\n1. 按 [[btn_play]] 进入回放，转动 [[wheel]] 切换照片。\n2. **放大**：回放触摸开启时，双击照片，再拖动到眼睛或你要检查的细节。也可以按 [[btn_afon]]（回放时的放大键）。放大键出厂从拍摄对焦位置开始，缺少对焦信息时从中央开始。菜单的「放大初始位置」也可设成「中央」。\n3. 放大后边缘清楚、没有重影，才算清楚。\n4. 拍糊了按 [[btn_c4]] 删除，或者先留着，交给 AI 教练分析原因。\n\n## 半按后对焦指示闪烁，怎么办\n| 原因 | 怎么办 |\n|---|---|\n| 离得太近 | 这支镜头的最近对焦距离：24mm 端约 0.21 米，70mm 端约 0.3 米（从机身上的传感器位置算起）。往后退一点 |\n| 对着没有纹理的地方，比如白墙、纯色天空 | 对着有边缘、有明暗变化的地方对焦 |\n| 太暗 | 换到亮一点的地方，或者对着有灯光的物体 |\n| 镜头上的开关在 MF | 把 [[sw_focus_mode]] 拨回 AF |"
+    },
+    {
+      "kind": "practice",
+      "items": [
+        {
+          "type": "operate",
+          "prompt": "把模式转盘转到 P",
+          "control": "mode_dial",
+          "start": {
+            "mode": "AUTO"
+          },
+          "expect": {
+            "mode": "P"
+          },
+          "hint": "转盘上 AUTO 旁边就是 P"
+        },
+        {
+          "type": "choice",
+          "q": "半按快门时，相机在做什么？",
+          "options": [
+            "对焦和测光",
+            "拍一张照片",
+            "打开回放"
+          ],
+          "answer": 0,
+          "explain": "半按是对焦和测光，按到底才拍摄。"
+        },
+        {
+          "type": "choice",
+          "q": "左手应该怎么放？",
+          "options": [
+            "掌心向上托住镜头底部",
+            "握住机身左侧",
+            "不用管，右手单手拍"
+          ],
+          "answer": 0,
+          "explain": "托住镜头，让两手一起承重，按快门时更稳。"
+        },
+        {
+          "type": "choice",
+          "q": "对着一面白墙，半按时对焦指示一直闪烁，为什么？",
+          "options": [
+            "白墙没有纹理，相机难以合焦",
+            "电池电量低",
+            "存储卡满了"
+          ],
+          "answer": 0,
+          "explain": "自动对焦需要边缘和明暗变化。对着有纹理的地方再试。"
+        },
+        {
+          "type": "choice",
+          "q": "用 70mm 拍花，从机身传感器平面量到花只有 20 厘米。半按后对焦指示闪烁，最可能的原因？",
+          "options": [
+            "比最近对焦距离还近",
+            "光圈太大",
+            "ISO 太低"
+          ],
+          "answer": 0,
+          "explain": "70mm 端至少要约 30 厘米，24mm 端也要约 21 厘米。从传感器平面量起，两个焦段都要往后退。"
+        },
+        {
+          "type": "choice",
+          "q": "拍完怎么确认照片清不清楚？",
+          "options": [
+            "回放后放大，看主体最重要的部位",
+            "看屏幕上的小图就行",
+            "导到电脑上再说"
+          ],
+          "answer": 0,
+          "explain": "小图上看着清楚的照片，放大后可能是糊的。当场放大检查，糊了还能重拍。"
+        },
+        {
+          "type": "choice",
+          "q": "P 档和 AUTO 最大的区别是？",
+          "options": [
+            "P 档可以自己改 ISO、曝光补偿等设置",
+            "P 档画质更好",
+            "P 档对焦更快"
+          ],
+          "answer": 0,
+          "explain": "两个档位都由相机算光圈和快门。P 档允许你修改其他设置，画质和对焦速度没有区别。"
+        }
+      ]
+    },
+    {
+      "kind": "task",
+      "title": "拍 10 种不同的东西，全部对焦清晰",
+      "photos": 4,
+      "complete_by": "ai",
+      "steps": [
+        "模式转盘转到 P",
+        "拍 10 种不同的东西：杯子、书、植物、钥匙……远近都试一试",
+        "每张都回放放大检查，糊了就重拍",
+        "挑 4 张上传，其中至少 1 张是近拍"
+      ],
+      "success_criteria": "4 张照片的主体都对焦清晰，没有手抖造成的糊",
+      "ai_rubric": [
+        "EXIF 拍摄模式是 P 或智能自动",
+        "每张的主体都清晰，对焦点落在主体上（能读到对焦点时核对）",
+        "没有手抖造成的重影；如果糊了，结合快门速度说明原因",
+        "指出其中最好的一张，说明好在哪里"
+      ]
+    }
+  ],
+  "needs_verification": []
+}
