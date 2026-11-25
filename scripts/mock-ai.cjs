@@ -17,7 +17,7 @@ function message(body, anthropic) {
     history.some((m) => m.type === 'function_call' && m.name === name);
   let tool = probe ? 'say_to_user' : !finished ? 'lookup_manual' : null;
   let args = probe ? {text: '橙色。'} : {query: '曝光补偿'};
-  let text = '后拨盘 R 解锁后可调整曝光补偿，每格 1/3 档。';
+  let text = '## 曝光补偿\n\n1. 解锁**后拨盘 R**。\n2. 转动一格，观察 `1/3 EV` 的变化。';
   if (request) {
     text = '本地模拟复盘已完成。';
     if (!used('submit_review')) {
@@ -115,7 +115,7 @@ function stream(reply, a) {
 const server = http.createServer(async (req, res) => {
   if (req.method === 'GET' && req.url === '/v1/models') {
     res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify({data: [{id: 'shutter-mock'}]}));
+    res.end(JSON.stringify({data: [{id: 'shutter-mock'}, {id: 'shutter-mock-fast'}]}));
     return;
   }
   if (req.method !== 'POST' || !['/v1/messages', '/v1/responses'].includes(req.url)) {

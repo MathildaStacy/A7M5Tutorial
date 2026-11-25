@@ -132,9 +132,9 @@ export function LearnTab({navigation}: TabProps<'学习'>) {
           close={close}
           locate={gotoCamera}
           quiz={quiz}
-          settings={() => {
+          settings={(protocol) => {
             close();
-            navigation.navigate('我的');
+            navigation.navigate('我的', {protocol});
           }}
           refresh={refresh}
           mark={(section, cursor, complete) => {

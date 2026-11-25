@@ -41,22 +41,40 @@ export async function testConnection(
     (tool ? '已返回工具调用' : '未返回工具调用')
   );
 }
-export async function listModels(s: AiService, key: string): Promise<string[]> {
+export async function listModels(
+  s: AiService,
+  key: string,
+  signal?: AbortSignal,
+): Promise<string[]> {
   const ctl = new AbortController(),
     timer = setTimeout(() => ctl.abort(), 20000);
+  const cancel = () => ctl.abort();
+  signal?.addEventListener('abort', cancel);
+  if (signal?.aborted) cancel();
   try {
-    const response = await fetch(endpointOf(s.protocol, s.baseUrl, 'models'), {
-      headers: headersOf(s, key),
-      signal: ctl.signal,
-    });
-    if (!response.ok) throw new Error('模型列表请求失败（HTTP ' + response.status + '）');
-    const json = await response.json();
-    return (json.data ?? [])
-      .map((m: {id: string}) => m.id)
-      .filter((id: unknown) => typeof id === 'string');
+    const base = endpointOf(s.protocol, s.baseUrl, 'models');
+    const headers = headersOf(s, key);
+    delete headers['anthropic-beta'];
+    const ids = new Set<string>(),
+      seen = new Set<string>();
+    let url = base;
+    for (;;) {
+      const response = await fetch(url, {headers, signal: ctl.signal});
+      if (!response.ok) throw new Error('模型列表请求失败（HTTP ' + response.status + '）');
+      const json = await response.json();
+      if (!Array.isArray(json.data)) throw new Error('服务未返回模型列表，可手动输入模型 ID');
+      for (const m of json.data) if (typeof m?.id === 'string' && m.id.trim()) ids.add(m.id);
+      const cursor = json.last_id;
+      if (!json.has_more || typeof cursor !== 'string' || !cursor || seen.has(cursor)) break;
+      seen.add(cursor);
+      url =
+        base + (s.protocol === 'anthropic' ? '?after_id=' : '?after=') + encodeURIComponent(cursor);
+    }
+    return [...ids];
   } catch (e) {
     throw new Error(redact(e instanceof Error ? e.message : String(e), key));
   } finally {
     clearTimeout(timer);
+    signal?.removeEventListener('abort', cancel);
   }
 }

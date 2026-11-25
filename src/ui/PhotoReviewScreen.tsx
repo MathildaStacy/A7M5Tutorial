@@ -3,7 +3,13 @@ import {Image, Modal, NativeModules, ScrollView, TextInput, View} from 'react-na
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {pick, isErrorWithCode, errorCodes} from '@react-native-documents/picker';
 import {evaluatePhotos, type PreparedPhoto, type Report} from '../ai/photoReview';
-import {loadService, persistService, readKey, readProtocol} from '../ai/services';
+import {
+  loadService,
+  localService,
+  rememberCompatibility,
+  readKey,
+  readProtocol,
+} from '../ai/services';
 import {readReports, saveReport, type SavedReport} from '../data/db';
 import type {FieldTask} from '../lessons/engine';
 import {initialCamera} from '../camera/state';
@@ -11,6 +17,9 @@ import {byId} from '../camera/controls';
 import type {ViewName} from '../bridge/camera';
 import {CameraViewport} from './CameraStage';
 import {Button, Card, Txt, color, styles as s} from './theme';
+import {ModelPicker} from './ModelPicker';
+import type {Protocol} from '../ai/types';
+import {CoachMarkdown} from './CoachMarkdown';
 
 const dimensionNames: Record<string, string> = {
   exposure: '曝光',
@@ -28,13 +37,13 @@ export function ReviewCard({report}: {report: Report}) {
   const highlight = useMemo(() => (control ? [control] : []), [control]);
   return (
     <Card>
-      <Txt style={s.h2}>{review.title}</Txt>
+      <CoachMarkdown text={review.title} textStyle={s.h2} />
       {grade && (
         <View>
           <Txt style={{color: grade.passed ? color.good : color.accent}}>
             {grade.passed ? '实拍验收通过' : '需要再拍一次'}
           </Txt>
-          <Txt>{grade.summary}</Txt>
+          <CoachMarkdown text={grade.summary} />
           {grade.unmet.map((v, i) => (
             <Txt key={i} style={s.sub}>
               {'• ' + v}
@@ -49,10 +58,10 @@ export function ReviewCard({report}: {report: Report}) {
       </Txt>
       {review.fixes.map((fix, i) => (
         <View key={i} style={{gap: 5}}>
-          <Txt style={s.h2}>{fix.problem}</Txt>
-          <Txt>{fix.cause}</Txt>
-          <Txt>{fix.fix}</Txt>
-          <Txt style={s.sub}>{fix.how_on_camera}</Txt>
+          <CoachMarkdown text={fix.problem} textStyle={s.h2} />
+          <CoachMarkdown text={fix.cause} />
+          <CoachMarkdown text={fix.fix} />
+          <CoachMarkdown text={fix.how_on_camera} textStyle={s.sub} />
           <View style={s.wrap}>
             {fix.control_ids
               .filter((id) => byId[id])
@@ -81,9 +90,9 @@ export function ReviewCard({report}: {report: Report}) {
       )}
       {review.goods.map((good, i) => (
         <View key={i}>
-          <Txt style={{color: color.good}}>{good.point}</Txt>
-          <Txt>{good.why}</Txt>
-          <Txt style={s.sub}>{good.keep}</Txt>
+          <CoachMarkdown text={good.point} textStyle={{color: color.good}} />
+          <CoachMarkdown text={good.why} />
+          <CoachMarkdown text={good.keep} textStyle={s.sub} />
         </View>
       ))}
     </Card>
@@ -98,7 +107,7 @@ export function PhotoForm({
 }: {
   task?: FieldTask;
   lessonId?: string;
-  settings: () => void;
+  settings: (protocol?: Protocol) => void;
   onSaved: () => void;
 }) {
   const limit = task?.photos ?? 4;
@@ -110,7 +119,8 @@ export function PhotoForm({
     [report, setReport] = useState<Report | null>(() =>
       lessonId ? readReports(lessonId)[0]?.report ?? null : null,
     );
-  const [service] = useState(() => loadService(readProtocol()));
+  const [service, setService] = useState(() => loadService(readProtocol()));
+  const [pickingModel, setPickingModel] = useState(false);
   const lock = useRef(false),
     alive = useRef(true),
     controller = useRef<AbortController | null>(null);
@@ -164,7 +174,7 @@ export function PhotoForm({
     setMessage('正在读取照片和拍摄参数…');
     try {
       const key = await readKey(service.id);
-      if (!key && !/^http:\/\/(10\.0\.2\.2|localhost|127\.0\.0\.1)(:|\/|$)/.test(service.baseUrl))
+      if (!key && !localService(service))
         throw new Error('请先在「我的」保存模型服务和 API Key，再回到这里提交');
       const value = await evaluatePhotos(
         photos,
@@ -176,7 +186,7 @@ export function PhotoForm({
         (v) => {
           if (alive.current && !ctl.signal.aborted) setMessage(v);
         },
-        persistService,
+        rememberCompatibility,
       );
       if (!alive.current || ctl.signal.aborted) return;
       saveReport(value, lessonId);
@@ -236,7 +246,10 @@ export function PhotoForm({
           placeholder="拍摄意图（选填）"
           placeholderTextColor={color.muted}
         />
-        <Txt style={s.sub}>{'将发送至 ' + service.baseUrl + ' · ' + service.model}</Txt>
+        <Txt style={s.sub}>{'将发送至 ' + service.baseUrl}</Txt>
+        <Button disabled={!!busy} label="选择复盘模型" onPress={() => setPickingModel(true)}>
+          {'模型 · ' + service.model}
+        </Button>
         {busy === '提交' ? (
           <Button onPress={() => controller.current?.abort()}>停止复盘</Button>
         ) : (
@@ -258,15 +271,35 @@ export function PhotoForm({
             {error}
           </Txt>
         )}
-        <Button disabled={!!busy} onPress={settings}>
+        <Button disabled={!!busy} onPress={() => settings(service.protocol)}>
           模型与 API 设置
         </Button>
       </Card>
+      {pickingModel && (
+        <ModelPicker
+          current={service}
+          close={() => setPickingModel(false)}
+          choose={(next) => {
+            setService(next);
+            setPickingModel(false);
+          }}
+          settings={(protocol) => {
+            setPickingModel(false);
+            settings(protocol);
+          }}
+        />
+      )}
       {report && <ReviewCard key={report.review.title} report={report} />}
     </>
   );
 }
-export function PhotoReviewScreen({close, settings}: {close: () => void; settings: () => void}) {
+export function PhotoReviewScreen({
+  close,
+  settings,
+}: {
+  close: () => void;
+  settings: (protocol?: Protocol) => void;
+}) {
   const [history, setHistory] = useState<SavedReport[]>(readReports);
   const [active, setActive] = useState<SavedReport | null>(null);
   return (

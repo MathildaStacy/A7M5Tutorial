@@ -15,6 +15,13 @@ export function db() {
   conn.executeSync(
     'CREATE TABLE IF NOT EXISTS photo_reviews (id INTEGER PRIMARY KEY, lesson_id TEXT, report TEXT NOT NULL, created_at TEXT NOT NULL)',
   );
+  conn.executeSync(
+    'CREATE TABLE IF NOT EXISTS coach_chats (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, updated_at INTEGER NOT NULL)',
+  );
+  conn.executeSync(
+    'CREATE TABLE IF NOT EXISTS coach_turns (id INTEGER PRIMARY KEY AUTOINCREMENT, chat_id INTEGER NOT NULL, model TEXT NOT NULL, question TEXT NOT NULL, messages TEXT NOT NULL, replies TEXT NOT NULL, status TEXT NOT NULL)',
+  );
+  conn.executeSync('CREATE INDEX IF NOT EXISTS coach_turn_chat ON coach_turns(chat_id, id)');
   current = conn;
   return conn;
 }

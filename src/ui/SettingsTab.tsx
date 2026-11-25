@@ -1,25 +1,43 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 import {Alert, ScrollView, TextInput, View} from 'react-native';
 import {Button, Card, Txt, color, styles as s} from './theme';
 import {
   loadService,
-  persistService,
+  rememberCompatibility,
   readKey,
   readProtocol,
+  rememberModels,
   saveService,
   serviceId,
 } from '../ai/services';
 import {clearReports} from '../data/db';
 import {testConnection, listModels} from '../ai/connection';
 import type {Protocol, Effort} from '../ai/types';
+import type {TabProps} from './routes';
 
-export function SettingsTab() {
+export function SettingsTab({route, navigation}: TabProps<'我的'>) {
   const [form, set] = useState(() => loadService(readProtocol())),
     [key, setKey] = useState(''),
     [tail, tailSet] = useState(''),
     [busy, working] = useState(false),
     [result, show] = useState(''),
     [models, choices] = useState<string[]>([]);
+  const savedForm = useRef(JSON.stringify(form));
+  useFocusEffect(
+    useCallback(() => {
+      const latest = loadService(readProtocol());
+      const requested = route.params?.protocol;
+      if (requested || JSON.stringify(latest) !== savedForm.current) {
+        savedForm.current = JSON.stringify(latest);
+        set(requested ? loadService(requested) : latest);
+        setKey('');
+        choices([]);
+        show('');
+        if (requested) navigation.setParams({protocol: undefined});
+      }
+    }, [route.params?.protocol, navigation]),
+  );
   let currentId = '';
   try {
     currentId = serviceId(form.protocol, form.baseUrl);
@@ -49,7 +67,16 @@ export function SettingsTab() {
     working(true);
     show('');
     try {
+      if (action === 'models') {
+        const id = serviceId(form.protocol, form.baseUrl);
+        const list = await listModels({...form, id}, key.trim() || (await readKey(id)));
+        rememberModels(id, list);
+        choices(list);
+        show(list.length ? '选择模型后点保存' : '服务未返回模型，可手动输入');
+        return;
+      }
       const saved = await saveService(form, key);
+      savedForm.current = JSON.stringify(saved);
       set(saved);
       const stored = await readKey(saved.id);
       setKey('');
@@ -57,15 +84,11 @@ export function SettingsTab() {
       if (action === 'test')
         show(
           await testConnection(saved, stored, (s) => {
-            persistService(s);
+            rememberCompatibility(s);
             set(s);
           }),
         );
-      else if (action === 'models') {
-        const list = await listModels(saved, stored);
-        choices(list);
-        show(list.length ? '选择模型后点保存' : '服务未返回模型，可手动输入');
-      } else show('设置已保存');
+      else show('设置已保存');
     } catch (e) {
       show(e instanceof Error ? e.message : String(e));
     } finally {

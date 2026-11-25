@@ -8,6 +8,7 @@ import {CameraViewport} from './CameraStage';
 import {LessonReading} from './LessonReading';
 import {LessonPractice} from './LessonPractice';
 import {PhotoForm} from './PhotoReviewScreen';
+import type {Protocol} from '../ai/types';
 import {Button, Card, Txt, color, styles as s} from './theme';
 
 export const sectionNames = {demo: '演示', read: '讲义', practice: '练习', task: '任务'};
@@ -97,7 +98,7 @@ export function LessonScreen({
   mark: (section: SectionId, cursor: number, complete: boolean) => void;
   locate: (id: string) => void;
   quiz: () => void;
-  settings: () => void;
+  settings: (protocol?: Protocol) => void;
   refresh: () => void;
   nextLesson?: () => void;
 }) {
