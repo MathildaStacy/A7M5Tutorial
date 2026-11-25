@@ -1,14 +1,16 @@
 # 快门学院
 
-一个 Android App，帮零基础用户学会 Sony α7 V + FE 24-70mm F2.8 GM II。核心功能有三个：可以点每个按键的 3D 相机、从开箱到 A 档的课程、会在 3D 相机上指出该按哪个键的 AI 照片复盘教练。
+一个面向摄影新手的 Android App，适配 Sony α7 V 和 FE 24–70mm F2.8 GM II。可以在 3D 机身上认键，从开箱学到曝光与对焦，再用自己的照片做复盘。
 
 ## 当前开发版
 
-Android 预览版可离线旋转、点选并操作 α7 V 和 GM II 的 36 个部件。后拨盘联动曝光读数，触摸屏支持四种 DISP 显示。已接入找键练习、L0–L5 课程预览、四场景曝光实验室、按键答疑和自填模型服务。完整课程进度与照片复盘属于后续里程碑。
+<img src="docs/reviews/app-icon.png" alt="快门学院光圈图标" width="80">
 
-模型 v2 按索尼官方实拍重建了胶皮、砂纹漆、滚花、刻字和前镜组。可放大查看六处材质细节，将五个整机及镜头视角与实拍叠加。外观和活动部件仍待实机终验。[装机模型渲染](docs/reviews/model-v2/overview.webp) · [交互对照页（下载源码后打开）](docs/reviews/model-v2/index.html) · [测量与验收记录](docs/reviews/model-v2/README.md) · [建模源文件](assets/camera/source/photo-study.mjs)
+**Android 9 及以上 · ARM64**　[下载 v0.2.0 预览安装包](https://github.com/MathildaStacy/A7M5Tutorial/releases/download/v0.2.0-preview.1/ShutterAcademy-0.2.0-preview.1-arm64-v8a.apk) · [发布说明](https://github.com/MathildaStacy/A7M5Tutorial/releases/tag/v0.2.0-preview.1)
 
-**Android 9 及以上 · ARM64**　[下载安装包](https://github.com/MathildaStacy/A7M5Tutorial/releases/download/v0.1.0-preview.1/ShutterAcademy-0.1.0-preview.1-arm64-v8a.apk) · [预览版说明](https://github.com/MathildaStacy/A7M5Tutorial/releases/tag/v0.1.0-preview.1)
+- **课程**　L0–L5 包含 44 步 3D 演示和 54 道练习。可点选机身部件、操作拨盘、回答选择题和调整曝光。演示、讲义、练习和任务的进度保存在本机，完成四段即可解锁下一课。
+- **照片复盘**　在「AI 教练」选择 1–4 张 JPEG 或 HEIF，或从课程提交指定数量的照片。App 在本机缩图、计算直方图、读取标准拍摄参数，只在点击发送后向所配置的服务提交。复盘中的部件可打开 3D 近景。L1 通过十题找键满分完成任务，其余五课按实拍标准验收。
+- **3D 相机**　离线模型有 36 个可点选部件。v3 增加可开合的存储卡仓、上下插槽和导轨，仓盖外侧按实拍补上皮纹、拨片和 OPEN 方向标记。可在开箱演示或相机页近看。握柄纹理、镜片镀膜与机械行程仍待实机核对。[v3 卡仓评审](docs/reviews/model-v3/README.md) · [五视角材质对照（下载源码后打开）](docs/reviews/model-v2/index.html)
 
 ## 运行 Android
 
@@ -28,7 +30,7 @@ adb install -r app/build/outputs/apk/preview/app-preview.apk
 
 Preview 使用开发签名，并内置 JS、字体、模型和环境光，可直接在 Android 9 及以上的 ARM64 设备上启动。日常开发可在两个终端分别运行 `npm start` 和 `npm run android`。修改模型源文件后先运行 `node scripts/export-model.mjs`。Gradle 会在构建时重新打包 3D 页面及资源。
 
-在电脑执行 `npm run mock:ai`，然后在模拟器的「我的」中填写 `http://10.0.2.2:8787`，模型名称填写 `shutter-mock`，即可分别测试 Messages 和 Responses。测试图是内置色块。
+在电脑执行 `npm run mock:ai`，然后在模拟器的「我的」中填写 `http://10.0.2.2:8787`，模型名称填写 `shutter-mock`，即可分别测试 Messages 和 Responses。连接测试使用内置色块。选图提交后，本地模拟服务会返回标明「本地模拟」的复盘。在任务的拍摄意图里填写「演示未通过」可检查重拍流程。
 
 ## 文档
 

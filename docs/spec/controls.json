@@ -413,7 +413,7 @@
       "where": "右侧（握把侧）",
       "default_function": "卡槽 1：CFexpress A / SD；卡槽 2：SD",
       "beginner_tip": "新卡先在相机里格式化",
-      "actions": [],
+      "actions": ["hinge"],
       "press_directions": null,
       "positions": null,
       "verified": false

@@ -2,15 +2,13 @@ import React, {useState} from 'react';
 import {ScrollView, View} from 'react-native';
 import Svg, {Path, Rect, Circle, G} from 'react-native-svg';
 import {
-  apertures,
-  shutters,
-  isoStops,
   solve,
   clamp,
   formatEV,
   type ExposureSettings,
 } from '../camera/exposure';
 import {Button, Card, Txt, color, styles as s} from './theme';
+import {ExposureDials} from './ExposureDials';
 const scenes = [
   {name: '晴天', ev: 15, sky: '#76a4c4', land: '#667859'},
   {name: '阴天', ev: 12, sky: '#94a5af', land: '#67716b'},
@@ -29,37 +27,6 @@ export function LabTab() {
     });
   const sc = scenes[scene],
     r = solve({...p, scene_ev: sc.ev});
-  function row<T extends number | string>(
-    name: string,
-    stops: readonly T[],
-    value: T,
-    apply: (v: T) => void,
-    locked = false,
-  ) {
-    const idx = stops.indexOf(value);
-    return (
-      <View style={s.spread}>
-        <Txt>{name}</Txt>
-        <View style={s.row}>
-          <Button
-            label={name + '减少一档'}
-            disabled={locked || idx <= 0}
-            onPress={() => apply(stops[idx - 1])}
-          >
-            −
-          </Button>
-          <Txt style={[s.num, {minWidth: 58, textAlign: 'center'}]}>{String(value)}</Txt>
-          <Button
-            label={name + '增加一档'}
-            disabled={locked || idx >= stops.length - 1}
-            onPress={() => apply(stops[idx + 1])}
-          >
-            ＋
-          </Button>
-        </View>
-      </View>
-    );
-  }
   return (
     <ScrollView style={s.screen} contentContainerStyle={s.pad}>
       <View>
@@ -115,28 +82,7 @@ export function LabTab() {
         ))}
       </View>
       <Card>
-        {row(
-          '光圈',
-          apertures,
-          p.mode === 'S' ? r.aperture : p.aperture,
-          (aperture) => set({...p, aperture}),
-          p.mode === 'S',
-        )}
-        {row(
-          '快门',
-          shutters,
-          p.mode === 'A' ? r.shutter : p.shutter,
-          (shutter) => set({...p, shutter}),
-          p.mode === 'A',
-        )}
-        {row('ISO', ['AUTO' as const, ...isoStops], p.iso, (iso) => set({...p, iso}))}
-        {row(
-          '曝光补偿',
-          Array.from({length: 19}, (_, i) => (i - 9) / 3),
-          p.ev,
-          (ev) => set({...p, ev}),
-          p.mode === 'M' && p.iso !== 'AUTO',
-        )}
+        <ExposureDials settings={{...p, scene_ev: sc.ev}} onChange={set} />
       </Card>
     </ScrollView>
   );

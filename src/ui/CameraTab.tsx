@@ -117,6 +117,7 @@ function QuizBar() {
 export function CameraTab({navigation}: TabProps<'相机'>) {
   const {camera, view, labels, selected: sel, lcd, quiz, startQuiz} = useAcademy();
   const [dictionary, setDictionary] = useState(false);
+  const [closeUp, setCloseUp] = useState(false);
   const c = sel ? byId[sel] : null,
     screen = screenState(camera);
   const operate = (id: string, op: Operation) => {
@@ -128,7 +129,10 @@ export function CameraTab({navigation}: TabProps<'相机'>) {
       {label}
     </Button>
   );
-  const close = () => useAcademy.setState({selected: null, lcd: false});
+  const close = () => {
+    setCloseUp(false);
+    useAcademy.setState({selected: null, lcd: false});
+  };
   const p = c?.positions ? screen.positions[c.id] : null;
   const readouts = [
     ['模式', screen.mode],
@@ -167,7 +171,7 @@ export function CameraTab({navigation}: TabProps<'相机'>) {
         </View>
       </View>
       {quiz && <QuizBar />}
-      <CameraStage />
+      <CameraStage closeUp={closeUp && !!c && !lcd && !quiz} />
       {!lcd && (
         <View>
           <ScrollView
@@ -210,7 +214,18 @@ export function CameraTab({navigation}: TabProps<'相机'>) {
               <X size={20} color={color.sub} />
             </Pressable>
           </View>
-          <Txt style={s.sub}>{c.where}</Txt>
+          <View style={s.spread}>
+            <Txt style={[s.sub, {flex: 1}]}>{c.where}</Txt>
+            <Button
+              active={closeUp}
+              onPress={() => {
+                if (!closeUp) useAcademy.setState({view: c.zone as ViewName});
+                setCloseUp(!closeUp);
+              }}
+            >
+              {closeUp ? '查看整机' : '近看部件'}
+            </Button>
+          </View>
           <Txt>{c.default_function}</Txt>
           <Txt style={s.sub}>{c.beginner_tip}</Txt>
           {p && <Txt style={{color: color.accent}}>当前档位　{p}</Txt>}
@@ -223,6 +238,8 @@ export function CameraTab({navigation}: TabProps<'相机'>) {
               </>
             ) : (
               <>
+                {c.id === 'card_door' &&
+                  chip(camera.cardDoorOpen ? '合上卡仓盖' : '打开卡仓盖', c.id, 'click')}
                 {c.actions.includes('rotate') && (
                   <>
                     {chip('逆时针 −', c.id, 'minus')}

@@ -94,10 +94,10 @@ test('全部课程演示和曝光习题匹配运行时', () => {
   const validators = new Map(tools.tools.map((t) => [t.name, ajv.compile(t.input_schema)]));
   for (const lesson of lessons)
     for (const section of lesson.sections) {
-      for (const item of section.steps ?? [])
+      for (const item of section.kind === 'demo' ? section.steps : [])
         if (typeof item === 'object' && 'tool' in item)
           expect(validators.get(item.tool)?.(item.args)).toBe(true);
-      for (const item of section.items ?? [])
+      for (const item of section.kind === 'practice' ? section.items : [])
         if (item.type === 'set_exposure' && '_example_solution' in item) {
           const r = solve({
               ...base,

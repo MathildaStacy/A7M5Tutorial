@@ -251,13 +251,15 @@ export function photoStudy(lod = 0) {
     path.closePath();
     return path;
   }
-  loft(
+  const bodyShell = loft(
     chassis,
     [
       [-40.7, shellOutline(1.4)],
       [-40.35, shellOutline(0.65)],
       [-39.3, shellOutline(0.15)],
       [-37.8, shellOutline()],
+      [-34.5, shellOutline()],
+      [17.5, shellOutline()],
       [19.86, shellOutline()],
       [20.12, shellOutline(0.05)],
       [20.42, shellOutline(0.3)],
@@ -266,6 +268,17 @@ export function photoStudy(lod = 0) {
     enamel,
     100,
   );
+  // Recess the grip-side shell behind the card carrier. Its two openings
+  // reveal a dark floor below the rails when the hinged cover is open.
+  const shellVertices = bodyShell.geometry.attributes.position;
+  for (let i = 0; i < shellVertices.count; i++) {
+    const x = shellVertices.getX(i), y = shellVertices.getY(i), z = shellVertices.getZ(i);
+    if (x < 67 || y < -35 || y > 18) continue;
+    const inset = 5 * T.MathUtils.smoothstep(x, 67, 75)
+      * T.MathUtils.smoothstep(z, -12, -4) * (1 - T.MathUtils.smoothstep(z, 18, 25));
+    shellVertices.setX(i, x - inset);
+  }
+  bodyShell.geometry.computeVertexNormals();
   // Separate strips preserve the curved shoulder under side lighting.
   const sections = [
     [188, 145, 526, 32.4],
@@ -1150,13 +1163,93 @@ export function photoStudy(lod = 0) {
     block(ports, 0.8, h, d, 1.1, smoothRubber, -0.78, y, z);
     block(ports, 0.28, 1.1, 4.8, 0.13, black, -1.18, y - h / 2 + 2, z);
   }
-  const cards = doors('card_door', 77, -5, 7, 1.2, 49, 29);
-  block(cards, 1.1, 11, 2.4, 0.8, rubber, 0.7, 5, 3);
+  // Rear view of the open bay: slot 1 above slot 2, hinge toward the lens.
+  // Side-panel coordinates run toward the lens (u) and up (v).
+  const carrier = group('card_slot_carrier');
+  chassis.add(carrier);
+  carrier.userData.pick_control = 'card_door';
+  carrier.position.set(75.6, -8.25, 6.8);
+  carrier.rotation.y = pi / 2;
+  const well = roundPath(26.1, 54.8, 2.35);
+  for (const [v, w] of [[13.15, 5.1], [-13.15, 2.9]]) {
+    well.holes.push(roundPath(w, 24.8, 0.52, -4.4 - w / 2, v - 12.4));
+    block(carrier, w + 1.3, 25.7, 0.5, 0.54, paint(0x100f10, 0.96), -4.4, v, -2.1);
+    block(carrier, 0.42, 23.8, 1.75, 0.12, metal, -4.4 + w / 2 - 0.25, v, -0.44);
+  }
+  mesh(extrude(well, 2.0, 0.13), black, carrier);
+  // Narrow guide rail beside both card mouths, with separate end stops.
+  block(carrier, 1.3, 50.4, 0.72, 0.39, metal, -8.45, 0, 1.14);
+  for (const v of [-24.5, 0, 24.5])
+    block(carrier, 1.8, 2.1, 0.53, 0.27, black, -8.4, v, 1.4);
+  for (const [v, n] of [[13.15, '1'], [-13.15, '2']]) {
+    plate(carrier, 3.3, 4.5, label(n, null, '#dfddd5', 108), 3.65, v + 5.1, 1.15);
+    block(carrier, 3.7, 0.38, 0.28, 0.1, silver, 3.65, v + 2.4, 1.14);
+  }
+  const cards = group();
+  root.add(cards);
+  cards.position.set(76.74, -8.25, -7.9);
+  reg('card_door', cards, [1, 0, 0]);
+  const leaf = group('card_door_panel');
+  cards.add(leaf);
+  leaf.position.set(0.18, 0, 14.7);
+  leaf.rotation.y = pi / 2;
+  block(leaf, 28.7, 55.7, 1.32, 2.35, enamel, 0, 0, 0);
+  const gasket = roundPath(26.4, 52.8, 2.2);
+  gasket.holes.push(roundPath(24.8, 51.2, 1.5));
+  mesh(extrude(gasket, 0.53, 0.1), smoothRubber, leaf, 0, 0, -0.92);
+  // Inside face in the open-bay press photograph: molded channels, a latch
+  // guide with a directional mark, and a screw beside the vertical legend.
+  for (const u of [-9.7, 2.4, 9.7])
+    block(leaf, 0.75, 47, 1.15, 0.26, black, u, -0.1, -1.05);
+  for (const v of [-17.2, 0.6, 20.3])
+    block(leaf, 19.6, 0.65, 0.75, 0.18, black, 0, v, -0.93);
+  block(leaf, 5.8, 8.35, 1.1, 0.47, metal, -5.4, 19.3, -1.02);
+  block(leaf, 4.1, 4.65, 0.32, 0.17, silver, -5.4, 19.5, -1.67);
+  plate(leaf, 2.3, 2.0, label('◀', null, '#302e30', 103), -5.4, 19.5, -1.85, 'front');
+  disc(leaf, 1.32, 0.55, metal, -5.9, -0.65, -1.3, 'front', 20);
+  for (const angle of [-pi / 4, pi / 4])
+    block(leaf, 1.55, 0.25, 0.18, 0.055, black, -5.9, -0.65, -1.59).rotation.z = angle;
+  plate(leaf, 10.1, 1.7, label('PUSH IN/OUT', null, '#b4b3b0', 92), -3.9, -7.9, -0.75, 'front').rotation.z = pi / 2;
+  // Trace the C-shaped outer pad and the exposed latch pocket in the right-side press view.
+  const doorSkin = new T.Shape();
+  doorSkin.moveTo(-11.8, -22.4);
+  doorSkin.quadraticCurveTo(-12.9, -8.0, -12.3, 7.9);
+  doorSkin.quadraticCurveTo(-12.1, 20.5, -8.3, 23.8);
+  doorSkin.quadraticCurveTo(-7.3, 24.8, -5.0, 24.8);
+  doorSkin.lineTo(11.8, 24.8);
+  doorSkin.lineTo(11.8, 9.1);
+  doorSkin.lineTo(-2.5, 9.1);
+  doorSkin.quadraticCurveTo(-5.25, 9.1, -5.25, 6.4);
+  doorSkin.lineTo(-5.25, -6.2);
+  doorSkin.quadraticCurveTo(-5.25, -8.9, -2.5, -8.9);
+  doorSkin.lineTo(11.8, -8.9);
+  doorSkin.lineTo(11.8, -25.1);
+  doorSkin.lineTo(-8.4, -25.1);
+  doorSkin.quadraticCurveTo(-11.4, -25.1, -11.8, -22.4);
+  mesh(extrude(doorSkin, 0.53, 0.15), rubber, leaf, 0, 0, 0.77);
+  block(leaf, 6.9, 16.25, 0.18, 1.75, black, -0.8, -0.02, 0.69);
+  block(leaf, 5.85, 12.2, 0.52, 1.28, smoothRubber, -0.8, 1.57, 0.93);
+  const stud = new T.CylinderGeometry(0.29, 0.43, 0.23, 4, 1, false, pi / 4);
+  stud.rotateX(pi / 2);
+  for (let row = 0; row < 6; row++)
+    for (let col = 0; col < 4; col++)
+      mesh(stud, black, leaf, -2.45 + col * 1.1, -1.6 + row * 1.03, 1.27);
+  const unlockArrow = outline([
+    [6.25, 2.9], [6.58, 2.9], [6.58, -3.3], [4.6, -3.3], [4.6, -3.73],
+    [3.02, -3.08], [4.6, -2.46], [4.6, -2.93], [6.25, -2.93],
+  ]);
+  mesh(new T.ShapeGeometry(unlockArrow), paint(0xc3c2bf, 0.75), leaf, 0, 0, 0.72);
+  plate(leaf, 6.0, 2.1, label('OPEN', null, '#dad9d3', 108, 'Arial', 0.96), 8.45, -0.1, 0.73)
+    .rotation.z = -pi / 2;
+  for (const [v, length, fixed] of [[-15, 12, true], [0, 16, false], [15, 12, true]]) {
+    if (fixed) disc(chassis, 1.12, length, black, 76.74, -8.25 + v, -7.9);
+    else disc(cards, 1.07, length, metal, 0, v, 0);
+  }
   const battery = group();
   root.add(battery);
   battery.position.set(55.4, -40.57, -3.2);
-  const doorSkin = mesh(extrude(roundPath(23.6, 40.0, 4.6), 0.78, 0.22), black, battery);
-  doorSkin.rotation.x = pi / 2;
+  const batteryPanel = mesh(extrude(roundPath(23.6, 40.0, 4.6), 0.78, 0.22), black, battery);
+  batteryPanel.rotation.x = pi / 2;
   block(battery, 5.4, 0.55, 8.7, 1, metal, 6, -0.55, 6);
   reg('battery_door', battery, [0, -1, 0]);
   const socket = tube(chassis, 3.75, 2.22, 0.55, silver, 0, -40.88, 0);

@@ -1,6 +1,6 @@
 # α7 V 与 24–70 GM II 材质评审 v2
 
-2026-11-24。模型依据 Sony ILCE-7M5 和 SEL2470GM2 的产品照、规格与帮助指南制作。这一版已进入 Android Preview。精确外观和机械行程仍待实机验收。
+2026-11-24。模型依据 Sony ILCE-7M5 和 SEL2470GM2 的产品照、规格与帮助指南制作。这一版对应 v0.1.0 预览包。当前卡仓评审见 [v3](../model-v3/README.md)。精确外观和机械行程仍待实机验收。
 
 [局部放大与透明度叠图（下载源码后打开）](index.html) · [装机模型渲染](overview.webp) · [Android 预览截图](android.webp) · [26 张官方参考与原始出处](../assets/model-ref/sony/README.md)
 
@@ -34,8 +34,8 @@
 
 | 文件 | 三角面 | 节点 | 文件大小 | SHA-256 |
 |---|---:|---:|---:|---|
-| [LOD0](../../../assets/camera/a7v.glb) | 145,850 | 324 | 6,197,176 B | `4dc9240c002497f0e4103715fdb8811454f34ec7e2cabdf79d555887b48e501c` |
-| [LOD1](../../../assets/camera/a7v_lod1.glb) | 41,070 | 324 | 2,101,128 B | `e1921dfb2b347cfb44c3c75b7f48c97ab50f1db3c6e9e2a216f6a15ceb798231` |
+| [LOD0](https://github.com/MathildaStacy/A7M5Tutorial/blob/v0.1.0-preview.1/assets/camera/a7v.glb) | 145,850 | 324 | 6,197,176 B | `4dc9240c002497f0e4103715fdb8811454f34ec7e2cabdf79d555887b48e501c` |
+| [LOD1](https://github.com/MathildaStacy/A7M5Tutorial/blob/v0.1.0-preview.1/assets/camera/a7v_lod1.glb) | 41,070 | 324 | 2,101,128 B | `e1921dfb2b347cfb44c3c75b7f48c97ab50f1db3c6e9e2a216f6a15ceb798231` |
 
 两个模型都采用 meshopt 和 9 张 KTX2 纹理，最大图集为 2,048 × 2,048。开发检查覆盖控件、绑定、屏幕 UV 和资源预算。另从多个方向对 LOD0 实际网格发射射线，36 个教学部件均可从外部点中。
 

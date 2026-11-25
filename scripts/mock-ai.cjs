@@ -1,4 +1,4 @@
-// Local protocol fixture for M1 connection tests and the camera help conversation.
+// Local fixtures for connection tests, camera help, photo reviews and course assessment.
 const http = require('node:http');
 const port = Number(process.env.PORT || 8787);
 function message(body, anthropic) {
@@ -8,18 +8,57 @@ function message(body, anthropic) {
   const finished =
     recent?.type === 'function_call_output' ||
     recent?.content?.some?.((b) => b.type === 'tool_result');
-  const tool = probe ? 'say_to_user' : !finished ? 'lookup_manual' : null;
-  const args = probe ? {text: '橙色。'} : {query: '曝光补偿'};
-  const text = '后拨盘 R 解锁后可调整曝光补偿，每格 1/3 档。';
+  const parts = history.flatMap((m) => (Array.isArray(m.content) ? m.content : []));
+  const request = parts.find(
+    (p) => typeof p.text === 'string' && p.text.includes('照片数据（按图序）'),
+  )?.text;
+  const used = (name) =>
+    parts.some((p) => p.type === 'tool_use' && p.name === name) ||
+    history.some((m) => m.type === 'function_call' && m.name === name);
+  let tool = probe ? 'say_to_user' : !finished ? 'lookup_manual' : null;
+  let args = probe ? {text: '橙色。'} : {query: '曝光补偿'};
+  let text = '后拨盘 R 解锁后可调整曝光补偿，每格 1/3 档。';
+  if (request) {
+    text = '本地模拟复盘已完成。';
+    if (!used('submit_review')) {
+      tool = 'submit_review';
+      args = {
+        title: '本地模拟复盘',
+        scores: ['exposure', 'focus', 'composition'].map((dimension) => ({dimension, score: 3})),
+        fixes: [
+          {
+            problem: '检查主体亮度',
+            cause: '模拟服务示例',
+            fix: '对照拍摄直方图',
+            how_on_camera: '按控制拨轮的上键切换 DISP',
+            control_ids: ['wheel'],
+          },
+        ],
+        goods: [{point: '已收到照片', why: '模型请求包含图片', keep: '继续按任务要求练习'}],
+        tags: [],
+      };
+    } else if (request.startsWith('实拍任务验收') && !used('grade_task')) {
+      const fails = request.includes('演示未通过');
+      tool = 'grade_task';
+      args = {
+        passed: !fails,
+        unmet: fails ? [request.split('\n')[3]] : [],
+        summary: fails ? '本地模拟：请按首条标准重拍。' : '本地模拟：实拍任务通过。',
+      };
+    } else {
+      tool = null;
+    }
+  }
+  const callId = 'call_' + tool;
   const content = tool
-    ? [{type: 'tool_use', id: 'call_probe', name: tool, input: args}]
+    ? [{type: 'tool_use', id: callId, name: tool, input: args}]
     : [{type: 'text', text}];
   const output = tool
     ? [
         {
           type: 'function_call',
-          id: 'fc_probe',
-          call_id: 'call_probe',
+          id: 'fc_' + tool,
+          call_id: callId,
           name: tool,
           arguments: JSON.stringify(args),
         },
@@ -102,4 +141,8 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(400).end(JSON.stringify({error: {message: 'Invalid mock request'}}));
   }
 });
-server.listen(port, '127.0.0.1', () => console.log('快门学院本地模型 · http://127.0.0.1:' + port));
+module.exports = {message, stream};
+if (require.main === module)
+  server.listen(port, '127.0.0.1', () =>
+    console.log('快门学院本地模型 · http://127.0.0.1:' + port),
+  );

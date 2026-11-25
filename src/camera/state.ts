@@ -34,6 +34,7 @@ export interface CameraState extends ExposureSettings {
   ring: string;
   irisLock: boolean;
   rearLock: boolean;
+  cardDoorOpen: boolean;
   lensAF: boolean;
   clickStops: boolean;
   smooth: string;
@@ -72,6 +73,7 @@ export function initialCamera(): CameraState {
     ring: 'A',
     irisLock: false,
     rearLock: false,
+    cardDoorOpen: false,
     lensAF: true,
     clickStops: true,
     smooth: 'SMOOTH',
@@ -151,7 +153,13 @@ export function act(current: CameraState, id: string, op: Operation = 'click'): 
   const dir = ['minus', 'left', 'up'].includes(op) ? -1 : 1;
   const control = byId[id];
   if (!control) return current;
-  if (!s.power && id !== 'power' && control.part !== 'lens' && control.actions.length)
+  if (
+    !s.power &&
+    id !== 'power' &&
+    id !== 'card_door' &&
+    control.part !== 'lens' &&
+    control.actions.length
+  )
     return {...s, notice: '请先打开电源'};
   if (s.choice && ['wheel', 'joystick', 'btn_center'].includes(id)) {
     if (id === 'btn_center' || op === 'click') confirm(s, s.choice);
@@ -165,6 +173,9 @@ export function act(current: CameraState, id: string, op: Operation = 'click'): 
   s.choice = null;
   const mode = ['1', '2', '3'].includes(s.mode) ? 'A' : s.mode;
   switch (id) {
+    case 'card_door':
+      s.cardDoorOpen = !s.cardDoorOpen;
+      break;
     case 'power':
       s.power = !s.power;
       s.focused = false;
@@ -352,6 +363,7 @@ export function screenState(s: CameraState) {
     ...exposure,
     mode: s.mode,
     power: s.power,
+    cardDoorOpen: s.cardDoorOpen,
     focal: s.focal,
     display: s.display,
     drive: s.drive,

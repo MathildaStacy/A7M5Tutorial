@@ -116,7 +116,7 @@ async function exportModel(lod) {
       travel = 0.0032;
     }
     if (kind === 'tilt') range = [-8, 8];
-    if (kind === 'hinge') range = [0, 90];
+    if (kind === 'hinge') range = [0, id === 'card_door' && !fromPrototype ? 96 : 90];
     if (positions) {
       const angles = {
         power: [-28, 0],

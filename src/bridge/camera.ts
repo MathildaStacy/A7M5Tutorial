@@ -14,7 +14,7 @@ export type Command =
   | {cmd: 'sync'; state: ScreenState}
   | {cmd: 'highlight'; ids: string[]; note?: string; style?: string}
   | {cmd: 'animate'; control: string; kind: string; dir: number; steps: number}
-  | {cmd: 'view'; view: ViewName}
+  | {cmd: 'view'; view: ViewName; focus?: string[]}
   | {cmd: 'labels' | 'dim' | 'lcd'; on: boolean}
   | {cmd: 'pause' | 'resume' | 'snapshot'};
 export type CameraEvent =

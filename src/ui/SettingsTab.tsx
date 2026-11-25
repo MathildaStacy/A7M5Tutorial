@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, TextInput, View} from 'react-native';
+import {Alert, ScrollView, TextInput, View} from 'react-native';
 import {Button, Card, Txt, color, styles as s} from './theme';
 import {
   loadService,
@@ -9,6 +9,7 @@ import {
   saveService,
   serviceId,
 } from '../ai/services';
+import {clearReports} from '../data/db';
 import {testConnection, listModels} from '../ai/connection';
 import type {Protocol, Effort} from '../ai/types';
 
@@ -171,6 +172,27 @@ export function SettingsTab() {
       <Txt style={s.sub}>
         Key 保存在 Android Keystore。连接测试发送一张内置色块，检验图片输入和工具调用。
       </Txt>
+      <Card>
+        <Txt style={s.h2}>复盘记录</Txt>
+        <Txt style={s.sub}>评语保存在本机。清除后，已完成的课程仍会保留。</Txt>
+        <Button
+          onPress={() =>
+            Alert.alert('清除全部复盘记录？', '这会删除本机保存的照片评语和验收详情。', [
+              {text: '取消', style: 'cancel'},
+              {
+                text: '清除',
+                style: 'destructive',
+                onPress: () => {
+                  clearReports();
+                  show('复盘记录已清除');
+                },
+              },
+            ])
+          }
+        >
+          清除全部复盘记录
+        </Button>
+      </Card>
     </ScrollView>
   );
 }

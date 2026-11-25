@@ -8,11 +8,9 @@ import {loadService, persistService, readKey, readProtocol} from '../ai/services
 import {runAgent} from '../ai/agent';
 import type {StoredMessage} from '../ai/types';
 import type {TabProps} from './routes';
-import Ajv from 'ajv';
-import {modelTools} from '../ai/protocol';
+import {checkedArgs} from '../ai/checkedTool';
+import {PhotoReviewScreen} from './PhotoReviewScreen';
 import {lessons} from '../lessons/catalog';
-const ajv = new Ajv({allErrors: true, strict: false});
-const validators = new Map(modelTools.map((t) => [t.name, ajv.compile(t.input_schema)]));
 type HelpCall =
   | {name: 'lookup_manual'; args: {query: string}}
   | {name: 'say_to_user'; args: {text: string}}
@@ -23,6 +21,7 @@ type ChatLine = {body: string; user?: boolean; control?: string; lesson?: string
 const instruction =
   '你是快门学院的中文摄影教练，当前是按键答疑。依据提供的部件字典和 lookup_manual 回答，每次说明一个操作。菜单路径只引用检索结果。讲到部件先调用 highlight_control。用 say_to_user 显示讲解。当前入口可查询说明书、指向部件、推荐课程和回答追问。';
 export function CoachTab({navigation}: TabProps<'AI 教练'>) {
+  const [showPhotos, setShowPhotos] = useState(false);
   const topic = useAcademy((x) => x.topic),
     c = topic ? byId[topic] : null;
   const [input, setInput] = useState(''),
@@ -83,10 +82,7 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
         },
         key,
         async (call) => {
-          const args = JSON.parse(call.args),
-            valid = validators.get(call.name);
-          if (!valid || !valid(args))
-            throw new Error('工具参数无效 ' + ajv.errorsText(valid?.errors));
+          const args = checkedArgs(call);
           const tool = {name: call.name, args} as HelpCall;
           switch (tool.name) {
             case 'lookup_manual':
@@ -158,6 +154,9 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
           <Txt style={s.eyebrow}>α7 V　/　按键答疑</Txt>
           <Txt style={s.title}>AI 教练</Txt>
         </View>
+        <Button primary onPress={() => setShowPhotos(true)}>
+          照片复盘
+        </Button>
         {c && (
           <Card>
             <Txt style={s.h2}>{c.name}</Txt>
@@ -216,6 +215,15 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
           </Card>
         )}
       </ScrollView>
+      {showPhotos && (
+        <PhotoReviewScreen
+          close={() => setShowPhotos(false)}
+          settings={() => {
+            setShowPhotos(false);
+            navigation.navigate('我的');
+          }}
+        />
+      )}
       <View style={[s.row, {padding: 12, borderTopWidth: 1, borderColor: color.line}]}>
         <TextInput
           style={[s.input, {flex: 1}]}

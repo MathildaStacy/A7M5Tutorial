@@ -1,21 +1,77 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {AppState, StyleSheet, View, Vibration} from 'react-native';
 import {useIsFocused} from '@react-navigation/native';
 import WebView from 'react-native-webview';
-import {createBridge, type Command} from '../bridge/camera';
+import {createBridge, type Command, type ViewName} from '../bridge/camera';
 import {byId} from '../camera/controls';
 import {useAcademy} from '../camera/store';
-import {screenState, operations} from '../camera/state';
+import {screenState, operations, type CameraState, type Operation} from '../camera/state';
 import {Button, Txt, color} from './theme';
-const source = {uri: 'file:///android_asset/camera3d/index.html'};
-export function CameraStage() {
+const cameraSource = {uri: 'file:///android_asset/camera3d/index.html'};
+const lessonSource = {uri: cameraSource.uri + '?lod=1'};
+type Animation = Omit<Extract<Command, {cmd: 'animate'}>, 'cmd'>;
+
+export function CameraStage({closeUp}: {closeUp: boolean}) {
+  const {camera, selected, view, labels, lcd, quiz, animation} = useAcademy();
+  const highlight = useMemo(() => (selected && !quiz ? [selected] : []), [selected, quiz]);
+  return (
+    <CameraViewport
+      camera={camera}
+      view={view}
+      highlight={highlight}
+      closeUp={closeUp}
+      labels={labels && !quiz}
+      lcd={lcd}
+      animation={animation}
+      onPick={(id) => useAcademy.getState().select(id)}
+      onInput={(id, op) => {
+        const current = useAcademy.getState();
+        if (!current.quiz) {
+          current.operate(id, op);
+          Vibration.vibrate(12);
+        }
+      }}
+    />
+  );
+}
+
+interface ViewportProps {
+  camera: CameraState;
+  view: ViewName;
+  highlight: string[];
+  labels?: boolean;
+  lcd?: boolean;
+  compact?: boolean;
+  closeUp?: boolean;
+  animation?: Animation | null;
+  note?: string;
+  onPick?: (id: string) => void;
+  onInput?: (id: string, op: Operation) => void;
+}
+
+export function CameraViewport({
+  camera,
+  view,
+  highlight,
+  labels = false,
+  lcd = false,
+  compact = false,
+  closeUp = false,
+  animation,
+  note,
+  onPick,
+  onInput,
+}: ViewportProps) {
+  const source = compact ? lessonSource : cameraSource;
+  const focus = closeUp && highlight.length ? highlight : undefined;
+  const handlers = useRef({onPick, onInput});
+  handlers.current = {onPick, onInput};
   const web = useRef<WebView<object>>(null),
     [epoch, reload] = useState(0),
     [ready, setReady] = useState(false),
     [error, setError] = useState('');
   const focused = useIsFocused(),
     [foreground, setForeground] = useState(AppState.currentState === 'active');
-  const {camera, selected, view, labels, lcd, quiz} = useAcademy();
   const [bridge] = useState(() =>
     createBridge((e) => {
       if (e.ev === 'ready') {
@@ -28,13 +84,10 @@ export function CameraStage() {
         setReady(false);
         return;
       }
-      const state = useAcademy.getState();
       if (!byId[e.control]) return;
-      if (e.ev === 'pick') state.select(e.control);
-      if (e.ev === 'input' && !state.quiz && operations.includes(e.op)) {
-        state.operate(e.control, e.op);
-        Vibration.vibrate(12);
-      }
+      if (e.ev === 'pick') handlers.current.onPick?.(e.control);
+      if (e.ev === 'input' && operations.includes(e.op))
+        handlers.current.onInput?.(e.control, e.op);
     }),
   );
   const detach = useRef<(() => void) | undefined>(undefined);
@@ -62,28 +115,23 @@ export function CameraStage() {
     if (ready) send({cmd: 'sync', state: screenState(camera)});
   }, [camera, ready, send]);
   useEffect(() => {
-    if (ready) send({cmd: 'view', view});
-  }, [view, ready, send]);
+    if (ready) send({cmd: 'view', view, focus});
+  }, [view, focus, ready, send]);
   useEffect(() => {
-    if (ready) send({cmd: 'labels', on: labels && !quiz});
-  }, [labels, !!quiz, ready, send]);
+    if (ready) send({cmd: 'labels', on: labels});
+  }, [labels, ready, send]);
   useEffect(() => {
-    if (ready) send({cmd: 'highlight', ids: selected && !quiz ? [selected] : []});
-  }, [selected, !!quiz, ready, send]);
+    if (ready) send({cmd: 'highlight', ids: highlight, note});
+  }, [highlight, note, ready, send]);
   useEffect(() => {
     if (ready) send({cmd: 'lcd', on: lcd});
   }, [lcd, ready, send]);
   useEffect(() => {
     if (ready) send({cmd: focused && foreground ? 'resume' : 'pause'});
   }, [ready, focused, foreground, send]);
-  useEffect(
-    () =>
-      useAcademy.subscribe((state, prev) => {
-        if (ready && state.animation !== prev.animation && state.animation)
-          send({cmd: 'animate', ...state.animation});
-      }),
-    [ready, send],
-  );
+  useEffect(() => {
+    if (ready && animation) send({cmd: 'animate', ...animation});
+  }, [animation, ready, send]);
   function retry() {
     bridge.fail();
     setError('');

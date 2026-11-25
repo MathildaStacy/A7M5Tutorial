@@ -1,37 +1,42 @@
-import React from 'react';
-import {Modal, Pressable, ScrollView, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, {useCallback, useState} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
+import {Pressable, ScrollView, View} from 'react-native';
 import {ArrowUpRight, Camera, ChevronRight} from 'lucide-react-native';
 import {useAcademy} from '../camera/store';
-import {byId, controls} from '../camera/controls';
+import {controls} from '../camera/controls';
+import {readLessonProgress, recordLessonSection, writeSetting} from '../data/db';
+import {sectionIds, type SectionId} from '../lessons/engine';
+import {LessonScreen} from './LessonScreen';
 import {lessons} from '../lessons/catalog';
 import {Button, Card, Txt, color, styles as s} from './theme';
 import type {TabProps} from './routes';
 export function LearnTab({navigation}: TabProps<'学习'>) {
   const {known, best, lesson} = useAcademy();
-  const entry = lessons.find((l) => l.id === lesson);
+  const [progress, setProgress] = useState(readLessonProgress);
+  const refresh = useCallback(() => setProgress(readLessonProgress()), []);
+  useFocusEffect(refresh);
+  const completed = (id: string) => sectionIds.filter((k) => progress[id]?.[k]?.complete).length;
+  const first = lessons.findIndex((l) => completed(l.id) !== 4);
+  const active = first < 0 ? undefined : lessons[first];
+  const index = lessons.findIndex((l) => l.id === lesson);
+  const entry = lessons[index];
+  const unlocked = first < 0 || index <= first;
+  const close = () => useAcademy.setState({lesson: null});
   const gotoCamera = (id?: string) => {
-    useAcademy.setState({lesson: null});
+    close();
+    useAcademy.getState().endQuiz();
     if (id) useAcademy.getState().select(id, true);
     navigation.navigate('相机');
   };
-  function inline(text: string) {
-    return text.split(/(\[\[[\w_]+\]\])/).map((part, i) => {
-      const id = part.slice(2, -2);
-      if (part.startsWith('[[') && byId[id])
-        return (
-          <Txt
-            key={i}
-            accessibilityRole="link"
-            onPress={() => gotoCamera(id)}
-            style={{color: color.accent}}
-          >
-            {byId[id].name}
-          </Txt>
-        );
-      return part.replace(/\*\*/g, '');
-    });
-  }
+  const quiz = () => {
+    close();
+    useAcademy.getState().startQuiz();
+    navigation.navigate('相机');
+  };
+  const open = (id: string, section?: SectionId) => {
+    if (section) writeSetting('lesson-section-' + id, section);
+    useAcademy.setState({lesson: id});
+  };
   return (
     <ScrollView style={s.screen} contentContainerStyle={s.pad}>
       <View>
@@ -68,36 +73,36 @@ export function LearnTab({navigation}: TabProps<'学习'>) {
         </Card>
       </Pressable>
       <Txt style={s.h2}>今日任务</Txt>
+      {active && (
+        <Card>
+          <Txt style={s.h2}>{active.id + ' · ' + active.title}</Txt>
+          <Txt style={s.sub}>{active.sections[3].title}</Txt>
+          <View style={s.wrap}>
+            <Button primary onPress={() => open(active.id)}>
+              继续学习
+            </Button>
+            <Button onPress={() => open(active.id, 'task')}>查看任务</Button>
+          </View>
+        </Card>
+      )}
       <Card>
-        <Txt>在相机上找到 10 个部件</Txt>
-        <Txt style={s.sub}>
-          {best
-            ? '历史最高 ' +
-              best +
-              ' / 10 · ' +
-              (best === 10
-                ? 'L1 实拍替代任务已完成'
-                : best >= 8
-                ? '已达标，满分完成 L1 任务'
-                : '答对 8 题达标')
-            : '答对 8 题达标，满分完成 L1 任务'}
-        </Txt>
-        <Button
-          onPress={() => {
-            useAcademy.getState().startQuiz();
-            navigation.navigate('相机');
-          }}
-        >
-          开始找键练习
-        </Button>
+        <View style={s.spread}>
+          <View style={{flex: 1}}>
+            <Txt>在相机上找到 10 个部件</Txt>
+            <Txt style={s.sub}>
+              {best ? '历史最高 ' + best + '/10' : '答对 8 题达标，满分完成 L1 任务'}
+            </Txt>
+          </View>
+          <Button onPress={quiz}>找键练习</Button>
+        </View>
       </Card>
-      <Txt style={s.h2}>课程预览</Txt>
+      <Txt style={s.h2}>学习路径</Txt>
       <Card>
-        {lessons.map((l) => (
+        {lessons.map((l, i) => (
           <Pressable
             key={l.id}
             accessibilityRole="button"
-            onPress={() => useAcademy.setState({lesson: l.id})}
+            onPress={() => open(l.id)}
             style={[s.spread, {paddingVertical: 9}]}
           >
             <View style={s.row}>
@@ -105,65 +110,41 @@ export function LearnTab({navigation}: TabProps<'学习'>) {
               <Txt>{l.title}</Txt>
             </View>
             <View style={s.row}>
-              <Txt style={s.sub}>{l.minutes} 分钟</Txt>
+              <Txt style={s.sub}>
+                {completed(l.id) === 4
+                  ? '已完成'
+                  : first >= 0 && i > first
+                  ? '预习'
+                  : completed(l.id) + ' / 4 段'}
+              </Txt>
               <ChevronRight size={16} color={color.muted} />
             </View>
           </Pressable>
         ))}
       </Card>
       {entry && (
-        <Modal animationType="slide" onRequestClose={() => useAcademy.setState({lesson: null})}>
-          <SafeAreaView style={s.screen}>
-            <View style={[s.spread, {padding: 16}]}>
-              <Txt style={s.h2}>
-                {entry.id} · {entry.title}
-              </Txt>
-              <Button onPress={() => useAcademy.setState({lesson: null})}>返回学习</Button>
-            </View>
-            <ScrollView contentContainerStyle={s.pad}>
-              <Card>
-                {entry.goals.map((g) => (
-                  <Txt key={g}>{g}</Txt>
-                ))}
-              </Card>
-              {(entry.sections.find((z) => z.kind === 'read')?.markdown ?? '')
-                .split('\n')
-                .map((line, i) => {
-                  const text = line.trim();
-                  if (!text || /^\|[-: |]+\|$/.test(text)) return null;
-                  if (text.startsWith('|'))
-                    return (
-                      <View
-                        key={i}
-                        style={[
-                          s.row,
-                          {
-                            alignItems: 'flex-start',
-                            borderBottomWidth: 1,
-                            borderColor: color.line,
-                            paddingBottom: 5,
-                          },
-                        ]}
-                      >
-                        {text
-                          .slice(1, -1)
-                          .split('|')
-                          .map((v, j) => (
-                            <Txt key={j} style={[s.sub, {flex: 1}]}>
-                              {inline(v.trim())}
-                            </Txt>
-                          ))}
-                      </View>
-                    );
-                  return (
-                    <Txt key={i} style={text.startsWith('#') ? s.h2 : undefined}>
-                      {inline(text.replace(/^#{1,4} +/, ''))}
-                    </Txt>
-                  );
-                })}
-            </ScrollView>
-          </SafeAreaView>
-        </Modal>
+        <LessonScreen
+          key={entry.id}
+          lesson={entry}
+          progress={progress[entry.id] ?? {}}
+          unlocked={unlocked}
+          previous={lessons[index - 1]?.id}
+          close={close}
+          locate={gotoCamera}
+          quiz={quiz}
+          settings={() => {
+            close();
+            navigation.navigate('我的');
+          }}
+          refresh={refresh}
+          mark={(section, cursor, complete) => {
+            if (unlocked) {
+              recordLessonSection(entry.id, section, cursor, complete);
+              refresh();
+            }
+          }}
+          nextLesson={lessons[index + 1] ? () => open(lessons[index + 1].id) : undefined}
+        />
       )}
     </ScrollView>
   );

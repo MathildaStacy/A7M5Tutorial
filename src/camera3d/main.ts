@@ -106,6 +106,11 @@ async function boot() {
   const sideFill = new T.DirectionalLight(0xfffaf4, 0.52);
   sideFill.position.set(0.8, -0.17, 0.3);
   scene.add(sideFill);
+  const detailFill = new T.DirectionalLight(0xfffaf4, 0);
+  detailFill.position.set(-0.12, 0.11, 0.04);
+  detailFill.target.position.set(0, 0, -0.11);
+  camera.add(detailFill, detailFill.target);
+  scene.add(camera);
   renderer.shadowMap.enabled = !lod;
   renderer.shadowMap.type = T.PCFSoftShadowMap;
   renderer.shadowMap.autoUpdate = false;
@@ -137,8 +142,7 @@ async function boot() {
     }
   });
   model.updateMatrixWorld(true);
-  const bounds = new T.Box3().setFromObject(model),
-    centre = bounds.getCenter(new T.Vector3());
+  const bounds = new T.Box3().setFromObject(model);
   const nodes = new Map<string, T.Object3D>(),
     anchors = new Map<string, T.Vector3>(),
     buttons = new Map<string, HTMLButtonElement>();
@@ -156,7 +160,8 @@ async function boot() {
   model.traverse((o) => {
     if (ids.has(o.name)) {
       nodes.set(o.name, o);
-      anchors.set(o.name, new T.Box3().setFromObject(o).getCenter(new T.Vector3()));
+      const midpoint = new T.Box3().setFromObject(o).getCenter(new T.Vector3());
+      anchors.set(o.name, o.worldToLocal(midpoint));
       base.set(o, {p: o.position.clone(), q: o.quaternion.clone()});
       axes.set(o, new T.Vector3(...(o.userData.axis as [number, number, number])));
       const surfaces = o.children
@@ -180,8 +185,9 @@ async function boot() {
     o.castShadow = true;
     o.receiveShadow = true;
     let parent: T.Object3D | null = o;
-    while (parent && !ids.has(parent.name)) parent = parent.parent;
-    const owner = parent?.name ?? '';
+    while (parent && !ids.has(parent.name) && !ids.has(parent.userData.pick_control))
+      parent = parent.parent;
+    const owner: string = parent?.userData.pick_control ?? parent?.name ?? '';
     meshOwner.set(o, owner);
     // A glTF material can be shared across different controls. Isolate its highlight.
     const own = (m: T.Material) => {
@@ -250,7 +256,8 @@ async function boot() {
       const original = m.userData.originalColor ?? m.color.getHex();
       m.userData.originalColor = original;
       m.color.setHex(original);
-      if (dim && highlight.length && !highlight.includes(owner)) m.color.multiplyScalar(0.4);
+      if (dim && highlight.length && !highlight.includes(owner))
+        m.color.multiplyScalar(closeUp ? 0.83 : 0.4);
       m.emissive?.setHex(highlight.includes(owner) ? 0xf28b26 : 0x000000);
     }
   }
@@ -269,8 +276,9 @@ async function boot() {
       const value =
         e.positions?.[s.positions[id]] ??
         (s.turns[id] ?? 0) * (e.detent_deg ?? e.preview_step_deg ?? 0);
-      target.set(id, value);
-      if (!angle.has(id)) angle.set(id, value);
+      const pose = id === 'card_door' && s.cardDoorOpen ? e.range_deg[1] : value;
+      target.set(id, pose);
+      if (!angle.has(id)) angle.set(id, pose);
     }
     const ext = nodes.get('ring_zoom')?.userData.extension_m?.[String(s.focal)];
     if (typeof ext === 'number') {
@@ -305,7 +313,8 @@ async function boot() {
       for (const part of independentPress.get(o) ?? []) part.node.position.copy(part.origin);
       o.position.copy(rest.p);
       o.quaternion.copy(rest.q);
-      if (e.kind === 'rotate') o.rotateOnAxis(axis, T.MathUtils.degToRad(value));
+      if (e.kind === 'rotate' || e.kind === 'hinge')
+        o.rotateOnAxis(axis, T.MathUtils.degToRad(value));
       if (e.kind === 'slide') o.translateOnAxis(axis, value);
       if (pulse?.id === id) {
         const amount = Math.sin(Math.PI * t) * pulse.dir;
@@ -336,15 +345,40 @@ async function boot() {
     bottom: [0, -1, -0.001],
     lens: [0.72, 0.55, 1],
   };
-  function view(name: ViewName) {
-    orbit.target.copy(centre);
+  let closeUp = false;
+  function view(name: ViewName, focus: string[] = []) {
+    const area = new T.Box3();
+    for (const id of focus) {
+      const part = id === 'card_door' ? model.getObjectByName('card_slot_carrier') : nodes.get(id);
+      if (part) area.expandByObject(part);
+    }
+    const wasCloseUp = closeUp;
+    closeUp = !area.isEmpty();
+    // Raking fill reveals the molded rubber and recessed lettering when the camera moves in.
+    detailFill.intensity = closeUp ? 2.1 : 0;
+    if (wasCloseUp !== closeUp) updateHighlights();
+    const sphere = (closeUp ? area : bounds).getBoundingSphere(new T.Sphere());
     const halfFov = Math.atan(
       Math.tan(T.MathUtils.degToRad(camera.fov / 2)) * Math.min(1, camera.aspect),
     );
-    const dist = (bounds.getBoundingSphere(new T.Sphere()).radius * 1.04) / Math.sin(halfFov);
-    camera.position
-      .copy(centre)
-      .addScaledVector(new T.Vector3(...directions[name]).normalize(), dist);
+    const radius = closeUp ? Math.max(0.023, sphere.radius * 1.35) : sphere.radius * 1.04;
+    const dist = T.MathUtils.clamp(
+      radius / Math.sin(halfFov),
+      orbit.minDistance,
+      orbit.maxDistance,
+    );
+    const direction = new T.Vector3(...directions[name]);
+    if (focus.includes('card_door') && name === 'right') direction.set(-1, 0.18, -0.34);
+    if (
+      name === 'lens' &&
+      focus.length === 1 &&
+      (focus[0].startsWith('sw_') || focus[0] === 'btn_focus_hold')
+    ) {
+      direction.set(sphere.center.x, sphere.center.y, 0.008);
+    }
+    orbit.target.copy(sphere.center);
+    camera.position.copy(sphere.center).addScaledVector(direction.normalize(), dist);
+    lineMaterial.opacity = closeUp ? 0.10 : 0.85;
     orbit.update();
   }
   function resize() {
@@ -432,7 +466,7 @@ async function boot() {
       return;
     }
     if (g.id === 'wheel' || g.id === 'joystick') {
-      const p = anchors.get(g.id)!.clone().project(camera),
+      const p = nodes.get(g.id)!.localToWorld(anchors.get(g.id)!.clone()).project(camera),
         dx = e.clientX - ((p.x + 1) * el.clientWidth) / 2,
         dy = e.clientY - ((1 - p.y) * el.clientHeight) / 2;
       input(
@@ -454,15 +488,15 @@ async function boot() {
   function placeTags() {
     for (const [id, b] of buttons) {
       const selected = highlight.includes(id);
-      b.hidden = !(selected || labels);
+      b.hidden = !((selected && !closeUp) || labels);
       if (b.hidden) continue;
-      const anchor = anchors.get(id)!;
-      pv.copy(anchor).project(camera);
+      const anchor = nodes.get(id)!.localToWorld(pv.copy(anchors.get(id)!));
       // Discard anchors on the far side, including those hidden behind the lens.
       toward.subVectors(anchor, camera.position);
       const distance = toward.length();
       ray.set(camera.position, toward.normalize());
       const hit = ray.intersectObjects(meshes, false)[0];
+      pv.project(camera);
       b.hidden =
         pv.z > 1 || !!(hit && meshOwner.get(hit.object) !== id && hit.distance < distance - 0.003);
       b.classList.toggle('on', selected);
@@ -485,10 +519,11 @@ async function boot() {
     const cameraMoved = orbit.update(),
       moving = bindings(now);
     for (const [m, id] of materialOwner)
-      if (highlight.includes(id)) m.emissiveIntensity = 0.25 + 0.16 * Math.sin(now * 0.005);
+      if (highlight.includes(id))
+        m.emissiveIntensity = (closeUp ? 0.008 : 0.25) * (1 + 0.55 * Math.sin(now * 0.005));
     model.updateMatrixWorld();
     for (const edge of outlines.children) edge.matrix.copy(edge.userData.source.matrixWorld);
-    if (dirtyTags) {
+    if (dirtyTags || moving) {
       placeTags();
       dirtyTags = false;
     }
@@ -511,7 +546,7 @@ async function boot() {
           sync(m.state);
           break;
         case 'view':
-          view(m.view);
+          view(m.view, m.focus);
           break;
         case 'labels':
           labels = m.on;

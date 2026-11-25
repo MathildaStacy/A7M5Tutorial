@@ -1,6 +1,6 @@
 # α7 V 与 FE 24–70mm F2.8 GM II 外观评审
 
-2026-11-24 · 开发版 v1 历史记录 · ILCE-7M5 + SEL2470GM2，24 mm 端。本目录的截图、数据与哈希对应第一版。工程中的 GLB 与 Android Preview 已更新，当前评审见 [v2](../model-v2/README.md)。
+2026-11-24 · 开发版 v1 历史记录 · ILCE-7M5 + SEL2470GM2，24 mm 端。本目录的截图、数据与哈希对应第一版。后续评审记录见 [v2 材质](../model-v2/README.md) · [v3 卡仓](../model-v3/README.md)。
 
 [五视角对照（下载源码后打开）](index.html) · [装机斜前方模型渲染](overview.webp) · [26 张原始参考图及下载地址](../assets/model-ref/sony/README.md)
 
