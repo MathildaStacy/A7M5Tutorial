@@ -15,14 +15,17 @@ import {
 import {answerQuestion} from '../ai/coach/answer';
 import {
   deleteChat,
+  historyBefore,
   lastChat,
   listChats,
   readTurns,
+  restartTurn,
   saveTurn,
   selectChat,
   startTurn,
+  type CoachTurn,
 } from '../data/coachChats';
-import type {Protocol, StoredMessage} from '../ai/types';
+import type {Protocol} from '../ai/types';
 import type {TabProps} from './routes';
 import {PhotoReviewScreen} from './PhotoReviewScreen';
 import {CoachMarkdown} from './CoachMarkdown';
@@ -38,10 +41,14 @@ type LiveAnswer = {
 function StreamingAnswer({answer}: {answer: LiveAnswer}) {
   const draft = useDeferredValue(answer.draft);
   return (
-    <Card>
-      <Txt style={s.sub}>{answer.thinking || '正在回复…'}</Txt>
+    <>
+      {answer.thinking ? (
+        <CoachMarkdown text={answer.thinking} textStyle={s.sub} />
+      ) : (
+        <Txt style={s.sub}>正在回复…</Txt>
+      )}
       {!!draft && <CoachMarkdown text={draft} />}
-    </Card>
+    </>
   );
 }
 export function CoachTab({navigation}: TabProps<'AI 教练'>) {
@@ -109,22 +116,29 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
     }
     redraw((n) => n + 1);
   }
-  async function ask() {
-    const question = input.trim(),
-      current = active.current;
-    if (!question || (current !== null && runs.has(current))) return;
+  async function ask(retryId?: number) {
+    const current = active.current;
+    if (current !== null && runs.has(current)) return;
     const svc = loadService(readProtocol());
-    const previous = readTurns(current).flatMap((t) => t.messages);
-    const user: StoredMessage = {
-      role: 'user',
-      parts: [
-        {
-          t: 'text',
-          text: (c ? '当前部件 ' + c.id + ' · ' + c.default_function + '\n' : '') + question,
-        },
-      ],
-    };
-    const turn = startTurn(current, svc.model, question, user);
+    const saved = readTurns(current);
+    let turn: CoachTurn;
+    if (retryId !== undefined) {
+      const failed = saved.find((t) => t.id === retryId);
+      if (!failed || failed.status === '已完成') return;
+      turn = restartTurn(failed, svc.model);
+      follow.current = saved.at(-1)?.id === retryId;
+    } else {
+      const question = input.trim();
+      if (!question) return;
+      const text = (c ? '当前部件 ' + c.id + ' · ' + c.default_function + '\n' : '') + question;
+      turn = startTurn(current, svc.model, question, {role: 'user', parts: [{t: 'text', text}]});
+      active.current = turn.chatId;
+      setChatId(turn.chatId);
+      drafts.current.delete(current);
+      setInput('');
+      follow.current = true;
+    }
+    const previous = historyBefore(saved, turn.id);
     const run: LiveAnswer = {
       controller: new AbortController(),
       draft: '',
@@ -132,19 +146,15 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
       turnId: turn.id,
     };
     runs.set(turn.chatId, run);
-    active.current = turn.chatId;
-    setChatId(turn.chatId);
-    drafts.current.delete(current);
-    setInput('');
     setService(svc);
-    follow.current = true;
     Keyboard.dismiss();
     redraw((n) => n + 1);
     function checkpoint() {
+      if (!mounted.current) return;
       saveTurn(turn);
       run.draft = '';
       run.thinking = '';
-      if (mounted.current) redraw((n) => n + 1);
+      redraw((n) => n + 1);
     }
     function updateStream() {
       if (mounted.current && active.current === turn.chatId) redrawStream((n) => n + 1);
@@ -172,13 +182,7 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
         : e instanceof Error
         ? e.message
         : String(e);
-      if (run.draft) {
-        turn.replies.push({body: run.draft});
-        turn.messages.push({
-          role: 'assistant',
-          parts: [{t: 'text', text: run.draft}],
-        });
-      }
+      if (run.draft) turn.replies.push({body: run.draft});
     } finally {
       runs.delete(turn.chatId);
       checkpoint();
@@ -263,46 +267,59 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
             <Card style={{alignSelf: 'flex-end', maxWidth: '100%', backgroundColor: color.soft}}>
               <CoachMarkdown text={turn.question} />
             </Card>
-            {turn.replies.map((line, i) => (
-              <Card key={i}>
-                {i === 0 && <Txt style={s.sub}>{turn.model}</Txt>}
-                <CoachMarkdown text={line.body} />
-                {line.control && byId[line.control] && (
-                  <Button
-                    onPress={() => {
-                      useAcademy.getState().endQuiz();
-                      useAcademy.getState().select(line.control!, true);
-                      navigation.navigate('相机');
-                    }}
-                  >
-                    {'在相机上看 · ' + byId[line.control].name}
-                  </Button>
-                )}
-                {line.lesson && (
-                  <Button
-                    onPress={() => {
-                      useAcademy.setState({lesson: line.lesson!});
-                      navigation.navigate('学习');
-                    }}
-                  >
-                    {'查看 ' + line.lesson}
-                  </Button>
-                )}
-              </Card>
-            ))}
-            {turn.status !== '已完成' && live?.turnId !== turn.id && (
-              <Card>
-                <Txt style={s.sub}>
-                  {turn.status === '进行中' ? '上次回复已中断，可以继续提问。' : turn.status}
-                </Txt>
-                {turn.status.includes('Key') && (
-                  <Button onPress={() => settings()}>模型与 API 设置</Button>
-                )}
-              </Card>
-            )}
+            <Card>
+              <Txt style={s.sub}>{turn.model}</Txt>
+              {turn.replies.map((line, i) => (
+                <React.Fragment key={i}>
+                  <CoachMarkdown text={line.body} />
+                  {line.control && byId[line.control] && (
+                    <Button
+                      onPress={() => {
+                        useAcademy.getState().endQuiz();
+                        useAcademy.getState().select(line.control!, true);
+                        navigation.navigate('相机');
+                      }}
+                    >
+                      {'在相机上看 · ' + byId[line.control].name}
+                    </Button>
+                  )}
+                  {line.lesson && (
+                    <Button
+                      onPress={() => {
+                        useAcademy.setState({lesson: line.lesson!});
+                        navigation.navigate('学习');
+                      }}
+                    >
+                      {'查看 ' + line.lesson}
+                    </Button>
+                  )}
+                </React.Fragment>
+              ))}
+              {live?.turnId === turn.id ? (
+                <StreamingAnswer answer={live} />
+              ) : (
+                turn.status !== '已完成' && (
+                  <>
+                    <Txt style={s.sub} accessibilityLiveRegion="polite">
+                      {turn.status === '进行中' ||
+                      turn.status.startsWith('回答连接中断，未收到结束事件')
+                        ? '上次回复已中断'
+                        : turn.status}
+                    </Txt>
+                    <View style={s.wrap}>
+                      <Button active disabled={!!live} onPress={() => ask(turn.id)}>
+                        重新发送
+                      </Button>
+                      {turn.status.includes('Key') && (
+                        <Button onPress={() => settings()}>模型与 API 设置</Button>
+                      )}
+                    </View>
+                  </>
+                )
+              )}
+            </Card>
           </React.Fragment>
         ))}
-        {live && <StreamingAnswer key={live.turnId} answer={live} />}
       </ScrollView>
       <View
         style={[
@@ -340,7 +357,7 @@ export function CoachTab({navigation}: TabProps<'AI 教练'>) {
         {live ? (
           <Button onPress={() => live.controller.abort()}>停止</Button>
         ) : (
-          <Button primary disabled={!input.trim()} onPress={ask}>
+          <Button primary disabled={!input.trim()} onPress={() => ask()}>
             发送
           </Button>
         )}

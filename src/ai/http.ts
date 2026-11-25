@@ -14,7 +14,7 @@ import {
   type ParsedResponse,
 } from './protocol';
 import type {AiService, ModelProgress, Compat} from './types';
-import {ModelStream} from './stream';
+import {InterruptedStreamError, ModelStream} from './stream';
 
 export type FetchLike = (
   url: string,
@@ -267,6 +267,7 @@ export async function callModel(
       latencyMs: Date.now() - started,
     };
   } catch (e) {
+    if (e instanceof InterruptedStreamError) throw new AiError('network', e.message);
     if (e instanceof ProtocolError) {
       throw new AiError(
         'protocol',

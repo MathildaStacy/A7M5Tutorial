@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {memo, useState} from 'react';
 import {
   Alert,
   Linking,
@@ -6,11 +6,16 @@ import {
   StyleSheet,
   Text,
   View,
+  useWindowDimensions,
   type StyleProp,
   type TextStyle,
 } from 'react-native';
-import {marked, type MarkedToken, type Token, type Tokens} from 'marked';
+import {Marked, type MarkedToken, type Token, type Tokens} from 'marked';
+import markedCjkFriendly from 'marked-cjk-friendly';
+import {decodeHTMLStrict} from 'entities/lib/decode.js';
 import {Txt, color, font, styles as s} from './theme';
+
+const parser = new Marked({gfm: true, breaks: true}, markedCjkFriendly());
 
 function inline(tokens: Token[]): React.ReactNode {
   return (tokens as MarkedToken[]).map((token, i) => {
@@ -25,32 +30,37 @@ function inline(tokens: Token[]): React.ReactNode {
         );
       case 'codespan':
         return (
-          <Text key={i} style={md.code}>
+          <Text key={i} style={[md.mono, md.inlineCode]}>
             {token.text}
           </Text>
         );
       case 'link':
-        if (!/^https?:\/\//i.test(token.href)) return inline(token.tokens);
+      case 'image': {
+        const label =
+          token.type === 'image' ? decodeHTMLStrict(token.text || '图片') : inline(token.tokens);
+        const href =
+          token.type === 'link' && token.autolink ? token.href : decodeHTMLStrict(token.href);
+        if (!/^https?:\/\//i.test(href)) return label;
         return (
           <Text
             key={i}
             accessibilityRole="link"
             style={md.link}
-            onPress={() =>
-              Linking.openURL(token.href).catch(() => Alert.alert('无法打开链接', token.href))
-            }
+            onPress={() => Linking.openURL(href).catch(() => Alert.alert('无法打开链接', href))}
           >
-            {inline(token.tokens)}
+            {label}
           </Text>
         );
-      case 'image':
-        return token.text;
+      }
       case 'br':
         return '\n';
+      case 'html':
+        return /^<br\s*\/?\s*>$/i.test(token.raw.trim()) ? '\n' : token.raw;
       case 'checkbox':
-        return token.checked ? '☑ ' : '☐ ';
+        // The list renders the checkbox in its marker column for both tight and loose items.
+        return null;
       case 'text':
-        return token.tokens ? inline(token.tokens) : token.text;
+        return token.tokens ? inline(token.tokens) : decodeHTMLStrict(token.text);
       case 'escape':
         return token.text;
       default:
@@ -58,32 +68,48 @@ function inline(tokens: Token[]): React.ReactNode {
     }
   });
 }
-function table({header, rows}: Tokens.Table) {
+
+function MarkdownTable({table}: {table: Tokens.Table}) {
+  const [width, setWidth] = useState(0);
+  const {fontScale} = useWindowDimensions();
+  const columnWidth = Math.max(92 * fontScale, width / table.header.length);
   return (
-    <ScrollView horizontal nestedScrollEnabled>
-      <View>
-        {[header, ...rows].map((row, i) => (
-          <View key={i} style={md.tableRow}>
-            {row.map((cell, j) => (
-              <Txt
-                key={j}
-                selectable
-                style={[md.cell, cell.header && md.strong, {textAlign: cell.align ?? 'left'}]}
-              >
-                {inline(cell.tokens)}
-              </Txt>
-            ))}
-          </View>
-        ))}
-      </View>
-    </ScrollView>
+    <View style={md.table}>
+      <ScrollView
+        horizontal
+        nestedScrollEnabled
+        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+      >
+        <View>
+          {[table.header, ...table.rows].map((row, i) => (
+            <View key={i} style={[md.tableRow, i === 0 && md.tableHead]}>
+              {row.map((cell, j) => (
+                <Txt
+                  key={j}
+                  selectable
+                  style={[
+                    md.cell,
+                    cell.header && md.strong,
+                    {width: columnWidth, textAlign: cell.align ?? 'left'},
+                  ]}
+                >
+                  {inline(cell.tokens)}
+                </Txt>
+              ))}
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
   );
 }
-function blocks(tokens: Token[], textStyle?: StyleProp<TextStyle>): React.ReactNode {
+
+function blocks(tokens: Token[], textStyle?: StyleProp<TextStyle>, listDepth = 0): React.ReactNode {
   return (tokens as MarkedToken[]).map((token, i) => {
     switch (token.type) {
       case 'space':
       case 'def':
+      case 'checkbox':
         return null;
       case 'heading':
         return (
@@ -91,56 +117,57 @@ function blocks(tokens: Token[], textStyle?: StyleProp<TextStyle>): React.ReactN
             key={i}
             selectable
             accessibilityRole="header"
-            style={token.depth < 3 ? s.h2 : md.strong}
+            style={[
+              md.strong,
+              token.depth === 1 ? md.title : token.depth === 2 ? md.heading : md.subheading,
+            ]}
           >
             {inline(token.tokens)}
           </Txt>
         );
       case 'list':
         return (
-          <View key={i} style={md.group}>
-            {token.items.map((item, j) => (
-              <View key={j} style={md.item}>
-                <Txt style={md.marker}>{token.ordered ? Number(token.start) + j + '.' : '•'}</Txt>
-                <View style={[md.group, md.listBody]}>{blocks(item.tokens)}</View>
-              </View>
-            ))}
+          <View key={i} style={token.loose ? md.document : md.list}>
+            {token.items.map((item, j) => {
+              let marker = listDepth ? '◦' : '•';
+              if (token.ordered) marker = String(Number(token.start) + j) + '.';
+              if (item.task) marker = item.checked ? '☑' : '☐';
+              return (
+                <View key={j} style={md.item}>
+                  <Txt style={[md.marker, item.task && {color: color.accent}]}>{marker}</Txt>
+                  <View style={[md.listBody, token.loose ? md.document : md.list]}>
+                    {blocks(item.tokens, textStyle, listDepth + 1)}
+                  </View>
+                </View>
+              );
+            })}
           </View>
         );
       case 'blockquote':
         return (
-          <View key={i} style={[md.group, md.quote]}>
-            {blocks(token.tokens)}
+          <View key={i} style={[md.document, md.quote]}>
+            {blocks(token.tokens, [textStyle, {color: color.sub}], listDepth)}
           </View>
         );
       case 'code':
         return (
-          <ScrollView key={i} horizontal nestedScrollEnabled style={md.codeBox}>
-            <Txt selectable style={md.code}>
-              {token.text}
-            </Txt>
-          </ScrollView>
+          <View key={i} style={md.codeBox}>
+            {!!token.lang && <Txt style={s.eyebrow}>{token.lang}</Txt>}
+            <ScrollView horizontal nestedScrollEnabled>
+              <Txt selectable style={md.mono}>
+                {token.text}
+              </Txt>
+            </ScrollView>
+          </View>
         );
       case 'table':
-        return <View key={i}>{table(token)}</View>;
+        return <MarkdownTable key={i} table={token} />;
       case 'hr':
         return <View key={i} style={s.rule} />;
-      case 'paragraph':
-        return (
-          <Txt key={i} selectable style={textStyle}>
-            {inline(token.tokens)}
-          </Txt>
-        );
-      case 'text':
-        return (
-          <Txt key={i} selectable style={textStyle}>
-            {token.tokens ? inline(token.tokens) : token.text}
-          </Txt>
-        );
       default:
         return (
-          <Txt key={i} selectable>
-            {inline([token])}
+          <Txt key={i} selectable style={[md.prose, textStyle]}>
+            {token.type === 'paragraph' ? inline(token.tokens) : inline([token])}
           </Txt>
         );
     }
@@ -153,31 +180,39 @@ export const CoachMarkdown = memo(function CoachMarkdown({
   text: string;
   textStyle?: StyleProp<TextStyle>;
 }) {
-  return (
-    <View style={md.group}>{blocks(marked.lexer(text, {gfm: true, breaks: true}), textStyle)}</View>
-  );
+  return <View style={md.document}>{blocks(parser.lexer(text), textStyle)}</View>;
 });
+
 const md = StyleSheet.create({
-  group: {gap: 6, minWidth: 0},
-  listBody: {flex: 1},
-  item: {flexDirection: 'row', alignItems: 'flex-start', gap: 6},
-  marker: {minWidth: 16, color: color.sub},
+  document: {gap: 10, minWidth: 0},
+  prose: {fontSize: 15, lineHeight: 24},
+  title: {fontSize: 21, lineHeight: 29},
+  heading: {fontSize: 18, lineHeight: 26},
+  subheading: {fontSize: 16, lineHeight: 24},
+  list: {gap: 4, minWidth: 0},
+  listBody: {flex: 1, minWidth: 0},
+  item: {flexDirection: 'row', alignItems: 'flex-start', gap: 7},
+  marker: {minWidth: 17, textAlign: 'right', lineHeight: 24, color: color.sub},
   strong: {fontWeight: '700'},
   em: {fontStyle: 'italic'},
   del: {textDecorationLine: 'line-through'},
-  code: {
-    fontFamily: font.mono,
-    fontSize: 13,
-    color: color.ink,
-    backgroundColor: color.raised,
-  },
+  mono: {fontFamily: font.mono, fontSize: 13, lineHeight: 21, color: color.ink},
+  inlineCode: {backgroundColor: color.raised, color: '#FFC58E'},
   link: {color: color.accent, textDecorationLine: 'underline'},
-  codeBox: {backgroundColor: color.raised, borderRadius: 7, padding: 8},
-  quote: {borderLeftWidth: 2, borderColor: color.accent, paddingLeft: 10},
+  codeBox: {backgroundColor: color.bg, borderRadius: 8, padding: 10, gap: 5},
+  quote: {borderLeftWidth: 3, borderColor: color.accent, paddingLeft: 11, paddingVertical: 2},
+  table: {
+    minWidth: 0,
+    borderWidth: 1,
+    borderColor: color.line,
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  tableHead: {backgroundColor: color.raised},
   tableRow: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: color.line,
   },
-  cell: {width: 112, paddingVertical: 4, paddingHorizontal: 6},
+  cell: {fontSize: 14, lineHeight: 22, paddingVertical: 6, paddingHorizontal: 8},
 });

@@ -4,6 +4,8 @@ import type {ModelProgress, Protocol} from './types';
 import {evidenceOf} from './evidence';
 import {contentText, normalizeResponseItem} from './messageText';
 
+export class InterruptedStreamError extends Error {}
+
 export class ModelStream {
   private buffer = '';
   private data: string[] = [];
@@ -102,11 +104,11 @@ export class ModelStream {
         ? items
             .filter((b) => b.type === 'text')
             .map((b) => b.text)
-            .join('\n')
+            .join('')
         : items
             .filter((b) => b.type === 'message')
             .map((b) => contentText(b.content))
-            .join('\n');
+            .join('');
     if (text) {
       this.text(text);
     }
@@ -364,7 +366,9 @@ export class ModelStream {
     }
     this.line('');
     if (!this.complete) {
-      throw new ProtocolError('回答连接中断，未收到结束事件；已收到的文字会保留，请重试');
+      if (this.response || this.items.size)
+        throw new InterruptedStreamError('网络连接中断，回复未接收完整');
+      throw new ProtocolError('未收到模型的流式响应');
     }
     const parsed = parseResponse(this.protocol, this.model, this.response);
     if (this.lastText.trim() && !parsed.parts.some((p) => p.t === 'text' && p.text.trim())) {

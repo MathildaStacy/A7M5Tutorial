@@ -84,12 +84,38 @@ export function startTurn(
   }
 }
 export function saveTurn(turn: CoachTurn) {
-  db().executeSync('UPDATE coach_turns SET messages=?, replies=?, status=? WHERE id=?', [
+  db().executeSync('UPDATE coach_turns SET model=?, messages=?, replies=?, status=? WHERE id=?', [
+    turn.model,
     JSON.stringify(turn.messages),
     JSON.stringify(turn.replies),
     turn.status,
     turn.id,
   ]);
+}
+export function restartTurn(failed: CoachTurn, model: string): CoachTurn {
+  // The saved user message includes camera context that isn't in the visible question.
+  const turn = {
+    ...failed,
+    model,
+    messages: failed.messages.slice(0, 1),
+    replies: [],
+    status: '进行中',
+  };
+  saveTurn(turn);
+  return turn;
+}
+export function historyBefore(turns: CoachTurn[], id: number): StoredMessage[] {
+  return turns
+    .filter(
+      (t) =>
+        t.id < id &&
+        (t.status === '已完成' ||
+          t.status === '回答被截断' ||
+          t.status === '回答已停止' ||
+          t.status === '已达到 20 轮工具调用上限' ||
+          t.status.startsWith('模型拒绝了这次请求')),
+    )
+    .flatMap((t) => t.messages);
 }
 export function deleteChat(id: number) {
   const conn = db();

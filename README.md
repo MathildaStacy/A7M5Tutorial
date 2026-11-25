@@ -6,9 +6,9 @@
 
 <img src="docs/reviews/app-icon.png" alt="快门学院光圈图标" width="80">
 
-**Android 9 及以上 · ARM64**　[下载 v0.2.1 预览安装包](https://github.com/MathildaStacy/A7M5Tutorial/releases/download/v0.2.1-preview.1/ShutterAcademy-0.2.1-preview.1-arm64-v8a.apk) · [发布说明](https://github.com/MathildaStacy/A7M5Tutorial/releases/tag/v0.2.1-preview.1)
+**Android 9 及以上 · ARM64**　[下载 v0.2.2 预览安装包](https://github.com/MathildaStacy/A7M5Tutorial/releases/download/v0.2.2-preview.1/ShutterAcademy-0.2.2-preview.1-arm64-v8a.apk) · [发布说明](https://github.com/MathildaStacy/A7M5Tutorial/releases/tag/v0.2.2-preview.1)
 
-- **教练对话**　在键盘上方输入多行问题，回复支持 Markdown。点教练页顶部的模型名称，可从服务列表选择或手动填写模型 ID。「对话记录」可以选择旧对话继续提问，也可以另开一段。新版会在本机保存对话与工具上下文，重启后可恢复。
+- **教练对话**　回复支持中文 Markdown 加粗、标题、嵌套列表、表格和代码。断网或手动停止后，点原问题下的「重新发送」即可用当前模型再问一次，输入框中的草稿会保留。点教练页顶部的模型名称可选择或手动填写模型 ID。「对话记录」可打开本机保存的旧对话，重启后也能继续提问或重发。
 - **课程**　L0–L5 包含 44 步 3D 演示和 54 道练习。可点选机身部件、操作拨盘、回答选择题和调整曝光。演示、讲义、练习和任务的进度保存在本机，完成四段即可解锁下一课。
 - **照片复盘**　在「AI 教练」选择 1–4 张 JPEG 或 HEIF，或从课程提交指定数量的照片。App 在本机缩图、计算直方图、读取标准拍摄参数，只在点击发送后向所配置的服务提交。复盘中的部件可打开 3D 近景。L1 通过十题找键满分完成任务，其余五课按实拍标准验收。
 - **3D 相机**　离线模型有 36 个可点选部件。v3 增加可开合的存储卡仓、上下插槽和导轨，仓盖外侧按实拍补上皮纹、拨片和 OPEN 方向标记。可在开箱演示或相机页近看。握柄纹理、镜片镀膜与机械行程仍待实机核对。[v3 卡仓评审](docs/reviews/model-v3/README.md) · [五视角材质对照（下载源码后打开）](docs/reviews/model-v2/index.html)

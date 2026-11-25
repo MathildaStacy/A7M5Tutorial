@@ -22,6 +22,23 @@ const history: StoredMessage[] = [
 ];
 const readImage = async () => 'QU\nJD';
 test.each<Protocol>(['anthropic', 'openai'])(
+  '%s 没收到流的结束事件时报告断网',
+  async (protocol) => {
+    const event =
+      protocol === 'anthropic'
+        ? {type: 'message_start', message: {content: []}}
+        : {type: 'response.created', response: {output: []}};
+    await expect(
+      requestModel({service: {...service, protocol}, system: '', history: [], stream: true}, '', {
+        fetchImpl: async () => ({
+          status: 200,
+          text: async () => 'data: ' + JSON.stringify(event) + '\n\n',
+        }),
+      }),
+    ).rejects.toMatchObject({code: 'network', message: '网络连接中断，回复未接收完整'});
+  },
+);
+test.each<Protocol>(['anthropic', 'openai'])(
   '%s 图片在文字前、strict 工具和原样思考历史',
   async (protocol) => {
     const raw = {

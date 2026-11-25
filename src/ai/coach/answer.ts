@@ -69,24 +69,44 @@ export async function answerQuestion(
   events: NonNullable<Parameters<typeof runAgent>[4]>,
 ) {
   let pending: StoredMessage | undefined;
-  const replies: CoachReply[] = [];
+  const toolReplies = new Map<Call, CoachReply[]>();
   return runAgent(
     {service, system, tools, history: [...earlier, ...turn.messages]},
     key,
-    async (call) => execute(call, replies),
+    async (call) => {
+      const replies: CoachReply[] = [];
+      const result = execute(call, replies);
+      if (replies.length) toolReplies.set(call, replies);
+      return result;
+    },
     (m) => {
-      for (const p of m.parts) if (p.t === 'text' && p.text) replies.push({body: p.text});
-      if (m.role === 'assistant' && m.parts.some((p) => p.t === 'call')) {
+      if (m.role === 'assistant') {
         // A restored request must always replay tool calls with their corresponding results.
         pending = m;
-        return;
+        if (m.parts.some((p) => p.t === 'call')) return;
       }
       if (pending) {
+        let text: CoachReply | undefined;
+        for (const part of pending.parts) {
+          if (part.t === 'text' && part.text) {
+            if (text) text.body += part.text;
+            else {
+              text = {body: part.text};
+              turn.replies.push(text);
+            }
+          } else if (part.t === 'call') {
+            const replies = toolReplies.get(part);
+            if (replies) {
+              turn.replies.push(...replies);
+              text = undefined;
+            }
+          }
+        }
         turn.messages.push(pending);
         pending = undefined;
+        toolReplies.clear();
       }
-      turn.messages.push(m);
-      turn.replies.push(...replies.splice(0));
+      if (m.role === 'tool') turn.messages.push(m);
       checkpoint();
     },
     events,
